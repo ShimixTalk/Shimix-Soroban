@@ -21,7 +21,7 @@ for(const a of items){const change=Number(a.price_change_percentage_24h),volume=
 const rotation=Math.floor(Date.now()/7200000)%Math.ceil(watch.length/12),sample=watch.slice(rotation*12,rotation*12+12);
 for(const [category,symbol] of sample){try{
 const r=await get('https://stooq.com/q/d/l/?s='+encodeURIComponent(symbol)+'&i=d&d1=20260901');
-const csv=(await r.text()).trim().split(/\\r?\\n/);if(csv.length<3||!csv[0].includes('Close'))throw Error('No usable daily quotes');
+const csv=(await r.text()).trim().split(/\r?\n/);if(csv.length<3||!csv[0].includes('Close'))throw Error('No usable daily quotes');
 const p=csv.slice(-3).map(x=>Number(x.split(',')[4]));if(!p.every(x=>Number.isFinite(x)&&x>0))throw Error('Invalid close');
 const change=pct((p.at(-1)/p.at(-2)-1)*100);
 found.push({category,symbol,name:symbol.toUpperCase(),price:p.at(-1),currency:'Source quote currency',change24h:change,source:'Stooq daily close',signal:Math.abs(change)>=1?'Mouvement à examiner':'Surveillance',risk:'Cours différé; spread et frais non inclus'});
