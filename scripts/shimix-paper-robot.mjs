@@ -4,7 +4,7 @@ const token=process.env.GITHUB_TOKEN;
 const headers={Authorization:'Bearer '+token,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
 const assets=[['BTC','bitcoin'],['ETH','ethereum'],['SOL','solana'],['ADA','cardano'],['XRP','ripple'],['DOGE','dogecoin'],['LINK','chainlink'],['AVAX','avalanche-2'],['DOT','polkadot'],['LTC','litecoin']];
 const etfWatchlist=['VWCE','CSPX','EQQQ','IWDA']; // Surveillance prévue : aucun prix ETF fiable branché, donc aucun signal ETF.
-const fresh=()=>({version:1,capital:200,cash:200,holdings:{},peak:200,maxOrder:20,maxLossPercent:5,enabled:true,lastTrade:{},prices:{},signals:{},trades:[],logs:[],updatedAt:null});
+const fresh=()=>({feeRate:0.001,spreadRate:0.001,slippageRate:0.001,minNetProfit:0.01,version:1,capital:200,cash:200,holdings:{},peak:200,maxOrder:20,maxLossPercent:5,enabled:true,lastTrade:{},prices:{},signals:{},trades:[],logs:[],updatedAt:null});
 const avg=(a,n)=>a.slice(-n).reduce((s,x)=>s+x,0)/n;
 function rsi(a){let g=0,l=0;for(let i=a.length-14;i<a.length;i++){let d=a[i]-a[i-1];g+=Math.max(0,d);l+=Math.max(0,-d)}return l===0?100:100-100/(1+g/l)}
 async function json(url,options){const r=await fetch(url,options);if(!r.ok)throw Error(r.status+' '+url);return r.json()}
@@ -32,9 +32,9 @@ if(action==='Attente'||Date.now()-Date.parse(state.lastTrade[symbol]||0)<8640000
 const position=(Number(state.holdings[symbol])||0)*price;
 const amount=action==='Achat'?Math.min(state.maxOrder,state.cash,state.capital*0.15-position):Math.min(state.maxOrder,position);
 if(amount<5)continue; // Avoid tiny transactions whose costs dominate.
-const fee=amount*0.001,quantity=action==='Achat'?(amount-fee)/price:amount/price;
-if(action==='Achat'){state.cash-=amount;state.holdings[symbol]=(Number(state.holdings[symbol])||0)+quantity}else{state.cash+=amount-fee;state.holdings[symbol]=Math.max(0,(Number(state.holdings[symbol])||0)-quantity)}
-const date=new Date().toISOString();state.lastTrade[symbol]=date;state.trades.unshift({date,symbol,action,amount,price,fee});state.logs.unshift(date+' '+action+' '+symbol+' '+amount.toFixed(2)+' EUR fictifs');
+const feeRate=Number(state.feeRate??0.001),spreadRate=Number(state.spreadRate??0.001),slippageRate=Number(state.slippageRate??0.001);const costRate=feeRate+spreadRate/2+slippageRate;const fee=amount*feeRate,executionPrice=action==='Achat'?price*(1+spreadRate/2+slippageRate):price*(1-spreadRate/2-slippageRate);const quantity=action==='Achat'?(amount-fee)/executionPrice:amount/executionPrice;
+if(action==='Vente'){const lots=state.entryCosts?.[symbol];if(!lots||lots.quantity<=0){state.signals[symbol].reason='Coût d’acquisition inconnu : vente bloquée';continue}const basis=lots.totalCost*(quantity/lots.quantity);const estimatedNet=amount-fee-basis-amount*(spreadRate/2+slippageRate);if(estimatedNet<Number(state.minNetProfit??0.01)){state.signals[symbol].reason='Bénéfice net estimé inférieur à 0,01 €';continue}}if(action==='Achat'){state.entryCosts??={};const lot=state.entryCosts[symbol]??{quantity:0,totalCost:0};lot.quantity+=quantity;lot.totalCost+=amount;state.entryCosts[symbol]=lot;state.cash-=amount;state.holdings[symbol]=(Number(state.holdings[symbol])||0)+quantity}else{state.cash+=amount-fee;state.holdings[symbol]=Math.max(0,(Number(state.holdings[symbol])||0)-quantity);const lot=state.entryCosts[symbol];const ratio=Math.min(1,quantity/lot.quantity);lot.totalCost*=1-ratio;lot.quantity=Math.max(0,lot.quantity-quantity)}
+const date=new Date().toISOString();state.lastTrade[symbol]=date;state.trades.unshift({date,symbol,action,amount,price,executionPrice,fee,estimatedSpreadAndSlippage:amount*(spreadRate/2+slippageRate)});state.logs.unshift(date+' '+action+' '+symbol+' '+amount.toFixed(2)+' EUR fictifs');
 }
 state.trades=state.trades.slice(0,200);state.logs=state.logs.slice(0,50);state.updatedAt=new Date().toISOString();state.value=Number(value().toFixed(2));
 const body={message:'Update SHIMIX paper bot state',content:Buffer.from(JSON.stringify(state,null,2)+'\n').toString('base64'),branch,...(sha?{sha}:{})};
