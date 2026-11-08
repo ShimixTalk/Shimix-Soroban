@@ -32,12 +32,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/shimix-paper-robot.mjs
+      - name: Cool down public market API
+        run: sleep 65
       - name: Update three risk portfolios
         id: portfolios
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/shimix-three-portfolios.mjs
+      - name: Cool down before market scan
+        run: sleep 65
       - name: Scan global markets
         id: scanner
         continue-on-error: true
