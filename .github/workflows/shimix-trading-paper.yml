@@ -14,6 +14,11 @@ jobs:
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
+      - name: Validate automation scripts
+        run: |
+          node --check scripts/shimix-paper-robot.mjs
+          node --check scripts/shimix-three-portfolios.mjs
+          node --check scripts/shimix-market-scanner.mjs
       - name: Run crypto paper trading
         id: primary
         continue-on-error: true
