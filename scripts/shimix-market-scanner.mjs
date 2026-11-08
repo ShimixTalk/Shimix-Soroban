@@ -27,7 +27,7 @@ const change=pct((p.at(-1)/p.at(-2)-1)*100);
 found.push({category,symbol,name:symbol.toUpperCase(),price:p.at(-1),currency:'Source quote currency',change24h:change,source:'Stooq daily close',signal:Math.abs(change)>=1?'Mouvement à examiner':'Surveillance',risk:'Cours différé; spread et frais non inclus'});
 }catch(e){unavailable.push(symbol+' : '+e.message)}}
 found.sort((a,b)=>Math.abs(b.change24h)-Math.abs(a.change24h));
-const result={updatedAt:new Date().toISOString(),assetsAnalyzed:found.length,cryptoCount,otherCount:found.length-cryptoCount,unavailable,notes:'Scanner indicatif, sans recommandation ni ordre réel. Les données peuvent être retardées. Les frais, spreads, fiscalité et liquidité réelle ne sont pas estimés.',assets:found.slice(0,150)};
+const result={updatedAt:new Date().toISOString(),assetsAnalyzed:found.length,cryptoCount,otherCount:found.length-cryptoCount,unavailable,notes:'Scanner indicatif, sans recommandation ni ordre réel. Les données peuvent être retardées. Les frais, spreads, fiscalité et liquidité réelle ne sont pas estimés.',estimatedRoundTripFeePct:0.2,minimumGrossMovePct:0.5,assets:found.slice(0,150)};
 const api='https://api.github.com/repos/'+repo+'/contents/'+path;let sha;
 const old=await fetch(api+'?ref='+branch,{headers});if(old.ok)sha=(await old.json()).sha;else if(old.status!==404)throw Error('GitHub read '+old.status);
 const body={message:'Update multi-market scan',branch,content:Buffer.from(JSON.stringify(result,null,2)+'\n').toString('base64'),...(sha?{sha}:{})};
