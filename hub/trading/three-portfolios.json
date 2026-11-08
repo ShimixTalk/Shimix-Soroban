@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-08T08:46:18.789Z",
+  "simulationOnly": true,
+  "realOrdersEnabled": false,
+  "totalInitial": 1600,
+  "totalValue": 1600,
+  "totalProfit": 0,
+  "taxStatus": "Non calculée : fiscalité personnelle et courtier non vérifiés",
+  "costStatus": "Hypothèses de simulation, pas tarifs Crypto.com réels",
+  "dataStatus": "Cotations CoinGecko indicatives; ETF et actions non tradés",
+  "strategyStatus": "Règles expérimentales non backtestées; aucune garantie de rentabilité",
+  "portfolios": [
+    {
+      "id": "prudent",
+      "name": "Prudent",
+      "initial": 640,
+      "fee": 0.002,
+      "spread": 0.001,
+      "slippage": 0.001,
+      "maxAllocation": 0.12,
+      "maxTrade": 35,
+      "stop": 0.08,
+      "allowed": [
+        "BTC",
+        "ETH"
+      ],
+      "description": "Réserve en euros fictifs et exposition limitée aux grandes cryptos; aucun ETF simulé sans cotation fiable",
+      "cash": 640,
+      "holdings": {},
+      "costBasis": {},
+      "trades": [],
+      "signals": {
+        "BTC": {
+          "action": "Attente",
+          "change24h": -0.3,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        },
+        "ETH": {
+          "action": "Attente",
+          "change24h": -0.49,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        }
+      },
+      "history": [
+        {
+          "at": "2026-11-08T08:46:18.789Z",
+          "value": 640
+        }
+      ],
+      "peak": 640,
+      "paused": false,
+      "value": 640,
+      "netProfit": 0,
+      "feesPaid": 0,
+      "updatedAt": "2026-11-08T08:46:18.789Z",
+      "lastPrices": {
+        "BTC": 68034,
+        "ETH": 2005.47,
+        "SOL": 79.98,
+        "DOGE": 0.063802,
+        "LINK": 9.62,
+        "AVAX": 7.33
+      }
+    },
+    {
+      "id": "equilibre",
+      "name": "Équilibré",
+      "initial": 560,
+      "fee": 0.002,
+      "spread": 0.0015,
+      "slippage": 0.0015,
+      "maxAllocation": 0.22,
+      "maxTrade": 45,
+      "stop": 0.15,
+      "allowed": [
+        "BTC",
+        "ETH",
+        "SOL",
+        "LINK"
+      ],
+      "description": "Diversification crypto; ETF surveillés mais non tradés sans données exploitables",
+      "cash": 560,
+      "holdings": {},
+      "costBasis": {},
+      "trades": [],
+      "signals": {
+        "BTC": {
+          "action": "Attente",
+          "change24h": -0.3,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        },
+        "ETH": {
+          "action": "Attente",
+          "change24h": -0.49,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        },
+        "SOL": {
+          "action": "Attente",
+          "change24h": -1.22,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        },
+        "LINK": {
+          "action": "Attente",
+          "change24h": -1.19,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        }
+      },
+      "history": [
+        {
+          "at": "2026-11-08T08:46:18.789Z",
+          "value": 560
+        }
+      ],
+      "peak": 560,
+      "paused": false,
+      "value": 560,
+      "netProfit": 0,
+      "feesPaid": 0,
+      "updatedAt": "2026-11-08T08:46:18.789Z",
+      "lastPrices": {
+        "BTC": 68034,
+        "ETH": 2005.47,
+        "SOL": 79.98,
+        "DOGE": 0.063802,
+        "LINK": 9.62,
+        "AVAX": 7.33
+      }
+    },
+    {
+      "id": "dynamique",
+      "name": "Dynamique",
+      "initial": 400,
+      "fee": 0.002,
+      "spread": 0.003,
+      "slippage": 0.003,
+      "maxAllocation": 0.35,
+      "maxTrade": 50,
+      "stop": 0.25,
+      "allowed": [
+        "BTC",
+        "ETH",
+        "SOL",
+        "LINK",
+        "AVAX",
+        "DOGE"
+      ],
+      "description": "Cryptomonnaies plus volatiles, risque élevé de pertes",
+      "cash": 400,
+      "holdings": {},
+      "costBasis": {},
+      "trades": [],
+      "signals": {
+        "BTC": {
+          "action": "Attente",
+          "change24h": -0.3,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        },
+        "ETH": {
+          "action": "Attente",
+          "change24h": -0.49,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        },
+        "SOL": {
+          "action": "Attente",
+          "change24h": -1.22,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        },
+        "LINK": {
+          "action": "Attente",
+          "change24h": -1.19,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        },
+        "AVAX": {
+          "action": "Attente",
+          "change24h": -1.91,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        },
+        "DOGE": {
+          "action": "Attente",
+          "change24h": -1.35,
+          "reason": "Montant insuffisant",
+          "estimatedCosts": 0
+        }
+      },
+      "history": [
+        {
+          "at": "2026-11-08T08:46:18.789Z",
+          "value": 400
+        }
+      ],
+      "peak": 400,
+      "paused": false,
+      "value": 400,
+      "netProfit": 0,
+      "feesPaid": 0,
+      "updatedAt": "2026-11-08T08:46:18.789Z",
+      "lastPrices": {
+        "BTC": 68034,
+        "ETH": 2005.47,
+        "SOL": 79.98,
+        "DOGE": 0.063802,
+        "LINK": 9.62,
+        "AVAX": 7.33
+      }
+    }
+  ]
+}
