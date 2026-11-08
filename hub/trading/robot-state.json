@@ -1,0 +1,134 @@
+{
+  "feeRate": 0.001,
+  "spreadRate": 0.001,
+  "slippageRate": 0.001,
+  "minNetProfit": 0.01,
+  "version": 1,
+  "capital": 200,
+  "cash": 200,
+  "holdings": {},
+  "peak": 200,
+  "maxOrder": 20,
+  "maxLossPercent": 5,
+  "enabled": true,
+  "lastTrade": {},
+  "prices": {
+    "BTC": 67987,
+    "ETH": 2004.37,
+    "SOL": 79.86,
+    "ADA": 0.161438,
+    "XRP": 1.041,
+    "DOGE": 0.063761,
+    "LINK": 9.61,
+    "AVAX": 7.33,
+    "DOT": 0.800699,
+    "LTC": 46.6
+  },
+  "signals": {
+    "BTC": {
+      "action": "Attente",
+      "rsi": 39.2,
+      "sma7": 68693.11840262948,
+      "sma21": 70763.5459131153
+    },
+    "ETH": {
+      "action": "Attente",
+      "rsi": 43.64,
+      "sma7": 2029.3489896322294,
+      "sma21": 2072.7826075779813
+    },
+    "SOL": {
+      "action": "Attente",
+      "rsi": 27.55,
+      "sma7": 81.49923676142177,
+      "sma21": 87.31405543522402
+    },
+    "ADA": {
+      "action": "Attente",
+      "rsi": 32.74,
+      "sma7": 0.1662653992775359,
+      "sma21": 0.17837396721894175
+    }
+  },
+  "trades": [],
+  "logs": [],
+  "updatedAt": "2026-11-08T08:35:23.782Z",
+  "dataErrors": [
+    "XRP: 429 https://api.coingecko.com/api/v3/coins/ripple/market_chart?vs_currency=eur&days=30&interval=daily",
+    "DOGE: 429 https://api.coingecko.com/api/v3/coins/dogecoin/market_chart?vs_currency=eur&days=30&interval=daily",
+    "LINK: 429 https://api.coingecko.com/api/v3/coins/chainlink/market_chart?vs_currency=eur&days=30&interval=daily",
+    "AVAX: 429 https://api.coingecko.com/api/v3/coins/avalanche-2/market_chart?vs_currency=eur&days=30&interval=daily",
+    "DOT: 429 https://api.coingecko.com/api/v3/coins/polkadot/market_chart?vs_currency=eur&days=30&interval=daily",
+    "LTC: 429 https://api.coingecko.com/api/v3/coins/litecoin/market_chart?vs_currency=eur&days=30&interval=daily"
+  ],
+  "savingsPolicy": {
+    "provider": "Crypto.com App",
+    "monthlyBitcoinBudgetEUR": 50,
+    "mode": "épargne indépendante",
+    "includedInTradingCapital": false,
+    "automatedTransfers": false,
+    "automatedPurchases": false
+  },
+  "realTradingEnabled": false,
+  "exchangeApiConnected": false,
+  "costProfiles": {
+    "cryptoGeneric": {
+      "label": "Crypto — simulation",
+      "buyPct": 0.001,
+      "sellPct": 0.001,
+      "buyFixed": 0,
+      "sellFixed": 0,
+      "spreadPct": 0.001,
+      "slippagePct": 0.001,
+      "fxPct": 0,
+      "annualCustody": 0
+    },
+    "brokerGeneric": {
+      "label": "Actions/ETF — simulation",
+      "buyPct": 0.001,
+      "sellPct": 0.001,
+      "buyFixed": 1,
+      "sellFixed": 1,
+      "spreadPct": 0.001,
+      "slippagePct": 0.001,
+      "fxPct": 0.0025,
+      "annualCustody": 0
+    }
+  },
+  "taxPolicy": {
+    "country": "FR",
+    "status": "estimation seulement",
+    "cryptoFlatTaxRate": null,
+    "capitalGainsRate": null,
+    "notes": "La fiscalité dépend de la résidence, du type d’actif, des moins-values imputables, de la situation personnelle et de l’année fiscale. Aucune estimation fiscale personnalisée sans données confirmées."
+  },
+  "brokerStatus": "Courtier non sélectionné : tarifs réels inconnus. Simulation uniquement.",
+  "netProfitStatus": "Net après frais estimés, avant impôts personnels",
+  "readiness": {
+    "simulationOnly": true,
+    "brokerFeesVerified": false,
+    "taxVerified": false,
+    "exchangeConnected": false,
+    "liveOrdersEnabled": false
+  },
+  "etfWatchlist": [
+    "VWCE",
+    "CSPX",
+    "EQQQ",
+    "IWDA"
+  ],
+  "etfStatus": "Surveillance ETF non active : fournisseur de données non connecté",
+  "liquidityEligible": {
+    "BTC": true,
+    "ETH": true,
+    "SOL": true,
+    "ADA": true,
+    "XRP": true,
+    "DOGE": true,
+    "LINK": true,
+    "AVAX": true,
+    "DOT": true,
+    "LTC": true
+  },
+  "value": 200
+}
