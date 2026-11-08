@@ -13,7 +13,7 @@ async function api(url,opts){const r=await fetch(url,{...opts,signal:AbortSignal
 async function main(){
 if(!token)throw Error('GITHUB_TOKEN absent');
 const url='https://api.github.com/repos/'+repo+'/contents/'+path;let sha,old;
-try{const file=await api(url+'?ref='+branch,{headers});sha=file.sha;old=JSON.parse(Buffer.from(file.content.replace(/\\s/g,''),'base64').toString())}catch(e){if(!String(e).startsWith('Error: 404')&&!String(e).includes('404'))throw e}
+try{const file=await api(url+'?ref='+branch,{headers});sha=file.sha;old=JSON.parse(Buffer.from(file.content.replace(/\s/g,''),'base64').toString())}catch(e){if(!String(e).startsWith('Error: 404')&&!String(e).includes('404'))throw e}
 const quotes=await api('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids='+Object.values(ids).join(',')+'&order=market_cap_desc&per_page=20&page=1&sparkline=false&price_change_percentage=24h');
 if(!Array.isArray(quotes)||quotes.length<3)throw Error('Cotations insuffisantes');
 const q={};for(const a of quotes){const symbol=Object.keys(ids).find(k=>ids[k]===a.id);if(symbol&&Number(a.current_price)>0)q[symbol]={price:Number(a.current_price),change:Number(a.price_change_percentage_24h),volume:Number(a.total_volume)}}
@@ -58,7 +58,7 @@ p.trades.unshift({at:now,symbol,action,amount:round(amount),quantity,executionPr
 p.value=round(value());p.netProfit=round(p.value-p.initial);p.history.push({at:now,value:p.value});p.history=p.history.slice(-365);p.trades=p.trades.slice(0,250);p.updatedAt=now;portfolios.push(p);
 }
 const result={version:1,updatedAt:now,simulationOnly:true,realOrdersEnabled:false,totalInitial:1600,totalValue:round(portfolios.reduce((s,p)=>s+p.value,0)),totalProfit:round(portfolios.reduce((s,p)=>s+p.netProfit,0)),taxStatus:'Non calculée : fiscalité personnelle et courtier non vérifiés',costStatus:'Hypothèses de simulation, pas tarifs Crypto.com réels',dataStatus:'Cotations CoinGecko indicatives; ETF et actions non tradés',strategyStatus:'Règles expérimentales non backtestées; aucune garantie de rentabilité',portfolios};
-await api(url,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body:JSON.stringify({branch,message:'Update three independent paper portfolios',content:Buffer.from(JSON.stringify(result,null,2)+'\\n').toString('base64'),...(sha?{sha}:{})})});
+await api(url,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body:JSON.stringify({branch,message:'Update three independent paper portfolios',content:Buffer.from(JSON.stringify(result,null,2)+'\n').toString('base64'),...(sha?{sha}:{})})});
 console.log('Three paper portfolios updated',result.totalValue,result.totalProfit);
 }
 main().catch(e=>{console.error(e);process.exitCode=1});
