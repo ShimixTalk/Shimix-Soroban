@@ -13,46 +13,46 @@
   "enabled": true,
   "lastTrade": {},
   "prices": {
-    "BTC": 67995,
-    "ETH": 2003.28,
-    "SOL": 79.94,
-    "ADA": 0.16119,
-    "XRP": 1.04,
-    "DOGE": 0.063531,
-    "LINK": 9.64,
+    "BTC": 68087,
+    "ETH": 2006.54,
+    "SOL": 80.24,
+    "ADA": 0.161617,
+    "XRP": 1.044,
+    "DOGE": 0.063881,
+    "LINK": 9.63,
     "AVAX": 7.32,
-    "DOT": 0.805741,
-    "LTC": 46.46
+    "DOT": 0.807138,
+    "LTC": 46.53
   },
   "signals": {
     "BTC": {
       "action": "Attente",
-      "rsi": 39.24,
-      "sma7": 68694.57852966289,
-      "sma21": 70764.03262212644
+      "rsi": 39.59,
+      "sma7": 68707.40846885336,
+      "sma21": 70768.30926852327
     },
     "ETH": {
       "action": "Attente",
-      "rsi": 43.55,
-      "sma7": 2029.1827418701164,
-      "sma21": 2072.7271916572768
+      "rsi": 43.82,
+      "sma7": 2029.6639517162835,
+      "sma21": 2072.8875949393323
     },
     "SOL": {
       "action": "Attente",
-      "rsi": 27.64,
-      "sma7": 81.51041600130962,
-      "sma21": 87.31778184851996
+      "rsi": 28.01,
+      "sma7": 81.55380821176985,
+      "sma21": 87.33224591867338
     },
     "ADA": {
       "action": "Attente",
-      "rsi": 32.63,
-      "sma7": 0.16623824646537178,
-      "sma21": 0.1783649162815537
+      "rsi": 32.85,
+      "sma7": 0.16629352132562017,
+      "sma21": 0.17838334123496985
     }
   },
   "trades": [],
   "logs": [],
-  "updatedAt": "2026-11-08T10:55:37.292Z",
+  "updatedAt": "2026-11-08T13:05:36.901Z",
   "dataErrors": [
     "XRP: 429 https://api.coingecko.com/api/v3/coins/ripple/market_chart?vs_currency=eur&days=30&interval=daily",
     "DOGE: 429 https://api.coingecko.com/api/v3/coins/dogecoin/market_chart?vs_currency=eur&days=30&interval=daily",
