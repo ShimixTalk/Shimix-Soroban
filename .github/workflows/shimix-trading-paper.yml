@@ -1,5 +1,12 @@
 name: SHIMIX Trading paper robot
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/shimix-trading-paper.yml'
+      - 'scripts/shimix-paper-robot.mjs'
+      - 'scripts/shimix-three-portfolios.mjs'
+      - 'scripts/shimix-market-scanner.mjs'
   schedule:
     - cron: '17 */2 * * *'
   workflow_dispatch:
