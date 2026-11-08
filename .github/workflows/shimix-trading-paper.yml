@@ -15,14 +15,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run crypto paper trading
+        id: primary
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/shimix-paper-robot.mjs
       - name: Update three risk portfolios
+        id: portfolios
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/shimix-three-portfolios.mjs
       - name: Scan global markets
+        id: scanner
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/shimix-market-scanner.mjs
+      - name: Report each automation status
+        if: always()
+        env:
+          PRIMARY: ${{ steps.primary.outcome }}
+          PORTFOLIOS: ${{ steps.portfolios.outcome }}
+          SCANNER: ${{ steps.scanner.outcome }}
+        run: |
+          echo "Primary robot: $PRIMARY"
+          echo "Three portfolios: $PORTFOLIOS"
+          echo "Market scanner: $SCANNER"
+          echo "## SHIMIX Trading checks" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Primary: $PRIMARY" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Three portfolios: $PORTFOLIOS" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Scanner: $SCANNER" >> "$GITHUB_STEP_SUMMARY"
+          test "$PRIMARY" = success && test "$PORTFOLIOS" = success && test "$SCANNER" = success
