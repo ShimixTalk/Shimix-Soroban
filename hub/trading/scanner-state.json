@@ -1,0 +1,25 @@
+{
+  "updatedAt": "2026-11-08T08:35:27.200Z",
+  "assetsAnalyzed": 0,
+  "cryptoCount": 0,
+  "otherCount": 0,
+  "unavailable": [
+    "Cryptos : HTTP 429",
+    "googl.us : HTTP 403",
+    "meta.us : HTTP 403",
+    "tsla.us : HTTP 403",
+    "amd.us : HTTP 403",
+    "ko.us : HTTP 403",
+    "jpm.us : HTTP 403",
+    "xom.us : HTTP 403",
+    "unh.us : HTTP 403",
+    "^spx : HTTP 403",
+    "^ndq : HTTP 403",
+    "eurusd : HTTP 403",
+    "usdjpy : HTTP 403"
+  ],
+  "notes": "Scanner indicatif, sans recommandation ni ordre réel. Les données peuvent être retardées. Les frais, spreads, fiscalité et liquidité réelle ne sont pas estimés.",
+  "estimatedRoundTripFeePct": 0.2,
+  "minimumGrossMovePct": 0.5,
+  "assets": []
+}
