@@ -17,13 +17,14 @@ try{const file=await api(url+'?ref='+branch,{headers});sha=file.sha;old=JSON.par
 const quotes=await api('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&ids='+Object.values(ids).join(',')+'&order=market_cap_desc&per_page=20&page=1&sparkline=false&price_change_percentage=24h');
 if(!Array.isArray(quotes)||quotes.length<3)throw Error('Cotations insuffisantes');
 const q={};for(const a of quotes){const symbol=Object.keys(ids).find(k=>ids[k]===a.id);if(symbol&&Number(a.current_price)>0)q[symbol]={price:Number(a.current_price),change:Number(a.price_change_percentage_24h),volume:Number(a.total_volume)}}
+if(!q.BTC||!q.ETH)throw Error('Cotations principales absentes : simulation suspendue sans modification');
 const now=new Date().toISOString(),portfolios=[];
 for(const d of definitions){
 const p=old?.portfolios?.find(x=>x.id===d.id)||fresh(d);
 Object.assign(p,{name:d.name,initial:d.initial,fee:d.fee,spread:d.spread,slippage:d.slippage,maxAllocation:d.maxAllocation,maxTrade:d.maxTrade,stop:d.stop,allowed:d.allowed,description:d.description});
 const value=()=>p.cash+Object.entries(p.holdings).reduce((sum,[symbol,qty])=>sum+qty*(q[symbol]?.price||p.lastPrices?.[symbol]||0),0);
 p.lastPrices={...p.lastPrices,...Object.fromEntries(Object.entries(q).map(([k,v])=>[k,v.price]))};
-p.peak=Math.max(p.peak||p.initial,value());if(value()<=p.initial*(1-p.stop))p.paused=true;
+p.peak=Math.max(p.peak||p.initial,value());if(value()<=p.peak*(1-p.stop))p.paused=true;
 for(const symbol of p.allowed){
 const a=q[symbol];if(!a||!Number.isFinite(a.change))continue;
 let action='Attente',reason='Pas de signal suffisamment robuste';
@@ -37,14 +38,15 @@ const estimatedCosts=amount*(p.fee+p.spread/2+p.slippage);
 if(amount<10){action='Attente';reason='Montant insuffisant'}
 else if(action==='Vente'){
 const basis=p.costBasis[symbol];const qty=amount/(a.price*(1-p.spread/2-p.slippage));
-const allocatedCost=basis&&basis.quantity>0?basis.totalCost*Math.min(1,qty/basis.quantity):Infinity;
-const expectedNet=amount-estimatedCosts-allocatedCost;
+const allocatedCost=basis&&basis.quantity>=qty?basis.totalCost*(qty/basis.quantity):Infinity;
+const expectedNet=amount-p.fee*amount-allocatedCost;
 if(expectedNet<0.01){action='Attente';reason='Gain net estimé inférieur à 0,01 € (avant fiscalité)'}
 }
 p.signals[symbol]={action,change24h:round(a.change),reason,estimatedCosts:round(estimatedCosts)};
 if(action==='Attente'||p.lastTradeAt?.[symbol]&&Date.now()-Date.parse(p.lastTradeAt[symbol])<86400000)continue;
 const executionPrice=a.price*(action==='Achat'?1+p.spread/2+p.slippage:1-p.spread/2-p.slippage);
 const fee=amount*p.fee;const quantity=action==='Achat'?(amount-fee)/executionPrice:amount/executionPrice;
+if(action==='Vente'&&quantity>(p.holdings[symbol]||0)+1e-10)continue;
 if(action==='Achat'){
 p.cash-=amount;p.holdings[symbol]=(p.holdings[symbol]||0)+quantity;
 const basis=p.costBasis[symbol]||{quantity:0,totalCost:0};basis.quantity+=quantity;basis.totalCost+=amount;p.costBasis[symbol]=basis;
@@ -55,7 +57,7 @@ p.holdings[symbol]=Math.max(0,p.holdings[symbol]-quantity);p.cash+=amount-fee;
 p.feesPaid+=fee;p.lastTradeAt??={};p.lastTradeAt[symbol]=now;
 p.trades.unshift({at:now,symbol,action,amount:round(amount),quantity,executionPrice,fee:round(fee),estimatedSpreadSlippage:round(amount*(p.spread/2+p.slippage)),tax:'Non calculée'});
 }
-p.value=round(value());p.netProfit=round(p.value-p.initial);p.history.push({at:now,value:p.value});p.history=p.history.slice(-365);p.trades=p.trades.slice(0,250);p.updatedAt=now;portfolios.push(p);
+p.value=round(value());if(!Number.isFinite(p.value)||p.cash < -0.01)throw Error('Incohérence comptable '+p.id);p.netProfit=round(p.value-p.initial);p.history.push({at:now,value:p.value});p.history=p.history.slice(-1000);p.trades=p.trades.slice(0,250);p.updatedAt=now;portfolios.push(p);
 }
 const result={version:1,updatedAt:now,simulationOnly:true,realOrdersEnabled:false,totalInitial:1600,totalValue:round(portfolios.reduce((s,p)=>s+p.value,0)),totalProfit:round(portfolios.reduce((s,p)=>s+p.netProfit,0)),taxStatus:'Non calculée : fiscalité personnelle et courtier non vérifiés',costStatus:'Hypothèses de simulation, pas tarifs Crypto.com réels',dataStatus:'Cotations CoinGecko indicatives; ETF et actions non tradés',strategyStatus:'Règles expérimentales non backtestées; aucune garantie de rentabilité',portfolios};
 await api(url,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body:JSON.stringify({branch,message:'Update three independent paper portfolios',content:Buffer.from(JSON.stringify(result,null,2)+'\n').toString('base64'),...(sha?{sha}:{})})});
