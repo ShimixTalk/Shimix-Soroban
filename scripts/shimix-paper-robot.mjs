@@ -11,7 +11,7 @@ async function main(){
 if(!token)throw Error('GITHUB_TOKEN missing');
 const api='https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+path;
 let state,sha;
-try{const item=await json(api+'?ref='+branch,{headers});sha=item.sha;const bytes=Buffer.from(item.content.replace(/\\n/g,''),'base64').toString('utf8');state=JSON.parse(bytes)}catch(e){if(!String(e).includes('404'))throw e;state=fresh()}
+try{const item=await json(api+'?ref='+branch,{headers});sha=item.sha;const bytes=Buffer.from(item.content.replace(/\s/g,''),'base64').toString('utf8');state=JSON.parse(bytes)}catch(e){if(!String(e).includes('404'))throw e;state=fresh()}
 if(state.enabled===false){console.log('Paper bot disabled');return}
 const priceData=await json('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=eur');
 const history={};const prices={};
@@ -36,7 +36,7 @@ if(action==='Achat'){state.cash-=amount;state.holdings[symbol]=(Number(state.hol
 const date=new Date().toISOString();state.lastTrade[symbol]=date;state.trades.unshift({date,symbol,action,amount,price,fee});state.logs.unshift(date+' '+action+' '+symbol+' '+amount.toFixed(2)+' EUR fictifs');
 }
 state.trades=state.trades.slice(0,200);state.logs=state.logs.slice(0,50);state.updatedAt=new Date().toISOString();state.value=Number(value().toFixed(2));
-const body={message:'Update SHIMIX paper bot state',content:Buffer.from(JSON.stringify(state,null,2)+'\\n').toString('base64'),branch,...(sha?{sha}:{})};
+const body={message:'Update SHIMIX paper bot state',content:Buffer.from(JSON.stringify(state,null,2)+'\n').toString('base64'),branch,...(sha?{sha}:{})};
 await json(api,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body:JSON.stringify(body)});
 console.log('Paper simulation updated',state.updatedAt,state.value);
 }
