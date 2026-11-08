@@ -18,6 +18,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/shimix-paper-robot.mjs
+      - name: Update three risk portfolios
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/shimix-three-portfolios.mjs
       - name: Scan global markets
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
