@@ -35,7 +35,7 @@ if(a.change<=-2&&p.holdings[symbol]>0)action='Vente';
 const position=(p.holdings[symbol]||0)*a.price;
 const amount=action==='Achat'?Math.min(p.maxTrade,p.cash,p.initial*p.maxAllocation-position):Math.min(p.maxTrade,position);
 const estimatedCosts=amount*(p.fee+p.spread/2+p.slippage);
-if(amount<10){action='Attente';reason='Montant insuffisant'}
+if(action!=='Attente'&&amount<10){action='Attente';reason='Montant insuffisant pour exécuter ce signal'}
 else if(action==='Vente'){
 const basis=p.costBasis[symbol];const qty=amount/(a.price*(1-p.spread/2-p.slippage));
 const allocatedCost=basis&&basis.quantity>=qty?basis.totalCost*(qty/basis.quantity):Infinity;
