@@ -17,4 +17,8 @@ jobs:
       - name: Run crypto paper trading
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/shimix-paper-robot.mjs\n      - name: Scan global markets\n        env:\n          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}\n        run: node scripts/shimix-market-scanner.mjs
+        run: node scripts/shimix-paper-robot.mjs
+      - name: Scan global markets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/shimix-market-scanner.mjs
