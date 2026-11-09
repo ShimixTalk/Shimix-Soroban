@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Historical SHIB/DOGE research. Read-only market data, never live orders."""
+"""Historical SHIB/DOGE/BTC research. Read-only market data, never live orders."""
 import base64,datetime,json,os,time,urllib.parse,urllib.request
 REPO=os.environ.get("GITHUB_REPOSITORY","ShimixTalk/Shimix-Soroban")
 TOKEN=os.environ["GITHUB_TOKEN"];BRANCH="shimix-hub";PATH="hub/trading/meme-history.json"
@@ -40,7 +40,7 @@ def metrics(series,years):
  return {"status":"ok","start":datetime.datetime.fromtimestamp(start,datetime.timezone.utc).date().isoformat(),"end":datetime.datetime.fromtimestamp(subset[-1][0],datetime.timezone.utc).date().isoformat(),"points":len(subset),"startPriceUSD":p0,"endPriceUSD":p1,"buyHoldPercent":round((p1/p0-1)*100,2),"maxDrawdownPercent":round(maxdd,2),"annualizedVolatilityPercent":round(std*math.sqrt(365)*100,2),"coverageYears":round((subset[-1][0]-start)/86400/365.25,2)}
 def main():
  output={"updatedAt":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"CryptoCompare histoday public API","currency":"USD","assets":{},"note":"Étude descriptive historique. Aucune prédiction ni transaction réelle. Couverture réelle indiquée par actif."}
- for sym in ("SHIB","DOGE"):
+ for sym in ("SHIB","DOGE","BTC"):
   series,errors=history(sym)
   output["assets"][sym]={"availableFrom":datetime.datetime.fromtimestamp(series[0][0],datetime.timezone.utc).date().isoformat() if series else None,"points":len(series),"fiveYears":metrics(series,5),"tenYears":metrics(series,10),"errors":errors,"monthly":[{"date":datetime.datetime.fromtimestamp(t,datetime.timezone.utc).date().isoformat(),"priceUSD":p} for t,p in series if datetime.datetime.fromtimestamp(t,datetime.timezone.utc).day==1][-125:]}
  # Never replace previous valid data with an empty result due to an API outage.
@@ -50,7 +50,7 @@ def main():
  try:
   old=fetch_authenticated(url+"?ref="+BRANCH,headers);sha=old["sha"]
   previous=json.loads(base64.b64decode(old["content"]))
-  for sym in ("SHIB","DOGE"):
+  for sym in ("SHIB","DOGE","BTC"):
    if not output["assets"][sym]["points"] and previous.get("assets",{}).get(sym,{}).get("points"):
     output["assets"][sym]=previous["assets"][sym];output["assets"][sym]["errors"].append("Dernières données conservées : source indisponible")
  except Exception:pass
