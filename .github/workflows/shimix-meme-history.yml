@@ -1,0 +1,22 @@
+name: SHIMIX Trading - SHIB DOGE historique
+on:
+  schedule:
+    - cron: '13 5 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: shimix-meme-history
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: shimix-hub
+      - name: Analyse historique sans ordres réels
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 hub/trading/meme_history.py
