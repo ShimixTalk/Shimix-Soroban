@@ -1,5 +1,9 @@
 name: SHIMIX Trading - SHIB DOGE historique
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/shimix-meme-history.yml'
   schedule:
     - cron: '13 5 * * 1'
   workflow_dispatch:
