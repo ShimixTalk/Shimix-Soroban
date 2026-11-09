@@ -3,8 +3,8 @@
   "updatedAt": "2026-11-09T17:22:20.990Z",
   "simulationOnly": true,
   "realOrdersEnabled": false,
-  "totalInitial": 1600,
-  "totalValue": 1600,
+  "totalInitial": 1400,
+  "totalValue": 1400,
   "totalProfit": 0,
   "taxStatus": "Non calculée : fiscalité personnelle et courtier non vérifiés",
   "costStatus": "Hypothèses de simulation, pas tarifs Crypto.com réels",
@@ -14,7 +14,7 @@
     {
       "id": "prudent",
       "name": "Prudent",
-      "initial": 640,
+      "initial": 560,
       "fee": 0.002,
       "spread": 0.001,
       "slippage": 0.001,
@@ -26,138 +26,6 @@
         "ETH"
       ],
       "description": "Réserve en euros fictifs et exposition limitée aux grandes cryptos; aucun ETF simulé sans cotation fiable",
-      "cash": 640,
-      "holdings": {},
-      "costBasis": {},
-      "trades": [],
-      "signals": {
-        "BTC": {
-          "action": "Attente",
-          "change24h": -1.64,
-          "reason": "Pas de signal suffisamment robuste",
-          "estimatedCosts": 0
-        },
-        "ETH": {
-          "action": "Attente",
-          "change24h": -4.96,
-          "reason": "Pas de signal suffisamment robuste",
-          "estimatedCosts": 0
-        }
-      },
-      "history": [
-        {
-          "at": "2026-11-08T08:46:18.789Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-08T08:48:48.219Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-08T09:01:30.729Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-08T10:56:43.978Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-08T13:06:43.380Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-08T14:52:24.290Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-08T16:52:01.993Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-08T18:00:23.404Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-08T18:58:49.625Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-08T20:51:33.801Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-08T22:50:16.076Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-09T01:26:40.432Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-09T03:00:55.933Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-09T05:21:25.593Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-09T07:42:11.784Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-09T09:26:34.841Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-09T11:11:22.808Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-09T13:29:18.778Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-09T15:09:44.181Z",
-          "value": 640
-        },
-        {
-          "at": "2026-11-09T17:22:20.990Z",
-          "value": 640
-        }
-      ],
-      "peak": 640,
-      "paused": false,
-      "value": 640,
-      "netProfit": 0,
-      "feesPaid": 0,
-      "updatedAt": "2026-11-09T17:22:20.990Z",
-      "lastPrices": {
-        "BTC": 66711,
-        "ETH": 1896.07,
-        "SOL": 77.18,
-        "DOGE": 0.062326,
-        "LINK": 9.5,
-        "AVAX": 7.77
-      }
-    },
-    {
-      "id": "equilibre",
-      "name": "Équilibré",
-      "initial": 560,
-      "fee": 0.002,
-      "spread": 0.0015,
-      "slippage": 0.0015,
-      "maxAllocation": 0.22,
-      "maxTrade": 45,
-      "stop": 0.15,
-      "allowed": [
-        "BTC",
-        "ETH",
-        "SOL",
-        "LINK"
-      ],
-      "description": "Diversification crypto; ETF surveillés mais non tradés sans données exploitables",
       "cash": 560,
       "holdings": {},
       "costBasis": {},
@@ -172,18 +40,6 @@
         "ETH": {
           "action": "Attente",
           "change24h": -4.96,
-          "reason": "Pas de signal suffisamment robuste",
-          "estimatedCosts": 0
-        },
-        "SOL": {
-          "action": "Attente",
-          "change24h": -3.29,
-          "reason": "Pas de signal suffisamment robuste",
-          "estimatedCosts": 0
-        },
-        "LINK": {
-          "action": "Attente",
-          "change24h": -0.35,
           "reason": "Pas de signal suffisamment robuste",
           "estimatedCosts": 0
         }
@@ -286,9 +142,153 @@
       }
     },
     {
+      "id": "equilibre",
+      "name": "Équilibré",
+      "initial": 480,
+      "fee": 0.002,
+      "spread": 0.0015,
+      "slippage": 0.0015,
+      "maxAllocation": 0.22,
+      "maxTrade": 45,
+      "stop": 0.15,
+      "allowed": [
+        "BTC",
+        "ETH",
+        "SOL",
+        "LINK"
+      ],
+      "description": "Diversification crypto; ETF surveillés mais non tradés sans données exploitables",
+      "cash": 480,
+      "holdings": {},
+      "costBasis": {},
+      "trades": [],
+      "signals": {
+        "BTC": {
+          "action": "Attente",
+          "change24h": -1.64,
+          "reason": "Pas de signal suffisamment robuste",
+          "estimatedCosts": 0
+        },
+        "ETH": {
+          "action": "Attente",
+          "change24h": -4.96,
+          "reason": "Pas de signal suffisamment robuste",
+          "estimatedCosts": 0
+        },
+        "SOL": {
+          "action": "Attente",
+          "change24h": -3.29,
+          "reason": "Pas de signal suffisamment robuste",
+          "estimatedCosts": 0
+        },
+        "LINK": {
+          "action": "Attente",
+          "change24h": -0.35,
+          "reason": "Pas de signal suffisamment robuste",
+          "estimatedCosts": 0
+        }
+      },
+      "history": [
+        {
+          "at": "2026-11-08T08:46:18.789Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-08T08:48:48.219Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-08T09:01:30.729Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-08T10:56:43.978Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-08T13:06:43.380Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-08T14:52:24.290Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-08T16:52:01.993Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-08T18:00:23.404Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-08T18:58:49.625Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-08T20:51:33.801Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-08T22:50:16.076Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-09T01:26:40.432Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-09T03:00:55.933Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-09T05:21:25.593Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-09T07:42:11.784Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-09T09:26:34.841Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-09T11:11:22.808Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-09T13:29:18.778Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-09T15:09:44.181Z",
+          "value": 480
+        },
+        {
+          "at": "2026-11-09T17:22:20.990Z",
+          "value": 480
+        }
+      ],
+      "peak": 480,
+      "paused": false,
+      "value": 480,
+      "netProfit": 0,
+      "feesPaid": 0,
+      "updatedAt": "2026-11-09T17:22:20.990Z",
+      "lastPrices": {
+        "BTC": 66711,
+        "ETH": 1896.07,
+        "SOL": 77.18,
+        "DOGE": 0.062326,
+        "LINK": 9.5,
+        "AVAX": 7.77
+      }
+    },
+    {
       "id": "dynamique",
       "name": "Dynamique",
-      "initial": 400,
+      "initial": 360,
       "fee": 0.002,
       "spread": 0.003,
       "slippage": 0.003,
@@ -304,7 +304,7 @@
         "DOGE"
       ],
       "description": "Cryptomonnaies plus volatiles, risque élevé de pertes",
-      "cash": 400,
+      "cash": 360,
       "holdings": {},
       "costBasis": {},
       "trades": [],
@@ -349,88 +349,88 @@
       "history": [
         {
           "at": "2026-11-08T08:46:18.789Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-08T08:48:48.219Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-08T09:01:30.729Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-08T10:56:43.978Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-08T13:06:43.380Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-08T14:52:24.290Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-08T16:52:01.993Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-08T18:00:23.404Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-08T18:58:49.625Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-08T20:51:33.801Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-08T22:50:16.076Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-09T01:26:40.432Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-09T03:00:55.933Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-09T05:21:25.593Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-09T07:42:11.784Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-09T09:26:34.841Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-09T11:11:22.808Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-09T13:29:18.778Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-09T15:09:44.181Z",
-          "value": 400
+          "value": 360
         },
         {
           "at": "2026-11-09T17:22:20.990Z",
-          "value": 400
+          "value": 360
         }
       ],
-      "peak": 400,
+      "peak": 360,
       "paused": false,
-      "value": 400,
+      "value": 360,
       "netProfit": 0,
       "feesPaid": 0,
       "updatedAt": "2026-11-09T17:22:20.990Z",
@@ -443,5 +443,8 @@
         "AVAX": 7.77
       }
     }
-  ]
+  ],
+  "robotSeparateCapital": 200,
+  "combinedInitial": 1600,
+  "capitalAllocationNote": "1400 EUR répartis dans trois portefeuilles, 200 EUR dans le robot indépendant."
 }
