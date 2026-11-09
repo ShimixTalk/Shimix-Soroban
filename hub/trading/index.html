@@ -13,7 +13,19 @@ const BOT_KEY='shimix-trading-bot-v4';
 let bot={mode:'simulation',capital:200,max:20,loss:5,running:false,reference:{},logs:[],cash:200,holdings:{},peak:200,trades:[],lastTrade:{},history:{},updatedAt:{}};
 try{bot={...bot,...JSON.parse(localStorage.getItem(BOT_KEY)||'{}')}}catch(e){}
 bot.running=false;bot.trades=Array.isArray(bot.trades)?bot.trades:[];bot.history=bot.history||{};bot.updatedAt=bot.updatedAt||{};bot.lastTrade=bot.lastTrade||{};
-const botAssets=[['BTC','bitcoin'],['ETH','ethereum'],['SOL','solana'],['ADA','cardano'],['XRP','ripple'],['DOGE','dogecoin'],['LINK','chainlink'],['AVAX','avalanche-2'],['DOT','polkadot'],['LTC','litecoin']];
+let botAssets=[['BTC','bitcoin'],['ETH','ethereum'],['SOL','solana'],['ADA','cardano'],['XRP','ripple'],['DOGE','dogecoin'],['LINK','chainlink'],['AVAX','avalanche-2'],['DOT','polkadot'],['LTC','litecoin']];
+let botMarketUniverse=[],botLastUniverseScan=0,botShortlist=[],botScanInfo='Scan en attente';
+async function botScanUniverse(){
+if(Date.now()-botLastUniverseScan<30*60*1000&&botMarketUniverse.length)return;
+const res=await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h',{cache:'no-store'});
+if(!res.ok)throw Error('Scanner HTTP '+res.status);
+const all=await res.json();if(!Array.isArray(all)||all.length<30)throw Error('Marché incomplet');
+botMarketUniverse=all.filter(x=>x.id&&x.symbol&&Number(x.current_price)>0&&Number(x.total_volume)>2000000&&Number(x.market_cap)>50000000&&Number.isFinite(Number(x.price_change_percentage_24h)));
+botShortlist=botMarketUniverse.map(x=>({...x,score:Math.log10(Math.max(1,x.total_volume))*2+Math.min(12,Math.abs(Number(x.price_change_percentage_24h)))*.6})).sort((a,b)=>b.score-a.score).slice(0,20);
+const selected=new Map(botAssets);for(const x of botShortlist)selected.set(x.symbol.toUpperCase(),x.id);botAssets=[...selected].slice(0,30);
+botLastUniverseScan=Date.now();botScanInfo=all.length+' cryptos examinées · '+botShortlist.length+' présélectionnées · '+botAssets.length+' suivies (avec les actifs déjà connus)';
+const select=document.getElementById('chartAsset');if(select){const previous=select.value;select.innerHTML=botAssets.map(([id])=>'<option value="'+id+'">'+id+'</option>').join('');if(botAssets.some(([id])=>id===previous))select.value=previous}
+}
 let botQuotes={},botBusy=false,botSignal={};
 function botStore(){try{localStorage.setItem(BOT_KEY,JSON.stringify(bot))}catch(e){notice('Stockage saturé : sauvegarde tes données.')}}
 function botValue(){return bot.cash+Object.entries(bot.holdings).reduce((s,[id,q])=>s+q*(botQuotes[id]||bot.reference[id]||0),0)}
@@ -21,7 +33,7 @@ function botRSI(p){if(p.length<15)return null;let gains=0,losses=0;for(let i=p.l
 function botSMA(p,n){return p.length<n?null:p.slice(-n).reduce((a,b)=>a+b,0)/n}
 function botAnalyze(id){const p=bot.history[id]||[];if(p.length<22)return {action:'Attente',reason:'Historique insuffisant',rsi:null};const rsi=botRSI(p),short=botSMA(p,7),long=botSMA(p,21),prev=botSMA(p.slice(0,-1),21),last=p.at(-1);let action='Attente',reason='Pas de confirmation';if(rsi!==null&&rsi<35&&short>long&&last>prev){action='Achat';reason='RSI bas et tendance courte positive'}else if(rsi!==null&&rsi>65&&short<long){action='Vente';reason='RSI élevé et tendance courte négative'}return {action,reason,rsi,short,long}}
 function botDraw(){const el=document.getElementById('botStatus');if(!el)return;const val=botValue(),gain=val-bot.capital;el.textContent=(bot.running?'Simulation active (page ouverte uniquement)':'Robot arrêté')+' — '+(Object.keys(botQuotes).length?'Cours reçus':'Cours indisponibles')+' — Liquidités fictives : '+bot.cash.toFixed(2)+' €';
-document.getElementById('botPrices').innerHTML=botAssets.map(([id])=>{const x=botSignal[id]||{action:'Attente',reason:'En attente de données'};return '<div class="panel"><strong>'+id+'</strong> : '+(botQuotes[id]?botQuotes[id].toLocaleString('fr-FR',{style:'currency',currency:'EUR'}):'indisponible')+'<p class="hint">Signal : '+x.action+' — '+x.reason+(x.rsi===null||x.rsi===undefined?'':' — RSI : '+x.rsi.toFixed(1))+'</p></div>'}).join('');
+document.getElementById('botPrices').innerHTML='<p class="hint">'+botScanInfo+' · Sélection selon volume, capitalisation et variation 24 h ; achat uniquement après confirmation RSI et moyennes mobiles. Les actifs sans historique restent en attente.</p>'+botAssets.map(([id])=>{const x=botSignal[id]||{action:'Attente',reason:'En attente de données'};return '<div class="panel"><strong>'+id+'</strong> : '+(botQuotes[id]?botQuotes[id].toLocaleString('fr-FR',{style:'currency',currency:'EUR'}):'indisponible')+'<p class="hint">Signal : '+x.action+' — '+x.reason+(x.rsi===null||x.rsi===undefined?'':' — RSI : '+x.rsi.toFixed(1))+'</p></div>'}).join('');
 const perf=document.getElementById('botPerformance');if(perf)perf.textContent='Valeur estimée : '+val.toFixed(2)+' € | Résultat : '+gain.toFixed(2)+' € ('+(100*gain/bot.capital).toFixed(2)+' %) | Transactions fictives : '+bot.trades.length+' | Plus haut : '+bot.peak.toFixed(2)+' €';
 document.getElementById('botLog').style.whiteSpace='pre-line';document.getElementById('botLog').textContent=bot.logs.slice(0,18).join('\n')||'Aucune opération.'}
 
@@ -69,7 +81,7 @@ function botSave(){const mode=document.getElementById('botMode').value,capital=N
 function botStop(){bot.running=false;botStore();botDraw();notice('Robot arrêté. Les positions fictives sont conservées.')}
 function botStart(){if(!botSave())return;bot.running=true;botStore();botDraw();botRefresh()}
 async function botRefresh(){if(botBusy)return;botBusy=true;try{
-const r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids='+botAssets.map(x=>x[1]).join(',')+'&vs_currencies=eur',{cache:'no-store'});if(!r.ok)throw Error('Cours HTTP '+r.status);const data=await r.json();
+try{await botScanUniverse()}catch(e){botScanInfo='Scanner élargi indisponible : '+e.message+' · analyse des actifs déjà connus'}const r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids='+botAssets.map(x=>x[1]).join(',')+'&vs_currencies=eur',{cache:'no-store'});if(!r.ok)throw Error('Cours HTTP '+r.status);const data=await r.json();
 for(const [id,key] of botAssets){const p=Number(data[key]?.eur);if(Number.isFinite(p)&&p>0)botQuotes[id]=p}
 if(Object.keys(botQuotes).length<3)throw Error('Cours insuffisants');
 const due=botAssets.filter(([id])=>Date.now()-(bot.updatedAt[id]||0)>86400000||(bot.history[id]||[]).length<22);const batch=due.slice(0,2);for(const [id,key] of batch){try{const h=await fetch('https://api.coingecko.com/api/v3/coins/'+key+'/market_chart?vs_currency=eur&days=30&interval=daily',{cache:'no-store'});if(!h.ok)throw Error('HTTP '+h.status);const j=await h.json();const prices=(j.prices||[]).map(x=>Number(x[1])).filter(x=>Number.isFinite(x)&&x>0);if(prices.length>=22){bot.history[id]=prices.slice(-31);bot.updatedAt[id]=Date.now()}}catch(e){botSignal[id]={action:'Attente',reason:'Historique indisponible',rsi:null}}}
