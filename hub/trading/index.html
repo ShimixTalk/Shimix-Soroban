@@ -13,8 +13,8 @@ const BOT_KEY='shimix-trading-bot-v4';
 let bot={mode:'simulation',capital:200,max:20,loss:5,running:false,reference:{},logs:[],cash:200,holdings:{},peak:200,trades:[],lastTrade:{},history:{},updatedAt:{}};
 try{bot={...bot,...JSON.parse(localStorage.getItem(BOT_KEY)||'{}')}}catch(e){}
 bot.running=false;bot.trades=Array.isArray(bot.trades)?bot.trades:[];bot.history=bot.history||{};bot.updatedAt=bot.updatedAt||{};bot.lastTrade=bot.lastTrade||{};
-const botAssets=[['BTC','bitcoin'],['ETH','ethereum'],['SOL','solana']];
-let botQuotes={},botBusy=false,botSignal={};
+const botAssets=[['BTC','bitcoin'],['ETH','ethereum'],['SOL','solana'],['ADA','cardano'],['XRP','ripple'],['DOGE','dogecoin'],['LINK','chainlink'],['AVAX','avalanche-2'],['DOT','polkadot'],['LTC','litecoin']];
+let botQuotes={},botBusy=false,botSignal={};let botHistoryCursor=0;
 function botStore(){try{localStorage.setItem(BOT_KEY,JSON.stringify(bot))}catch(e){notice('Stockage saturé : sauvegarde tes données.')}}
 function botValue(){return bot.cash+Object.entries(bot.holdings).reduce((s,[id,q])=>s+q*(botQuotes[id]||bot.reference[id]||0),0)}
 function botRSI(p){if(p.length<15)return null;let gains=0,losses=0;for(let i=p.length-14;i<p.length;i++){const d=p[i]-p[i-1];gains+=Math.max(0,d);losses+=Math.max(0,-d)}if(!losses)return 100;return 100-100/(1+gains/losses)}
@@ -69,15 +69,15 @@ function botSave(){const mode=document.getElementById('botMode').value,capital=N
 function botStop(){bot.running=false;botStore();botDraw();notice('Robot arrêté. Les positions fictives sont conservées.')}
 function botStart(){if(!botSave())return;bot.running=true;botStore();botDraw();botRefresh()}
 async function botRefresh(){if(botBusy)return;botBusy=true;try{
-const r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=eur',{cache:'no-store'});if(!r.ok)throw Error('Cours HTTP '+r.status);const data=await r.json();
+const r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids='+botAssets.map(x=>x[1]).join(',')+'&vs_currencies=eur',{cache:'no-store'});if(!r.ok)throw Error('Cours HTTP '+r.status);const data=await r.json();
 for(const [id,key] of botAssets){const p=Number(data[key]?.eur);if(Number.isFinite(p)&&p>0)botQuotes[id]=p}
-if(Object.keys(botQuotes).length!==3)throw Error('Cours incomplets');
-for(const [id,key] of botAssets){if(Date.now()-(bot.updatedAt[id]||0)<3600000&&(bot.history[id]||[]).length>=22)continue;try{const h=await fetch('https://api.coingecko.com/api/v3/coins/'+key+'/market_chart?vs_currency=eur&days=30&interval=daily',{cache:'no-store'});if(!h.ok)throw Error('HTTP '+h.status);const j=await h.json();const prices=(j.prices||[]).map(x=>Number(x[1])).filter(x=>Number.isFinite(x)&&x>0);if(prices.length>=22){bot.history[id]=prices.slice(-31);bot.updatedAt[id]=Date.now()}}catch(e){botSignal[id]={action:'Attente',reason:'Historique indisponible',rsi:null}}}
+if(Object.keys(botQuotes).length<3)throw Error('Cours insuffisants');
+const due=botAssets.filter(([id])=>Date.now()-(bot.updatedAt[id]||0)>86400000||(bot.history[id]||[]).length<22);const batch=due.slice(botHistoryCursor%Math.max(1,due.length)).concat(due.slice(0,botHistoryCursor%Math.max(1,due.length))).slice(0,2);botHistoryCursor+=2;for(const [id,key] of batch){try{const h=await fetch('https://api.coingecko.com/api/v3/coins/'+key+'/market_chart?vs_currency=eur&days=30&interval=daily',{cache:'no-store'});if(!h.ok)throw Error('HTTP '+h.status);const j=await h.json();const prices=(j.prices||[]).map(x=>Number(x[1])).filter(x=>Number.isFinite(x)&&x>0);if(prices.length>=22){bot.history[id]=prices.slice(-31);bot.updatedAt[id]=Date.now()}}catch(e){botSignal[id]={action:'Attente',reason:'Historique indisponible',rsi:null}}}
 for(const [id] of botAssets)botSignal[id]=botAnalyze(id);
 if(bot.running)botStep();botStore();botDraw();drawTechnicalChart();
 }catch(e){bot.logs.unshift(new Date().toLocaleTimeString('fr-FR')+' : données indisponibles ('+e.message+'). Aucune opération.');bot.logs=bot.logs.slice(0,60);botDraw()}finally{botBusy=false}}
 function botStep(){const value=botValue();bot.peak=Math.max(bot.peak,value);if(value<=bot.capital*(1-bot.loss/100)){bot.running=false;bot.logs.unshift('Arrêt : perte maximale atteinte. Positions non liquidées.');botStore();return}
-for(const [id] of botAssets){const p=botQuotes[id],signal=botSignal[id],action=signal?.action;if(!p||!['Achat','Vente'].includes(action))continue;
+const candidates=botAssets.map(([id])=>id).filter(id=>botQuotes[id]&&['Achat','Vente'].includes(botSignal[id]?.action)).sort((a,b)=>{const rank=id=>botSignal[id]?.action==='Vente'&&bot.holdings[id]>0?1000:botSignal[id]?.action==='Achat'?100+(35-(botSignal[id]?.rsi||35)):0;return rank(b)-rank(a)});for(const id of candidates){const p=botQuotes[id],signal=botSignal[id],action=signal?.action;if(action==='Vente'&&!(bot.holdings[id]>0))continue;
 if(Date.now()-(bot.lastTrade[id]||0)<86400000)continue;
 const msg=new Date().toLocaleString('fr-FR')+' : '+id+' '+action+' — '+signal.reason;
 if(bot.mode!=='simulation'){bot.logs.unshift(msg+' (signal seulement)');bot.lastTrade[id]=Date.now();continue}
