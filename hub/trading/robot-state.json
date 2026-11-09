@@ -8,7 +8,7 @@
   "cash": 1600,
   "holdings": {},
   "peak": 1600,
-  "maxOrder": 20,
+  "maxOrder": 40,
   "maxLossPercent": 5,
   "enabled": true,
   "lastTrade": {},
