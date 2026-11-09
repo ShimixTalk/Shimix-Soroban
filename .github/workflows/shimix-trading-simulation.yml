@@ -1,7 +1,7 @@
 name: SHIMIX Trading - simulation automatique
 on:
   schedule:
-    - cron: '17 */2 * * *'
+    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
 permissions:
   contents: write
