@@ -1,0 +1,36 @@
+{
+  "updatedAt": "2026-11-09T19:59:35.461970+00:00",
+  "source": "CryptoCompare histoday public API",
+  "currency": "USD",
+  "assets": {
+    "SHIB": {
+      "availableFrom": null,
+      "points": 0,
+      "fiveYears": {
+        "status": "indisponible"
+      },
+      "tenYears": {
+        "status": "indisponible"
+      },
+      "errors": [
+        "HTTP Error 401: Unauthorized"
+      ],
+      "monthly": []
+    },
+    "DOGE": {
+      "availableFrom": null,
+      "points": 0,
+      "fiveYears": {
+        "status": "indisponible"
+      },
+      "tenYears": {
+        "status": "indisponible"
+      },
+      "errors": [
+        "HTTP Error 401: Unauthorized"
+      ],
+      "monthly": []
+    }
+  },
+  "note": "Étude descriptive historique. Aucune prédiction ni transaction réelle. Couverture réelle indiquée par actif."
+}
