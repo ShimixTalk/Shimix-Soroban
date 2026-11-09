@@ -1,0 +1,23 @@
+name: SHIMIX Trading - simulation automatique
+on:
+  schedule:
+    - cron: '17 */2 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: shimix-trading-simulation
+  cancel-in-progress: false
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: shimix-hub
+      - name: Exécuter le robot fictif (aucun ordre réel)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHIMIX_BRANCH: shimix-hub
+        run: python3 hub/trading/autonomous_simulation.py
