@@ -4,10 +4,10 @@
   "slippageRate": 0.001,
   "minNetProfit": 0.01,
   "version": 1,
-  "capital": 200,
-  "cash": 200,
+  "capital": 1600,
+  "cash": 1600,
   "holdings": {},
-  "peak": 200,
+  "peak": 1600,
   "maxOrder": 20,
   "maxLossPercent": 5,
   "enabled": true,
@@ -130,5 +130,6 @@
     "DOT": true,
     "LTC": true
   },
-  "value": 200
+  "value": 1600,
+  "allocationMode": "robot-exclusive"
 }
