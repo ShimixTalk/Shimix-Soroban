@@ -28,8 +28,14 @@ def main():
     if state.get("realTradingEnabled") or state.get("exchangeApiConnected"):raise RuntimeError("Simulation uniquement : accès réel refusé")
     now=datetime.datetime.now(datetime.timezone.utc);stamp=now.isoformat()
     errors=[];logs=state.get("logs",[]);hist=state.get("dailyHistory",{})
+    # Market scan is cached for up to one hour to reduce CoinGecko 429 errors.
+    cache=state.get("marketCache",{})
+    cache_age=now.timestamp()-float(state.get("marketCacheAt",0))
     try:
-        market=request(API+"/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h")
+        market=cache if cache and cache_age<3600 else request(API+"/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h")
+        if market is not cache:
+            state["marketCache"]=market
+            state["marketCacheAt"]=now.timestamp()
     except Exception as exc:
         state["dataErrors"]=[str(exc)];state["updatedAt"]=stamp
         save(state,file["sha"]);print("Marché indisponible, aucune opération");return
@@ -61,6 +67,14 @@ def main():
         if action=="Achat":candidates.append((35-rs,sym))
     state["signals"]=signals
     holdings=state.setdefault("holdings",{});cash=float(state.get("cash",1600));capital=float(state.get("capital",1600))
+    # Never value an existing holding at zero when its quote is unavailable.
+    missing=[sym for sym,q in holdings.items() if float(q)>0 and float(prices.get(sym,0))<=0]
+    if missing:
+        state["dataErrors"]=["Prix indisponible: "+", ".join(missing)]
+        state["updatedAt"]=stamp
+        save(state,file["sha"])
+        print("Simulation paused: missing holdings prices",missing)
+        return
     value=cash+sum(float(q)*float(prices.get(sym,0)) for sym,q in holdings.items())
     state["peak"]=max(float(state.get("peak",capital)),value)
     state["value"]=round(value,2)
@@ -68,6 +82,25 @@ def main():
     if value<=capital*(1-loss/100):
         state["enabled"]=False;logs.insert(0,stamp+" : arrêt de sécurité, perte maximale atteinte (positions non liquidées)")
     else:
+        # Simulated exits: take-profit, stop-loss and bearish signal.
+        # The portfolio-level safety stop does not promise a guaranteed 5% loss cap.
+        entries=state.setdefault("entryPrices",{})
+        for sym,quantity in list(holdings.items()):
+            price=float(prices.get(sym,0));quantity=float(quantity)
+            if quantity<=0 or price<=0:continue
+            entry=float(entries.get(sym,price))
+            reason=("stop-loss" if price<=entry*0.96 else
+                    "take-profit" if price>=entry*1.08 else
+                    "signal" if signals.get(sym,{}).get("action")=="Vente" else None)
+            if not reason:continue
+            exit_price=price*(1-float(state.get("spreadRate",0.001))-float(state.get("slippageRate",0.001)))
+            gross=quantity*exit_price
+            fee=gross*float(state.get("feeRate",0.001))
+            proceeds=gross-fee
+            cash+=proceeds
+            holdings.pop(sym,None);entries.pop(sym,None)
+            state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Vente","amount":round(proceeds,2),"price":exit_price,"quantity":quantity,"fee":fee,"reason":reason,"simulation":True})
+            logs.insert(0,stamp+" : vente FICTIVE "+sym+" ("+reason+")")
         last=state.setdefault("lastTrade",{})
         for _,sym in sorted(candidates,reverse=True):
             if len(state.get("trades",[]))>=1000:break
@@ -82,10 +115,16 @@ def main():
             qty=(amount-fee)/effective
             cash-=amount;holdings[sym]=float(holdings.get(sym,0))+qty
             last[sym]=now.timestamp()
+            entries[sym]=((float(entries.get(sym,0))*float(holdings[sym]-qty))+amount)/float(holdings[sym])
             state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Achat","amount":round(amount,2),"price":effective,"quantity":qty,"fee":fee,"simulation":True})
             logs.insert(0,stamp+" : achat FICTIF "+sym+" pour "+str(round(amount,2))+" EUR")
             # Only one simulated buy per run; evaluate further next time.
             break
+    state["value"]=round(cash+sum(float(q)*float(prices.get(sym,0)) for sym,q in holdings.items()),2)
+    state["performance"]={"initialCapital":capital,"equity":state["value"],"netPnl":round(state["value"]-capital,2),"returnPercent":round((state["value"]/capital-1)*100,3) if capital else 0,"drawdownPercent":round((1-state["value"]/max(state["peak"],0.01))*100,3),"totalTrades":len(state.get("trades",[])),"lastCalculatedAt":stamp,"simulated":True}
+    snapshots=state.setdefault("equityHistory",[])
+    snapshots.append({"at":stamp,"equity":state["value"],"cash":round(cash,2)})
+    state["equityHistory"]=snapshots[-3000:]
     state["cash"]=round(cash,6);state["logs"]=logs[:100];state["trades"]=state.get("trades",[])[:1000]
     state["dataErrors"]=errors[:20];state["updatedAt"]=stamp
     state["realTradingEnabled"]=False;state["exchangeApiConnected"]=False
