@@ -37,7 +37,25 @@ const W=780,H=225,L=54,R=16,T=15,B=25;
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function plot(vals,min,max,height=H,top=T){const range=max-min||1;return vals.map((v,i)=>v===null?'':(L+i*(W-L-R)/(p.length-1)).toFixed(1)+','+(top+(max-v)/range*(height-top-B)).toFixed(1))}
 function line(vals,min,max,color,height=H,top=T){const coords=plot(vals,min,max,height,top);let segments=[],seg=[];coords.forEach(c=>{if(!c){if(seg.length>1)segments.push(seg.join(' '));seg=[]}else seg.push(c)});if(seg.length>1)segments.push(seg.join(' '));return segments.map(x=>'<polyline points="'+x+'" fill="none" stroke="'+color+'" stroke-width="2" stroke-linejoin="round"/>').join('')}
-function frame(title,lines,labels){return '<div style="margin:12px 0"><strong>'+esc(title)+'</strong><svg role="img" aria-label="'+esc(title)+'" viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;background:#0c192b;border:1px solid #34445a;border-radius:10px">'+[0,.25,.5,.75,1].map(t=>'<line x1="'+L+'" x2="'+(W-R)+'" y1="'+(T+t*(H-T-B))+'" y2="'+(T+t*(H-T-B))+'" stroke="#30435b" stroke-dasharray="3 5"/>').join('')+lines+labels+'</svg></div>'}
+function frame(title,lines,labels){return '<div style="margin:12px 0"><strong>'+esc(title)+'</strong><svg role="img" aria-label="'+esc(title)+'" viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;background:#0c192b;border:1px solid #34445a;border-radius:10px">'+[0,.25,.5,.75,1].map(t=>'<line x1="'+L+'" x2="'+(W-R)+'" y1="'+(T+t*(H-T-B))+'" y2="'+(T+t*(H-T-B))+'" stroke="#30435b" stroke-dasharray="3 5"/>').join('')+lines+labels+'</svg><div class="chart-hover-label hint" aria-live="polite" style="min-height:22px;margin-top:4px">Survole une courbe pour voir son nom et sa valeur.</div></div>'}
+function enableChartHover(){
+const frames=[...root.querySelectorAll('svg')];const groups=[
+[{name:'Prix '+id,values:p,min,max,color:'#f1d58c',unit:' €'},{name:'Moyenne mobile 7',values:m7,min,max,color:'#ff9b55',unit:' €'},{name:'Moyenne mobile 21',values:m21,min,max,color:'#5db7ff',unit:' €'}],
+[{name:'RSI 14',values:rsi,min:0,max:100,color:'#e9c76e',unit:''},{name:'Seuil de survente 30',constant:30,min:0,max:100,color:'#51c99a',unit:''},{name:'Seuil de surachat 70',constant:70,min:0,max:100,color:'#f18484',unit:''}],
+[{name:'MACD',values:macd,min:-mm,max:mm,color:'#e9c76e',unit:''},{name:'Ligne de signal MACD',values:signal,min:-mm,max:mm,color:'#5db7ff',unit:''},{name:'Histogramme MACD',values:hist,min:-mm,max:mm,color:'#51c99a',unit:''}]
+];
+frames.forEach((svg,idx)=>{const container=svg.parentElement,label=container.querySelector('.chart-hover-label');if(!label)return;const defs=groups[idx];if(!defs)return;
+const marker=document.createElementNS('http://www.w3.org/2000/svg','circle');marker.setAttribute('r','5');marker.setAttribute('stroke','#ffffff');marker.setAttribute('stroke-width','1.5');marker.setAttribute('fill','#e9c76e');marker.setAttribute('pointer-events','none');marker.style.display='none';svg.appendChild(marker);
+const update=ev=>{const rect=svg.getBoundingClientRect();if(!rect.width||!rect.height)return;const x=(ev.clientX-rect.left)*W/rect.width,y=(ev.clientY-rect.top)*H/rect.height;if(x<L-12||x>W-R+12||y<T-14||y>H-B+14){marker.style.display='none';label.textContent='Survole une courbe pour voir son nom et sa valeur.';return}
+const index=Math.max(0,Math.min(p.length-1,Math.round((x-L)/(W-L-R)*(p.length-1))));let nearest=null;
+defs.forEach(def=>{const value=def.constant??def.values?.[index];if(value===null||!Number.isFinite(value))return;const yy=T+(def.max-value)/(def.max-def.min||1)*(H-T-B);const distance=Math.hypot((x-(L+index*(W-L-R)/(p.length-1)))*.25,y-yy);if(!nearest||distance<nearest.distance)nearest={def,value,yy,distance,index}});
+if(!nearest||nearest.distance>24){marker.style.display='none';label.textContent='Place le pointeur près d’une courbe.';return}
+marker.style.display='';marker.setAttribute('cx',String(L+index*(W-L-R)/(p.length-1)));marker.setAttribute('cy',String(nearest.yy));marker.setAttribute('fill',nearest.def.color);
+label.textContent=nearest.def.name+' : '+nearest.value.toLocaleString('fr-FR',{maximumFractionDigits:idx===0?2:3})+nearest.def.unit+' · point '+(index+1)+'/'+p.length;
+};
+svg.addEventListener('pointermove',update);svg.addEventListener('pointerleave',()=>{marker.style.display='none';label.textContent='Survole une courbe pour voir son nom et sa valeur.'});svg.addEventListener('pointerdown',update);
+});
+}
 const min=Math.min(...p,...m7.filter(v=>v!==null),...m21.filter(v=>v!==null))*.997,max=Math.max(...p,...m7.filter(v=>v!==null),...m21.filter(v=>v!==null))*1.003;
 const price=frame(id+' — prix (€), MM7 (orange), MM21 (bleu)',line(p,min,max,'#f1d58c')+line(m7,min,max,'#ff9b55')+line(m21,min,max,'#5db7ff'),'<text x="3" y="22" fill="#b9c7d9" font-size="13">'+max.toFixed(1)+'</text><text x="3" y="'+(H-28)+'" fill="#b9c7d9" font-size="13">'+min.toFixed(1)+'</text>');
 const ry=v=>T+(100-v)/100*(H-T-B);
@@ -45,7 +63,7 @@ const rsiChart=frame('RSI 14 — 30 (survente), 70 (surachat)',[30,70].map(v=>'<
 const mm=Math.max(.00001,...macd.map(Math.abs),...hist.map(Math.abs));const y0=T+(H-T-B)/2;
 const bars=hist.map((v,i)=>{const x=L+i*(W-L-R)/(p.length-1),y=y0-v/mm*(H-T-B)*.42;return '<line x1="'+x+'" x2="'+x+'" y1="'+y0+'" y2="'+y+'" stroke="'+(v>=0?'#51c99a':'#e37c7c')+'" stroke-width="4"/>'}).join('');
 const macdChart=frame('MACD 12/26/9 — MACD (jaune), signal (bleu), histogramme',bars+line(macd,-mm,mm,'#e9c76e')+line(signal,-mm,mm,'#5db7ff'),'<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y0+'" y2="'+y0+'" stroke="#8999ad"/>');
-root.innerHTML=price+rsiChart+macdChart+'<p class="hint">Dernier RSI : '+(rsi.at(-1)?.toFixed(1)??'indisponible')+' • '+p.length+' cours historiques. Graphiques indicatifs, sans chandeliers OHLC ni signaux inventés.</p>';
+root.innerHTML=price+rsiChart+macdChart+'<p class="hint">Dernier RSI : '+(rsi.at(-1)?.toFixed(1)??'indisponible')+' • '+p.length+' cours historiques. Graphiques indicatifs, sans chandeliers OHLC ni signaux inventés.</p>';enableChartHover();
 }
 function botSave(){const mode=document.getElementById('botMode').value,capital=Number(document.getElementById('botCapital').value),max=Number(document.getElementById('botMax').value),loss=Number(document.getElementById('botLoss').value);if(!Number.isFinite(capital)||capital<10||!Number.isFinite(max)||max<1||max>capital||!Number.isFinite(loss)||loss<1||loss>100){notice('Paramètres invalides : vérifie capital, ordre maximal et perte maximale.');return false}if(bot.trades.length&&capital!==bot.capital){notice('Capital initial verrouillé après la première transaction fictive pour conserver une performance cohérente.');return false}bot.mode=mode;bot.capital=capital;bot.max=max;bot.loss=loss;if(!bot.trades.length){bot.cash=capital;bot.peak=capital}botStore();botDraw();notice('Configuration enregistrée.');return true}
 function botStop(){bot.running=false;botStore();botDraw();notice('Robot arrêté. Les positions fictives sont conservées.')}
