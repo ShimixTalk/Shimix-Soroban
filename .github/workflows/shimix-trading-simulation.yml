@@ -38,6 +38,8 @@ jobs:
           PY
       - name: Verifier la syntaxe du robot
         run: python3 -m py_compile hub/trading/autonomous_simulation.py
+      - name: Tester la validation des cours
+        run: python3 -m unittest discover -s hub/trading -p 'test_market_validation.py' -v
       - name: Exécuter le robot fictif (aucun ordre réel)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
