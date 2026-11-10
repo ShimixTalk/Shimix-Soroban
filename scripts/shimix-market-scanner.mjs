@@ -15,7 +15,7 @@ const found=[],unavailable=[];let cryptoCount=0;
 try{
 const r=await get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h');
 const items=await r.json();if(!Array.isArray(items))throw Error('Bad data');
-for(const a of items){const change=Number(a.price_change_percentage_24h),volume=Number(a.total_volume),price=Number(a.current_price);if(!Number.isFinite(price)||!Number.isFinite(change)||volume<1000000)continue;cryptoCount++;found.push({category:'Crypto',symbol:String(a.symbol).toUpperCase(),name:a.name,price,currency:'EUR',change24h:pct(change),volume,source:'CoinGecko',signal:Math.abs(change)>=1?'Mouvement à examiner':'Surveillance',risk:'Volatilité crypto, spread et frais non garantis'})}
+for(const a of items){const change=Number(a.price_change_percentage_24h),volume=Number(a.total_volume),price=Number(a.current_price);if(!Number.isFinite(price)||price<=0||!Number.isFinite(change)||!Number.isFinite(volume)||volume<1000000)continue;cryptoCount++;found.push({category:'Crypto',symbol:String(a.symbol).toUpperCase(),name:a.name,price,currency:'EUR',change24h:pct(change),volume,source:'CoinGecko',signal:Math.abs(change)>=1?'Mouvement à examiner':'Surveillance',risk:'Volatilité crypto, spread et frais non garantis'})}
 }catch(e){unavailable.push('Cryptos : '+e.message)}
 // Stooq daily public CSV: sampled subset each run, without pretending full-market coverage.
 const rotation=Math.floor(Date.now()/7200000)%Math.ceil(watch.length/12),sample=watch.slice(rotation*12,rotation*12+12);

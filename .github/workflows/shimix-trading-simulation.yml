@@ -13,9 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: shimix-hub
+          persist-credentials: false
       - name: Verifier les limites et le mode simulation
         run: |
           python3 - <<'PY'
@@ -31,7 +32,7 @@ jobs:
       - name: Verifier la syntaxe du robot
         run: python3 -m py_compile hub/trading/autonomous_simulation.py
       - name: Tester la validation des cours
-        run: python3 -m unittest discover -s hub/trading -p 'test_market_validation.py' -v
+        run: python3 -m unittest discover -s hub/trading -p 'test_*.py' -v
       - name: Exécuter le robot fictif (aucun ordre réel)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

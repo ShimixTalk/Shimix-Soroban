@@ -7,6 +7,7 @@ on:
       - 'scripts/shimix-paper-robot.mjs'
       - 'scripts/shimix-three-portfolios.mjs'
       - 'scripts/shimix-market-scanner.mjs'
+      - 'scripts/simulation-safety.mjs'
   schedule:
     - cron: '17 */2 * * *'
   workflow_dispatch:
@@ -20,20 +21,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Offline safety regressions
+        run: node --test tests/*.test.mjs
       - name: Validate automation scripts
         run: |
           node --check scripts/shimix-paper-robot.mjs
           node --check scripts/shimix-three-portfolios.mjs
           node --check scripts/shimix-market-scanner.mjs
-      - name: Run crypto paper trading
-        id: primary
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/shimix-paper-robot.mjs
-      - name: Cool down public market API
-        run: sleep 65
+      - name: Primary state has a single writer
+        run: echo 'robot-state.json is maintained by shimix-trading-simulation.yml only'
       - name: Update three risk portfolios
         id: portfolios
         continue-on-error: true
@@ -51,15 +50,12 @@ jobs:
       - name: Report each automation status
         if: always()
         env:
-          PRIMARY: ${{ steps.primary.outcome }}
           PORTFOLIOS: ${{ steps.portfolios.outcome }}
           SCANNER: ${{ steps.scanner.outcome }}
         run: |
-          echo "Primary robot: $PRIMARY"
           echo "Three portfolios: $PORTFOLIOS"
           echo "Market scanner: $SCANNER"
           echo "## SHIMIX Trading checks" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Primary: $PRIMARY" >> "$GITHUB_STEP_SUMMARY"
           echo "- Three portfolios: $PORTFOLIOS" >> "$GITHUB_STEP_SUMMARY"
           echo "- Scanner: $SCANNER" >> "$GITHUB_STEP_SUMMARY"
-          test "$PRIMARY" = success && test "$PORTFOLIOS" = success && test "$SCANNER" = success
+          test "$PORTFOLIOS" = success && test "$SCANNER" = success
