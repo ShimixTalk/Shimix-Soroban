@@ -481,4 +481,23 @@ const terms=[
 const lex=document.getElementById('lexiconEntries');if(lex&&!document.getElementById('lexiconExtended')){const marker=document.createElement('div');marker.id='lexiconExtended';lex.append(marker);const existing=new Set([...lex.querySelectorAll('.lexicon-entry summary')].map(x=>x.textContent.trim().toLocaleLowerCase('fr')));let count=0;for(const [name,meaning,warning] of terms){if(existing.has(name.toLocaleLowerCase('fr')))continue;const details=document.createElement('details');details.className='lexicon-entry lexicon-added';details.dataset.search=[name,meaning,warning].join(' ').toLocaleLowerCase('fr');const summary=document.createElement('summary');summary.textContent=name;const p=document.createElement('p');p.textContent=meaning;const caution=document.createElement('p');caution.className='hint';caution.textContent='À retenir : '+warning;details.append(summary,p,caution);marker.append(details);count++}const title=document.querySelector('#tradingLexicon h2');if(title)title.textContent='Académie trading · '+document.querySelectorAll('.lexicon-entry').length+' notions';}
 const meme=document.getElementById('memeLongHistory');if(meme){const h=meme.querySelector('h2');if(h)h.textContent='Performances historiques · BTC, DOGE, SHIB';const intro=meme.querySelector('p.hint');if(intro)intro.textContent='Comparaison historique des cours, sans prévision de gains.';const out=meme.querySelector('#memeResults');if(out){const original=out;const summary=document.createElement('div');summary.id='memePrestigeSummary';original.before(summary);const detail=document.createElement('details');detail.id='memePrestigeDetails';const toggle=document.createElement('summary');toggle.textContent='Voir les données détaillées et les risques';original.before(detail);detail.append(toggle,original);const observer=new MutationObserver(()=>{const text=original.textContent;const cards=[];for(const symbol of ['BTC','DOGE','SHIB']){const start=text.indexOf('● '+symbol+' ·');if(start<0)continue;const end=text.indexOf('● ',start+3);const chunk=text.slice(start,end<0?undefined:end);const m=chunk.match(/5 ans[^\\n]*?achat-conservation\\s+(-?[\\d.]+)\\s*%/);if(!m)continue;cards.push({symbol,value:Number(m[1]),details:chunk.split('\\n')[0]})}if(!cards.length)return;summary.replaceChildren();const grid=document.createElement('div');grid.className='meme-mini-grid';for(const card of cards){const el=document.createElement('div');el.className='meme-mini-card';const name=document.createElement('strong');name.textContent=card.symbol;const value=document.createElement('div');value.className='meme-value '+(card.value>=0?'positive':'negative');value.textContent=(card.value>0?'+':'')+card.value.toLocaleString('fr-FR')+' %';const sub=document.createElement('small');sub.textContent='Évolution sur 5 ans · achat-conservation';el.append(name,value,sub);grid.append(el)}summary.append(grid)});observer.observe(original,{childList:true,characterData:true,subtree:true});}}
 })();
+</script><style>
+#memeLongHistory{padding:0!important;overflow:hidden}
+#memeLongHistory>.meme-section-fold{padding:0}
+#memeLongHistory>.meme-section-fold>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 20px;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(21px,2.5vw,27px);font-weight:600;color:#f2ddb0}
+#memeLongHistory>.meme-section-fold>summary::-webkit-details-marker{display:none}
+#memeLongHistory>.meme-section-fold>summary::after{content:'⌄';font-family:system-ui,sans-serif;font-size:22px;transition:transform .2s}
+#memeLongHistory>.meme-section-fold[open]>summary::after{transform:rotate(180deg)}
+#memeLongHistory .meme-section-content{padding:0 20px 20px}
+#memeLongHistory .meme-section-content>h2{display:none}
+</style>
+<script>
+(function(){
+const section=document.getElementById('memeLongHistory');if(!section||section.querySelector('.meme-section-fold'))return;
+const fold=document.createElement('details');fold.className='meme-section-fold';
+const summary=document.createElement('summary');summary.textContent='Cryptomonnaies · Voir la liste et les études';
+const content=document.createElement('div');content.className='meme-section-content';
+while(section.firstChild)content.appendChild(section.firstChild);
+fold.append(summary,content);section.appendChild(fold);
+})();
 </script></body></html>
