@@ -258,7 +258,7 @@
   },
   "trades": [],
   "logs": [],
-  "updatedAt": "2026-11-10T05:13:01.839908+00:00",
+  "updatedAt": "2026-11-10T06:11:18.358841+00:00",
   "dataErrors": [],
   "savingsPolicy": {
     "provider": "Crypto.com App",
@@ -3275,7 +3275,7 @@
   ],
   "marketCacheAt": 1794287581.839908,
   "scanner": {
-    "updatedAt": "2026-11-10T05:13:01.839908+00:00",
+    "updatedAt": "2026-11-10T06:11:18.358841+00:00",
     "examined": 100,
     "eligible": 91,
     "shortlist": [
@@ -4127,7 +4127,7 @@
     "returnPercent": 0.0,
     "drawdownPercent": 0.0,
     "totalTrades": 0,
-    "lastCalculatedAt": "2026-11-10T05:13:01.839908+00:00",
+    "lastCalculatedAt": "2026-11-10T06:11:18.358841+00:00",
     "simulated": true
   },
   "equityHistory": [
@@ -4183,6 +4183,11 @@
     },
     {
       "at": "2026-11-10T05:13:01.839908+00:00",
+      "equity": 1600.0,
+      "cash": 1600.0
+    },
+    {
+      "at": "2026-11-10T06:11:18.358841+00:00",
       "equity": 1600.0,
       "cash": 1600.0
     }
