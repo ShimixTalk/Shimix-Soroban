@@ -18,7 +18,7 @@ def gh(method,body=None):
     return request(url,h)
 def valid_market_row(x):
     """Reject incomplete, negative or non-finite market data before any simulation decision."""
-    if not isinstance(x,dict) or not isinstance(x.get("id"),str) or not isinstance(x.get("symbol"),str):return False
+    if not isinstance(x,dict) or not isinstance(x.get("id"),str) or not x["id"] or not isinstance(x.get("symbol"),str) or not x["symbol"] or not isinstance(x.get("name"),str):return False
     for field in ("current_price","total_volume","market_cap"):
         value=x.get(field)
         if type(value) not in (int,float) or not math.isfinite(value) or value<=0:return False
