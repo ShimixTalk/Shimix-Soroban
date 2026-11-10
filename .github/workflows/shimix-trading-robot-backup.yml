@@ -38,6 +38,24 @@ jobs:
           (out/'manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
           print('Simulation state verified; SHA256:',manifest['sha256'])
           PY
+      - name: Verifier une restauration a blanc et l'empreinte SHA-256
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json,hashlib,pathlib,math
+          folder=pathlib.Path('shimix-backup')
+          manifest=json.loads((folder/'manifest.json').read_text(encoding='utf-8'))
+          raw=(folder/'robot-state.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()==manifest['sha256'], 'Empreinte de sauvegarde incorrecte'
+          restored=json.loads(raw.decode('utf-8'))
+          assert restored['realTradingEnabled'] is False, 'Mode reel non autorise'
+          assert restored['exchangeApiConnected'] is False, 'Exchange non autorise'
+          assert restored['capital']>0 and math.isfinite(restored['capital'])
+          assert restored['cash']>=0 and math.isfinite(restored['cash'])
+          assert all(isinstance(v,(int,float)) and math.isfinite(v) and v>=0 for v in restored['holdings'].values())
+          assert restored==json.loads(pathlib.Path('hub/trading/robot-state.json').read_text(encoding='utf-8'))
+          print('Restauration a blanc reussie. Aucune donnee de production modifiee.')
+          PY
       - name: Archiver la sauvegarde (30 jours)
         uses: actions/upload-artifact@v4
         with:
