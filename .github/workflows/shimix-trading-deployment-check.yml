@@ -1,0 +1,38 @@
+name: SHIMIX Trading - deployed site verification
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '43 6 * * *'
+permissions:
+  contents: read
+jobs:
+  check-deployed-site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify published app and security response headers
+        env:
+          TARGET: https://shimix-hub.onrender.com/trading/index.html
+        run: |
+          python3 - <<'PY'
+          import os,urllib.request,sys
+          req=urllib.request.Request(os.environ['TARGET'],headers={'User-Agent':'Shimix-Deployment-Check/1.0','Cache-Control':'no-cache'})
+          try:
+              with urllib.request.urlopen(req,timeout=25) as response:
+                  data=response.read(1000000).decode('utf-8',errors='replace')
+                  headers=response.headers
+                  checks={
+                    'HTTP success':response.status==200,
+                    'Encrypted backup': 'shimix-encrypted-backup-v1' in data,
+                    'Backup crypto self-test':'shimix-backup-selftest' in data,
+                    'Security status':'shimix-security-status-v1' in data,
+                    'Anti-sniffing header':headers.get('X-Content-Type-Options','').lower()=='nosniff',
+                    'Frame protection':headers.get('X-Frame-Options','').upper()=='DENY',
+                    'Referrer policy':bool(headers.get('Referrer-Policy')),
+                  }
+                  for name,ok in checks.items():print(('PASS' if ok else 'FAIL')+': '+name)
+                  if not all(checks.values()):sys.exit(1)
+          except Exception as e:
+              print('ERROR:',type(e).__name__,str(e))
+              sys.exit(1)
+          PY
