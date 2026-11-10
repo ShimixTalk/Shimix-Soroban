@@ -299,4 +299,32 @@ lines.push('','Les résultats passés ne prédisent pas les résultats futurs. L
 }catch(e){out.textContent='Étude en préparation : '+e.message+'. Le workflow GitHub doit réussir une première exécution.'}}
 section.querySelector('#memeReload').onclick=refresh;refresh();
 })();
+</script><script>
+(function(){
+const root=document.getElementById('robot');if(!root)return;
+const section=document.createElement('section');section.className='panel';section.id='shimixTalkCoach';
+section.innerHTML='<h2>Parler à mon robot · écrit et vocal</h2><p class="hint">Coach gratuit : réponses fondées sur les données de simulation disponibles, sans IA payante. Aucun ordre réel ne peut être lancé ici.</p><div id="shimixTalkMessages" style="max-height:300px;overflow:auto;display:grid;gap:8px;margin:12px 0" aria-live="polite"></div><div class="actions"><input id="shimixTalkInput" aria-label="Question au robot" placeholder="Pourquoi tu n’achètes pas de Bitcoin ?" style="flex:1;min-width:220px"><button type="button" id="shimixTalkSend">Envoyer</button><button type="button" id="shimixTalkMic" class="secondary">Micro</button><button type="button" id="shimixTalkVoice" class="secondary">Voix : activée</button></div><p class="hint" id="shimixTalkInfo">Le micro nécessite une autorisation du navigateur et une connexion sécurisée.</p>';
+const workspace=root.querySelector('.robot-workspace');if(workspace)workspace.after(section);else root.prepend(section);
+const messages=section.querySelector('#shimixTalkMessages'),input=section.querySelector('#shimixTalkInput'),info=section.querySelector('#shimixTalkInfo');
+let voice=true,remote=null;
+function line(who,txt){const el=document.createElement('div');el.style.cssText='background:#17283f;padding:11px;border-radius:9px;white-space:pre-line';const b=document.createElement('strong');b.textContent=who+' : ';el.append(b,document.createTextNode(txt));messages.append(el);messages.scrollTop=messages.scrollHeight}
+async function load(){try{const res=await fetch('https://raw.githubusercontent.com/ShimixTalk/Shimix-Soroban/shimix-hub/hub/trading/robot-state.json?t='+Date.now(),{cache:'no-store'});if(!res.ok)throw Error('indisponible');remote=await res.json();info.textContent='Données du robot autonome : '+new Date(remote.updatedAt).toLocaleString('fr-FR')+' · Mode simulation uniquement.'}catch(e){info.textContent='Données du robot autonome indisponibles : je ne peux pas confirmer son état actuel.'}}
+function answer(q){const v=q.toLowerCase(),d=remote;if(!d)return 'Je ne peux pas consulter mon état autonome pour le moment. Réessaie dans quelques instants.';
+const perf=d.performance||{},sc=d.scanner||{},signals=d.signals||{},trades=d.trades||[],hold=d.holdings||{};
+const coins={bitcoin:'BTC',btc:'BTC',ethereum:'ETH',eth:'ETH',solana:'SOL',sol:'SOL',shiba:'SHIB',shib:'SHIB',doge:'DOGE',dogecoin:'DOGE',xrp:'XRP'};
+const coin=Object.keys(coins).find(x=>v.includes(x));const sym=coin&&coins[coin];const sig=sym&&signals[sym];
+if(/acheter|acheté|achat|pourquoi.*pas/.test(v)&&sym)return sig?'Pour '+sym+', mon dernier signal est « '+sig.action+' » (RSI '+(sig.rsi??'non disponible')+'). '+(sig.reason||'')+'. Je ne peux pas garantir le prochain signal.':'Je n’ai pas de signal récent vérifié pour '+sym+'. Je préfère ne pas inventer une raison.';
+if(/vendu|vente|vendre/.test(v)){const t=trades.find(t=>t.action==='Vente'&&(!sym||t.asset===sym));return t?'Dernière vente fictive : '+t.asset+', '+t.amount+' € le '+new Date(t.date).toLocaleString('fr-FR')+'. Motif : '+(t.reason||'non enregistré')+'.':'Aucune vente fictive correspondante dans mon historique enregistré.'}
+if(/gagn|perd|perte|profit|rentab|performance|capital|argent|solde/.test(v))return 'Capital fictif de départ : '+d.capital+' €. Valeur actuelle : '+(perf.equity??d.value)+' €. Résultat net : '+(perf.netPnl??'indisponible')+' €. Nombre de transactions : '+(perf.totalTrades??trades.length)+'.';
+if(/position|portefeuille|investi|détien/.test(v)){const a=Object.entries(hold).filter(([,n])=>n>0);return a.length?'Positions fictives : '+a.map(([k,n])=>k+' ('+Number(n).toPrecision(5)+' unités)').join(', ')+'.':'Aucune position fictive ouverte actuellement.'}
+if(/surveill|analys|marché|crypto|aujourd|scanner/.test(v))return 'Dernier scan : '+(sc.examined??'?')+' cryptos examinées, '+(sc.eligible??'?')+' admissibles. Sélection : '+(sc.shortlist||[]).slice(0,12).map(x=>x.symbol).join(', ')+'. Dernière mise à jour : '+new Date(d.updatedAt).toLocaleString('fr-FR')+'.';
+if(sym)return sig?'Dernier signal '+sym+' : '+sig.action+' ; RSI '+(sig.rsi??'indisponible')+'.':'Je ne dispose pas d’un signal récent pour '+sym+'.';
+return 'Tu peux me demander : « Pourquoi pas de Bitcoin ? », « Quel est mon capital ? », « Quelles cryptos surveilles-tu ? », « Quelles positions as-tu ? » ou « Pourquoi as-tu vendu ? ». Je réponds uniquement avec les données enregistrées.'}
+function speak(t){if(!voice||!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=1;window.speechSynthesis.speak(u)}
+function send(){const q=input.value.trim();if(!q)return;line('Toi',q);const a=answer(q);line('Robot',a);speak(a);input.value=''}
+section.querySelector('#shimixTalkSend').onclick=send;input.addEventListener('keydown',e=>{if(e.key==='Enter')send()});
+section.querySelector('#shimixTalkVoice').onclick=function(){voice=!voice;this.textContent='Voix : '+(voice?'activée':'désactivée');if(!voice&&'speechSynthesis'in window)window.speechSynthesis.cancel()};
+section.querySelector('#shimixTalkMic').onclick=()=>{const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;if(!Recognition){info.textContent='Reconnaissance vocale indisponible dans ce navigateur. Utilise le clavier ou la dictée du système.';return}const rec=new Recognition();rec.lang='fr-FR';rec.interimResults=false;rec.onresult=e=>{input.value=e.results[0][0].transcript;send()};rec.onerror=e=>{info.textContent='Micro : '+e.error};try{rec.start()}catch(e){info.textContent='Micro indisponible : '+e.message}};
+line('Robot','Bonjour ! Pose-moi une question sur mes décisions, mes positions ou mon capital fictif.');load();section.addEventListener('click',e=>{if(e.target.id==='shimixTalkSend')load()});
+})();
 </script></body></html>
