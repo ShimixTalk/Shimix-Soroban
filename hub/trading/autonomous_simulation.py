@@ -62,9 +62,9 @@ def main():
         if len(p)<22:
             signals[sym]={"action":"Attente","reason":"Historique insuffisant"};continue
         rs=rsi(p);a=sma(p,7);b=sma(p,21);prev=sma(p[:-1],21)
-        action="Achat" if rs<35 and a>b and p[-1]>prev else "Vente" if rs>65 and a<b else "Attente"
+        action=("Achat" if (rs<35 and a>b and p[-1]>prev) or (state.get("experimentMode")=="aggressive_simulation" and rs<45 and p[-1]>p[-2] and a>=b*0.97) else "Vente" if rs>65 and a<b else "Attente")
         signals[sym]={"action":action,"rsi":round(rs,2),"sma7":a,"sma21":b,"reason":"RSI et moyennes mobiles"}
-        if action=="Achat":candidates.append((35-rs,sym))
+        if action=="Achat":candidates.append((45-rs,sym))
     state["signals"]=signals
     holdings=state.setdefault("holdings",{});cash=float(state.get("cash",1600));capital=float(state.get("capital",1600))
     # Never value an existing holding at zero when its quote is unavailable.
@@ -104,10 +104,11 @@ def main():
         last=state.setdefault("lastTrade",{})
         for _,sym in sorted(candidates,reverse=True):
             if len(state.get("trades",[]))>=1000:break
+            if len(holdings)>=int(state.get("maxPositions",8)):break
             if now.timestamp()-float(last.get(sym,0))<86400:continue
             price=float(prices.get(sym,0))
             if price<=0:continue
-            amount=min(float(state.get("maxOrder",40)),cash,capital*0.30-float(holdings.get(sym,0))*price)
+            amount=min(float(state.get("maxOrder",40)),cash,capital*float(state.get("maxPositionPercent",20))/100-float(holdings.get(sym,0))*price)
             if amount<1:continue
             # 0.1% fee, spread and slippage modeled conservatively.
             effective=price*(1+float(state.get("spreadRate",0.001))+float(state.get("slippageRate",0.001)))
