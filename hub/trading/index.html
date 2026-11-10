@@ -376,4 +376,109 @@ section.querySelector('#shimixTalkVoice').onclick=function(){voice=!voice;this.t
 section.querySelector('#shimixTalkMic').onclick=()=>{const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;if(!Recognition){info.textContent='Reconnaissance vocale indisponible dans ce navigateur. Utilise le clavier ou la dictée du système.';return}const rec=new Recognition();rec.lang='fr-FR';rec.interimResults=false;rec.onresult=e=>{input.value=e.results[0][0].transcript;send()};rec.onerror=e=>{info.textContent='Micro : '+e.error};try{rec.start()}catch(e){info.textContent='Micro indisponible : '+e.message}};
 line('Robot','Bonjour ! Pose-moi une question sur mes décisions, mes positions ou mon capital fictif.');load();
 })();
+</script><style>
+/* Prestige: compact first view and searchable learning library */
+#robot .robot-workspace{position:relative;top:auto;padding:8px 0 10px}
+#robot .robot-workspace h2{font-size:clamp(23px,3vw,31px)}
+#memeLongHistory{padding:17px 20px}
+#memeLongHistory .hint{margin:6px 0}
+#memeLongHistory #memeResults{white-space:normal!important}
+.meme-mini-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:13px 0}
+.meme-mini-card{padding:14px;border:1px solid rgba(217,190,134,.24);border-radius:12px;background:rgba(12,21,35,.65)}
+.meme-mini-card strong{display:block;font:600 23px 'Cormorant Garamond',Georgia,serif;color:#f2ddb0}
+.meme-mini-card .meme-value{font-size:21px;font-weight:700;margin:5px 0}
+.meme-mini-card small{display:block;line-height:1.5}
+#memeLongHistory details{margin-top:12px;border-top:1px solid rgba(217,190,134,.2);padding-top:11px}
+#memeLongHistory details summary{cursor:pointer;color:#f2ddb0}
+#lexiconSearch{position:sticky;top:0;z-index:2;box-shadow:0 4px 20px #0003}
+.lexicon-added{border-bottom:1px solid rgba(217,190,134,.18);padding:12px 3px}
+.lexicon-added summary{cursor:pointer;font-weight:600;color:#eedbb4}
+@media(max-width:620px){.meme-mini-grid{grid-template-columns:1fr 1fr}.meme-mini-card{padding:11px}.meme-mini-card strong{font-size:20px}}
+</style>
+<script>
+(function(){
+const terms=[
+['Backtest','Simulation d’une stratégie sur des cours historiques.','Comparer la stratégie aux achats conservés, frais inclus.'],
+['Surapprentissage','Stratégie trop adaptée au passé et fragile sur de nouvelles données.','Tester sur une période jamais utilisée pour régler les paramètres.'],
+['Walk-forward','Tests successifs sur des périodes futures distinctes.','Régler sur une fenêtre puis évaluer sur la suivante.'],
+['Hors échantillon','Données gardées de côté pour évaluer honnêtement une stratégie.','Ne pas choisir les règles après avoir vu ces résultats.'],
+['Paper trading','Transactions fictives suivant les cours réels.','Vérifier aussi les frais et les ordres manqués.'],
+['Drawdown','Baisse entre un sommet et le creux suivant du portefeuille.','Un gain final peut cacher une forte chute intermédiaire.'],
+['Sharpe','Rendement excédentaire rapporté à la volatilité.','Un ratio élevé sur peu de données est peu fiable.'],
+['Sortino','Rendement rapporté surtout à la volatilité négative.','Complète le Sharpe sans supprimer le risque.'],
+['Calmar','Rendement annualisé divisé par le drawdown maximal.','Sensibilité forte à la période choisie.'],
+['Profit factor','Gains bruts divisés par pertes brutes.','Au-dessus de 1 ne garantit pas un bénéfice après frais.'],
+['Espérance de gain','Gain ou perte moyen attendu par transaction.','Combiner taux de réussite et taille des gains/pertes.'],
+['Taux de réussite','Part des transactions clôturées avec un gain.','90 % de réussite peut rester déficitaire.'],
+['Ratio gain/risque','Gain potentiel comparé à la perte prévue.','Un ratio 2 signifie viser 2 € pour 1 € risqué.'],
+['Frais maker','Frais pour un ordre ajoutant de la liquidité au carnet.','Le barème dépend de la plateforme.'],
+['Frais taker','Frais pour un ordre exécuté contre le carnet existant.','Peut coûter davantage qu’un ordre maker.'],
+['Slippage','Écart entre le prix attendu et le prix exécuté.','Peut augmenter lors de fortes variations.'],
+['Liquidité','Facilité d’acheter ou vendre sans déplacer fortement le prix.','Les petites cryptos peuvent être peu liquides.'],
+['Carnet d’ordres','Liste des achats et ventes en attente sur une plateforme.','La profondeur visible peut disparaître rapidement.'],
+['Profondeur de marché','Quantités disponibles à différents niveaux de prix.','Un gros ordre peut traverser plusieurs niveaux.'],
+['Spread','Écart entre meilleur prix acheteur et vendeur.','Il représente un coût implicite de transaction.'],
+['Volatilité','Amplitude des variations de prix.','Plus elle augmente, plus le risque de sortie forcée grandit.'],
+['ATR','Amplitude moyenne des variations sur une période.','Utile pour ajuster un stop à la volatilité.'],
+['RSI','Indicateur de vitesse et d’intensité des variations.','Surachat ne veut pas forcément dire baisse imminente.'],
+['MACD','Différence entre moyennes mobiles pour analyser le momentum.','Ses signaux arrivent parfois après le mouvement.'],
+['EMA','Moyenne mobile donnant plus de poids aux cours récents.','Réagit plus vite, avec davantage de faux signaux.'],
+['SMA','Moyenne simple des derniers cours.','Peut servir de filtre de tendance.'],
+['Bollinger','Bandes autour d’une moyenne selon la volatilité.','Toucher une bande ne suffit pas pour acheter.'],
+['Momentum','Force du mouvement récent du prix.','Peut s’inverser brutalement.'],
+['Breakout','Franchissement d’un niveau technique.','Attention aux fausses cassures.'],
+['Fausse cassure','Prix franchissant brièvement un seuil puis revenant en arrière.','Un filtre de volume peut aider sans garantir le signal.'],
+['Support','Zone où des acheteurs ont historiquement réagi.','Ce n’est pas un plancher garanti.'],
+['Résistance','Zone où des vendeurs ont historiquement réagi.','Une résistance peut être franchie.'],
+['Stop-loss','Ordre ou règle de sortie pour limiter une perte.','Le prix réel peut dépasser le seuil prévu.'],
+['Take-profit','Ordre ou règle de sortie après un gain cible.','Peut couper une tendance encore favorable.'],
+['Trailing stop','Seuil de sortie qui suit le cours favorablement.','Peut déclencher trop tôt sur un marché agité.'],
+['Position sizing','Choix de la taille d’une opération selon le risque.','Ne pas confondre montant acheté et perte maximale.'],
+['Exposition','Part du portefeuille soumise aux mouvements du marché.','Plusieurs cryptos corrélées augmentent le risque commun.'],
+['Corrélation','Tendance de deux actifs à évoluer ensemble.','Elle peut changer en période de crise.'],
+['Diversification','Répartition des investissements entre différents actifs.','Ne protège pas contre toutes les baisses.'],
+['Rebalancement','Retour à une répartition cible du portefeuille.','Chaque ajustement peut entraîner des frais.'],
+['DCA','Achats réguliers pour lisser les prix d’entrée.','Ne garantit ni profit ni protection contre une baisse.'],
+['HODL','Conserver un actif longtemps malgré les variations.','Peut subir de très fortes baisses.'],
+['Market order','Ordre exécuté au meilleur prix disponible.','Le prix final n’est pas garanti.'],
+['Limit order','Ordre avec un prix maximal d’achat ou minimal de vente.','Peut ne jamais être exécuté.'],
+['Ordre OCO','Deux ordres liés : l’exécution de l’un annule l’autre.','Vérifier les fonctionnalités exactes de la plateforme.'],
+['API','Interface permettant à deux logiciels de communiquer.','Les clés doivent rester sur un serveur sécurisé.'],
+['Clé API','Identifiant secret autorisant certaines opérations.','Ne jamais l’afficher dans une page web publique.'],
+['Webhook','Message automatique envoyé lors d’un événement.','Authentifier les appels reçus.'],
+['Rate limit','Nombre maximal de requêtes autorisées sur une période.','Prévoir une attente et un cache pour éviter les erreurs 429.'],
+['Latence','Délai entre un signal et son traitement.','Peut modifier le prix réellement obtenu.'],
+['Panne de flux','Absence ou retard des données de marché.','Suspendre les décisions si les données sont périmées.'],
+['Kill switch','Arrêt d’urgence des nouvelles opérations.','À tester régulièrement en simulation.'],
+['Circuit breaker','Suspension automatique après un seuil de perte ou anomalie.','Ne garantit pas la valeur finale du portefeuille.'],
+['Risque de contrepartie','Risque qu’un intermédiaire ne remplisse pas ses obligations.','Diversifier les dépendances techniques et financières.'],
+['Risque de liquidité','Risque de ne pas pouvoir sortir au prix voulu.','Surveiller volume, spread et profondeur.'],
+['Stablecoin','Jeton visant une valeur stable face à une monnaie.','La parité peut être perdue.'],
+['Depeg','Perte de la parité visée par un stablecoin.','Un stablecoin n’est pas équivalent à un dépôt garanti.'],
+['Market cap','Prix d’un jeton multiplié par le nombre de jetons en circulation.','Ce n’est pas l’argent réellement investi dans le projet.'],
+['FDV','Valorisation théorique avec tous les jetons prévus.','Peut révéler un risque de dilution future.'],
+['Tokenomics','Règles d’émission, d’offre et d’usage d’un jeton.','Vérifier les déblocages de jetons.'],
+['Halving','Réduction périodique de la récompense de minage Bitcoin.','N’assure pas une hausse des prix.'],
+['Proof of Work','Consensus reposant sur des calculs et du minage.','Consomme de l’énergie et implique des coûts matériels.'],
+['Proof of Stake','Consensus reposant sur des actifs immobilisés.','Les règles et risques dépendent du réseau.'],
+['Staking','Immobilisation ou délégation de jetons contre des récompenses potentielles.','Risques techniques, de blocage et de baisse du cours.'],
+['Smart contract','Programme exécuté sur une blockchain.','Un bug peut entraîner une perte irréversible.'],
+['Gas fees','Frais payés pour effectuer une transaction sur une blockchain.','Peuvent varier fortement selon la congestion.'],
+['Bridge','Service transférant des actifs entre blockchains.','Risque technique ou de piratage.'],
+['Cold wallet','Portefeuille dont les clés restent hors ligne.','La sauvegarde de la phrase de récupération est essentielle.'],
+['Seed phrase','Suite de mots permettant de restaurer un portefeuille.','Ne jamais la transmettre à une application ou un interlocuteur.'],
+['2FA','Deuxième facteur de vérification à la connexion.','Préférer une application d’authentification ou clé matérielle.'],
+['Phishing','Tentative de voler des identifiants via une fausse interface.','Vérifier domaine et adresse avant de se connecter.'],
+['Rendement annualisé','Taux équivalent sur un an selon une méthode de calcul.','Ne pas extrapoler un bon mois sur douze mois.'],
+['Rendement net','Performance après déduction des coûts définis.','Préciser si impôts et change sont inclus.'],
+['Benchmark','Référence servant à comparer une stratégie.','Comparer au Bitcoin et à un portefeuille sans trading.'],
+['Biais de survivance','Oubli des actifs disparus dans une analyse historique.','Inclure les cryptos retirées des plateformes lorsque possible.'],
+['Biais du futur','Utilisation accidentelle d’une information inconnue au moment du signal.','Un backtest ainsi construit est trompeur.'],
+['Monte Carlo','Simulation de nombreux scénarios aléatoires.','Les hypothèses conditionnent entièrement les résultats.'],
+['Value at Risk','Estimation statistique d’une perte sous certaines hypothèses.','N’est pas une limite maximale garantie.'],
+['Stress test','Évaluation d’un portefeuille lors de scénarios extrêmes.','Tester aussi les pannes et les spreads anormaux.']
+];
+const lex=document.getElementById('lexiconEntries');if(lex&&!document.getElementById('lexiconExtended')){const marker=document.createElement('div');marker.id='lexiconExtended';lex.append(marker);const existing=new Set([...lex.querySelectorAll('.lexicon-entry summary')].map(x=>x.textContent.trim().toLocaleLowerCase('fr')));let count=0;for(const [name,meaning,warning] of terms){if(existing.has(name.toLocaleLowerCase('fr')))continue;const details=document.createElement('details');details.className='lexicon-entry lexicon-added';details.dataset.search=[name,meaning,warning].join(' ').toLocaleLowerCase('fr');const summary=document.createElement('summary');summary.textContent=name;const p=document.createElement('p');p.textContent=meaning;const caution=document.createElement('p');caution.className='hint';caution.textContent='À retenir : '+warning;details.append(summary,p,caution);marker.append(details);count++}const title=document.querySelector('#tradingLexicon h2');if(title)title.textContent='Académie trading · '+document.querySelectorAll('.lexicon-entry').length+' notions';}
+const meme=document.getElementById('memeLongHistory');if(meme){const h=meme.querySelector('h2');if(h)h.textContent='Performances historiques · BTC, DOGE, SHIB';const intro=meme.querySelector('p.hint');if(intro)intro.textContent='Comparaison historique des cours, sans prévision de gains.';const out=meme.querySelector('#memeResults');if(out){const original=out;const summary=document.createElement('div');summary.id='memePrestigeSummary';original.before(summary);const detail=document.createElement('details');detail.id='memePrestigeDetails';const toggle=document.createElement('summary');toggle.textContent='Voir les données détaillées et les risques';original.before(detail);detail.append(toggle,original);const observer=new MutationObserver(()=>{const text=original.textContent;const cards=[];for(const symbol of ['BTC','DOGE','SHIB']){const start=text.indexOf('● '+symbol+' ·');if(start<0)continue;const end=text.indexOf('● ',start+3);const chunk=text.slice(start,end<0?undefined:end);const m=chunk.match(/5 ans[^\\n]*?achat-conservation\\s+(-?[\\d.]+)\\s*%/);if(!m)continue;cards.push({symbol,value:Number(m[1]),details:chunk.split('\\n')[0]})}if(!cards.length)return;summary.replaceChildren();const grid=document.createElement('div');grid.className='meme-mini-grid';for(const card of cards){const el=document.createElement('div');el.className='meme-mini-card';const name=document.createElement('strong');name.textContent=card.symbol;const value=document.createElement('div');value.className='meme-value '+(card.value>=0?'positive':'negative');value.textContent=(card.value>0?'+':'')+card.value.toLocaleString('fr-FR')+' %';const sub=document.createElement('small');sub.textContent='Évolution sur 5 ans · achat-conservation';el.append(name,value,sub);grid.append(el)}summary.append(grid)});observer.observe(original,{childList:true,characterData:true,subtree:true});}}
+})();
 </script></body></html>
