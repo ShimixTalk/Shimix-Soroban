@@ -284,7 +284,7 @@
     "2026-11-10T16:25:05.455381+00:00 : achat FICTIF BTC pour 120.0 EUR",
     "Simulation expérimentale activée : plafond d'arrêt portefeuille 50 %, ordre max 120 €, 8 positions, aucun ordre réel."
   ],
-  "updatedAt": "2026-11-10T19:17:30.373749+00:00",
+  "updatedAt": "2026-11-10T20:07:29.673091+00:00",
   "dataErrors": [],
   "savingsPolicy": {
     "provider": "Crypto.com App",
@@ -3301,7 +3301,7 @@
   ],
   "marketCacheAt": 1794338250.373749,
   "scanner": {
-    "updatedAt": "2026-11-10T19:17:30.373749+00:00",
+    "updatedAt": "2026-11-10T20:07:29.673091+00:00",
     "examined": 100,
     "eligible": 89,
     "shortlist": [
@@ -4664,7 +4664,7 @@
     "returnPercent": -0.017,
     "drawdownPercent": 0.017,
     "totalTrades": 2,
-    "lastCalculatedAt": "2026-11-10T19:17:30.373749+00:00",
+    "lastCalculatedAt": "2026-11-10T20:07:29.673091+00:00",
     "simulated": true
   },
   "equityHistory": [
@@ -4790,6 +4790,11 @@
     },
     {
       "at": "2026-11-10T19:17:30.373749+00:00",
+      "equity": 1599.73,
+      "cash": 1360.0
+    },
+    {
+      "at": "2026-11-10T20:07:29.673091+00:00",
       "equity": 1599.73,
       "cash": 1360.0
     }
