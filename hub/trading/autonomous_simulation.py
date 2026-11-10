@@ -40,7 +40,9 @@ def main():
     cache=state.get("marketCache",{})
     cache_age=now.timestamp()-float(state.get("marketCacheAt",0))
     try:
-        market=cache if cache and cache_age<3600 else request(API+"/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h")
+        market=cache if isinstance(cache,list) and cache and 0<=cache_age<3600 else request(API+"/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h")
+        if not isinstance(market,list) or len(market)<30 or sum(valid_market_row(x) for x in market)<20:
+            raise ValueError("Données de marché incomplètes ou corrompues : simulation suspendue")
         if market is not cache:
             state["marketCache"]=market
             state["marketCacheAt"]=now.timestamp()
