@@ -1,35 +1,1160 @@
 {
-  "updatedAt": "2026-11-09T19:59:35.461970+00:00",
-  "source": "CryptoCompare histoday public API",
+  "updatedAt": "2026-11-10T08:06:50.024324+00:00",
+  "source": "Binance public spot daily candles (USDT)",
   "currency": "USD",
   "assets": {
     "SHIB": {
-      "availableFrom": null,
-      "points": 0,
+      "availableFrom": "2021-05-10",
+      "points": 2011,
       "fiveYears": {
-        "status": "indisponible"
+        "status": "ok",
+        "start": "2021-11-10",
+        "end": "2026-11-10",
+        "points": 1827,
+        "startPriceUSD": 5.027e-05,
+        "endPriceUSD": 4.46e-06,
+        "buyHoldPercent": -91.13,
+        "maxDrawdownPercent": -92.73,
+        "annualizedVolatilityPercent": 92.39,
+        "coverageYears": 5.0
       },
       "tenYears": {
-        "status": "indisponible"
+        "status": "partiel",
+        "start": "2021-05-10",
+        "end": "2026-11-10",
+        "points": 2011,
+        "startPriceUSD": 3.466e-05,
+        "endPriceUSD": 4.46e-06,
+        "buyHoldPercent": -87.13,
+        "maxDrawdownPercent": -94.8,
+        "annualizedVolatilityPercent": 113.35,
+        "coverageYears": 5.5
       },
-      "errors": [
-        "HTTP Error 401: Unauthorized"
-      ],
-      "monthly": []
+      "errors": [],
+      "monthly": [
+        {
+          "date": "2021-06-01",
+          "priceUSD": 8.82e-06
+        },
+        {
+          "date": "2021-07-01",
+          "priceUSD": 8.32e-06
+        },
+        {
+          "date": "2021-08-01",
+          "priceUSD": 6.3e-06
+        },
+        {
+          "date": "2021-09-01",
+          "priceUSD": 7.19e-06
+        },
+        {
+          "date": "2021-10-01",
+          "priceUSD": 7.7e-06
+        },
+        {
+          "date": "2021-11-01",
+          "priceUSD": 7.15e-05
+        },
+        {
+          "date": "2021-12-01",
+          "priceUSD": 4.414e-05
+        },
+        {
+          "date": "2022-01-01",
+          "priceUSD": 3.415e-05
+        },
+        {
+          "date": "2022-02-01",
+          "priceUSD": 2.168e-05
+        },
+        {
+          "date": "2022-03-01",
+          "priceUSD": 2.713e-05
+        },
+        {
+          "date": "2022-04-01",
+          "priceUSD": 2.614e-05
+        },
+        {
+          "date": "2022-05-01",
+          "priceUSD": 2.155e-05
+        },
+        {
+          "date": "2022-06-01",
+          "priceUSD": 1.089e-05
+        },
+        {
+          "date": "2022-07-01",
+          "priceUSD": 1.003e-05
+        },
+        {
+          "date": "2022-08-01",
+          "priceUSD": 1.194e-05
+        },
+        {
+          "date": "2022-09-01",
+          "priceUSD": 1.227e-05
+        },
+        {
+          "date": "2022-10-01",
+          "priceUSD": 1.117e-05
+        },
+        {
+          "date": "2022-11-01",
+          "priceUSD": 1.285e-05
+        },
+        {
+          "date": "2022-12-01",
+          "priceUSD": 9.21e-06
+        },
+        {
+          "date": "2023-01-01",
+          "priceUSD": 8.12e-06
+        },
+        {
+          "date": "2023-02-01",
+          "priceUSD": 1.197e-05
+        },
+        {
+          "date": "2023-03-01",
+          "priceUSD": 1.226e-05
+        },
+        {
+          "date": "2023-04-01",
+          "priceUSD": 1.118e-05
+        },
+        {
+          "date": "2023-05-01",
+          "priceUSD": 9.96e-06
+        },
+        {
+          "date": "2023-06-01",
+          "priceUSD": 8.45e-06
+        },
+        {
+          "date": "2023-07-01",
+          "priceUSD": 7.64e-06
+        },
+        {
+          "date": "2023-08-01",
+          "priceUSD": 8.43e-06
+        },
+        {
+          "date": "2023-09-01",
+          "priceUSD": 7.9e-06
+        },
+        {
+          "date": "2023-10-01",
+          "priceUSD": 7.52e-06
+        },
+        {
+          "date": "2023-11-01",
+          "priceUSD": 7.97e-06
+        },
+        {
+          "date": "2023-12-01",
+          "priceUSD": 8.37e-06
+        },
+        {
+          "date": "2024-01-01",
+          "priceUSD": 1.068e-05
+        },
+        {
+          "date": "2024-02-01",
+          "priceUSD": 9.03e-06
+        },
+        {
+          "date": "2024-03-01",
+          "priceUSD": 1.687e-05
+        },
+        {
+          "date": "2024-04-01",
+          "priceUSD": 2.864e-05
+        },
+        {
+          "date": "2024-05-01",
+          "priceUSD": 2.266e-05
+        },
+        {
+          "date": "2024-06-01",
+          "priceUSD": 2.526e-05
+        },
+        {
+          "date": "2024-07-01",
+          "priceUSD": 1.709e-05
+        },
+        {
+          "date": "2024-08-01",
+          "priceUSD": 1.579e-05
+        },
+        {
+          "date": "2024-09-01",
+          "priceUSD": 1.316e-05
+        },
+        {
+          "date": "2024-10-01",
+          "priceUSD": 1.642e-05
+        },
+        {
+          "date": "2024-11-01",
+          "priceUSD": 1.758e-05
+        },
+        {
+          "date": "2024-12-01",
+          "priceUSD": 3.086e-05
+        },
+        {
+          "date": "2025-01-01",
+          "priceUSD": 2.17e-05
+        },
+        {
+          "date": "2025-02-01",
+          "priceUSD": 1.76e-05
+        },
+        {
+          "date": "2025-03-01",
+          "priceUSD": 1.365e-05
+        },
+        {
+          "date": "2025-04-01",
+          "priceUSD": 1.269e-05
+        },
+        {
+          "date": "2025-05-01",
+          "priceUSD": 1.35e-05
+        },
+        {
+          "date": "2025-06-01",
+          "priceUSD": 1.295e-05
+        },
+        {
+          "date": "2025-07-01",
+          "priceUSD": 1.119e-05
+        },
+        {
+          "date": "2025-08-01",
+          "priceUSD": 1.206e-05
+        },
+        {
+          "date": "2025-09-01",
+          "priceUSD": 1.211e-05
+        },
+        {
+          "date": "2025-10-01",
+          "priceUSD": 1.239e-05
+        },
+        {
+          "date": "2025-11-01",
+          "priceUSD": 1.02e-05
+        },
+        {
+          "date": "2025-12-01",
+          "priceUSD": 7.97e-06
+        },
+        {
+          "date": "2026-01-01",
+          "priceUSD": 7.46e-06
+        },
+        {
+          "date": "2026-02-01",
+          "priceUSD": 6.63e-06
+        },
+        {
+          "date": "2026-03-01",
+          "priceUSD": 5.54e-06
+        },
+        {
+          "date": "2026-04-01",
+          "priceUSD": 6e-06
+        },
+        {
+          "date": "2026-05-01",
+          "priceUSD": 6.27e-06
+        },
+        {
+          "date": "2026-06-01",
+          "priceUSD": 5.53e-06
+        },
+        {
+          "date": "2026-07-01",
+          "priceUSD": 4.29e-06
+        },
+        {
+          "date": "2026-08-01",
+          "priceUSD": 4.82e-06
+        },
+        {
+          "date": "2026-09-01",
+          "priceUSD": 5.14e-06
+        },
+        {
+          "date": "2026-10-01",
+          "priceUSD": 5.79e-06
+        },
+        {
+          "date": "2026-11-01",
+          "priceUSD": 4.71e-06
+        }
+      ]
     },
     "DOGE": {
-      "availableFrom": null,
-      "points": 0,
+      "availableFrom": "2019-07-05",
+      "points": 2686,
       "fiveYears": {
-        "status": "indisponible"
+        "status": "ok",
+        "start": "2021-11-10",
+        "end": "2026-11-10",
+        "points": 1827,
+        "startPriceUSD": 0.2553,
+        "endPriceUSD": 0.07006,
+        "buyHoldPercent": -72.56,
+        "maxDrawdownPercent": -85.21,
+        "annualizedVolatilityPercent": 88.99,
+        "coverageYears": 5.0
       },
       "tenYears": {
-        "status": "indisponible"
+        "status": "partiel",
+        "start": "2019-07-05",
+        "end": "2026-11-10",
+        "points": 2686,
+        "startPriceUSD": 0.0038701,
+        "endPriceUSD": 0.07006,
+        "buyHoldPercent": 1710.29,
+        "maxDrawdownPercent": -92.33,
+        "annualizedVolatilityPercent": 186.11,
+        "coverageYears": 7.35
       },
-      "errors": [
-        "HTTP Error 401: Unauthorized"
-      ],
-      "monthly": []
+      "errors": [],
+      "monthly": [
+        {
+          "date": "2019-08-01",
+          "priceUSD": 0.0029004
+        },
+        {
+          "date": "2019-09-01",
+          "priceUSD": 0.0024603
+        },
+        {
+          "date": "2019-10-01",
+          "priceUSD": 0.0023503
+        },
+        {
+          "date": "2019-11-01",
+          "priceUSD": 0.0025932
+        },
+        {
+          "date": "2019-12-01",
+          "priceUSD": 0.0022648
+        },
+        {
+          "date": "2020-01-01",
+          "priceUSD": 0.0020245
+        },
+        {
+          "date": "2020-02-01",
+          "priceUSD": 0.002417
+        },
+        {
+          "date": "2020-03-01",
+          "priceUSD": 0.0022794
+        },
+        {
+          "date": "2020-04-01",
+          "priceUSD": 0.0018631
+        },
+        {
+          "date": "2020-05-01",
+          "priceUSD": 0.0024749
+        },
+        {
+          "date": "2020-06-01",
+          "priceUSD": 0.0026452
+        },
+        {
+          "date": "2020-07-01",
+          "priceUSD": 0.0023203
+        },
+        {
+          "date": "2020-08-01",
+          "priceUSD": 0.0037144
+        },
+        {
+          "date": "2020-09-01",
+          "priceUSD": 0.0032411
+        },
+        {
+          "date": "2020-10-01",
+          "priceUSD": 0.0026246
+        },
+        {
+          "date": "2020-11-01",
+          "priceUSD": 0.0025745
+        },
+        {
+          "date": "2020-12-01",
+          "priceUSD": 0.0033211
+        },
+        {
+          "date": "2021-01-01",
+          "priceUSD": 0.00568
+        },
+        {
+          "date": "2021-02-01",
+          "priceUSD": 0.0348173
+        },
+        {
+          "date": "2021-03-01",
+          "priceUSD": 0.0505933
+        },
+        {
+          "date": "2021-04-01",
+          "priceUSD": 0.062151
+        },
+        {
+          "date": "2021-05-01",
+          "priceUSD": 0.39087
+        },
+        {
+          "date": "2021-06-01",
+          "priceUSD": 0.37006
+        },
+        {
+          "date": "2021-07-01",
+          "priceUSD": 0.24381
+        },
+        {
+          "date": "2021-08-01",
+          "priceUSD": 0.20424
+        },
+        {
+          "date": "2021-09-01",
+          "priceUSD": 0.2943
+        },
+        {
+          "date": "2021-10-01",
+          "priceUSD": 0.2226
+        },
+        {
+          "date": "2021-11-01",
+          "priceUSD": 0.2716
+        },
+        {
+          "date": "2021-12-01",
+          "priceUSD": 0.2093
+        },
+        {
+          "date": "2022-01-01",
+          "priceUSD": 0.1732
+        },
+        {
+          "date": "2022-02-01",
+          "priceUSD": 0.1423
+        },
+        {
+          "date": "2022-03-01",
+          "priceUSD": 0.134
+        },
+        {
+          "date": "2022-04-01",
+          "priceUSD": 0.1413
+        },
+        {
+          "date": "2022-05-01",
+          "priceUSD": 0.1327
+        },
+        {
+          "date": "2022-06-01",
+          "priceUSD": 0.08105
+        },
+        {
+          "date": "2022-07-01",
+          "priceUSD": 0.06644
+        },
+        {
+          "date": "2022-08-01",
+          "priceUSD": 0.06845
+        },
+        {
+          "date": "2022-09-01",
+          "priceUSD": 0.06239
+        },
+        {
+          "date": "2022-10-01",
+          "priceUSD": 0.06059
+        },
+        {
+          "date": "2022-11-01",
+          "priceUSD": 0.14211
+        },
+        {
+          "date": "2022-12-01",
+          "priceUSD": 0.10175
+        },
+        {
+          "date": "2023-01-01",
+          "priceUSD": 0.07024
+        },
+        {
+          "date": "2023-02-01",
+          "priceUSD": 0.09403
+        },
+        {
+          "date": "2023-03-01",
+          "priceUSD": 0.08193
+        },
+        {
+          "date": "2023-04-01",
+          "priceUSD": 0.08181
+        },
+        {
+          "date": "2023-05-01",
+          "priceUSD": 0.07882
+        },
+        {
+          "date": "2023-06-01",
+          "priceUSD": 0.07142
+        },
+        {
+          "date": "2023-07-01",
+          "priceUSD": 0.06851
+        },
+        {
+          "date": "2023-08-01",
+          "priceUSD": 0.07815
+        },
+        {
+          "date": "2023-09-01",
+          "priceUSD": 0.06388
+        },
+        {
+          "date": "2023-10-01",
+          "priceUSD": 0.06319
+        },
+        {
+          "date": "2023-11-01",
+          "priceUSD": 0.06894
+        },
+        {
+          "date": "2023-12-01",
+          "priceUSD": 0.08385
+        },
+        {
+          "date": "2024-01-01",
+          "priceUSD": 0.09199
+        },
+        {
+          "date": "2024-02-01",
+          "priceUSD": 0.07937
+        },
+        {
+          "date": "2024-03-01",
+          "priceUSD": 0.13934
+        },
+        {
+          "date": "2024-04-01",
+          "priceUSD": 0.20503
+        },
+        {
+          "date": "2024-05-01",
+          "priceUSD": 0.13021
+        },
+        {
+          "date": "2024-06-01",
+          "priceUSD": 0.16031
+        },
+        {
+          "date": "2024-07-01",
+          "priceUSD": 0.12352
+        },
+        {
+          "date": "2024-08-01",
+          "priceUSD": 0.11899
+        },
+        {
+          "date": "2024-09-01",
+          "priceUSD": 0.09509
+        },
+        {
+          "date": "2024-10-01",
+          "priceUSD": 0.10685
+        },
+        {
+          "date": "2024-11-01",
+          "priceUSD": 0.15916
+        },
+        {
+          "date": "2024-12-01",
+          "priceUSD": 0.44045
+        },
+        {
+          "date": "2025-01-01",
+          "priceUSD": 0.32513
+        },
+        {
+          "date": "2025-02-01",
+          "priceUSD": 0.30792
+        },
+        {
+          "date": "2025-03-01",
+          "priceUSD": 0.20673
+        },
+        {
+          "date": "2025-04-01",
+          "priceUSD": 0.17398
+        },
+        {
+          "date": "2025-05-01",
+          "priceUSD": 0.18065
+        },
+        {
+          "date": "2025-06-01",
+          "priceUSD": 0.19363
+        },
+        {
+          "date": "2025-07-01",
+          "priceUSD": 0.15778
+        },
+        {
+          "date": "2025-08-01",
+          "priceUSD": 0.20097
+        },
+        {
+          "date": "2025-09-01",
+          "priceUSD": 0.21073
+        },
+        {
+          "date": "2025-10-01",
+          "priceUSD": 0.24906
+        },
+        {
+          "date": "2025-11-01",
+          "priceUSD": 0.18736
+        },
+        {
+          "date": "2025-12-01",
+          "priceUSD": 0.13547
+        },
+        {
+          "date": "2026-01-01",
+          "priceUSD": 0.12683
+        },
+        {
+          "date": "2026-02-01",
+          "priceUSD": 0.10426
+        },
+        {
+          "date": "2026-03-01",
+          "priceUSD": 0.0919
+        },
+        {
+          "date": "2026-04-01",
+          "priceUSD": 0.09219
+        },
+        {
+          "date": "2026-05-01",
+          "priceUSD": 0.10853
+        },
+        {
+          "date": "2026-06-01",
+          "priceUSD": 0.1011
+        },
+        {
+          "date": "2026-07-01",
+          "priceUSD": 0.07222
+        },
+        {
+          "date": "2026-08-01",
+          "priceUSD": 0.06914
+        },
+        {
+          "date": "2026-09-01",
+          "priceUSD": 0.08167
+        },
+        {
+          "date": "2026-10-01",
+          "priceUSD": 0.09437
+        },
+        {
+          "date": "2026-11-01",
+          "priceUSD": 0.07552
+        }
+      ]
+    },
+    "BTC": {
+      "availableFrom": "2017-08-17",
+      "points": 3373,
+      "fiveYears": {
+        "status": "ok",
+        "start": "2021-11-10",
+        "end": "2026-11-10",
+        "points": 1827,
+        "startPriceUSD": 64882.43,
+        "endPriceUSD": 74810.0,
+        "buyHoldPercent": 15.3,
+        "maxDrawdownPercent": -75.91,
+        "annualizedVolatilityPercent": 50.71,
+        "coverageYears": 5.0
+      },
+      "tenYears": {
+        "status": "partiel",
+        "start": "2017-08-17",
+        "end": "2026-11-10",
+        "points": 3373,
+        "startPriceUSD": 4285.08,
+        "endPriceUSD": 74810.0,
+        "buyHoldPercent": 1645.83,
+        "maxDrawdownPercent": -83.19,
+        "annualizedVolatilityPercent": 66.52,
+        "coverageYears": 9.23
+      },
+      "errors": [],
+      "monthly": [
+        {
+          "date": "2017-09-01",
+          "priceUSD": 4834.91
+        },
+        {
+          "date": "2017-10-01",
+          "priceUSD": 4378.48
+        },
+        {
+          "date": "2017-11-01",
+          "priceUSD": 6753.98
+        },
+        {
+          "date": "2017-12-01",
+          "priceUSD": 10782.99
+        },
+        {
+          "date": "2018-01-01",
+          "priceUSD": 13380.0
+        },
+        {
+          "date": "2018-02-01",
+          "priceUSD": 9224.52
+        },
+        {
+          "date": "2018-03-01",
+          "priceUSD": 10920.0
+        },
+        {
+          "date": "2018-04-01",
+          "priceUSD": 6813.01
+        },
+        {
+          "date": "2018-05-01",
+          "priceUSD": 9071.48
+        },
+        {
+          "date": "2018-06-01",
+          "priceUSD": 7521.01
+        },
+        {
+          "date": "2018-07-01",
+          "priceUSD": 6356.81
+        },
+        {
+          "date": "2018-08-01",
+          "priceUSD": 7604.58
+        },
+        {
+          "date": "2018-09-01",
+          "priceUSD": 7200.01
+        },
+        {
+          "date": "2018-10-01",
+          "priceUSD": 6611.61
+        },
+        {
+          "date": "2018-11-01",
+          "priceUSD": 6410.0
+        },
+        {
+          "date": "2018-12-01",
+          "priceUSD": 4190.02
+        },
+        {
+          "date": "2019-01-01",
+          "priceUSD": 3797.14
+        },
+        {
+          "date": "2019-02-01",
+          "priceUSD": 3462.07
+        },
+        {
+          "date": "2019-03-01",
+          "priceUSD": 3823.0
+        },
+        {
+          "date": "2019-04-01",
+          "priceUSD": 4144.56
+        },
+        {
+          "date": "2019-05-01",
+          "priceUSD": 5383.2
+        },
+        {
+          "date": "2019-06-01",
+          "priceUSD": 8544.07
+        },
+        {
+          "date": "2019-07-01",
+          "priceUSD": 10624.93
+        },
+        {
+          "date": "2019-08-01",
+          "priceUSD": 10374.99
+        },
+        {
+          "date": "2019-09-01",
+          "priceUSD": 9724.98
+        },
+        {
+          "date": "2019-10-01",
+          "priceUSD": 8292.44
+        },
+        {
+          "date": "2019-11-01",
+          "priceUSD": 9231.61
+        },
+        {
+          "date": "2019-12-01",
+          "priceUSD": 7390.89
+        },
+        {
+          "date": "2020-01-01",
+          "priceUSD": 7200.85
+        },
+        {
+          "date": "2020-02-01",
+          "priceUSD": 9384.61
+        },
+        {
+          "date": "2020-03-01",
+          "priceUSD": 8531.88
+        },
+        {
+          "date": "2020-04-01",
+          "priceUSD": 6642.92
+        },
+        {
+          "date": "2020-05-01",
+          "priceUSD": 8826.96
+        },
+        {
+          "date": "2020-06-01",
+          "priceUSD": 10200.77
+        },
+        {
+          "date": "2020-07-01",
+          "priceUSD": 9232.0
+        },
+        {
+          "date": "2020-08-01",
+          "priceUSD": 11801.17
+        },
+        {
+          "date": "2020-09-01",
+          "priceUSD": 11921.97
+        },
+        {
+          "date": "2020-10-01",
+          "priceUSD": 10619.13
+        },
+        {
+          "date": "2020-11-01",
+          "priceUSD": 13761.5
+        },
+        {
+          "date": "2020-12-01",
+          "priceUSD": 18764.96
+        },
+        {
+          "date": "2021-01-01",
+          "priceUSD": 29331.69
+        },
+        {
+          "date": "2021-02-01",
+          "priceUSD": 33526.37
+        },
+        {
+          "date": "2021-03-01",
+          "priceUSD": 49587.03
+        },
+        {
+          "date": "2021-04-01",
+          "priceUSD": 58720.44
+        },
+        {
+          "date": "2021-05-01",
+          "priceUSD": 57800.37
+        },
+        {
+          "date": "2021-06-01",
+          "priceUSD": 36693.09
+        },
+        {
+          "date": "2021-07-01",
+          "priceUSD": 33504.69
+        },
+        {
+          "date": "2021-08-01",
+          "priceUSD": 39845.44
+        },
+        {
+          "date": "2021-09-01",
+          "priceUSD": 48810.52
+        },
+        {
+          "date": "2021-10-01",
+          "priceUSD": 48141.61
+        },
+        {
+          "date": "2021-11-01",
+          "priceUSD": 60911.11
+        },
+        {
+          "date": "2021-12-01",
+          "priceUSD": 57184.07
+        },
+        {
+          "date": "2022-01-01",
+          "priceUSD": 47722.65
+        },
+        {
+          "date": "2022-02-01",
+          "priceUSD": 38694.59
+        },
+        {
+          "date": "2022-03-01",
+          "priceUSD": 44421.2
+        },
+        {
+          "date": "2022-04-01",
+          "priceUSD": 46283.49
+        },
+        {
+          "date": "2022-05-01",
+          "priceUSD": 38468.35
+        },
+        {
+          "date": "2022-06-01",
+          "priceUSD": 29805.83
+        },
+        {
+          "date": "2022-07-01",
+          "priceUSD": 19279.8
+        },
+        {
+          "date": "2022-08-01",
+          "priceUSD": 23268.01
+        },
+        {
+          "date": "2022-09-01",
+          "priceUSD": 20131.46
+        },
+        {
+          "date": "2022-10-01",
+          "priceUSD": 19310.95
+        },
+        {
+          "date": "2022-11-01",
+          "priceUSD": 20483.62
+        },
+        {
+          "date": "2022-12-01",
+          "priceUSD": 16977.37
+        },
+        {
+          "date": "2023-01-01",
+          "priceUSD": 16616.75
+        },
+        {
+          "date": "2023-02-01",
+          "priceUSD": 23732.66
+        },
+        {
+          "date": "2023-03-01",
+          "priceUSD": 23628.97
+        },
+        {
+          "date": "2023-04-01",
+          "priceUSD": 28452.73
+        },
+        {
+          "date": "2023-05-01",
+          "priceUSD": 28068.26
+        },
+        {
+          "date": "2023-06-01",
+          "priceUSD": 26817.93
+        },
+        {
+          "date": "2023-07-01",
+          "priceUSD": 30585.9
+        },
+        {
+          "date": "2023-08-01",
+          "priceUSD": 29705.99
+        },
+        {
+          "date": "2023-09-01",
+          "priceUSD": 25805.05
+        },
+        {
+          "date": "2023-10-01",
+          "priceUSD": 27992.57
+        },
+        {
+          "date": "2023-11-01",
+          "priceUSD": 35421.43
+        },
+        {
+          "date": "2023-12-01",
+          "priceUSD": 38682.52
+        },
+        {
+          "date": "2024-01-01",
+          "priceUSD": 44179.55
+        },
+        {
+          "date": "2024-02-01",
+          "priceUSD": 43082.94
+        },
+        {
+          "date": "2024-03-01",
+          "priceUSD": 62387.9
+        },
+        {
+          "date": "2024-04-01",
+          "priceUSD": 69649.8
+        },
+        {
+          "date": "2024-05-01",
+          "priceUSD": 58364.97
+        },
+        {
+          "date": "2024-06-01",
+          "priceUSD": 67766.85
+        },
+        {
+          "date": "2024-07-01",
+          "priceUSD": 62899.99
+        },
+        {
+          "date": "2024-08-01",
+          "priceUSD": 65354.02
+        },
+        {
+          "date": "2024-09-01",
+          "priceUSD": 57301.86
+        },
+        {
+          "date": "2024-10-01",
+          "priceUSD": 60805.78
+        },
+        {
+          "date": "2024-11-01",
+          "priceUSD": 69496.01
+        },
+        {
+          "date": "2024-12-01",
+          "priceUSD": 97185.18
+        },
+        {
+          "date": "2025-01-01",
+          "priceUSD": 94591.79
+        },
+        {
+          "date": "2025-02-01",
+          "priceUSD": 100635.65
+        },
+        {
+          "date": "2025-03-01",
+          "priceUSD": 86064.53
+        },
+        {
+          "date": "2025-04-01",
+          "priceUSD": 85158.34
+        },
+        {
+          "date": "2025-05-01",
+          "priceUSD": 96489.91
+        },
+        {
+          "date": "2025-06-01",
+          "priceUSD": 105642.93
+        },
+        {
+          "date": "2025-07-01",
+          "priceUSD": 105681.14
+        },
+        {
+          "date": "2025-08-01",
+          "priceUSD": 113297.93
+        },
+        {
+          "date": "2025-09-01",
+          "priceUSD": 109237.42
+        },
+        {
+          "date": "2025-10-01",
+          "priceUSD": 118594.99
+        },
+        {
+          "date": "2025-11-01",
+          "priceUSD": 110098.1
+        },
+        {
+          "date": "2025-12-01",
+          "priceUSD": 86286.01
+        },
+        {
+          "date": "2026-01-01",
+          "priceUSD": 88839.04
+        },
+        {
+          "date": "2026-02-01",
+          "priceUSD": 76968.21
+        },
+        {
+          "date": "2026-03-01",
+          "priceUSD": 65776.47
+        },
+        {
+          "date": "2026-04-01",
+          "priceUSD": 68113.92
+        },
+        {
+          "date": "2026-05-01",
+          "priceUSD": 78231.13
+        },
+        {
+          "date": "2026-06-01",
+          "priceUSD": 71408.9
+        },
+        {
+          "date": "2026-07-01",
+          "priceUSD": 60024.0
+        },
+        {
+          "date": "2026-08-01",
+          "priceUSD": 62823.64
+        },
+        {
+          "date": "2026-09-01",
+          "priceUSD": 77439.0
+        },
+        {
+          "date": "2026-10-01",
+          "priceUSD": 84880.05
+        },
+        {
+          "date": "2026-11-01",
+          "priceUSD": 78354.0
+        }
+      ]
     }
   },
   "note": "Étude descriptive historique. Aucune prédiction ni transaction réelle. Couverture réelle indiquée par actif."
