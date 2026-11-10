@@ -33,7 +33,19 @@ def rsi(p):
 def main():
     file=gh("GET");state=json.loads(base64.b64decode(file["content"]).decode())
     if not state.get("enabled",False):print("Robot désactivé");return
-    if state.get("realTradingEnabled") or state.get("exchangeApiConnected"):raise RuntimeError("Simulation uniquement : accès réel refusé")
+    readiness=state.get("readiness")
+    if (state.get("realTradingEnabled") is not False
+        or state.get("exchangeApiConnected") is not False
+        or not isinstance(readiness,dict)
+        or readiness.get("simulationOnly") is not True
+        or readiness.get("liveOrdersEnabled") is not False):
+        raise RuntimeError("Configuration non exclusivement fictive : execution refusee")
+    for field in ("capital","cash","maxOrder"):
+        value=state.get(field)
+        if type(value) not in (int,float) or not math.isfinite(value) or value<0:
+            raise RuntimeError("Valeur financiere invalide : "+field)
+    if state["capital"]<=0:
+        raise RuntimeError("Capital fictif invalide")
     now=datetime.datetime.now(datetime.timezone.utc);stamp=now.isoformat()
     errors=[];logs=state.get("logs",[]);hist=state.get("dailyHistory",{})
     # Market scan is cached for up to one hour to reduce CoinGecko 429 errors.
