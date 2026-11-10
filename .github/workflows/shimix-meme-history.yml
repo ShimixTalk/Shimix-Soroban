@@ -10,12 +10,14 @@ concurrency:
   cancel-in-progress: false
 jobs:
   research:
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/shimix-hub'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: shimix-hub
+          persist-credentials: false
       - name: Analyse historique sans ordres réels
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

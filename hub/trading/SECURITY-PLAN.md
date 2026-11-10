@@ -4,7 +4,7 @@
 
 ## Architecture actuelle vérifiée
 - Interface statique hébergée sur Render ; le code exécuté côté navigateur est public.
-- État local dans localStorage ; export JSON manuel disponible, non chiffré.
+- État local dans localStorage ; export complet chiffré manuel disponible ; ancien export de la démo non chiffré distinct.
 - État de simulation autonome dans GitHub ; ne pas le confondre avec le stockage local.
 - Aucune base PostgreSQL Render détectée lors de l'audit.
 - Aucun système d'authentification serveur ni de restauration automatique validé.

@@ -5,7 +5,7 @@ API="https://api.coingecko.com/api/v3"
 REPO=os.environ.get("GITHUB_REPOSITORY","ShimixTalk/Shimix-Soroban")
 BRANCH=os.environ.get("SHIMIX_BRANCH","shimix-hub")
 PATH="hub/trading/robot-state.json"
-TOKEN=os.environ["GITHUB_TOKEN"]
+TOKEN=os.environ.get("GITHUB_TOKEN", "")
 def request(url,headers=None):
     req=urllib.request.Request(url,headers={"User-Agent":"ShimixTradingSimulation/1.0",**(headers or {})})
     with urllib.request.urlopen(req,timeout=35) as res:return json.load(res)
@@ -21,7 +21,7 @@ def valid_market_row(x):
     if not isinstance(x,dict) or not isinstance(x.get("id"),str) or not x["id"] or not isinstance(x.get("symbol"),str) or not x["symbol"] or not isinstance(x.get("name"),str):return False
     for field in ("current_price","total_volume","market_cap"):
         value=x.get(field)
-        if type(value) not in (int,float) or not math.isfinite(value) or value<=0:return False
+        if type(value) not in (int,float) or not math.isfinite(value) or value<=0 or value>1e30:return False
     change=x.get("price_change_percentage_24h")
     return change is None or (type(change) in (int,float) and math.isfinite(change))
 def validate_simulation_state(state):
@@ -38,20 +38,62 @@ def validate_simulation_state(state):
     if state["capital"]<=0:raise ValueError("Capital nul")
     if not number(state.get("maxLossPercent",5),0,100):raise ValueError("Limite de perte invalide")
     if not number(state.get("maxPositionPercent",20),0,100):raise ValueError("Exposition invalide")
-    if not number(state.get("maxPositions",8),1,100):raise ValueError("Nombre de positions invalide")
+    if type(state.get("maxPositions",8)) is not int or not number(state.get("maxPositions",8),1,100):raise ValueError("Nombre de positions invalide")
     for field in ("feeRate","spreadRate","slippageRate"):
         if not number(state.get(field,0.001),0,0.1):raise ValueError("Frais ou glissement invalide : "+field)
     holdings=state.get("holdings")
     if not isinstance(holdings,dict) or len(holdings)>100:raise ValueError("Positions invalides")
     if any(not isinstance(symbol,str) or not symbol or not number(quantity) for symbol,quantity in holdings.items()):
         raise ValueError("Quantite de position invalide")
+    for field in ("peak",):
+        if field in state and not number(state[field]):raise ValueError("Valeur invalide : "+field)
+    for field in ("entryPrices","lastTrade","historyUpdated"):
+        values=state.get(field,{})
+        if not isinstance(values,dict) or any(not number(v) for v in values.values()):raise ValueError("Historique invalide : "+field)
+    history=state.get("dailyHistory",{})
+    if not isinstance(history,dict) or any(not isinstance(v,list) or len(v)>10000 or any(not number(x,1e-300) for x in v) for v in history.values()):raise ValueError("Historique de prix invalide")
+    for field in ("logs","trades","equityHistory"):
+        if not isinstance(state.get(field,[]),list):raise ValueError("Journal invalide : "+field)
     return True
+
+def market_prices(market, known_ids):
+    """Symbols are not unique. Never price a holding using another coin's quote."""
+    defaults={"BTC":"bitcoin","ETH":"ethereum","SOL":"solana","ADA":"cardano","XRP":"ripple","DOGE":"dogecoin","LINK":"chainlink","AVAX":"avalanche-2","DOT":"polkadot","LTC":"litecoin"}
+    for symbol,coin_id in defaults.items():known_ids.setdefault(symbol,coin_id)
+    groups={}
+    for row in market:
+        if valid_market_row(row):groups.setdefault(row["symbol"].upper(),[]).append(row)
+    prices={}
+    for symbol,rows in groups.items():
+        ids={row["id"] for row in rows}
+        if len(ids)!=1:continue
+        row=rows[0]
+        if symbol in known_ids and known_ids[symbol]!=row["id"]:continue
+        known_ids[symbol]=row["id"]
+        prices[symbol]=float(row["current_price"])
+    return prices
+
+def closed_daily_prices(chart, now):
+    rows=chart.get("prices") if isinstance(chart,dict) else None
+    if not isinstance(rows,list):raise ValueError("Historique absent")
+    days={}
+    today=int(now.timestamp())//86400
+    for row in rows:
+        if not isinstance(row,list) or len(row)!=2:raise ValueError("Point invalide")
+        stamp,price=row
+        if type(stamp) not in (int,float) or not math.isfinite(stamp) or type(price) not in (int,float) or not math.isfinite(price) or price<=0:raise ValueError("Prix historique invalide")
+        day=int(stamp/86400000)
+        if day<today:days[day]=price
+    ordered=sorted(days)
+    if len(ordered)<22 or ordered[-1]!=today-1 or any(b-a!=1 for a,b in zip(ordered,ordered[1:])):raise ValueError("Historique incomplet ou périmé")
+    return [days[d] for d in ordered][-31:]
+
 def sma(p,n):return sum(p[-n:])/n if len(p)>=n else None
 def rsi(p):
     if len(p)<15:return None
     diff=[p[i]-p[i-1] for i in range(len(p)-14,len(p))]
     up=sum(max(0,x) for x in diff);down=sum(max(0,-x) for x in diff)
-    return 100 if down==0 else 100-100/(1+up/down)
+    return (50 if up==0 else 100) if down==0 else 100-100/(1+up/down)
 def main():
     file=gh("GET");state=json.loads(base64.b64decode(file["content"]).decode())
     if not state.get("enabled",False):print("Robot désactivé");return
@@ -75,8 +117,8 @@ def main():
     ranked=sorted(eligible,key=lambda x:(__import__("math").log10(max(1,float(x.get("total_volume") or 1)))*2+min(12,abs(float(x.get("price_change_percentage_24h") or 0)))*0.6),reverse=True)
     selected=ranked[:20];prices={}
     # Never reuse stale quotes from previous runs for valuation or orders.
-    for x in market:
-        if valid_market_row(x):prices[x["symbol"].upper()]=float(x["current_price"])
+    prices=market_prices(market,state.setdefault("assetIds",{}))
+    selected=[x for x in selected if x["symbol"].upper() in prices]
     state["prices"]=prices
     state["scanner"]={"updatedAt":stamp,"examined":len(market),"eligible":len(eligible),"shortlist":[{"symbol":x["symbol"].upper(),"name":x["name"],"volume":x.get("total_volume"),"change24h":x.get("price_change_percentage_24h")} for x in selected]}
     # Two historical requests per execution to limit rate limiting.
@@ -84,7 +126,7 @@ def main():
     for x in due[:2]:
         try:
             chart=request(API+"/coins/"+urllib.parse.quote(x["id"])+"/market_chart?vs_currency=eur&days=30&interval=daily")
-            series=[float(a[1]) for a in chart.get("prices",[]) if float(a[1])>0]
+            series=closed_daily_prices(chart,now)
             if len(series)>=22:
                 hist[x["id"]]=series[-31:];state.setdefault("historyUpdated",{})[x["id"]]=now.timestamp()
         except Exception as exc:errors.append(x["symbol"]+": "+str(exc))
@@ -93,7 +135,8 @@ def main():
     signals={};candidates=[]
     for x in selected:
         p=hist.get(x["id"],[]);sym=x["symbol"].upper()
-        if len(p)<22:
+        age=now.timestamp()-float(state.get("historyUpdated",{}).get(x["id"],0))
+        if len(p)<22 or not 0<=age<86400:
             signals[sym]={"action":"Attente","reason":"Historique insuffisant"};continue
         rs=rsi(p);a=sma(p,7);b=sma(p,21);prev=sma(p[:-1],21)
         action=("Achat" if (rs<35 and a>b and p[-1]>prev) or (state.get("experimentMode")=="aggressive_simulation" and rs<45 and p[-1]>p[-2] and a>=b*0.97) else "Vente" if rs>65 and a<b else "Attente")
@@ -166,6 +209,7 @@ def main():
     state.setdefault("readiness",{})["simulationOnly"]=True;state["readiness"]["liveOrdersEnabled"]=False
     save(state,file["sha"]);print("Scan",len(market),"présélection",len(selected),"achats simulés",len(state["trades"]))
 def save(state,sha):
-    data=base64.b64encode((json.dumps(state,ensure_ascii=False,indent=2)+"\n").encode()).decode()
+    validate_simulation_state(state)
+    data=base64.b64encode((json.dumps(state,ensure_ascii=False,indent=2,allow_nan=False)+"\n").encode()).decode()
     gh("PUT",{"message":"chore(trading): update autonomous simulation state","content":data,"sha":sha,"branch":BRANCH})
 if __name__=="__main__":main()
