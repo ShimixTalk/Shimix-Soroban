@@ -284,7 +284,7 @@ render();
 (function(){
 const root=document.getElementById('robot');if(!root)return;
 const section=document.createElement('section');section.className='panel';section.id='memeLongHistory';
-section.innerHTML='<h2>SHIB, DOGE & BTC · Étude sur 5 et 10 ans</h2><p class="hint">Cours historiques en dollars américains, sans conversion fictive. Analyse hebdomadaire automatique si GitHub Actions est actif. La durée réellement disponible dépend de la date de création de chaque crypto et de la source.</p><button id="memeReload" type="button">Actualiser l’étude</button><div id="memeResults" class="hint" style="margin-top:14px;white-space:pre-line">Chargement…</div>';
+section.innerHTML='<h2>SHIB, DOGE & BTC · Étude sur 5 et 10 ans</h2><p class="hint">Cours historiques en USDT (stablecoin proche du dollar), sans conversion fictive. La couverture peut être plus courte que 5 ou 10 ans selon la date de cotation sur la plateforme. Analyse hebdomadaire automatique si GitHub Actions est actif. La durée réellement disponible dépend de la date de création de chaque crypto et de la source.</p><button id="memeReload" type="button">Actualiser l’étude</button><div id="memeResults" class="hint" style="margin-top:14px;white-space:pre-line">Chargement…</div>';
 const chart=document.getElementById('technicalCharts');if(chart)chart.before(section);else root.appendChild(section);
 async function refresh(){
 const out=section.querySelector('#memeResults');out.textContent='Chargement de la dernière étude publiée…';
@@ -292,7 +292,7 @@ try{const r=await fetch('https://raw.githubusercontent.com/ShimixTalk/Shimix-Sor
 const data=await r.json();const lines=['Dernière étude : '+new Date(data.updatedAt).toLocaleString('fr-FR'),'Source : '+data.source+' · USD'];
 for(const sym of ['SHIB','DOGE','BTC']){const a=data.assets?.[sym];if(!a){lines.push(sym+' : données absentes');continue}
 lines.push('','● '+sym+' · '+a.points+' cours journaliers · depuis '+(a.availableFrom||'date inconnue'));
-for(const [name,key] of [['5 ans','fiveYears'],['10 ans','tenYears']]){const m=a[key]||{};lines.push(name+' : '+(m.status==='ok'?'du '+m.start+' au '+m.end+' · achat-conservation '+m.buyHoldPercent+' % · baisse maximale '+m.maxDrawdownPercent+' % · volatilité annualisée '+m.annualizedVolatilityPercent+' %':'historique insuffisant'))}
+for(const [name,key] of [['5 ans','fiveYears'],['10 ans','tenYears']]){const m=a[key]||{};lines.push(name+' : '+((m.status==='ok'||m.status==='partiel')?'du '+m.start+' au '+m.end+(m.status==='partiel'?' (période partielle)':'')+' · achat-conservation '+m.buyHoldPercent+' % · baisse maximale '+m.maxDrawdownPercent+' % · volatilité annualisée '+m.annualizedVolatilityPercent+' %':'historique insuffisant'))}
 if(a.errors?.length)lines.push('Source : '+a.errors.join('; '));
 }
 lines.push('','Les résultats passés ne prédisent pas les résultats futurs. Les frais et taxes ne sont pas inclus.');out.textContent=lines.join('\n');
