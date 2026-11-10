@@ -47,11 +47,33 @@ def metrics(series,years):
  mean=sum(returns)/len(returns) if returns else 0
  std=math.sqrt(sum((v-mean)**2 for v in returns)/len(returns)) if returns else 0
  return {"status":"ok" if (end-start)>=int((years-0.15)*365.25*86400) else "partiel","start":datetime.datetime.fromtimestamp(start,datetime.timezone.utc).date().isoformat(),"end":datetime.datetime.fromtimestamp(subset[-1][0],datetime.timezone.utc).date().isoformat(),"points":len(subset),"startPriceUSDT":p0,"endPriceUSDT":p1,"buyHoldPercent":round((p1/p0-1)*100,2),"maxDrawdownPercent":round(maxdd,2),"annualizedVolatilityPercent":round(std*math.sqrt(365)*100,2),"coverageYears":round((subset[-1][0]-start)/86400/365.25,2)}
+def backtest(series,years):
+ """Fictitious long-only strategies, prior-day signals, trading costs."""
+ if len(series)<130:return {"status":"insuffisant"}
+ end=series[-1][0];target=end-int(years*365.25*86400)
+ start=next((i for i,(t,p) in enumerate(series) if t>=target),None)
+ if start is None or start<101:return {"status":"insuffisant"}
+ fee=.001;slippage=.001;methods={}
+ for method in ("buy_hold","sma20_100","momentum30"):
+  cash=1000.;units=0.;peak=1000.;worst=0.;orders=0
+  for i in range(start,len(series)):
+   price=series[i][1];past=[p for _,p in series]
+   if method=="buy_hold":buy=True
+   elif method=="sma20_100":buy=sum(past[i-20:i])/20>sum(past[i-100:i])/100
+   else:buy=past[i-1]>past[i-31]
+   if buy and cash>0:
+    units=cash/(price*(1+fee+slippage));cash=0;orders+=1
+   elif not buy and units>0:
+    cash=units*price*(1-fee-slippage);units=0;orders+=1
+   equity=cash+units*price;peak=max(peak,equity);worst=min(worst,(equity/peak-1)*100)
+  final=cash+units*series[-1][1]
+  methods[method]={"returnPercent":round((final/1000-1)*100,2),"maxDrawdownPercent":round(worst,2),"orders":orders}
+ return {"status":"ok","start":datetime.datetime.fromtimestamp(series[start][0],datetime.timezone.utc).date().isoformat(),"end":datetime.datetime.fromtimestamp(end,datetime.timezone.utc).date().isoformat(),"methods":methods,"feePercent":0.1,"slippagePercent":0.1,"warning":"Simulation indicative au cours de clôture, signaux sur données antérieures. Aucun ordre réel."}
 def main():
  output={"updatedAt":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"Binance public spot daily candles (USDT)","currency":"USDT","assets":{},"note":"Étude descriptive historique. Aucune prédiction ni transaction réelle. Couverture réelle indiquée par actif."}
  for sym in ("SHIB","DOGE","BTC"):
   series,errors=history(sym)
-  output["assets"][sym]={"availableFrom":datetime.datetime.fromtimestamp(series[0][0],datetime.timezone.utc).date().isoformat() if series else None,"points":len(series),"fiveYears":metrics(series,5),"tenYears":metrics(series,10),"errors":errors,"monthly":[{"date":datetime.datetime.fromtimestamp(t,datetime.timezone.utc).date().isoformat(),"priceUSD":p} for t,p in series if datetime.datetime.fromtimestamp(t,datetime.timezone.utc).day==1][-125:]}
+  output["assets"][sym]={"availableFrom":datetime.datetime.fromtimestamp(series[0][0],datetime.timezone.utc).date().isoformat() if series else None,"points":len(series),"fiveYears":metrics(series,5),"tenYears":metrics(series,10),"backtests":{"fiveYears":backtest(series,5),"tenYears":backtest(series,10)},"errors":errors,"monthly":[{"date":datetime.datetime.fromtimestamp(t,datetime.timezone.utc).date().isoformat(),"priceUSD":p} for t,p in series if datetime.datetime.fromtimestamp(t,datetime.timezone.utc).day==1][-125:]}
  # Never replace previous valid data with an empty result due to an API outage.
  url="https://api.github.com/repos/"+REPO+"/contents/"+PATH
  headers={"Authorization":"Bearer "+TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"}
