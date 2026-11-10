@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Historical SHIB/DOGE/BTC research. Read-only market data, never live orders."""
-import base64,datetime,json,os,time,urllib.parse,urllib.request
+import base64,datetime,json,os,time,urllib.parse,urllib.request,math
 REPO=os.environ.get("GITHUB_REPOSITORY","ShimixTalk/Shimix-Soroban")
 TOKEN=os.environ["GITHUB_TOKEN"];BRANCH="shimix-hub";PATH="hub/trading/meme-history.json"
 def fetch(url):
@@ -23,7 +23,7 @@ def history(symbol):
     if not rows:break
     for row in rows:
      stamp=int(row[0])//1000;price=float(row[4])
-     if price>0 and stamp+86400<=int(time.time()):seen[stamp]=price
+     if math.isfinite(price) and price>0 and stamp>=0 and stamp+86400<=int(time.time()):seen[stamp]=price
     next_cursor=int(rows[-1][0])+86400000
     if next_cursor<=cursor:break
     cursor=next_cursor
@@ -85,7 +85,7 @@ def main():
    if not output["assets"][sym]["points"] and previous.get("assets",{}).get(sym,{}).get("points"):
     output["assets"][sym]=previous["assets"][sym];output["assets"][sym]["errors"].append("Dernières données conservées : source indisponible")
  except Exception:pass
- payload={"message":"data(trading): refresh long-term SHIB DOGE BTC research (closed candles)","branch":BRANCH,"content":base64.b64encode((json.dumps(output,ensure_ascii=False,indent=2)+"\n").encode()).decode()}
+ payload={"message":"data(trading): refresh long-term SHIB DOGE BTC research (closed candles)","branch":BRANCH,"content":base64.b64encode((json.dumps(output,ensure_ascii=False,indent=2,allow_nan=False)+"\n").encode()).decode()}
  if sha:payload["sha"]=sha
  req=urllib.request.Request(url,data=json.dumps(payload).encode(),headers={**headers,"Content-Type":"application/json"},method="PUT")
  with urllib.request.urlopen(req,timeout=45) as r:print("Updated long-term research:",r.status)

@@ -1,0 +1,24 @@
+name: SHIMIX simulation regression tests
+on:
+  push:
+    branches: ['audit/**', shimix-hub]
+  pull_request:
+    branches: [shimix-hub]
+permissions:
+  contents: read
+jobs:
+  simulation-and-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Python accounting and risk regressions (offline)
+        run: python3 -m unittest discover -s hub/trading -v
+      - name: Browser test dependencies
+        run: |
+          python3 -m pip install -r tests/requirements.txt
+          python3 -m playwright install --with-deps chromium
+      - name: Encrypted restore and browser safety (localhost, synthetic data)
+        run: python3 tests/browser_security.py
