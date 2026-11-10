@@ -1,0 +1,61 @@
+name: SHIMIX private account tests
+on:
+  push:
+    branches: ['feature/private-passkeys-sync-20261110']
+  pull_request:
+    branches: [shimix-hub]
+permissions:
+  contents: read
+jobs:
+  private-server-and-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - run: npm ci --ignore-scripts
+        working-directory: private-server
+      - run: npm test
+        working-directory: private-server
+      - run: npm audit --omit=dev --audit-level=moderate
+        working-directory: private-server
+      - name: Browser test dependencies
+        run: |
+          python3 -m pip install -r tests/requirements.txt
+          python3 -m playwright install --with-deps chromium
+      - name: Real passkey ceremonies and two-device encrypted sync (virtual authenticators)
+        run: python3 tests/private_browser.py
+  private-postgres:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: shimix
+          POSTGRES_PASSWORD: disposable-test-password
+          POSTGRES_DB: shimix_private_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+      - run: npm ci --ignore-scripts
+        working-directory: private-server
+      - name: PostgreSQL transactions and persistence
+        run: node --test tests/postgres.test.mjs
+        working-directory: private-server
+        env:
+          SHIMIX_TEST_DATABASE_URL: postgresql://shimix:disposable-test-password@127.0.0.1:5432/shimix_private_test
