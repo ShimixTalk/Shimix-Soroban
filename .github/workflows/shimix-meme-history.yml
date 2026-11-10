@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/shimix-meme-history.yml'
+      - 'hub/trading/meme_history.py'
   schedule:
     - cron: '13 5 * * 1'
   workflow_dispatch:
