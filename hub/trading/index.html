@@ -321,10 +321,10 @@ if(/surveill|analys|marché|crypto|aujourd|scanner/.test(v))return 'Dernier scan
 if(sym)return sig?'Dernier signal '+sym+' : '+sig.action+' ; RSI '+(sig.rsi??'indisponible')+'.':'Je ne dispose pas d’un signal récent pour '+sym+'.';
 return 'Tu peux me demander : « Pourquoi pas de Bitcoin ? », « Quel est mon capital ? », « Quelles cryptos surveilles-tu ? », « Quelles positions as-tu ? » ou « Pourquoi as-tu vendu ? ». Je réponds uniquement avec les données enregistrées.'}
 function speak(t){if(!voice||!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=1;window.speechSynthesis.speak(u)}
-function send(){const q=input.value.trim();if(!q)return;line('Toi',q);const a=answer(q);line('Robot',a);speak(a);input.value=''}
+let answering=false;async function send(){const q=input.value.trim();if(!q||answering)return;answering=true;input.value='';line('Toi',q);const sendButton=section.querySelector('#shimixTalkSend');sendButton.disabled=true;sendButton.textContent='Analyse…';try{await load();const a=answer(q);line('Robot',a);speak(a)}catch(e){line('Robot','Impossible de vérifier les données du robot pour cette question. Réessaie plus tard.')}finally{answering=false;sendButton.disabled=false;sendButton.textContent='Envoyer'}}
 section.querySelector('#shimixTalkSend').onclick=send;input.addEventListener('keydown',e=>{if(e.key==='Enter')send()});
 section.querySelector('#shimixTalkVoice').onclick=function(){voice=!voice;this.textContent='Voix : '+(voice?'activée':'désactivée');if(!voice&&'speechSynthesis'in window)window.speechSynthesis.cancel()};
 section.querySelector('#shimixTalkMic').onclick=()=>{const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;if(!Recognition){info.textContent='Reconnaissance vocale indisponible dans ce navigateur. Utilise le clavier ou la dictée du système.';return}const rec=new Recognition();rec.lang='fr-FR';rec.interimResults=false;rec.onresult=e=>{input.value=e.results[0][0].transcript;send()};rec.onerror=e=>{info.textContent='Micro : '+e.error};try{rec.start()}catch(e){info.textContent='Micro indisponible : '+e.message}};
-line('Robot','Bonjour ! Pose-moi une question sur mes décisions, mes positions ou mon capital fictif.');load();section.addEventListener('click',e=>{if(e.target.id==='shimixTalkSend')load()});
+line('Robot','Bonjour ! Pose-moi une question sur mes décisions, mes positions ou mon capital fictif.');load();
 })();
 </script></body></html>
