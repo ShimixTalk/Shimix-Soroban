@@ -1,0 +1,50 @@
+name: SHIMIX Trading - security checks
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * 1'
+permissions:
+  contents: read
+jobs:
+  security-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout deployed branch
+        uses: actions/checkout@v4
+        with:
+          ref: shimix-hub
+          persist-credentials: false
+      - name: Check public trading assets for credential patterns and safety guards
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, sys
+          root=Path('hub/trading')
+          errors=[]
+          for path in root.rglob('*'):
+              if not path.is_file() or path.suffix.lower() not in ('.html','.js','.json','.py','.webmanifest','.svg'):
+                  continue
+              if path.stat().st_size>2_000_000:
+                  continue
+              data=path.read_text(encoding='utf-8',errors='replace')
+              checks={
+                  'OpenAI secret key':r'sk-(?:proj-)?[A-Za-z0-9_-]{30,}',
+                  'GitHub classic token':r'ghp_[A-Za-z0-9]{36}',
+                  'GitHub fine-grained token':r'github_pat_[A-Za-z0-9_]{50,}',
+                  'AWS access key':r'AKIA[0-9A-Z]{16}',
+                  'Private key':r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----',
+              }
+              for name,pattern in checks.items():
+                  if re.search(pattern,data):
+                      errors.append(f'{path}: possible {name} detected')
+          html=(root/'index.html').read_text(encoding='utf-8')
+          if 'shimix-encrypted-backup-v1' not in html:
+              errors.append('Encrypted local backup control missing')
+          if 'shimix-security-status-v1' not in html:
+              errors.append('Security status control missing')
+          if errors:
+              for issue in errors: print('ERROR:',issue)
+              sys.exit(1)
+          print('Static checks passed. This is not a security audit or proof that trading is safe.')
+          PY
