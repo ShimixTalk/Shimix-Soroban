@@ -24,6 +24,28 @@ def valid_market_row(x):
         if type(value) not in (int,float) or not math.isfinite(value) or value<=0:return False
     change=x.get("price_change_percentage_24h")
     return change is None or (type(change) in (int,float) and math.isfinite(change))
+def validate_simulation_state(state):
+    """Fail closed before market access, state mutation or simulated orders."""
+    if not isinstance(state,dict) or state.get("realTradingEnabled") is not False or state.get("exchangeApiConnected") is not False:
+        raise ValueError("Simulation uniquement")
+    readiness=state.get("readiness")
+    if not isinstance(readiness,dict) or readiness.get("simulationOnly") is not True or readiness.get("liveOrdersEnabled") is not False:
+        raise ValueError("Mode simulation non confirme")
+    def number(value,minimum=0,maximum=1e15):
+        return type(value) in (int,float) and math.isfinite(value) and minimum<=value<=maximum
+    for field in ("capital","cash","maxOrder"):
+        if not number(state.get(field)):raise ValueError("Valeur financiere invalide : "+field)
+    if state["capital"]<=0:raise ValueError("Capital nul")
+    if not number(state.get("maxLossPercent",5),0,100):raise ValueError("Limite de perte invalide")
+    if not number(state.get("maxPositionPercent",20),0,100):raise ValueError("Exposition invalide")
+    if not number(state.get("maxPositions",8),1,100):raise ValueError("Nombre de positions invalide")
+    for field in ("feeRate","spreadRate","slippageRate"):
+        if not number(state.get(field,0.001),0,0.1):raise ValueError("Frais ou glissement invalide : "+field)
+    holdings=state.get("holdings")
+    if not isinstance(holdings,dict) or len(holdings)>100:raise ValueError("Positions invalides")
+    if any(not isinstance(symbol,str) or not symbol or not number(quantity) for symbol,quantity in holdings.items()):
+        raise ValueError("Quantite de position invalide")
+    return True
 def sma(p,n):return sum(p[-n:])/n if len(p)>=n else None
 def rsi(p):
     if len(p)<15:return None
@@ -33,19 +55,7 @@ def rsi(p):
 def main():
     file=gh("GET");state=json.loads(base64.b64decode(file["content"]).decode())
     if not state.get("enabled",False):print("Robot désactivé");return
-    readiness=state.get("readiness")
-    if (state.get("realTradingEnabled") is not False
-        or state.get("exchangeApiConnected") is not False
-        or not isinstance(readiness,dict)
-        or readiness.get("simulationOnly") is not True
-        or readiness.get("liveOrdersEnabled") is not False):
-        raise RuntimeError("Configuration non exclusivement fictive : execution refusee")
-    for field in ("capital","cash","maxOrder"):
-        value=state.get(field)
-        if type(value) not in (int,float) or not math.isfinite(value) or value<0:
-            raise RuntimeError("Valeur financiere invalide : "+field)
-    if state["capital"]<=0:
-        raise RuntimeError("Capital fictif invalide")
+    validate_simulation_state(state)
     now=datetime.datetime.now(datetime.timezone.utc);stamp=now.isoformat()
     errors=[];logs=state.get("logs",[]);hist=state.get("dailyHistory",{})
     # Market scan is cached for up to one hour to reduce CoinGecko 429 errors.
