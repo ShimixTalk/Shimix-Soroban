@@ -562,4 +562,12 @@ let wrongRejected=false;try{await crypto.subtle.decrypt({name:'AES-GCM',iv},awai
 if(!wrongRejected)throw Error('Le mauvais mot de passe n’a pas été rejeté.');
 out.textContent='✓ Test réussi : chiffrement, déchiffrement et refus du mauvais mot de passe. Cela ne garantit pas encore la restauration complète de tes vraies données.';
 }catch(e){out.textContent='✕ Test échoué : '+e.message+'. Ne considère pas les sauvegardes comme vérifiées.'}finally{btn.disabled=false}};
+})();</script><script id="shimix-backup-safety-v2">(function(){
+const p=document.getElementById('shimixBackupPanel');if(!p)return;
+const oldExport=p.querySelector('#shimixExportAll'),oldImport=p.querySelector('#shimixImportAll');
+if(oldExport){oldExport.hidden=true;oldExport.style.display='none';oldExport.disabled=true;oldExport.title='Export non chiffré désactivé : utilise la sauvegarde chiffrée ci-dessous.'}
+if(oldImport){const label=oldImport.closest('label');if(label){label.hidden=true;label.style.display='none'}oldImport.disabled=true}
+const heading=p.querySelector('h2');if(heading)heading.textContent='🔐 Sauvegardes protégées';
+const hint=p.querySelector('p.hint');if(hint)hint.textContent='Utilise uniquement la sauvegarde chiffrée avec mot de passe. Elle est manuelle et locale : elle ne remplace pas une sauvegarde cloud automatique.';
+const warning=document.createElement('p');warning.className='hint';warning.textContent='Attention : avant de restaurer une sauvegarde, exporte et conserve d’abord une copie chiffrée de tes données actuelles. La restauration remplace les rubriques correspondantes.';p.appendChild(warning);
 })();</script></body></html>
