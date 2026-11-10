@@ -2,3 +2,9 @@ __pycache__/
 *.py[cod]
 .playwright/
 shimix-backup/
+node_modules/
+.env
+.env.*
+!.env.example
+*.sqlite*
+private-data/
