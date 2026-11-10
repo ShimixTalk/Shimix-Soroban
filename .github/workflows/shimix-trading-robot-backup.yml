@@ -1,0 +1,47 @@
+name: SHIMIX Trading - sauvegarde du robot fictif
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '12 4 * * *'
+permissions:
+  contents: read
+jobs:
+  backup-simulation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Lire l'etat du robot sur la branche de production
+        uses: actions/checkout@v4
+        with:
+          ref: shimix-hub
+          persist-credentials: false
+      - name: Verifier les donnees de simulation et preparer la sauvegarde
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json,math,pathlib,datetime,hashlib
+          p=pathlib.Path('hub/trading/robot-state.json')
+          state=json.loads(p.read_text(encoding='utf-8'))
+          def positive(x): return type(x) in (int,float) and math.isfinite(x) and x>=0
+          assert state.get('version')==1, 'Version du format inattendue'
+          assert positive(state.get('capital')) and state['capital']>0, 'Capital invalide'
+          assert positive(state.get('cash')), 'Liquidites invalides'
+          assert isinstance(state.get('holdings'),dict), 'Positions invalides'
+          assert all(isinstance(k,str) and positive(v) for k,v in state['holdings'].items()), 'Positions corrompues'
+          assert state.get('realTradingEnabled') is not True, 'Mode reel interdit dans la sauvegarde'
+          assert state.get('exchangeApiConnected') is not True, 'Connexion exchange inattendue'
+          out=pathlib.Path('shimix-backup')
+          out.mkdir(exist_ok=True)
+          raw=p.read_bytes()
+          (out/'robot-state.json').write_bytes(raw)
+          manifest={'createdAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source':'shimix-hub/hub/trading/robot-state.json','sha256':hashlib.sha256(raw).hexdigest(),'simulationOnly':True}
+          (out/'manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
+          print('Simulation state verified; SHA256:',manifest['sha256'])
+          PY
+      - name: Archiver la sauvegarde (30 jours)
+        uses: actions/upload-artifact@v4
+        with:
+          name: shimix-robot-backup-${{ github.run_id }}
+          path: shimix-backup/
+          retention-days: 30
+          if-no-files-found: error
