@@ -23,7 +23,7 @@ def history(symbol):
     if not rows:break
     for row in rows:
      stamp=int(row[0])//1000;price=float(row[4])
-     if price>0:seen[stamp]=price
+     if price>0 and stamp+86400<=int(time.time()):seen[stamp]=price
     next_cursor=int(rows[-1][0])+86400000
     if next_cursor<=cursor:break
     cursor=next_cursor
@@ -46,9 +46,9 @@ def metrics(series,years):
  import math
  mean=sum(returns)/len(returns) if returns else 0
  std=math.sqrt(sum((v-mean)**2 for v in returns)/len(returns)) if returns else 0
- return {"status":"ok" if (end-start)>=int((years-0.15)*365.25*86400) else "partiel","start":datetime.datetime.fromtimestamp(start,datetime.timezone.utc).date().isoformat(),"end":datetime.datetime.fromtimestamp(subset[-1][0],datetime.timezone.utc).date().isoformat(),"points":len(subset),"startPriceUSD":p0,"endPriceUSD":p1,"buyHoldPercent":round((p1/p0-1)*100,2),"maxDrawdownPercent":round(maxdd,2),"annualizedVolatilityPercent":round(std*math.sqrt(365)*100,2),"coverageYears":round((subset[-1][0]-start)/86400/365.25,2)}
+ return {"status":"ok" if (end-start)>=int((years-0.15)*365.25*86400) else "partiel","start":datetime.datetime.fromtimestamp(start,datetime.timezone.utc).date().isoformat(),"end":datetime.datetime.fromtimestamp(subset[-1][0],datetime.timezone.utc).date().isoformat(),"points":len(subset),"startPriceUSDT":p0,"endPriceUSDT":p1,"buyHoldPercent":round((p1/p0-1)*100,2),"maxDrawdownPercent":round(maxdd,2),"annualizedVolatilityPercent":round(std*math.sqrt(365)*100,2),"coverageYears":round((subset[-1][0]-start)/86400/365.25,2)}
 def main():
- output={"updatedAt":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"Binance public spot daily candles (USDT)","currency":"USD","assets":{},"note":"Étude descriptive historique. Aucune prédiction ni transaction réelle. Couverture réelle indiquée par actif."}
+ output={"updatedAt":datetime.datetime.now(datetime.timezone.utc).isoformat(),"source":"Binance public spot daily candles (USDT)","currency":"USDT","assets":{},"note":"Étude descriptive historique. Aucune prédiction ni transaction réelle. Couverture réelle indiquée par actif."}
  for sym in ("SHIB","DOGE","BTC"):
   series,errors=history(sym)
   output["assets"][sym]={"availableFrom":datetime.datetime.fromtimestamp(series[0][0],datetime.timezone.utc).date().isoformat() if series else None,"points":len(series),"fiveYears":metrics(series,5),"tenYears":metrics(series,10),"errors":errors,"monthly":[{"date":datetime.datetime.fromtimestamp(t,datetime.timezone.utc).date().isoformat(),"priceUSD":p} for t,p in series if datetime.datetime.fromtimestamp(t,datetime.timezone.utc).day==1][-125:]}
@@ -63,7 +63,7 @@ def main():
    if not output["assets"][sym]["points"] and previous.get("assets",{}).get(sym,{}).get("points"):
     output["assets"][sym]=previous["assets"][sym];output["assets"][sym]["errors"].append("Dernières données conservées : source indisponible")
  except Exception:pass
- payload={"message":"data(trading): refresh long-term SHIB DOGE BTC research","branch":BRANCH,"content":base64.b64encode((json.dumps(output,ensure_ascii=False,indent=2)+"\n").encode()).decode()}
+ payload={"message":"data(trading): refresh long-term SHIB DOGE BTC research (closed candles)","branch":BRANCH,"content":base64.b64encode((json.dumps(output,ensure_ascii=False,indent=2)+"\n").encode()).decode()}
  if sha:payload["sha"]=sha
  req=urllib.request.Request(url,data=json.dumps(payload).encode(),headers={**headers,"Content-Type":"application/json"},method="PUT")
  with urllib.request.urlopen(req,timeout=45) as r:print("Updated long-term research:",r.status)
