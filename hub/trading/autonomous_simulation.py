@@ -63,9 +63,11 @@ def main():
         save(state,file["sha"]);print("Marché indisponible, aucune opération");return
     eligible=[x for x in market if valid_market_row(x) and x["total_volume"]>=2000000 and x["market_cap"]>=50000000]
     ranked=sorted(eligible,key=lambda x:(__import__("math").log10(max(1,float(x.get("total_volume") or 1)))*2+min(12,abs(float(x.get("price_change_percentage_24h") or 0)))*0.6),reverse=True)
-    selected=ranked[:20];prices=state.setdefault("prices",{})
+    selected=ranked[:20];prices={}
+    # Never reuse stale quotes from previous runs for valuation or orders.
     for x in market:
         if valid_market_row(x):prices[x["symbol"].upper()]=float(x["current_price"])
+    state["prices"]=prices
     state["scanner"]={"updatedAt":stamp,"examined":len(market),"eligible":len(eligible),"shortlist":[{"symbol":x["symbol"].upper(),"name":x["name"],"volume":x.get("total_volume"),"change24h":x.get("price_change_percentage_24h")} for x in selected]}
     # Two historical requests per execution to limit rate limiting.
     due=[x for x in selected if len(hist.get(x["id"],[]))<22 or (now.timestamp()-float(state.get("historyUpdated",{}).get(x["id"],0)))>86400]
