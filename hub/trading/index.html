@@ -545,4 +545,21 @@ const box=document.createElement('section');box.className='panel';box.id='shimix
 backup.before(box);
 const reminder=box.querySelector('#shimixBackupReminder');try{const last=localStorage.getItem('shimix-trading-last-encrypted-export');if(!last)reminder.textContent='Conseil : crée une première sauvegarde chiffrée et conserve-la dans Fichiers / iCloud Drive.';else{const days=Math.floor((Date.now()-Number(last))/86400000);reminder.textContent=days>=7?'Dernière préparation de sauvegarde chiffrée : il y a '+days+' jours. Pense à en refaire une.':'Dernière préparation de sauvegarde chiffrée : il y a '+days+' jour(s).'}}catch(e){reminder.textContent='Pense à sauvegarder régulièrement tes données.'}
 const encrypted=backup.querySelector('#shimixEncryptedExport');if(encrypted)encrypted.addEventListener('click',()=>{setTimeout(()=>{const status=backup.querySelector('#shimixEncryptedStatus');if(status?.textContent.startsWith('Fichier chiffré préparé')){try{localStorage.setItem('shimix-trading-last-encrypted-export',String(Date.now()))}catch(e){}reminder.textContent='Sauvegarde chiffrée préparée aujourd’hui. Vérifie que le fichier a bien été enregistré.'}},600)});
+})();</script><script id="shimix-backup-selftest">(function(){
+const panel=document.getElementById('shimixBackupPanel');if(!panel)return;
+const block=document.createElement('div');block.style.cssText='margin-top:12px;padding:14px;border:1px solid #435776;border-radius:12px';
+block.innerHTML='<h3 style="margin:0 0 8px">Vérifier le chiffrement</h3><p class="hint">Test local avec des données inventées. Aucun fichier personnel et aucune opération fictive ne sont modifiés.</p><button id="shimixCryptoTest" type="button">Tester le chiffrement et la restauration</button><p id="shimixCryptoTestResult" role="status" class="hint"></p>';panel.appendChild(block);
+const btn=block.querySelector('#shimixCryptoTest'),out=block.querySelector('#shimixCryptoTestResult');
+btn.onclick=async()=>{btn.disabled=true;out.textContent='Test en cours…';try{
+if(!crypto?.subtle||!crypto.getRandomValues)throw Error('API de chiffrement indisponible.');
+const encoder=new TextEncoder(),decoder=new TextDecoder(),salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));
+const derive=async password=>{const material=await crypto.subtle.importKey('raw',encoder.encode(password),'PBKDF2',false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:250000,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])};
+const payload=JSON.stringify({test:true,capitalFictif:1600,nonce:Array.from(crypto.getRandomValues(new Uint8Array(8)))});
+const secret=await derive('SHIMIX-TEST-LOCAL-ONLY-2026'),cipher=await crypto.subtle.encrypt({name:'AES-GCM',iv},secret,encoder.encode(payload));
+const clear=decoder.decode(await crypto.subtle.decrypt({name:'AES-GCM',iv},secret,cipher));
+if(clear!==payload)throw Error('Les données restaurées sont différentes.');
+let wrongRejected=false;try{await crypto.subtle.decrypt({name:'AES-GCM',iv},await derive('MOT-DE-PASSE-INCORRECT'),cipher)}catch(e){wrongRejected=true}
+if(!wrongRejected)throw Error('Le mauvais mot de passe n’a pas été rejeté.');
+out.textContent='✓ Test réussi : chiffrement, déchiffrement et refus du mauvais mot de passe. Cela ne garantit pas encore la restauration complète de tes vraies données.';
+}catch(e){out.textContent='✕ Test échoué : '+e.message+'. Ne considère pas les sauvegardes comme vérifiées.'}finally{btn.disabled=false}};
 })();</script></body></html>
