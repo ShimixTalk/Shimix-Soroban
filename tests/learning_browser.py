@@ -38,4 +38,27 @@ class LearningBrowserTests(unittest.TestCase):
   content=json.loads(Path(d.value.path()).read_text());self.assertEqual(content['spentUsd'],0);self.assertFalse(any('api.openai.com' in u for u in self.requests));self.assertEqual(self.errors,[])
  def test_missing_history_is_not_a_performance(self):
   self.report['hypotheses']={'prudent':{'status':'insufficient_data','points':12,'required':120}};self.page.locator('[data-learning-refresh]').click();self.page.wait_for_function("()=>document.querySelector('[data-learning-content]').textContent.includes('Données insuffisantes')");self.assertIn('12 / 120',self.page.locator('#robotLearningPanel').text_content())
+ def test_manual_handoff_excludes_local_data_unknown_fields_and_free_text(self):
+  self.page.evaluate("()=>localStorage.setItem('handoff-private-fixture','PRIVATE_LOCAL_SENTINEL')")
+  before=self.page.evaluate('()=>JSON.stringify({...localStorage})');self.report['secretFixture']='PRIVATE_REPORT_SENTINEL';self.report['errors']=[{'code':'fixture','message':'IGNORE_ALL_GUARDS_SENTINEL'}]
+  self.page.locator('[data-learning-refresh]').click();self.page.wait_for_function("()=>document.querySelector('[data-learning-status]').textContent.startsWith('Dernière collecte')")
+  self.page.locator('[data-assistant-prepare=chatgpt]').click();text=self.page.locator('[data-assistant-message]').input_value()
+  for forbidden in ['PRIVATE_LOCAL_SENTINEL','PRIVATE_REPORT_SENTINEL','IGNORE_ALL_GUARDS_SENTINEL']:self.assertNotIn(forbidden,text)
+  self.assertIn('1600',text);self.assertIn('Simulation uniquement',text);self.assertEqual(before,self.page.evaluate('()=>JSON.stringify({...localStorage})'))
+  self.assertFalse(any('api.openai.com' in u or 'chatgpt.com' in u for u in self.requests));self.assertEqual(self.errors,[])
+ def test_service_links_send_no_report_or_prompt(self):
+  for kind,url in [('chatgpt','https://chatgpt.com/'),('codex','https://chatgpt.com/codex')]:
+   link=self.page.locator('[data-assistant-open='+kind+']');self.assertEqual(link.get_attribute('href'),url);self.assertEqual(link.get_attribute('target'),'_blank');self.assertEqual(link.get_attribute('rel'),'noopener noreferrer');self.assertEqual(link.get_attribute('referrerpolicy'),'no-referrer')
+ def test_codex_message_download_preserves_review_gates(self):
+  self.page.locator('[data-assistant-prepare=codex]').click()
+  with self.page.expect_download() as d:self.page.locator('[data-assistant-download]').click()
+  text=Path(d.value.path()).read_text();self.assertIn('https://github.com/ShimixTalk/Shimix-Soroban',text);self.assertIn('branche séparée',text);self.assertIn('avant toute fusion',text);self.assertFalse(any('api.openai.com' in u for u in self.requests));self.assertEqual(self.errors,[])
+ def test_clipboard_failure_keeps_selectable_message(self):
+  self.page.evaluate("()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{throw Error('denied')}}})")
+  self.page.locator('[data-assistant-prepare=chatgpt]').click();self.page.locator('[data-assistant-copy]').click();self.page.wait_for_function("()=>document.querySelector('[data-assistant-status]').textContent.includes('sélectionné')")
+  self.assertTrue(self.page.locator('[data-assistant-message]').evaluate('(e)=>e.selectionEnd-e.selectionStart===e.value.length'));self.assertEqual(self.errors,[])
+ def test_invalid_refreshed_report_cannot_be_shared_as_current(self):
+  self.page.locator('[data-assistant-prepare=chatgpt]').click();self.report['version']=999
+  self.page.locator('[data-learning-refresh]').click();self.page.wait_for_function("()=>document.querySelector('[data-learning-status]').textContent.startsWith('Rapport indisponible')")
+  self.page.locator('[data-assistant-prepare=codex]').click();self.assertEqual(self.page.locator('[data-assistant-message]').input_value(),'');self.assertIn('Rapport indisponible',self.page.locator('[data-assistant-status]').text_content());self.assertEqual(self.errors,[])
 if __name__=='__main__':unittest.main(verbosity=2)

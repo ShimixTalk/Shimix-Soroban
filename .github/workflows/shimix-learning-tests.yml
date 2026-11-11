@@ -9,12 +9,18 @@ permissions:
 jobs:
   offline-learning:
     runs-on: ubuntu-latest
+    container:
+      # Playwright 1.62.0 / Ubuntu 24.04, pinned to the verified official image.
+      image: mcr.microsoft.com/playwright/python@sha256:aa81288e738725378becba5b3e06cb0f3a7f012a610e87e8d767a090ea3f740d
+      options: --ipc=host
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
           fetch-depth: 0
+      - name: Trust only the checked-out test workspace
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Prepare isolated integration with latest application data
         id: integration
         run: |
@@ -39,7 +45,6 @@ jobs:
       - name: Browser dependencies
         run: |
           python3 -m pip install -r tests/requirements.txt
-          python3 -m playwright install --with-deps chromium webkit
       - name: Dashboard and existing encrypted backups
         run: |
           python3 tests/learning_browser.py

@@ -39,6 +39,11 @@ class AppleLearningTests(unittest.TestCase):
   for view in ['bot','safety','learning']:
    page.locator('[data-view='+view+']').click();self.assertEqual(page.locator('[data-view='+view+']').get_attribute('aria-pressed'),'true')
   self.assertTrue(panel.is_visible());self.assertEqual(errors,[])
+  before=page.evaluate('()=>JSON.stringify({...localStorage})')
+  for kind in ['chatgpt','codex']:
+   page.locator('[data-assistant-prepare='+kind+']').click();self.assertIn('Simulation uniquement',page.locator('[data-assistant-message]').input_value());self.assertTrue(panel.evaluate('(e)=>e.scrollWidth<=e.clientWidth+2'))
+  with page.expect_download() as download:page.locator('[data-assistant-download]').click()
+  self.assertIn('branche séparée',Path(download.value.path()).read_text());self.assertEqual(before,page.evaluate('()=>JSON.stringify({...localStorage})'));self.assertEqual(errors,[])
  def refresh_export(self,mobile):
   page,errors=self.device(mobile);before=page.evaluate('()=>JSON.stringify({...localStorage})');page.locator('[data-learning-refresh]').click();page.wait_for_function("()=>document.querySelector('[data-learning-status]').textContent.startsWith('Dernière collecte')")
   with page.expect_download() as download:page.get_by_role('button',name='Préparer le dossier d’analyse IA (sans appel API)').click()
