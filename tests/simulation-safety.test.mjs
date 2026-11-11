@@ -36,7 +36,7 @@ test('actual legacy robot sale conserves proceeds and quantity',()=>{
 test('actual legacy robot rejects live state without write',()=>{const result=runPaper({realTradingEnabled:true});assert.equal(result.status,1);assert.ok(!result.stdout.includes('SAVED:'));});
 test('actual legacy robot rejects missing holding quote without write',()=>{const result=runPaper({holdings:{UNKNOWN:1}});assert.equal(result.status,1);assert.ok(!result.stdout.includes('SAVED:'));});
 function runPortfolios(overrides={}){
- const p={id:'prudent',cash:630,initial:640,holdings:{BTC:.1},costBasis:{BTC:{quantity:.1,totalCost:1}},trades:[],signals:{},history:[],peak:640,paused:false,value:640,netProfit:0,feesPaid:0};
+ const p={cashFlows:[],id:'prudent',cash:630,initial:640,holdings:{BTC:.1},costBasis:{BTC:{quantity:.1,totalCost:1}},trades:[],signals:{},history:[],peak:640,paused:false,value:640,netProfit:0,feesPaid:0};
  const state={simulationOnly:true,realOrdersEnabled:false,portfolios:[p],...overrides};
  const code=`process.env.GITHUB_TOKEN='test-only';const state=${JSON.stringify(state)};
  globalThis.fetch=async(url,opts={})=>{let data;
@@ -54,3 +54,17 @@ test('three portfolios full liquidation accounts for actual units',()=>{
  assert.ok(Math.abs(p.cash-(630+.1*99.85*.998))<1e-9);
 });
 test('three portfolios reject live flags without writing',()=>{const r=runPortfolios({realOrdersEnabled:true});assert.equal(r.status,1);assert.ok(!r.stdout.includes('SAVED:'));});
+
+test('actual automation preserves audited transfer and all history entries',()=>{
+ const history=Array.from({length:1001},()=>({at:'2026-11-10T12:00:00Z',value:560}));
+ const p={id:'prudent',initial:640,cash:560,holdings:{},costBasis:{},trades:[],signals:{},history,peak:560,paused:false,value:560,feesPaid:0,updatedAt:'2026-11-11T12:00:00Z'};
+ const result=runPortfolios({portfolios:[p]});assert.equal(result.status,0,result.stderr);
+ const saved=JSON.parse(result.stdout.split('SAVED:')[1].split('\n')[0]).portfolios[0];
+ assert.equal(saved.netProfit,0);assert.equal(saved.cash,560);assert.equal(saved.initial,640);
+ assert.equal(saved.cashFlows[0].amount,-80);assert.deepEqual(saved.history.slice(0,-1),history);
+ assert.equal(saved.peak,560);assert.equal(saved.stop,.08);assert.equal(saved.paused,false);
+});
+test('invalid transfer metadata prevents any automation write',()=>{
+ const p={id:'prudent',initial:640,cash:560,holdings:{},costBasis:{},trades:[],signals:{},history:[],peak:560,paused:false,value:560,feesPaid:0,cashFlows:[{id:'bad',amount:'80',at:'bad'}]};
+ const result=runPortfolios({portfolios:[p]});assert.equal(result.status,1);assert.ok(!result.stdout.includes('SAVED:'));
+});
