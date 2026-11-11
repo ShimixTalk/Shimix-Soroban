@@ -1,11 +1,11 @@
-import functools,http.server,json,threading
+import functools,http.server,json,shutil,threading
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 root=Path(__file__).resolve().parents[1]
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(http.server.SimpleHTTPRequestHandler,directory=str(root)))
 threading.Thread(target=server.serve_forever,daemon=True).start()
 with sync_playwright() as p:
- browser=p.chromium.launch(headless=True,executable_path='/usr/bin/chromium',args=['--no-sandbox'])
+ browser=p.chromium.launch(headless=True,executable_path=shutil.which('chromium'),args=['--no-sandbox'])
  page=browser.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
  def route(r):
   if 'raw.githubusercontent.com' in r.request.url and 'three-portfolios.json' in r.request.url:r.fulfill(status=200,content_type='application/json',body=(root/'hub/trading/three-portfolios.json').read_text())

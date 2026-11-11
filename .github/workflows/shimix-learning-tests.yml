@@ -47,6 +47,7 @@ jobs:
           python3 -m pip install -r tests/requirements.txt
       - name: Dashboard and existing encrypted backups
         run: |
+          python3 tests/profile_accounting_browser.py
           python3 tests/learning_browser.py
           python3 tests/browser_security.py
       - name: WebKit at iPhone and Mac profiles

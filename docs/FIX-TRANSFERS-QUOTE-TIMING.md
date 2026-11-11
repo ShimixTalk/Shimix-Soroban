@@ -15,6 +15,6 @@ Dans learning/journal.py :
 
 Les événements et rapports d'apprentissage archivés ne sont pas réécrits. Les anciennes alertes restent des preuves du diagnostic alors utilisé ; les nouveaux événements portent les deux durées. Le prochain passage normal de collecte actualisera le rapport dérivé à partir du nouvel état. Aucun workflow n'est déclenché manuellement par cette correction.
 
-Validation hors réseau métier : 47 tests learning, 17 tests moteur, 18 tests Node sur main, test Chromium avec réponses interceptées (−4,01 EUR et trois transferts affichés, aucune erreur JavaScript). Les tests comparent les données sensibles au snapshot audité, couvrent les vraies pertes, migration répétée, métadonnées invalides, délais de collecte, fuseaux, seuil exact et cours réellement périmés.
+Validation hors réseau métier : 48 tests learning, 17 tests moteur, 18 tests Node sur main, test Chromium avec réponses interceptées (−4,01 EUR et trois transferts affichés, aucune erreur JavaScript). Les tests comparent les données sensibles au snapshot audité, couvrent les vraies pertes, migration répétée, métadonnées invalides, délais de collecte, fuseaux, seuil exact et cours réellement périmés.
 
 Deux PR sont nécessaires car l'application et son écrivain vivent sur des branches distinctes. Elles restent à revoir et fusionner explicitement ; aucune fusion, aucun déploiement, aucun appel payant ou ordre réel n'est effectué.

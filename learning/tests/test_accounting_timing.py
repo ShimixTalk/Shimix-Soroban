@@ -44,3 +44,13 @@ class AccountingTests(unittest.TestCase):
   f=dict(id='a',amount=-80,at=NOW.isoformat())
   for flows in [[f,f],[dict(f,amount=float('nan'))],[dict(f,amount=True)],[dict(f,at='unknown')],{}]:
    with self.assertRaises(ValueError):net_cash_flow(dict(cashFlows=flows))
+
+class IntegrationGuardTests(unittest.TestCase):
+ def test_only_audited_metadata_and_profit_changes_allowed(self):
+  from integration_check import audited_portfolio_change
+  before=subprocess.check_output(['git','show','e39c2a0:hub/trading/three-portfolios.json'],cwd=ROOT)
+  after=json.loads((ROOT/'hub/trading/three-portfolios.json').read_text())
+  self.assertTrue(audited_portfolio_change(before,json.dumps(after)))
+  for key,value in [('cash',9999),('initial',9999),('stop',1),('history',[]),('trades',[]),('peak',9999)]:
+   changed=copy.deepcopy(after);changed['portfolios'][1][key]=value
+   self.assertFalse(audited_portfolio_change(before,json.dumps(changed)),key)
