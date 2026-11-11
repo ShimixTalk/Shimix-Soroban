@@ -55,6 +55,24 @@ function render(report){
  content.append(element('p','Capital de référence conservé : 1 600 € fictifs. Cette analyse n’ajoute ni ne retire aucun montant aux portefeuilles.'));
  content.append(element('p',number(obs.observations)+' observations · '+number(obs.decisions)+' signaux enregistrés · '+number(obs.uniqueTrades)+' opérations distinctes · frais connus : '+number(obs.knownFees)+' €.'));
  if(obs.latest){content.append(element('p','Valeur observée : '+number(obs.latest.equity)+' € · résultat par rapport à 1 600 € : '+number(typeof obs.latest.equity==='number'?obs.latest.equity-1600:null)+' € · seuil de perte enregistré : '+number(obs.latest.riskSnapshot?.maxLossPercent)+' % (inchangé).'));}
+ content.append(element('h3','Contrôle rigoureux du robot indépendant'));
+ const rigor=report.rigour;
+ if(!rigor||rigor.status==='no_observations')content.append(element('p','Contrôle détaillé indisponible : attendre une collecte compatible.'));
+ else {
+  content.append(element('p','Relevé du '+new Date(rigor.asOf).toLocaleString('fr-FR')+' · '+number(rigor.observationDays)+' jour(s) observés · '+number(rigor.observedBuys)+' achats · '+number(rigor.observedSales)+' ventes. Rentabilité durable non démontrée.'));
+  content.append(table(['Mesure','Montant'],[
+   ['Valeur aux cours du relevé',number(rigor.markedEquity)+' €'],
+   ['Valeur après liquidation simulée',number(rigor.estimatedLiquidationEquity)+' €'],
+   ['Variation après liquidation / référence',number(rigor.estimatedLiquidationChangeFromReference)+' €'],
+   ['Coûts de sortie estimés',number(rigor.estimatedExitCosts)+' €'],
+   ['Frais historiques connus, déjà payés',number(rigor.knownPaidFees)+' €'],
+   ['Exposition investie',number(rigor.exposurePercent)+' %'],
+   ['Baisse maximale entre relevés observés',number(rigor.observedMaxDrawdownPercent)+' %']
+  ]));
+  content.append(element('p','Seuil d’arrêt global enregistré : '+number(rigor.riskSnapshot?.maxLossPercent)+' % · âge des cours à l’exécution : '+number(rigor.quoteAgeAtExecutionSeconds)+' s · âge du relevé à la collecte : '+number(rigor.sourceAgeAtReportSeconds)+' s.'));
+  if(rigor.issues?.length)content.append(element('p','Points à vérifier : '+rigor.issues.join(', ')+'. Une estimation historique ne constitue pas un cours actuel.'));
+  for(const text of rigor.limitations||[])content.append(element('p',text));
+ }
  content.append(element('h3','Performances publiées des trois simulations'));
  const actual=Array.isArray(report.observedPortfolios)?report.observedPortfolios.slice(0,3):[];
  content.append(table(['Profil','Capital initial fictif','Valeur publiée','Résultat hors transferts','Transferts nets','Frais publiés'],actual.map(p=>[names[p.id]||String(p.name),number(p.initial)+' €',number(p.value)+' €',number(p.netProfit)+' €',number(p.netCashFlow??0)+' €',number(p.feesPaid)+' €'])));

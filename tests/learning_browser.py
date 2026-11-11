@@ -61,4 +61,18 @@ class LearningBrowserTests(unittest.TestCase):
   self.page.locator('[data-assistant-prepare=chatgpt]').click();self.report['version']=999
   self.page.locator('[data-learning-refresh]').click();self.page.wait_for_function("()=>document.querySelector('[data-learning-status]').textContent.startsWith('Rapport indisponible')")
   self.page.locator('[data-assistant-prepare=codex]').click();self.assertEqual(self.page.locator('[data-assistant-message]').input_value(),'');self.assertIn('Rapport indisponible',self.page.locator('[data-assistant-status]').text_content());self.assertEqual(self.errors,[])
+ def test_rigour_shows_liquidation_risk_and_insufficient_evidence(self):
+  self.report['rigour']=dict(status='checked',asOf='2026-11-11T19:38:00Z',observationDays=1.2,observedBuys=3,observedSales=0,markedEquity=1604.91,estimatedLiquidationEquity=1603.81,estimatedLiquidationChangeFromReference=3.81,estimatedExitCosts=1.10,knownPaidFees=.36,exposurePercent=22.7,observedMaxDrawdownPercent=.085,riskSnapshot=dict(maxLossPercent=50),quoteAgeAtExecutionSeconds=30,sourceAgeAtReportSeconds=10,issues=[],limitations=['Avant impôts.'])
+  before=self.page.evaluate('()=>JSON.stringify({...localStorage})')
+  self.page.locator('[data-learning-refresh]').click()
+  self.page.get_by_text('Rentabilité durable non démontrée.',exact=False).wait_for()
+  text=self.page.locator('[data-learning-content]').text_content()
+  self.assertIn('1 603,81',text);self.assertIn('50 %',text);self.assertIn('3 achats',text)
+  self.assertEqual(before,self.page.evaluate('()=>JSON.stringify({...localStorage})'));self.assertEqual(self.errors,[])
+ def test_rigour_missing_estimate_is_not_zero_profit(self):
+  self.report['rigour']=dict(status='needs_review',asOf='2026-11-11T19:38:00Z',estimatedLiquidationEquity=None,estimatedLiquidationChangeFromReference=None,issues=['unknown_or_invalid_exit_costs'])
+  self.page.locator('[data-learning-refresh]').click()
+  self.page.get_by_text('Points à vérifier :',exact=False).wait_for()
+  row=self.page.get_by_role('row').filter(has_text='Valeur après liquidation simulée')
+  self.assertIn('Non calculable',row.text_content());self.assertEqual(self.errors,[])
 if __name__=='__main__':unittest.main(verbosity=2)
