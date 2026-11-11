@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "id": "strict-signal-forward-v1",
+  "frozenAt": "2026-11-11T20:00:52+00:00",
+  "mode": "offline_shadow_only",
+  "capital": 1600,
+  "riskSnapshot": {
+    "maxOrder": 120,
+    "maxLossPercent": 50,
+    "maxPositionPercent": 20,
+    "maxPositions": 8,
+    "feeRate": 0.001,
+    "spreadRate": 0.001,
+    "slippageRate": 0.001
+  },
+  "candidate": "strict_rsi_sma_previous_observation",
+  "benchmark": "buy_hold_btc_eth_120_each",
+  "automaticPromotion": false
+}
