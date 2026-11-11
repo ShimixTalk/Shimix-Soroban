@@ -14,6 +14,23 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
+          fetch-depth: 0
+      - name: Prepare isolated integration with latest application data
+        id: integration
+        run: |
+          git fetch --no-tags origin shimix-hub
+          git config user.name "SHIMIX verification"
+          git config user.email "shimix-verification@users.noreply.github.com"
+          git merge --no-commit --no-ff FETCH_HEAD
+          python3 - <<'PY'
+          import os,subprocess
+          base=subprocess.check_output(['git','rev-parse','FETCH_HEAD'],text=True).strip()
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f: f.write('base='+base+'\n')
+          PY
+      - name: Verify source data, engines and read-only collector
+        env:
+          SHIMIX_BASE: ${{ steps.integration.outputs.base }}
+        run: python3 learning/integration_check.py --base "$SHIMIX_BASE"
       - run: python3 -m unittest discover -s learning/tests -v
       - name: Reproduce frozen historical results offline
         run: python3 learning/reproduce.py
@@ -22,8 +39,12 @@ jobs:
       - name: Browser dependencies
         run: |
           python3 -m pip install -r tests/requirements.txt
-          python3 -m playwright install --with-deps chromium
+          python3 -m playwright install --with-deps chromium webkit
       - name: Dashboard and existing encrypted backups
         run: |
           python3 tests/learning_browser.py
           python3 tests/browser_security.py
+      - name: WebKit at iPhone and Mac profiles
+        run: python3 tests/learning_apple.py
+      - name: Restore full simulation and learning snapshot in temporary storage
+        run: python3 learning/backup.py --work-dir "$RUNNER_TEMP"

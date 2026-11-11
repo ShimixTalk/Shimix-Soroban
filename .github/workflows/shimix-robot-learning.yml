@@ -23,6 +23,8 @@ jobs:
           persist-credentials: false
       - name: Offline learning tests before any journal write
         run: python3 -m unittest discover -s learning/tests -v
+      - name: Verify temporary snapshot restoration before collection
+        run: python3 learning/backup.py --work-dir "$RUNNER_TEMP"
       - name: Observe simulation; append only learning records
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

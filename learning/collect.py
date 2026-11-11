@@ -51,6 +51,10 @@ class GitHub:
   blobs={p:self.api('/git/blobs','POST',{'content':base64.b64encode(data).decode(),'encoding':'base64'})['sha'] for p,data in files.items()}
   for attempt in range(3):
    head=self.api('/git/ref/heads/'+self.branch)['object']['sha'];tree=self.api('/git/commits/'+head)['tree']['sha']
+   bound=self.api('/git/trees/'+tree+'?recursive=1')
+   if bound.get('truncated'):raise ValueError('Arbre Git incomplet : aucune écriture autorisée')
+   at_head={entry['path']:entry['sha'] for entry in bound['tree'] if entry['type']=='blob'}
+   if any(at_head.get(path)!=self.original.get(path) for path in files):raise ValueError('Journal modifié avant la transaction : aucune observation écrasée')
    result=self.api('/git/trees','POST',{'base_tree':tree,'tree':[dict(path=p,mode='100644',type='blob',sha=sha) for p,sha in blobs.items()]})
    commit=self.api('/git/commits','POST',{'message':'data(learning): append simulation observations [skip render]','tree':result['sha'],'parents':[head]})
    try:self.api('/git/refs/heads/'+self.branch,'PATCH',{'sha':commit['sha'],'force':False});return commit['sha']
