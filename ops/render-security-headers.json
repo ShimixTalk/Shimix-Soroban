@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "status": "proposal_not_applied",
+  "existingService": "shimix-hub",
+  "existingServiceId": "srv-dbmko2utlv9c73ba67cg",
+  "path": "/trading/*",
+  "headers": {
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  },
+  "validationTarget": "https://shimix-hub.onrender.com/trading/index.html",
+  "createsService": false,
+  "requiresOwnerApproval": true,
+  "purpose": "Review specification for the existing Render static-site header settings; not an automatic API request."
+}
