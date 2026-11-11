@@ -1,0 +1,17 @@
+# Existing service only; synchronization must be explicitly approved.
+services:
+  - type: web
+    name: shimix-hub
+    runtime: static
+    repo: https://github.com/ShimixTalk/Shimix-Soroban
+    branch: shimix-hub
+    buildCommand: echo 'SHIMIX HUB ready'
+    staticPublishPath: hub
+    autoDeployTrigger: commit
+    headers:
+      - path: /trading/*
+        name: X-Frame-Options
+        value: DENY
+      - path: /trading/*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
