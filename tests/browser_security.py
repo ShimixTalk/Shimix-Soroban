@@ -91,4 +91,42 @@ class BrowserSecurityTests(unittest.TestCase):
         self.page.wait_for_function("()=>document.querySelector('#shimixCryptoTestResult').textContent.includes('Test réussi')")
         self.assertEqual(self.stored(),DEMO)
 
+    def remote_fixture(self):
+        self.fixture={'capital':1600,'value':1604.11,'cash':1360,'updatedAt':'2026-11-11T15:51:06Z','enabled':True,'holdings':{'BTC':0.001},'logs':[]}
+        self.page.route('https://raw.githubusercontent.com/**/robot-state.json?**',lambda r:r.fulfill(json=self.fixture))
+        self.page.evaluate('()=>botRemoteRefresh()')
+        self.page.wait_for_function("()=>document.querySelector('#robotEvolutionRefreshStatus').textContent.startsWith('Résultats mis à jour.')")
+        return self.page.locator('#robotEvolutionRefreshStatus')
+    def test_remote_refresh_unchanged_has_visible_feedback_and_preserves_local_data(self):
+        status=self.remote_fixture();before=self.page.evaluate('()=>JSON.stringify({...localStorage})')
+        self.page.get_by_role('button',name='Actualiser mon évolution',exact=True).click()
+        self.page.wait_for_function("()=>document.querySelector('#robotEvolutionRefreshStatus').textContent.startsWith('Données à jour, résultat inchangé.')")
+        self.assertTrue(status.is_visible());self.assertIn('Vérifié le',status.text_content());self.assertIn('Dernier calcul du robot',status.text_content());self.assertEqual(status.get_attribute('role'),'status')
+        self.assertEqual(before,self.page.evaluate('()=>JSON.stringify({...localStorage})'));self.assertEqual(self.errors,[])
+    def test_remote_refresh_new_data_updates_visible_summary(self):
+        status=self.remote_fixture();self.fixture.update(value=1605.25,updatedAt='2026-11-11T16:00:00Z')
+        self.page.get_by_role('button',name='Actualiser mon évolution',exact=True).click();self.page.wait_for_function("()=>document.querySelector('#robotExclusiveStatus').textContent.includes('1605.25')")
+        self.assertTrue(status.text_content().startswith('Résultats mis à jour.'));self.assertIn('+5.25',self.page.locator('#robotExclusiveStatus').text_content());self.assertEqual(self.errors,[])
+    def test_remote_refresh_busy_blocks_duplicate_calls(self):
+        status=self.remote_fixture()
+        self.page.evaluate("""()=>{window.remoteCalls=0;const original=window.fetch;window.fetch=(u,o)=>{if(String(u).includes('/robot-state.json')){window.remoteCalls++;return new Promise(resolve=>{window.finishRemote=()=>resolve(new Response(JSON.stringify({capital:1600,value:1604.11,cash:1360,updatedAt:'2026-11-11T15:51:06Z',enabled:true,holdings:{BTC:.001},logs:[]})))})}return original(u,o)};botRemoteRefresh();botRemoteRefresh()}""")
+        self.assertEqual(status.text_content(),'Actualisation…');self.assertEqual(self.page.locator('[data-remote-refresh]:disabled').count(),2);self.assertEqual(self.page.evaluate('()=>window.remoteCalls'),1)
+        self.page.evaluate('()=>window.finishRemote()');self.page.wait_for_function("()=>!document.querySelector('[data-remote-refresh]').disabled")
+        self.assertEqual(self.page.locator('[data-remote-refresh]:disabled').count(),0);self.assertEqual(self.errors,[])
+    def test_remote_refresh_network_error_keeps_both_last_results_and_recovers(self):
+        status=self.remote_fixture();summary=self.page.locator('#robotExclusiveStatus').text_content();detail=self.page.locator('#botRemoteState').text_content()
+        self.page.route('https://raw.githubusercontent.com/**/robot-state.json?**',lambda r:r.abort())
+        self.page.evaluate('()=>botRemoteRefresh()');self.assertIn('Dernier résultat conservé',status.text_content());self.assertTrue(status.is_visible());self.assertEqual(self.page.locator('#robotExclusiveStatus').text_content(),summary);self.assertEqual(self.page.locator('#botRemoteState').text_content(),detail);self.assertEqual(self.page.locator('[data-remote-refresh]:disabled').count(),0)
+        self.page.route('https://raw.githubusercontent.com/**/robot-state.json?**',lambda r:r.fulfill(json=self.fixture));self.page.evaluate('()=>botRemoteRefresh()');self.assertIn('Données à jour',status.text_content());self.assertEqual(self.errors,[])
+    def test_remote_refresh_invalid_and_http_errors_do_not_replace_results(self):
+        status=self.remote_fixture();summary=self.page.locator('#robotExclusiveStatus').text_content()
+        for body,http_status in [({'capital':1600,'value':None,'cash':1360},200),({},503)]:
+            self.page.route('https://raw.githubusercontent.com/**/robot-state.json?**',lambda r,request,body=body,http_status=http_status:r.fulfill(status=http_status,json=body))
+            self.page.evaluate('()=>botRemoteRefresh()');self.assertIn('Actualisation impossible',status.text_content());self.assertEqual(self.page.locator('#robotExclusiveStatus').text_content(),summary);self.assertEqual(self.page.locator('[data-remote-refresh]:disabled').count(),0)
+        self.assertEqual(self.errors,[])
+    def test_remote_refresh_timeout_clears_busy_and_keeps_last_result(self):
+        status=self.remote_fixture();summary=self.page.locator('#robotExclusiveStatus').text_content()
+        self.page.evaluate("""()=>{const original=window.fetch,timer=window.setTimeout;window.setTimeout=(f,ms,...args)=>timer(f,ms===15000?0:ms,...args);window.fetch=(u,o)=>String(u).includes('/robot-state.json')?new Promise((resolve,reject)=>o.signal.addEventListener('abort',()=>reject(new DOMException('Aborted','AbortError')))):original(u,o)}""")
+        self.page.evaluate('()=>botRemoteRefresh()');self.assertIn('15 secondes',status.text_content());self.assertEqual(self.page.locator('#robotExclusiveStatus').text_content(),summary);self.assertEqual(self.page.locator('[data-remote-refresh]:disabled').count(),0);self.assertEqual(self.errors,[])
+
 if __name__=='__main__':unittest.main(verbosity=2)

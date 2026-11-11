@@ -52,4 +52,11 @@ class AppleLearningTests(unittest.TestCase):
  def test_mac_layout(self):self.readable(False)
  def test_iphone_refresh_and_export(self):self.refresh_export(True)
  def test_mac_refresh_and_export(self):self.refresh_export(False)
+ def refresh_remote(self,mobile):
+  page,errors=self.device(mobile);page.route('https://raw.githubusercontent.com/**/robot-state.json?**',lambda r:r.fulfill(json={'capital':1600,'value':1604.11,'cash':1360,'updatedAt':'2026-11-11T15:51:06Z','enabled':True,'holdings':{},'logs':[]}))
+  page.locator('[data-view=bot]').click();before=page.evaluate('()=>JSON.stringify({...localStorage})');page.get_by_role('button',name='Actualiser mon évolution',exact=True).click();page.wait_for_function("()=>document.querySelector('#robotEvolutionRefreshStatus').textContent.startsWith('Résultats mis à jour.')")
+  page.get_by_role('button',name='Actualiser mon évolution',exact=True).click();page.wait_for_function("()=>document.querySelector('#robotEvolutionRefreshStatus').textContent.startsWith('Données à jour, résultat inchangé.')")
+  status=page.locator('#robotEvolutionRefreshStatus');self.assertTrue(status.is_visible());self.assertTrue(status.evaluate('(e)=>e.getBoundingClientRect().width<=innerWidth'));self.assertEqual(before,page.evaluate('()=>JSON.stringify({...localStorage})'));self.assertEqual(errors,[])
+ def test_iphone_remote_refresh_feedback(self):self.refresh_remote(True)
+ def test_mac_remote_refresh_feedback(self):self.refresh_remote(False)
 if __name__=='__main__':unittest.main(verbosity=2)
