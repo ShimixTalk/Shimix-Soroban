@@ -1,0 +1,304 @@
+{
+  "frozenAt": "2026-11-10T19:59:10.419447+00:00",
+  "id": "initial-signal-study-v1",
+  "researchHash": "bae7bb4505db48f884d34847453500cd9b7bd5ac7b455cb83b01ff81967d6ae1",
+  "studies": {
+    "dynamique": {
+      "baseline": {
+        "lookback": 14,
+        "threshold": 0.01
+      },
+      "candidate": {
+        "lookback": 7,
+        "threshold": 0.02
+      },
+      "cutoff": "2026-11-09",
+      "dataHash": "4ed5d0aaf14fb0ff2a23ac52dad80e27cf26258df1f508ab19dbad37bb010559",
+      "folds": {
+        "test": {
+          "baseline": {
+            "fees": 5.351645,
+            "maxDrawdownPercent": 9.065814,
+            "netPnl": -3.243713,
+            "netReturnPercent": -0.810928,
+            "terminalExitIncluded": true,
+            "trades": 65
+          },
+          "candidate": {
+            "fees": 5.483458,
+            "maxDrawdownPercent": 13.53612,
+            "netPnl": -46.506179,
+            "netReturnPercent": -11.626545,
+            "terminalExitIncluded": true,
+            "trades": 63
+          },
+          "end": "2026-11-09",
+          "points": 72,
+          "start": "2026-08-30"
+        },
+        "train": {
+          "baseline": {
+            "fees": 4.904177,
+            "maxDrawdownPercent": 38.495192,
+            "netPnl": -115.077574,
+            "netReturnPercent": -28.769393,
+            "terminalExitIncluded": true,
+            "trades": 52
+          },
+          "candidate": {
+            "fees": 10.780884,
+            "maxDrawdownPercent": 22.758419,
+            "netPnl": -73.993286,
+            "netReturnPercent": -18.498322,
+            "terminalExitIncluded": true,
+            "trades": 127
+          },
+          "end": "2026-06-16",
+          "points": 197,
+          "start": "2025-12-02"
+        },
+        "validation": {
+          "baseline": {
+            "fees": 5.679889,
+            "maxDrawdownPercent": 8.224337,
+            "netPnl": 72.034092,
+            "netReturnPercent": 18.008523,
+            "terminalExitIncluded": true,
+            "trades": 58
+          },
+          "candidate": {
+            "fees": 5.645499,
+            "maxDrawdownPercent": 5.679031,
+            "netPnl": 70.867755,
+            "netReturnPercent": 17.716939,
+            "terminalExitIncluded": true,
+            "trades": 54
+          },
+          "end": "2026-08-28",
+          "points": 72,
+          "start": "2026-06-18"
+        }
+      },
+      "parameterTrials": 9,
+      "points": 364,
+      "riskLimits": {
+        "assets": [
+          "bitcoin",
+          "ethereum",
+          "solana",
+          "chainlink",
+          "avalanche-2",
+          "dogecoin"
+        ],
+        "exposure": 0.35,
+        "fee": 0.002,
+        "initial": 400.0,
+        "maxOrder": 50.0,
+        "slippage": 0.003,
+        "spread": 0.003,
+        "stop": 0.25
+      },
+      "selectionScope": "train_only",
+      "status": "not_supported",
+      "testSupportsCandidate": false,
+      "testUsedForSelection": false,
+      "validationSupportsCandidate": false
+    },
+    "equilibre": {
+      "baseline": {
+        "lookback": 14,
+        "threshold": 0.01
+      },
+      "candidate": {
+        "lookback": 21,
+        "threshold": 0
+      },
+      "cutoff": "2026-11-09",
+      "dataHash": "1b5192fe314040a11d6f008d8ba3f7ba3c7184fb3a4cf23712d3cc930d0095d0",
+      "folds": {
+        "test": {
+          "baseline": {
+            "fees": 4.346839,
+            "maxDrawdownPercent": 7.634466,
+            "netPnl": -6.717801,
+            "netReturnPercent": -1.199607,
+            "terminalExitIncluded": true,
+            "trades": 69
+          },
+          "candidate": {
+            "fees": 4.041513,
+            "maxDrawdownPercent": 7.790941,
+            "netPnl": -11.640288,
+            "netReturnPercent": -2.078623,
+            "terminalExitIncluded": true,
+            "trades": 62
+          },
+          "end": "2026-11-09",
+          "points": 72,
+          "start": "2026-08-30"
+        },
+        "train": {
+          "baseline": {
+            "fees": 4.904448,
+            "maxDrawdownPercent": 29.092477,
+            "netPnl": -111.681535,
+            "netReturnPercent": -19.943131,
+            "terminalExitIncluded": true,
+            "trades": 64
+          },
+          "candidate": {
+            "fees": 3.841499,
+            "maxDrawdownPercent": 19.244466,
+            "netPnl": -103.818911,
+            "netReturnPercent": -18.539091,
+            "terminalExitIncluded": true,
+            "trades": 61
+          },
+          "end": "2026-06-16",
+          "points": 197,
+          "start": "2025-12-02"
+        },
+        "validation": {
+          "baseline": {
+            "fees": 5.589382,
+            "maxDrawdownPercent": 5.682306,
+            "netPnl": 86.059215,
+            "netReturnPercent": 15.367717,
+            "terminalExitIncluded": true,
+            "trades": 60
+          },
+          "candidate": {
+            "fees": 5.520653,
+            "maxDrawdownPercent": 4.951327,
+            "netPnl": 78.454289,
+            "netReturnPercent": 14.009695,
+            "terminalExitIncluded": true,
+            "trades": 56
+          },
+          "end": "2026-08-28",
+          "points": 72,
+          "start": "2026-06-18"
+        }
+      },
+      "parameterTrials": 9,
+      "points": 364,
+      "riskLimits": {
+        "assets": [
+          "bitcoin",
+          "ethereum",
+          "solana",
+          "chainlink"
+        ],
+        "exposure": 0.22,
+        "fee": 0.002,
+        "initial": 560.0,
+        "maxOrder": 45.0,
+        "slippage": 0.0015,
+        "spread": 0.0015,
+        "stop": 0.15
+      },
+      "selectionScope": "train_only",
+      "status": "not_supported",
+      "testSupportsCandidate": false,
+      "testUsedForSelection": false,
+      "validationSupportsCandidate": false
+    },
+    "prudent": {
+      "baseline": {
+        "lookback": 14,
+        "threshold": 0.01
+      },
+      "candidate": {
+        "lookback": 7,
+        "threshold": 0.02
+      },
+      "cutoff": "2026-11-09",
+      "dataHash": "f6e9f807da27211e130709f65ff2412dc0eb370d2aedce2ca350a3f9c1e94f76",
+      "folds": {
+        "test": {
+          "baseline": {
+            "fees": 1.464716,
+            "maxDrawdownPercent": 1.767598,
+            "netPnl": -0.240208,
+            "netReturnPercent": -0.037532,
+            "terminalExitIncluded": true,
+            "trades": 31
+          },
+          "candidate": {
+            "fees": 1.733673,
+            "maxDrawdownPercent": 2.114819,
+            "netPnl": -5.827186,
+            "netReturnPercent": -0.910498,
+            "terminalExitIncluded": true,
+            "trades": 32
+          },
+          "end": "2026-11-09",
+          "points": 72,
+          "start": "2026-08-30"
+        },
+        "train": {
+          "baseline": {
+            "fees": 2.769008,
+            "maxDrawdownPercent": 5.168353,
+            "netPnl": -11.456666,
+            "netReturnPercent": -1.790104,
+            "terminalExitIncluded": true,
+            "trades": 59
+          },
+          "candidate": {
+            "fees": 3.387854,
+            "maxDrawdownPercent": 4.772733,
+            "netPnl": -12.60317,
+            "netReturnPercent": -1.969245,
+            "terminalExitIncluded": true,
+            "trades": 76
+          },
+          "end": "2026-06-16",
+          "points": 197,
+          "start": "2025-12-02"
+        },
+        "validation": {
+          "baseline": {
+            "fees": 1.896923,
+            "maxDrawdownPercent": 2.226007,
+            "netPnl": -1.831145,
+            "netReturnPercent": -0.286116,
+            "terminalExitIncluded": true,
+            "trades": 34
+          },
+          "candidate": {
+            "fees": 1.527119,
+            "maxDrawdownPercent": 1.301267,
+            "netPnl": 8.357689,
+            "netReturnPercent": 1.305889,
+            "terminalExitIncluded": true,
+            "trades": 23
+          },
+          "end": "2026-08-28",
+          "points": 72,
+          "start": "2026-06-18"
+        }
+      },
+      "parameterTrials": 9,
+      "points": 364,
+      "riskLimits": {
+        "assets": [
+          "bitcoin",
+          "ethereum"
+        ],
+        "exposure": 0.12,
+        "fee": 0.002,
+        "initial": 640.0,
+        "maxOrder": 35.0,
+        "slippage": 0.001,
+        "spread": 0.001,
+        "stop": 0.08
+      },
+      "selectionScope": "train_only",
+      "status": "not_supported",
+      "testSupportsCandidate": false,
+      "testUsedForSelection": false,
+      "validationSupportsCandidate": true
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "mode": "shadow_simulation_only",
+  "experimentId": "initial-signal-study-v1",
+  "minimumDailyPoints": 120,
+  "futureMinimumPoints": 20,
+  "historyRequestsPerRun": 2,
+  "openai": {"enabled": false, "monthlyBudgetUsd": 0, "maxRequestUsd": 0},
+  "automaticMerge": false,
+  "automaticRiskChanges": false,
+  "automaticLiveTrading": false
+}
