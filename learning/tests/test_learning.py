@@ -131,4 +131,8 @@ class LearningTests(unittest.TestCase):
   for rows in h.values():
    end=dt.date.fromisoformat(rows[-1]['date']);rows.extend(dict(date=(end+dt.timedelta(days=i)).isoformat(),price=130+i) for i in range(1,21))
   result=future(h,'prudent',f,20);self.assertEqual(result['points'],19);self.assertEqual(result['status'],'waiting_for_new_data')
+ def test_ai_review_hash_matches_stable_report_snapshot(self):
+  report={'observations':1};prepared=prepare(report,POLICY);report['ai']={'status':'disabled'}
+  self.assertEqual(prepared['inputHash'],digest(prepared['reviewInput']['report']));self.assertNotIn('ai',prepared['reviewInput']['report'])
+  files,_=build(Memory(),{**POLICY,'historyRequestsPerRun':0},NOW);packet=json.loads(files[PREFIX+'openai-review-input.json']);self.assertEqual(packet['inputHash'],digest(packet['reviewInput']['report']))
 if __name__=='__main__':unittest.main()
