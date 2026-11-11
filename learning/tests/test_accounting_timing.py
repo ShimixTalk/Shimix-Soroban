@@ -27,7 +27,8 @@ class TimingTests(unittest.TestCase):
 class AccountingTests(unittest.TestCase):
  def test_audited_transfer_only_changes_metadata_and_derived_profit(self):
   before=json.loads(subprocess.check_output(['git','show','e39c2a0:hub/trading/three-portfolios.json'],cwd=ROOT))
-  after=json.loads((ROOT/'hub/trading/three-portfolios.json').read_text())
+  from integration_check import audited_portfolio_state
+  after=audited_portfolio_state(json.dumps(before))
   expected=[0,-1.13,-2.88]
   for a,b,w,pnl in zip(before['portfolios'],after['portfolios'],[80,80,40],expected):
    self.assertEqual(net_cash_flow(b),-w);self.assertEqual(b['netProfit'],pnl)
@@ -35,7 +36,8 @@ class AccountingTests(unittest.TestCase):
   self.assertEqual(after['totalInitial'],1600);self.assertEqual(after['totalProfit'],-4.01)
   self.assertEqual({k:v for k,v in after.items() if k not in ['portfolios','totalProfit']},{k:v for k,v in before.items() if k not in ['portfolios','totalProfit']})
  def test_observation_recalculates_without_mutation(self):
-  s=json.loads((ROOT/'hub/trading/three-portfolios.json').read_text());s['portfolios'][1]['netProfit']=-81.13;before=copy.deepcopy(s)
+  from integration_check import audited_portfolio_state
+  s=audited_portfolio_state(subprocess.check_output(['git','show','e39c2a0:hub/trading/three-portfolios.json'],cwd=ROOT));s['portfolios'][1]['netProfit']=-81.13;before=copy.deepcopy(s)
   e=observe_portfolios(s,'fixture','2026-11-12T12:00:00Z')
   self.assertEqual(s,before);self.assertEqual(e['profiles'][1]['netProfit'],-1.13);self.assertEqual(e['profiles'][1]['publishedNetProfit'],-81.13)
  def test_no_ledger_does_not_hide_trading_loss(self):
@@ -49,8 +51,19 @@ class IntegrationGuardTests(unittest.TestCase):
  def test_only_audited_metadata_and_profit_changes_allowed(self):
   from integration_check import audited_portfolio_change
   before=subprocess.check_output(['git','show','e39c2a0:hub/trading/three-portfolios.json'],cwd=ROOT)
-  after=json.loads((ROOT/'hub/trading/three-portfolios.json').read_text())
+  from integration_check import audited_portfolio_state
+  after=audited_portfolio_state(before)
   self.assertTrue(audited_portfolio_change(before,json.dumps(after)))
   for key,value in [('cash',9999),('initial',9999),('stop',1),('history',[]),('trades',[]),('peak',9999)]:
    changed=copy.deepcopy(after);changed['portfolios'][1][key]=value
    self.assertFalse(audited_portfolio_change(before,json.dumps(changed)),key)
+
+class CurrentDataTests(unittest.TestCase):
+ def test_current_snapshot_migration_is_pure_and_idempotent(self):
+  from integration_check import audited_portfolio_state
+  raw=(ROOT/'hub/trading/three-portfolios.json').read_bytes();before=json.loads(raw);after=audited_portfolio_state(raw)
+  for a,b in zip(before['portfolios'],after['portfolios']):
+   self.assertEqual({k:v for k,v in a.items() if k not in ['cashFlows','netProfit']},{k:v for k,v in b.items() if k not in ['cashFlows','netProfit']})
+   self.assertAlmostEqual(b['netProfit'],round(b['value']-b['initial']-net_cash_flow(b),2))
+  self.assertEqual(audited_portfolio_state(json.dumps(after)),after)
+  self.assertEqual((ROOT/'hub/trading/three-portfolios.json').read_bytes(),raw)

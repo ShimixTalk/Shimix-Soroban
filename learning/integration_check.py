@@ -6,7 +6,7 @@ from collect import build
 from preview import Files
 from engine import policy_check
 PROTECTED=CORE+['hub/trading/autonomous_simulation.py','hub/trading/meme_history.py','hub/trading/security.js','hub/trading/manifest.webmanifest','hub/trading/icon.svg']
-def audited_portfolio_change(previous,current):
+def audited_portfolio_state(previous):
  expected=copy.deepcopy(json.loads(previous))
  for p in expected['portfolios']:
   reference,withdrawal={'prudent':(640,80),'equilibre':(560,80),'dynamique':(400,40)}[p['id']]
@@ -18,7 +18,10 @@ def audited_portfolio_change(previous,current):
   from journal import net_cash_flow
   p['netProfit']=round(p['value']-p['initial']-net_cash_flow(p),2)
  expected['totalProfit']=round(sum(p['netProfit'] for p in expected['portfolios']),2)
- return json.loads(current)==expected
+ return expected
+
+def audited_portfolio_change(previous,current):
+ return json.loads(current)==audited_portfolio_state(previous)
 
 def verify(root,base):
  root=Path(root).resolve()
