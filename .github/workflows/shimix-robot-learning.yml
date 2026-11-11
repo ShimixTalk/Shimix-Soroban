@@ -1,5 +1,8 @@
 name: SHIMIX robot continuous learning (observation only)
 on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/shimix-robot-learning.yml']
   workflow_dispatch:
   schedule:
     - cron: '19,49 * * * *'
