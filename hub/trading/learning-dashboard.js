@@ -37,7 +37,7 @@ function prepareMessage(kind){
 }
 for(const [kind,name,url] of [['chatgpt','ChatGPT','https://chatgpt.com/'],['codex','Codex','https://chatgpt.com/codex']]){
  const row=element('div');row.className='actions';const button=element('button','Préparer pour '+name);button.type='button';button.setAttribute('data-assistant-prepare',kind);button.onclick=()=>prepareMessage(kind);
- const link=element('a','Ouvrir '+name);link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.referrerPolicy='no-referrer';link.setAttribute('data-assistant-open',kind);row.append(button,link);handoff.append(row);
+ const link=element('a','Ouvrir '+name);link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.referrerPolicy='no-referrer';link.style.cssText='color:#f3deb2;padding:10px 12px;border:1px solid #766849;border-radius:10px;display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box';link.setAttribute('data-assistant-open',kind);row.append(button,link);handoff.append(row);
 }
 const copy=element('button','Copier le message');copy.type='button';copy.setAttribute('data-assistant-copy','');copy.onclick=async()=>{
  if(!message.value){handoffStatus.textContent='Prépare d’abord un dossier.';return;}
