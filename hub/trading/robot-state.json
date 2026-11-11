@@ -244,7 +244,10 @@
     },
     "PUMP": {
       "action": "Attente",
-      "reason": "Historique insuffisant"
+      "rsi": 37.42,
+      "sma7": 0.003471943598009699,
+      "sma21": 0.0037521558559005497,
+      "reason": "RSI et moyennes mobiles"
     },
     "XRP": {
       "action": "Attente",
@@ -281,7 +284,7 @@
     "2026-11-10T16:25:05.455381+00:00 : achat FICTIF BTC pour 120.0 EUR",
     "Simulation expérimentale activée : plafond d'arrêt portefeuille 50 %, ordre max 120 €, 8 positions, aucun ordre réel."
   ],
-  "updatedAt": "2026-11-11T13:58:08.069544+00:00",
+  "updatedAt": "2026-11-11T14:53:22.687080+00:00",
   "dataErrors": [],
   "savingsPolicy": {
     "provider": "Crypto.com App",
@@ -3298,7 +3301,7 @@
   ],
   "marketCacheAt": 1794405488.069544,
   "scanner": {
-    "updatedAt": "2026-11-11T13:58:08.069544+00:00",
+    "updatedAt": "2026-11-11T14:53:22.687080+00:00",
     "examined": 100,
     "eligible": 91,
     "shortlist": [
@@ -3454,7 +3457,7 @@
     "quant-network": 1794302720.056697,
     "stable-2": 1794306485.029758,
     "lighter": 1794405488.069544,
-    "pump-fun": 1794318070.536622,
+    "pump-fun": 1794408802.68708,
     "pearl-2": 1794327905.455381,
     "venice-token": 1794327905.455381,
     "sui": 1794331499.02894,
@@ -4384,7 +4387,6 @@
       2.882168835572345
     ],
     "pump-fun": [
-      0.0050201300740116365,
       0.00445270767608301,
       0.0044784747200131,
       0.004259534260663066,
@@ -4413,8 +4415,7 @@
       0.003508138321638483,
       0.003335538634968097,
       0.0031607415896606483,
-      0.0032204916148642574,
-      0.003116075133205177
+      0.0032204916148642574
     ],
     "pearl-2": [
       1.2303648092037422,
@@ -4717,7 +4718,7 @@
     "returnPercent": 0.174,
     "drawdownPercent": -0.0,
     "totalTrades": 2,
-    "lastCalculatedAt": "2026-11-11T13:58:08.069544+00:00",
+    "lastCalculatedAt": "2026-11-11T14:53:22.687080+00:00",
     "simulated": true
   },
   "equityHistory": [
@@ -4943,6 +4944,11 @@
     },
     {
       "at": "2026-11-11T13:58:08.069544+00:00",
+      "equity": 1602.78,
+      "cash": 1360.0
+    },
+    {
+      "at": "2026-11-11T14:53:22.687080+00:00",
       "equity": 1602.78,
       "cash": 1360.0
     }
