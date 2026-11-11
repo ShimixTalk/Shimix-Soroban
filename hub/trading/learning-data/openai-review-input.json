@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "c0e401d2cf69d64c5260ccd139fb81322e64ce27f825e96f8fff824bb5fc28d6",
+  "inputHash": "4439939ba80a53bc90af893beced6281fbda6d4be9c947c01b468ae1e341e4c1",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -33,6 +33,11 @@
           "code": "stale_or_unknown_quotes",
           "event": "robot:a2bb35c28630d7b7cbead28c041ed5d52bd05e61",
           "message": "Fraîcheur des cours non confirmée."
+        },
+        {
+          "code": "stale_or_unknown_quotes",
+          "event": "robot:9ce60024a5581ab5e9c32b68080f80cbd14654df",
+          "message": "Fraîcheur des cours non confirmée."
         }
       ],
       "experiment": {
@@ -59,7 +64,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-11T08:40:35.767302+00:00",
+      "generatedAt": "2026-11-11T09:00:00.137039+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
@@ -367,7 +372,7 @@
       ],
       "mode": "shadow_simulation_only",
       "observed": {
-        "decisions": 60,
+        "decisions": 80,
         "equityAttribution": [
           {
             "equityChange": 0.541248,
@@ -384,6 +389,14 @@
             "fromId": "robot:a2bb35c28630d7b7cbead28c041ed5d52bd05e61",
             "priceEffect": 0.0345,
             "toId": "robot:235bd8e52f880f83c897015939c64ce99e74e16f"
+          },
+          {
+            "equityChange": 0.0,
+            "executionAndCashEffect": 0.0,
+            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+            "fromId": "robot:235bd8e52f880f83c897015939c64ce99e74e16f",
+            "priceEffect": 0.0,
+            "toId": "robot:9ce60024a5581ab5e9c32b68080f80cbd14654df"
           }
         ],
         "errors": [
@@ -396,13 +409,18 @@
             "code": "stale_or_unknown_quotes",
             "event": "robot:a2bb35c28630d7b7cbead28c041ed5d52bd05e61",
             "message": "Fraîcheur des cours non confirmée."
+          },
+          {
+            "code": "stale_or_unknown_quotes",
+            "event": "robot:9ce60024a5581ab5e9c32b68080f80cbd14654df",
+            "message": "Fraîcheur des cours non confirmée."
           }
         ],
         "feeCoverageComplete": true,
         "knownFees": 0.24,
         "knownRealizedPnl": 0.0,
         "latest": {
-          "at": "2026-11-11T07:48:27.968132+00:00",
+          "at": "2026-11-11T08:41:12.636410+00:00",
           "capital": 1600,
           "cash": 1360.0,
           "currency": "EUR",
@@ -422,7 +440,7 @@
           "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
           "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
         ],
-        "observations": 3,
+        "observations": 4,
         "realizedExplanations": [],
         "unattributableTrades": 0,
         "uniqueTrades": 2
@@ -536,7 +554,7 @@
           "status": "retain_reference_pending_evidence"
         }
       },
-      "sourceCursor": "235bd8e52f880f83c897015939c64ce99e74e16f",
+      "sourceCursor": "9ce60024a5581ab5e9c32b68080f80cbd14654df",
       "version": 1
     },
     "restrictions": [
