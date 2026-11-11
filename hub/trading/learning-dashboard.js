@@ -57,7 +57,7 @@ function render(report){
  if(obs.latest){content.append(element('p','Valeur observée : '+number(obs.latest.equity)+' € · résultat par rapport à 1 600 € : '+number(typeof obs.latest.equity==='number'?obs.latest.equity-1600:null)+' € · seuil de perte enregistré : '+number(obs.latest.riskSnapshot?.maxLossPercent)+' % (inchangé).'));}
  content.append(element('h3','Performances publiées des trois simulations'));
  const actual=Array.isArray(report.observedPortfolios)?report.observedPortfolios.slice(0,3):[];
- content.append(table(['Profil','Capital initial fictif','Valeur publiée','Résultat publié','Frais publiés'],actual.map(p=>[names[p.id]||String(p.name),number(p.initial)+' €',number(p.value)+' €',number(p.netProfit)+' €',number(p.feesPaid)+' €'])));
+ content.append(table(['Profil','Capital initial fictif','Valeur publiée','Résultat hors transferts','Transferts nets','Frais publiés'],actual.map(p=>[names[p.id]||String(p.name),number(p.initial)+' €',number(p.value)+' €',number(p.netProfit)+' €',number(p.netCashFlow??0)+' €',number(p.feesPaid)+' €'])));
  content.append(element('p','Le robot principal et les trois profils sont des simulations indépendantes : leurs capitaux ne s’additionnent pas.'));
  for(const p of report.profileJournal||[])content.append(element('p',(names[p.id]||p.id)+' : '+number(p.observations)+' observations, '+number(p.decisions)+' signaux et '+number(p.uniqueTrades)+' opérations conservées dans le journal.'));
  content.append(element('h3','Hypothèses et tests chronologiques'));

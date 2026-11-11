@@ -5,7 +5,7 @@
   "realOrdersEnabled": false,
   "totalInitial": 1600,
   "totalValue": 1395.99,
-  "totalProfit": -204.01,
+  "totalProfit": -4.01,
   "taxStatus": "Non calculée : fiscalité personnelle et courtier non vérifiés",
   "costStatus": "Hypothèses de simulation, pas tarifs Crypto.com réels",
   "dataStatus": "Cotations CoinGecko indicatives; ETF et actions non tradés",
@@ -225,7 +225,7 @@
       "peak": 560,
       "paused": false,
       "value": 560,
-      "netProfit": -80,
+      "netProfit": 0,
       "feesPaid": 0,
       "updatedAt": "2026-11-11T15:04:15.607Z",
       "lastPrices": {
@@ -235,7 +235,17 @@
         "DOGE": 0.061454,
         "LINK": 9.32,
         "AVAX": 7.7
-      }
+      },
+      "cashFlows": [
+        {
+          "id": "f1f3221108db602c23a8c489cd25efea4e142dce:prudent",
+          "sourceCommit": "f1f3221108db602c23a8c489cd25efea4e142dce",
+          "at": "2026-11-09T18:39:53+00:00",
+          "amount": -80,
+          "type": "paper_capital_transfer",
+          "note": "Transfert fictif hors du profil, distinct du trading ; aucune réinjection."
+        }
+      ]
     },
     {
       "id": "equilibre",
@@ -484,7 +494,7 @@
       "peak": 480,
       "paused": false,
       "value": 478.87,
-      "netProfit": -81.13,
+      "netProfit": -1.13,
       "feesPaid": 0.09,
       "updatedAt": "2026-11-11T15:04:15.607Z",
       "lastPrices": {
@@ -497,7 +507,17 @@
       },
       "lastTradeAt": {
         "LINK": "2026-11-09T22:58:11.268Z"
-      }
+      },
+      "cashFlows": [
+        {
+          "id": "f1f3221108db602c23a8c489cd25efea4e142dce:equilibre",
+          "sourceCommit": "f1f3221108db602c23a8c489cd25efea4e142dce",
+          "at": "2026-11-09T18:39:53+00:00",
+          "amount": -80,
+          "type": "paper_capital_transfer",
+          "note": "Transfert fictif hors du profil, distinct du trading ; aucune réinjection."
+        }
+      ]
     },
     {
       "id": "dynamique",
@@ -803,7 +823,7 @@
       "peak": 360.00156364422924,
       "paused": false,
       "value": 357.12,
-      "netProfit": -42.88,
+      "netProfit": -2.88,
       "feesPaid": 0.4,
       "updatedAt": "2026-11-11T15:04:15.607Z",
       "lastPrices": {
@@ -818,7 +838,17 @@
         "AVAX": "2026-11-11T09:08:49.875Z",
         "LINK": "2026-11-09T22:58:11.268Z",
         "DOGE": "2026-11-10T07:27:19.515Z"
-      }
+      },
+      "cashFlows": [
+        {
+          "id": "f1f3221108db602c23a8c489cd25efea4e142dce:dynamique",
+          "sourceCommit": "f1f3221108db602c23a8c489cd25efea4e142dce",
+          "at": "2026-11-09T18:39:53+00:00",
+          "amount": -40,
+          "type": "paper_capital_transfer",
+          "note": "Transfert fictif hors du profil, distinct du trading ; aucune réinjection."
+        }
+      ]
     }
   ]
 }
