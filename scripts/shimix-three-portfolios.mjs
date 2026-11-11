@@ -1,3 +1,4 @@
+import {migrateCashFlows,tradingProfit} from './profile-accounting.mjs';
 import {nonnegative,validatePortfolio,requireHoldingQuotes,saleQuantity} from './simulation-safety.mjs';
 // SHIMIX 3 independent simulated portfolios; no brokerage API, no real orders.
 const token=process.env.GITHUB_TOKEN,repo='ShimixTalk/Shimix-Soroban',branch='shimix-hub',path='hub/trading/three-portfolios.json';
@@ -9,7 +10,7 @@ const definitions=[
 ];
 const ids={BTC:'bitcoin',ETH:'ethereum',SOL:'solana',LINK:'chainlink',AVAX:'avalanche-2',DOGE:'dogecoin'};
 const round=n=>Math.round(n*100)/100;
-const fresh=d=>({...d,cash:d.initial,holdings:{},costBasis:{},trades:[],signals:{},history:[],peak:d.initial,paused:false,value:d.initial,netProfit:0,feesPaid:0,updatedAt:null});
+const fresh=d=>({...d,cash:d.initial,cashFlows:[],holdings:{},costBasis:{},trades:[],signals:{},history:[],peak:d.initial,paused:false,value:d.initial,netProfit:0,feesPaid:0,updatedAt:null});
 async function api(url,opts){const r=await fetch(url,{...opts,signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error(r.status+' '+await r.text());return r.json()}
 async function main(){
 if(!token)throw Error('GITHUB_TOKEN absent');
@@ -23,7 +24,7 @@ if(old&&(old.simulationOnly!==true||old.realOrdersEnabled!==false))throw Error('
 const now=new Date().toISOString(),portfolios=[];
 for(const d of definitions){
 const p=old?.portfolios?.find(x=>x.id===d.id)||fresh(d);
-validatePortfolio(p);requireHoldingQuotes(p,Object.fromEntries(Object.entries(q).map(([k,v])=>[k,v.price])));
+validatePortfolio(p);migrateCashFlows(p);requireHoldingQuotes(p,Object.fromEntries(Object.entries(q).map(([k,v])=>[k,v.price])));
 Object.assign(p,{name:d.name,initial:d.initial,fee:d.fee,spread:d.spread,slippage:d.slippage,maxAllocation:d.maxAllocation,maxTrade:d.maxTrade,stop:d.stop,allowed:d.allowed,description:d.description});
 const value=()=>p.cash+Object.entries(p.holdings).reduce((sum,[symbol,qty])=>sum+qty*(q[symbol]?.price||p.lastPrices?.[symbol]||0),0);
 p.lastPrices={...p.lastPrices,...Object.fromEntries(Object.entries(q).map(([k,v])=>[k,v.price]))};
@@ -60,7 +61,7 @@ p.holdings[symbol]=Math.max(0,p.holdings[symbol]-quantity);p.cash+=amount-fee;
 p.feesPaid+=fee;p.lastTradeAt??={};p.lastTradeAt[symbol]=now;
 p.trades.unshift({at:now,symbol,action,amount:round(amount),quantity,executionPrice,fee:round(fee),estimatedSpreadSlippage:round(amount*(p.spread/2+p.slippage)),tax:'Non calculée'});
 }
-p.value=round(value());if(!Number.isFinite(p.value)||p.cash < -0.01)throw Error('Incohérence comptable '+p.id);p.netProfit=round(p.value-p.initial);p.history.push({at:now,value:p.value});p.history=p.history.slice(-1000);p.trades=p.trades.slice(0,250);p.updatedAt=now;portfolios.push(p);
+p.value=round(value());if(!Number.isFinite(p.value)||p.cash < -0.01)throw Error('Incohérence comptable '+p.id);p.netProfit=tradingProfit(p);p.history.push({at:now,value:p.value});p.updatedAt=now;portfolios.push(p);
 }
 const result={version:1,updatedAt:now,simulationOnly:true,realOrdersEnabled:false,totalInitial:1600,totalValue:round(portfolios.reduce((s,p)=>s+p.value,0)),totalProfit:round(portfolios.reduce((s,p)=>s+p.netProfit,0)),taxStatus:'Non calculée : fiscalité personnelle et courtier non vérifiés',costStatus:'Hypothèses de simulation, pas tarifs Crypto.com réels',dataStatus:'Cotations CoinGecko indicatives; ETF et actions non tradés',strategyStatus:'Règles expérimentales non backtestées; aucune garantie de rentabilité',portfolios};
 await api(url,{method:'PUT',headers:{...headers,'Content-Type':'application/json'},body:JSON.stringify({branch,message:'Update three independent paper portfolios',content:Buffer.from(JSON.stringify(result,null,2)+'\n').toString('base64'),...(sha?{sha}:{})})});
