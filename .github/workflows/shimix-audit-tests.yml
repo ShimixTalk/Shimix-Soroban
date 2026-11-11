@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
+      - name: Trust only the checked-out test workspace
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Python accounting and risk regressions (offline)
         run: python3 -m unittest discover -s hub/trading -v
       - name: Browser test dependencies

@@ -19,6 +19,8 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+      - name: Trust only the checked-out test workspace
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Prepare isolated integration with latest application data
         id: integration
         run: |
