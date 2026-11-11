@@ -28,8 +28,9 @@ class AppleLearningTests(unittest.TestCase):
   def local_https(route):
    path=(ROOT/'hub'/urllib.parse.urlsplit(route.request.url).path.lstrip('/')).resolve()
    if not path.is_relative_to((ROOT/'hub').resolve()) or not path.is_file():return route.fulfill(status=404,body='Not found')
-   route.fulfill(body=path.read_bytes(),content_type=mimetypes.guess_type(path)[0] or 'application/octet-stream')
-  page.route('https://shimix.test/**',local_https);page.goto('https://shimix.test/trading/index.html');page.locator('[data-view=learning]').click();page.wait_for_function("()=>document.querySelector('[data-learning-status]').textContent.startsWith('Dernière collecte')")
+   headers=json.loads((ROOT/'ops/render-security-headers.json').read_text())['headers']
+   route.fulfill(body=path.read_bytes(),headers=headers,content_type=mimetypes.guess_type(path)[0] or 'application/octet-stream')
+  page.route('https://shimix.test/**',local_https);response=page.goto('https://shimix.test/trading/index.html');self.assertEqual(response.headers.get('x-frame-options'),'DENY');self.assertEqual(response.headers.get('referrer-policy'),'strict-origin-when-cross-origin');page.locator('[data-view=learning]').click();page.wait_for_function("()=>document.querySelector('[data-learning-status]').textContent.startsWith('Dernière collecte')")
   return page,errors
  def readable(self,mobile):
   page,errors=self.device(mobile);panel=page.locator('#robotLearningPanel');self.assertTrue(panel.is_visible());self.assertIn('1 600',panel.text_content());self.assertIn('OpenAI',panel.text_content());self.assertEqual(errors,[])
