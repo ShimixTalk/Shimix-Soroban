@@ -1,0 +1,34 @@
+name: SHIMIX robot continuous learning (observation only)
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/shimix-robot-learning.yml']
+  workflow_dispatch:
+  schedule:
+    - cron: '19,49 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: shimix-learning-observer
+  cancel-in-progress: false
+jobs:
+  observe:
+    # Scheduled workflows run from the default branch. Audit/development copies cannot publish.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: shimix-hub
+          persist-credentials: false
+      - name: Offline learning tests before any journal write
+        run: python3 -m unittest discover -s learning/tests -v
+      - name: Verify temporary snapshot restoration before collection
+        run: python3 learning/backup.py --work-dir "$RUNNER_TEMP"
+      - name: Observe simulation; append only learning records
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 learning/collect.py
