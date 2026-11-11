@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "22219c55be6ce0c51b70953470ab964333fcc98e491949709e71e5fd02b0b39c",
+  "inputHash": "581d7499881970f42f78bc99c5c778d33fc421636d998637d1258e2676919a94",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -58,6 +58,11 @@
           "code": "stale_or_unknown_quotes",
           "event": "robot:0754a51f4d3054820f4da0dcdf0d2f6055301009",
           "message": "Fraîcheur des cours non confirmée."
+        },
+        {
+          "code": "stale_or_unknown_quotes",
+          "event": "robot:8191fa36e68b155d00d2d02faaa9269fa802282e",
+          "message": "Fraîcheur des cours non confirmée."
         }
       ],
       "experiment": {
@@ -84,7 +89,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-11T19:35:19.508598+00:00",
+      "generatedAt": "2026-11-11T21:14:12.039957+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
@@ -392,7 +397,7 @@
       ],
       "mode": "shadow_simulation_only",
       "observed": {
-        "decisions": 280,
+        "decisions": 320,
         "equityAttribution": [
           {
             "equityChange": 0.541248,
@@ -497,6 +502,22 @@
             "fromId": "robot:1c2a884554436f852a14a3314c4e3fc1977dc3f5",
             "priceEffect": 0.0,
             "toId": "robot:0754a51f4d3054820f4da0dcdf0d2f6055301009"
+          },
+          {
+            "equityChange": -1.048003,
+            "executionAndCashEffect": -0.359282,
+            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+            "fromId": "robot:0754a51f4d3054820f4da0dcdf0d2f6055301009",
+            "priceEffect": -0.688721,
+            "toId": "robot:8191fa36e68b155d00d2d02faaa9269fa802282e"
+          },
+          {
+            "equityChange": 0.40171,
+            "executionAndCashEffect": -1e-06,
+            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+            "fromId": "robot:8191fa36e68b155d00d2d02faaa9269fa802282e",
+            "priceEffect": 0.401711,
+            "toId": "robot:b3020f6920c3f194f3a29d07817e23edba7152ce"
           }
         ],
         "errors": [
@@ -534,17 +555,22 @@
             "code": "stale_or_unknown_quotes",
             "event": "robot:0754a51f4d3054820f4da0dcdf0d2f6055301009",
             "message": "Fraîcheur des cours non confirmée."
+          },
+          {
+            "code": "stale_or_unknown_quotes",
+            "event": "robot:8191fa36e68b155d00d2d02faaa9269fa802282e",
+            "message": "Fraîcheur des cours non confirmée."
           }
         ],
         "feeCoverageComplete": true,
-        "knownFees": 0.24,
+        "knownFees": 0.36,
         "knownRealizedPnl": 0.0,
         "latest": {
-          "at": "2026-11-11T18:35:59.855099+00:00",
+          "at": "2026-11-11T21:14:01.285373+00:00",
           "capital": 1600,
-          "cash": 1360.0,
+          "cash": 1240.0,
           "currency": "EUR",
-          "equity": 1605.954876,
+          "equity": 1605.308583,
           "riskSnapshot": {
             "feeRate": 0.001,
             "maxLossPercent": 50,
@@ -560,10 +586,10 @@
           "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
           "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
         ],
-        "observations": 14,
+        "observations": 16,
         "realizedExplanations": [],
         "unattributableTrades": 0,
-        "uniqueTrades": 2
+        "uniqueTrades": 3
       },
       "observedPortfolios": [
         {
@@ -674,7 +700,7 @@
           "status": "retain_reference_pending_evidence"
         }
       },
-      "sourceCursor": "0754a51f4d3054820f4da0dcdf0d2f6055301009",
+      "sourceCursor": "b3020f6920c3f194f3a29d07817e23edba7152ce",
       "version": 1
     },
     "restrictions": [
