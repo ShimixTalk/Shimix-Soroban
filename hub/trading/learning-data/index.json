@@ -1,15 +1,15 @@
 {
-  "cursor": "6c911db87e09a7781039e1b280ce32f7f72de8bd",
+  "cursor": "fdeeb2f158f440ae72f8ed1ec72366dce390aee9",
   "historyAttempts": {
     "avalanche-2": "2026-11-11T10:59:07.090189+00:00",
-    "bitcoin": "2026-11-11T09:00:00.137039+00:00",
+    "bitcoin": "2026-11-11T11:55:16.230222+00:00",
     "chainlink": "2026-11-11T09:59:11.332070+00:00",
     "dogecoin": "2026-11-11T10:59:07.090189+00:00",
-    "ethereum": "2026-11-11T09:00:00.137039+00:00",
+    "ethereum": "2026-11-11T11:55:16.230222+00:00",
     "solana": "2026-11-11T09:59:11.332070+00:00"
   },
-  "lastCollectedAt": "2026-11-11T10:59:07.090189+00:00",
-  "portfolioCursor": "688c05caae4ae8fdfca6f804ed25baeb2e9a0cae",
+  "lastCollectedAt": "2026-11-11T11:55:16.230222+00:00",
+  "portfolioCursor": "fe30827466ba754773a28a23d74043a3293f357b",
   "segments": [
     "events/2026-11-11-0001.jsonl"
   ],
