@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "581d7499881970f42f78bc99c5c778d33fc421636d998637d1258e2676919a94",
+  "inputHash": "a800de95c376b0be5af639250e39d8bfc39bc4765e06da02c2e76135c3e2ab74",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -89,7 +89,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-11T21:14:12.039957+00:00",
+      "generatedAt": "2026-11-11T22:20:32.026847+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
@@ -397,7 +397,7 @@
       ],
       "mode": "shadow_simulation_only",
       "observed": {
-        "decisions": 320,
+        "decisions": 340,
         "equityAttribution": [
           {
             "equityChange": 0.541248,
@@ -518,6 +518,14 @@
             "fromId": "robot:8191fa36e68b155d00d2d02faaa9269fa802282e",
             "priceEffect": 0.401711,
             "toId": "robot:b3020f6920c3f194f3a29d07817e23edba7152ce"
+          },
+          {
+            "equityChange": -0.568862,
+            "executionAndCashEffect": -0.359281,
+            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+            "fromId": "robot:b3020f6920c3f194f3a29d07817e23edba7152ce",
+            "priceEffect": -0.209581,
+            "toId": "robot:2ffc16632d3241ba0a5b5ca4a3e26dd93101f336"
           }
         ],
         "errors": [
@@ -563,14 +571,14 @@
           }
         ],
         "feeCoverageComplete": true,
-        "knownFees": 0.36,
+        "knownFees": 0.48,
         "knownRealizedPnl": 0.0,
         "latest": {
-          "at": "2026-11-11T21:14:01.285373+00:00",
+          "at": "2026-11-11T22:19:32.635046+00:00",
           "capital": 1600,
-          "cash": 1240.0,
+          "cash": 1120.0,
           "currency": "EUR",
-          "equity": 1605.308583,
+          "equity": 1604.739721,
           "riskSnapshot": {
             "feeRate": 0.001,
             "maxLossPercent": 50,
@@ -586,10 +594,10 @@
           "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
           "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
         ],
-        "observations": 16,
+        "observations": 17,
         "realizedExplanations": [],
         "unattributableTrades": 0,
-        "uniqueTrades": 3
+        "uniqueTrades": 4
       },
       "observedPortfolios": [
         {
@@ -597,73 +605,73 @@
           "id": "prudent",
           "initial": 640,
           "name": "Prudent",
-          "netProfit": -80.32,
+          "netProfit": -0.2,
           "paused": false,
-          "updatedAt": "2026-11-11T19:13:51.669Z",
-          "value": 559.68
+          "updatedAt": "2026-11-11T21:46:15.600Z",
+          "value": 559.8
         },
         {
           "feesPaid": 0.44999999999999996,
           "id": "equilibre",
           "initial": 560,
           "name": "Équilibré",
-          "netProfit": -82.21,
+          "netProfit": -2.28,
           "paused": false,
-          "updatedAt": "2026-11-11T19:13:51.669Z",
-          "value": 477.79
+          "updatedAt": "2026-11-11T21:46:15.600Z",
+          "value": 477.72
         },
         {
           "feesPaid": 0.72,
           "id": "dynamique",
           "initial": 400,
           "name": "Dynamique",
-          "netProfit": -43.49,
+          "netProfit": -2.83,
           "paused": false,
-          "updatedAt": "2026-11-11T19:13:51.669Z",
-          "value": 356.51
+          "updatedAt": "2026-11-11T21:46:15.600Z",
+          "value": 357.17
         }
       ],
       "profileJournal": [
         {
-          "decisions": 16,
+          "decisions": 18,
           "id": "prudent",
           "knownFees": 0.14,
           "latest": {
             "feesPaid": 0.14,
             "initial": 640,
-            "netProfit": -80.32,
-            "updatedAt": "2026-11-11T19:13:51.669Z",
-            "value": 559.68
+            "netProfit": -0.2,
+            "updatedAt": "2026-11-11T21:46:15.600Z",
+            "value": 559.8
           },
-          "observations": 8,
+          "observations": 9,
           "uniqueTrades": 2
         },
         {
-          "decisions": 32,
+          "decisions": 36,
           "id": "equilibre",
           "knownFees": 0.45,
           "latest": {
             "feesPaid": 0.44999999999999996,
             "initial": 560,
-            "netProfit": -82.21,
-            "updatedAt": "2026-11-11T19:13:51.669Z",
-            "value": 477.79
+            "netProfit": -2.28,
+            "updatedAt": "2026-11-11T21:46:15.600Z",
+            "value": 477.72
           },
-          "observations": 8,
+          "observations": 9,
           "uniqueTrades": 5
         },
         {
-          "decisions": 48,
+          "decisions": 54,
           "id": "dynamique",
           "knownFees": 0.72,
           "latest": {
             "feesPaid": 0.72,
             "initial": 400,
-            "netProfit": -43.49,
-            "updatedAt": "2026-11-11T19:13:51.669Z",
-            "value": 356.51
+            "netProfit": -2.83,
+            "updatedAt": "2026-11-11T21:46:15.600Z",
+            "value": 357.17
           },
-          "observations": 8,
+          "observations": 9,
           "uniqueTrades": 8
         }
       ],
@@ -700,7 +708,7 @@
           "status": "retain_reference_pending_evidence"
         }
       },
-      "sourceCursor": "b3020f6920c3f194f3a29d07817e23edba7152ce",
+      "sourceCursor": "2ffc16632d3241ba0a5b5ca4a3e26dd93101f336",
       "version": 1
     },
     "restrictions": [
