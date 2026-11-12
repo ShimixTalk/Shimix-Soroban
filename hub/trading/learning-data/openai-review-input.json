@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "3c414a09610fd622b36fe88043bd922255caaafdb991e6b903fb3083e14997ee",
+  "inputHash": "0945defc6703114f162b490cf15c589496c4d054ea4aed701e6a0ebf9f754593",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -94,7 +94,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-11T23:24:48.354666+00:00",
+      "generatedAt": "2026-11-12T00:23:43.770000+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
@@ -402,7 +402,7 @@
       ],
       "mode": "shadow_simulation_only",
       "observed": {
-        "decisions": 360,
+        "decisions": 380,
         "equityAttribution": [
           {
             "equityChange": 0.541248,
@@ -539,6 +539,14 @@
             "fromId": "robot:2ffc16632d3241ba0a5b5ca4a3e26dd93101f336",
             "priceEffect": 0.0,
             "toId": "robot:2155ee822b9ab5cbdc751ec4f2e3c5a5b81c477a"
+          },
+          {
+            "equityChange": -3.832722,
+            "executionAndCashEffect": -1e-06,
+            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+            "fromId": "robot:2155ee822b9ab5cbdc751ec4f2e3c5a5b81c477a",
+            "priceEffect": -3.832721,
+            "toId": "robot:d5f88289eb03aee5d189ebdf776d8961669941f5"
           }
         ],
         "errors": [
@@ -592,11 +600,11 @@
         "knownFees": 0.48,
         "knownRealizedPnl": 0.0,
         "latest": {
-          "at": "2026-11-11T23:11:14.546553+00:00",
+          "at": "2026-11-12T00:01:47.933347+00:00",
           "capital": 1600,
           "cash": 1120.0,
           "currency": "EUR",
-          "equity": 1604.739721,
+          "equity": 1600.906999,
           "riskSnapshot": {
             "feeRate": 0.001,
             "maxLossPercent": 50,
@@ -612,7 +620,7 @@
           "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
           "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
         ],
-        "observations": 18,
+        "observations": 19,
         "realizedExplanations": [],
         "unattributableTrades": 0,
         "uniqueTrades": 4
@@ -726,7 +734,7 @@
           "status": "retain_reference_pending_evidence"
         }
       },
-      "sourceCursor": "2155ee822b9ab5cbdc751ec4f2e3c5a5b81c477a",
+      "sourceCursor": "d5f88289eb03aee5d189ebdf776d8961669941f5",
       "version": 1
     },
     "restrictions": [
