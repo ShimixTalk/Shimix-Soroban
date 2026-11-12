@@ -87,7 +87,7 @@
       "status": "waiting_for_new_data"
     }
   },
-  "generatedAt": "2026-11-12T03:54:32.868250+00:00",
+  "generatedAt": "2026-11-12T04:58:48.176790+00:00",
   "hypotheses": {
     "dynamique": {
       "baseline": {
@@ -395,7 +395,7 @@
   ],
   "mode": "shadow_simulation_only",
   "observed": {
-    "decisions": 440,
+    "decisions": 460,
     "equityAttribution": [
       {
         "equityChange": 0.541248,
@@ -564,6 +564,14 @@
         "fromId": "robot:8e543c4419e189531c8135ae7e30bcc81f1e8913",
         "priceEffect": 0.0,
         "toId": "robot:37527cbe457a742c51dd0042b94b92d3ee19852d"
+      },
+      {
+        "equityChange": 0.470037,
+        "executionAndCashEffect": -1e-06,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:37527cbe457a742c51dd0042b94b92d3ee19852d",
+        "priceEffect": 0.470038,
+        "toId": "robot:355fddb5589319272c81e447322663c7674c2e57"
       }
     ],
     "errors": [
@@ -622,11 +630,11 @@
     "knownFees": 0.48,
     "knownRealizedPnl": 0.0,
     "latest": {
-      "at": "2026-11-12T03:09:07.382554+00:00",
+      "at": "2026-11-12T04:16:29.038643+00:00",
       "capital": 1600,
       "cash": 1120.0,
       "currency": "EUR",
-      "equity": 1600.455278,
+      "equity": 1600.925315,
       "riskSnapshot": {
         "feeRate": 0.001,
         "maxLossPercent": 50,
@@ -642,7 +650,7 @@
       "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
       "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
     ],
-    "observations": 22,
+    "observations": 23,
     "realizedExplanations": [],
     "unattributableTrades": 0,
     "uniqueTrades": 4
@@ -756,6 +764,6 @@
       "status": "retain_reference_pending_evidence"
     }
   },
-  "sourceCursor": "37527cbe457a742c51dd0042b94b92d3ee19852d",
+  "sourceCursor": "355fddb5589319272c81e447322663c7674c2e57",
   "version": 1
 }
