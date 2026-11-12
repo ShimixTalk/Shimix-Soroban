@@ -75,6 +75,7 @@ def review(events, generated_at):
         estimatedLiquidationReturnPercent=rounded(100*(liquidation/capital-1)) if liquidation is not None else None,
         knownPaidFees=round(sum(t['fee'] for t in trades.values() if finite(t.get('fee'))),6),
         missingHistoricalFees=missing_fees, observedBuys=buys, observedSales=sells,
+        recentDecisions=[dict(at=t.get('at'),asset=t.get('asset'),action=t.get('action'),reason=t.get('reason') or 'Non enregistrée',context=t.get('decision')) for t in sorted(trades.values(),key=lambda t:(t.get('at',''),t['id']))[-10:]],
         observations=len(rows), valuedSamples=valued_samples,
         observationDays=round((timestamp(latest['at'])-timestamp(rows[0]['at'])).total_seconds()/86400,6),
         observedMaxDrawdownPercent=rounded(100*max_drawdown) if valued_samples>=2 else None,

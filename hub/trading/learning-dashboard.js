@@ -8,6 +8,11 @@ const names={prudent:'Prudente',equilibre:'Équilibrée',dynamique:'Dynamique'};
 const number=x=>typeof x==='number'&&Number.isFinite(x)?x.toLocaleString('fr-FR',{maximumFractionDigits:3}):'Non calculable';
 function element(tag,text){const e=document.createElement(tag);if(text!==undefined)e.textContent=String(text);return e;}
 function table(headers,rows){const wrap=element('div');wrap.className='scroll';const t=element('table'),head=element('tr');for(const h of headers)head.append(element('th',h));t.append(head);for(const values of rows){const row=element('tr');for(const v of values)row.append(element('td',v));t.append(row);}wrap.append(t);return wrap;}
+const overview=document.getElementById('robotExclusiveOverview');
+if(overview&&!document.querySelector('[data-account-separation]')){
+ const note=element('p','Robot principal : référence de 1 600 € fictifs. Les trois profils comparatifs ont leurs propres comptes ; leurs capitaux et résultats ne s’ajoutent pas à ceux du robot.');
+ note.setAttribute('data-account-separation','');note.className='hint';overview.append(note);
+}
 async function read(filename){let last;for(const base of bases){try{const r=await fetch(base+filename+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);return await r.json();}catch(e){last=e;}}throw last;}
 let latestReport=null;
 const handoff=element('section');handoff.setAttribute('data-assistant-handoff','');
@@ -71,11 +76,24 @@ function render(report){
   ]));
   content.append(element('p','Seuil d’arrêt global enregistré : '+number(rigor.riskSnapshot?.maxLossPercent)+' % · âge des cours à l’exécution : '+number(rigor.quoteAgeAtExecutionSeconds)+' s · âge du relevé à la collecte : '+number(rigor.sourceAgeAtReportSeconds)+' s.'));
   if(rigor.issues?.length)content.append(element('p','Points à vérifier : '+rigor.issues.join(', ')+'. Une estimation historique ne constitue pas un cours actuel.'));
+  content.append(element('h3','Motifs enregistrés des dernières opérations'));
+  const decisions=Array.isArray(rigor.recentDecisions)?rigor.recentDecisions:[];
+  content.append(table(['Date du relevé','Opération fictive','Motif enregistré','Indicateurs conservés'],decisions.map(d=>{
+   const signal=d.context?.signal;
+   return [d.at?new Date(d.at).toLocaleString('fr-FR'):'Non enregistrée',String(d.action||'')+' '+String(d.asset||''),String(d.reason||'Non enregistrée'),signal?'RSI '+number(signal.rsi)+' · SMA7 '+number(signal.sma7)+' · SMA21 '+number(signal.sma21):'Contexte historique absent'];
+  })));
+  content.append(element('p','Les motifs historiques absents ne sont pas reconstitués à partir des signaux observés après coup.'));
   for(const text of rigor.limitations||[])content.append(element('p',text));
  }
- content.append(element('h3','Performances publiées des trois simulations'));
+ content.append(element('h3','Trois profils comparatifs — comptes séparés du robot'));
  const actual=Array.isArray(report.observedPortfolios)?report.observedPortfolios.slice(0,3):[];
- content.append(table(['Profil','Capital initial fictif','Valeur publiée','Résultat hors transferts','Transferts nets','Frais publiés'],actual.map(p=>[names[p.id]||String(p.name),number(p.initial)+' €',number(p.value)+' €',number(p.netProfit)+' €',number(p.netCashFlow??0)+' €',number(p.feesPaid)+' €'])));
+ const flowsKnown=actual.length===3&&actual.every(p=>Number.isFinite(p.netCashFlow)&&Number.isFinite(p.initial));
+ const allocated=flowsKnown?actual.reduce((sum,p)=>sum+p.initial+p.netCashFlow,0):null;
+ const transfers=flowsKnown?actual.reduce((sum,p)=>sum+p.netCashFlow,0):null;
+ content.append(element('p','Référence historique des profils : '+number(actual.length===3?actual.reduce((sum,p)=>sum+p.initial,0):null)+' € · transferts nets : '+number(transfers)+' € · capital après transferts : '+number(allocated)+' €. Ces sommes ne sont pas ajoutées aux 1 600 € du robot principal.'));
+ content.append(table(['Profil','Référence historique','Capital après transferts','Valeur publiée','Variation hors transferts, avant sortie','Transferts nets','Frais déjà payés'],actual.map(p=>[names[p.id]||String(p.name),number(p.initial)+' €',number(Number.isFinite(p.netCashFlow)?p.initial+p.netCashFlow:null)+' €',number(p.value)+' €',number(p.netProfit)+' €',number(p.netCashFlow)+' €',number(p.feesPaid)+' €'])));
+ content.append(element('p','La valeur des profils inclut les positions encore ouvertes : leurs coûts de vente futurs et les impôts ne sont pas déduits de cette variation. Un transfert absent du rapport reste non calculable, pas égal à zéro.'));
+
  content.append(element('p','Le robot principal et les trois profils sont des simulations indépendantes : leurs capitaux ne s’additionnent pas.'));
  for(const p of report.profileJournal||[])content.append(element('p',(names[p.id]||p.id)+' : '+number(p.observations)+' observations, '+number(p.decisions)+' signaux et '+number(p.uniqueTrades)+' opérations conservées dans le journal.'));
  content.append(element('h3','Hypothèses et tests chronologiques'));
