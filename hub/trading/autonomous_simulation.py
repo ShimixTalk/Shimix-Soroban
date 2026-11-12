@@ -94,6 +94,18 @@ def rsi(p):
     diff=[p[i]-p[i-1] for i in range(len(p)-14,len(p))]
     up=sum(max(0,x) for x in diff);down=sum(max(0,-x) for x in diff)
     return (50 if up==0 else 100) if down==0 else 100-100/(1+up/down)
+# BEGIN DECISION AUDIT
+def decision_snapshot(state, stamp, symbol, signals, trigger, market_price, entry=None):
+    signal=signals.get(symbol,{})
+    return {"at":stamp,"trigger":trigger,"asset":symbol,"marketPrice":market_price,
+            "entryReference":entry,"cashBefore":state.get("cash"),
+            "quantityBefore":state.get("holdings",{}).get(symbol,0),
+            "quoteFetchedAt":state.get("marketCacheAt"),
+            "strategyMode":state.get("experimentMode","standard_simulation"),
+            "signal":dict(signal.get("decisionContext",{})),
+            "risk":{k:state.get(k) for k in ("maxOrder","maxLossPercent","maxPositionPercent","maxPositions")},
+            "costs":{k:state.get(k,0.001) for k in ("feeRate","spreadRate","slippageRate")}}
+# END DECISION AUDIT
 def main():
     file=gh("GET");state=json.loads(base64.b64decode(file["content"]).decode())
     if not state.get("enabled",False):print("Robot désactivé");return
@@ -141,6 +153,13 @@ def main():
         rs=rsi(p);a=sma(p,7);b=sma(p,21);prev=sma(p[:-1],21)
         action=("Achat" if (rs<35 and a>b and p[-1]>prev) or (state.get("experimentMode")=="aggressive_simulation" and rs<45 and p[-1]>p[-2] and a>=b*0.97) else "Vente" if rs>65 and a<b else "Attente")
         signals[sym]={"action":action,"rsi":round(rs,2),"sma7":a,"sma21":b,"reason":"RSI et moyennes mobiles"}
+        # BEGIN DECISION AUDIT
+        signals[sym]["decisionContext"]={"at":stamp,"rsi":rs,"sma7":a,"sma21":b,"previousSma21":prev,
+            "lastClosedPrice":p[-1],"previousClosedPrice":p[-2],
+            "historyFetchedAt":state.get("historyUpdated",{}).get(x["id"]),
+            "rule":"strict_rsi_trend" if rs<35 and a>b and p[-1]>prev else "aggressive_rebound" if action=="Achat" else "bearish_rsi_trend" if action=="Vente" else "no_entry_or_exit_signal"}
+        signals[sym]["executionOutcome"]="not_selected" if action=="Achat" else "no_purchase_signal"
+        # END DECISION AUDIT
         if action=="Achat":candidates.append((45-rs,sym))
     state["signals"]=signals
     holdings=state.setdefault("holdings",{});cash=float(state.get("cash",1600));capital=float(state.get("capital",1600))
@@ -158,6 +177,9 @@ def main():
     loss=float(state.get("maxLossPercent",5))
     if value<=capital*(1-loss/100):
         state["enabled"]=False;logs.insert(0,stamp+" : arrêt de sécurité, perte maximale atteinte (positions non liquidées)")
+        # BEGIN DECISION AUDIT
+        for signal in signals.values():signal["executionOutcome"]="global_safety_stop"
+        # END DECISION AUDIT
     else:
         # Simulated exits: take-profit, stop-loss and bearish signal.
         # The portfolio-level safety stop does not promise a guaranteed 5% loss cap.
@@ -174,27 +196,55 @@ def main():
             gross=quantity*exit_price
             fee=gross*float(state.get("feeRate",0.001))
             proceeds=gross-fee
+            # BEGIN DECISION AUDIT
+            audit=decision_snapshot(state,stamp,sym,signals,reason,price,entry)
+            audit["cashBefore"]=cash
+            # END DECISION AUDIT
             cash+=proceeds
             holdings.pop(sym,None);entries.pop(sym,None)
             state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Vente","amount":round(proceeds,2),"price":exit_price,"quantity":quantity,"fee":fee,"reason":reason,"simulation":True})
+            # BEGIN DECISION AUDIT
+            state["trades"][0]["decision"]=audit
+            if sym in signals:signals[sym]["executionOutcome"]="executed_sale"
+            # END DECISION AUDIT
             logs.insert(0,stamp+" : vente FICTIVE "+sym+" ("+reason+")")
         last=state.setdefault("lastTrade",{})
         for _,sym in sorted(candidates,reverse=True):
+            # BEGIN DECISION AUDIT
+            outcome="not_selected"
+            if len(state.get("trades",[]))>=1000:outcome="trade_history_limit"
+            elif len(holdings)>=int(state.get("maxPositions",8)):outcome="position_count_limit"
+            elif now.timestamp()-float(last.get(sym,0))<86400:outcome="asset_cooldown"
+            elif float(prices.get(sym,0))<=0:outcome="missing_quote"
+            signals[sym]["executionOutcome"]=outcome
+            # END DECISION AUDIT
             if len(state.get("trades",[]))>=1000:break
             if len(holdings)>=int(state.get("maxPositions",8)):break
             if now.timestamp()-float(last.get(sym,0))<86400:continue
             price=float(prices.get(sym,0))
             if price<=0:continue
             amount=min(float(state.get("maxOrder",40)),cash,capital*float(state.get("maxPositionPercent",20))/100-float(holdings.get(sym,0))*price)
+            # BEGIN DECISION AUDIT
+            if amount<1:signals[sym]["executionOutcome"]="insufficient_cash_or_allocation"
+            # END DECISION AUDIT
             if amount<1:continue
             # 0.1% fee, spread and slippage modeled conservatively.
             effective=price*(1+float(state.get("spreadRate",0.001))+float(state.get("slippageRate",0.001)))
             fee=amount*float(state.get("feeRate",0.001))
             qty=(amount-fee)/effective
+            # BEGIN DECISION AUDIT
+            audit=decision_snapshot(state,stamp,sym,signals,signals[sym].get("decisionContext",{}).get("rule","unknown"),price)
+            audit["cashBefore"]=cash
+            # END DECISION AUDIT
             cash-=amount;holdings[sym]=float(holdings.get(sym,0))+qty
             last[sym]=now.timestamp()
             entries[sym]=((float(entries.get(sym,0))*float(holdings[sym]-qty))+amount)/float(holdings[sym])
             state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Achat","amount":round(amount,2),"price":effective,"quantity":qty,"fee":fee,"simulation":True})
+            # BEGIN DECISION AUDIT
+            state["trades"][0]["decision"]=audit
+            state["trades"][0]["reason"]=audit["trigger"]
+            signals[sym]["executionOutcome"]="executed_buy"
+            # END DECISION AUDIT
             logs.insert(0,stamp+" : achat FICTIF "+sym+" pour "+str(round(amount,2))+" EUR")
             # Only one simulated buy per run; evaluate further next time.
             break

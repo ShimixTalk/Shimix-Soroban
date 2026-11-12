@@ -8,6 +8,19 @@ def timestamp(value):
  if parsed.tzinfo is None:raise ValueError('Fuseau horaire absent')
  return parsed.astimezone(dt.timezone.utc)
 
+def decision_record(raw):
+ if not isinstance(raw,dict):return None
+ out={k:str(raw[k])[:120] for k in ['at','trigger','asset','strategyMode'] if isinstance(raw.get(k),str)}
+ try:timestamp(out.get('at'))
+ except ValueError:return None
+ for k in ['marketPrice','entryReference','cashBefore','quantityBefore','quoteFetchedAt']:
+  if finite(raw.get(k)):out[k]=raw[k]
+ for group,keys in [('signal',['at','rule','rsi','sma7','sma21','previousSma21','lastClosedPrice','previousClosedPrice','historyFetchedAt']),('risk',['maxOrder','maxLossPercent','maxPositionPercent','maxPositions']),('costs',['feeRate','spreadRate','slippageRate'])]:
+  nested=raw.get(group,{})
+  if not isinstance(nested,dict):continue
+  out[group]={k:(v[:120] if isinstance(v,str) else v) for k,v in nested.items() if k in keys and (finite(v) or (k in ['at','rule'] and isinstance(v,str)))}
+ return out
+
 def observe(state,source_sha,observed_at):
  if state.get('realTradingEnabled') is not False or state.get('exchangeApiConnected') is not False or state.get('readiness',{}).get('simulationOnly') is not True or state.get('readiness',{}).get('liveOrdersEnabled') is not False:raise ValueError('Source non confirmée en simulation')
  if state.get('capital')!=1600:raise ValueError('Capital de référence différent de 1 600 EUR : aucune correction automatique')
@@ -28,6 +41,9 @@ def observe(state,source_sha,observed_at):
  for asset,signal in state.get('signals',{}).items():
   if not isinstance(signal,dict):continue
   signals.append(dict(asset=str(asset)[:40],action=str(signal.get('action','Attente'))[:30],reason=str(signal.get('reason','Non documentée par le moteur'))[:300],indicators={k:v for k,v in signal.items() if k in ('rsi','sma7','sma21') and finite(v)}))
+  if isinstance(signal.get('executionOutcome'),str):signals[-1]['executionOutcome']=signal['executionOutcome'][:80]
+  context=decision_record(dict(at=signal.get('decisionContext',{}).get('at'),signal=signal.get('decisionContext'))) if isinstance(signal.get('decisionContext'),dict) else None
+  if context:signals[-1]['decisionContext']=context['signal']
  trades=[]
  for raw in state.get('trades',[]):
   if not isinstance(raw,dict):continue
@@ -38,6 +54,10 @@ def observe(state,source_sha,observed_at):
   asset=safe.get('asset',safe.get('symbol'))
   if not isinstance(asset,str) or safe.get('action') not in ('Achat','Vente'):continue
   trade=dict(id=digest(safe),at=date,asset=asset[:40],action=safe['action'],gross=safe.get('amount'),fee=safe.get('fee'),quantity=safe.get('quantity'),executionPrice=safe.get('executionPrice',safe.get('price')),reason=str(safe.get('reason','Non enregistrée'))[:300])
+  if 'decision' in raw:
+   context=decision_record(raw['decision'])
+   if context:trade['decision']=context
+   else:errors.append(dict(code='decision_context_invalid',message='Contexte de décision invalide ; opération historique conservée.'))
   if not finite(trade['quantity'],1e-15) or not finite(trade['fee']):errors.append(dict(code='incomplete_trade_cost',message='Quantité ou frais historiques absents : attribution réalisée non calculable.'))
   if any(t['id']==trade['id'] for t in trades):errors.append(dict(code='duplicate_trade_fingerprint',message='Opérations identiques sans identifiant source : attribution à vérifier.'))
   trades.append(trade)

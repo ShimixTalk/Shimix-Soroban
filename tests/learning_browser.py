@@ -75,4 +75,18 @@ class LearningBrowserTests(unittest.TestCase):
   self.page.get_by_text('Points à vérifier :',exact=False).wait_for()
   row=self.page.get_by_role('row').filter(has_text='Valeur après liquidation simulée')
   self.assertIn('Non calculable',row.text_content());self.assertEqual(self.errors,[])
+ def test_accounts_are_separated_and_transfers_not_losses(self):
+  self.report['observedPortfolios']=[dict(id=k,initial=n,netCashFlow=-flow,value=n-flow-1,netProfit=-1,feesPaid=.1) for k,n,flow in [('prudent',640,80),('equilibre',560,80),('dynamique',400,40)]]
+  self.page.locator('[data-learning-refresh]').click()
+  self.page.get_by_text('capital après transferts : 1 400',exact=False).wait_for()
+  self.assertIn('ne s’ajoutent pas',self.page.locator('[data-account-separation]').text_content())
+  row=self.page.get_by_role('row').filter(has_text='Prudente').filter(has_text='560 €').first
+  self.assertIn('640 €',row.text_content());self.assertIn('-80 €',row.text_content());self.assertEqual(self.errors,[])
+ def test_unknown_transfers_and_missing_decision_history_are_explicit(self):
+  self.report['observedPortfolios']=[dict(id=k,initial=n,value=n,netProfit=0,feesPaid=0) for k,n in [('prudent',640),('equilibre',560),('dynamique',400)]]
+  self.report['rigour']=dict(status='needs_review',asOf='2026-11-11T19:38:00Z',recentDecisions=[dict(at='2026-11-11T19:38:00Z',action='Achat',asset='BTC',reason='Non enregistrée',context=None)])
+  self.page.locator('[data-learning-refresh]').click()
+  self.page.get_by_text('Contexte historique absent',exact=True).wait_for()
+  self.assertIn('capital après transferts : Non calculable',self.page.locator('[data-learning-content]').text_content())
+  self.assertEqual(self.errors,[])
 if __name__=='__main__':unittest.main(verbosity=2)

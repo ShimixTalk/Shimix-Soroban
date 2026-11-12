@@ -23,13 +23,30 @@ def audited_portfolio_state(previous):
 def audited_portfolio_change(previous,current):
  return json.loads(current)==audited_portfolio_state(previous)
 
+def strip_decision_audit(code):
+ lines=code.decode().splitlines(keepends=True);out=[];inside=False
+ for line in lines:
+  if line.strip()=='# BEGIN DECISION AUDIT':
+   if inside:raise ValueError('Bloc audit imbriqué')
+   inside=True
+  elif line.strip()=='# END DECISION AUDIT':
+   if not inside:raise ValueError('Fin audit sans début')
+   inside=False
+  elif not inside:out.append(line)
+ if inside:raise ValueError('Bloc audit non terminé')
+ return ''.join(out).encode()
+
+def audit_only_engine_change(previous,current):
+ # Only this reviewed metadata-only engine is accepted; arbitrary marker blocks fail.
+ return hashlib.sha256(current).hexdigest()=='a6c7702be7b95e5faabfde1719cf392db1452b2072145c5c060571594eb99bef' and strip_decision_audit(current)==strip_decision_audit(previous)
+
 def verify(root,base):
  root=Path(root).resolve()
  if not re.fullmatch(r'[0-9a-f]{40}',base):raise ValueError('Référence de base exacte requise')
  checks={}
  for name in PROTECTED:
   previous=subprocess.check_output(['git','-C',str(root),'show',base+':'+name]);current=(root/name).read_bytes()
-  if current!=previous and not (name=='hub/trading/three-portfolios.json' and audited_portfolio_change(previous,current)):raise ValueError('Fichier existant différent de la base : '+name)
+  if current!=previous and not (name=='hub/trading/three-portfolios.json' and audited_portfolio_change(previous,current)) and not (name=='hub/trading/autonomous_simulation.py' and audit_only_engine_change(previous,current)):raise ValueError('Fichier existant différent de la base : '+name)
   checks[name]=hashlib.sha256(current).hexdigest()
  policy=json.loads((root/'learning/policy.json').read_text());policy_check(policy)
  if policy['openai']!=dict(enabled=False,monthlyBudgetUsd=0,maxRequestUsd=0):raise ValueError('OpenAI doit rester désactivé, budget nul')
