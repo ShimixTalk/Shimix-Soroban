@@ -92,7 +92,7 @@
       "status": "waiting_for_new_data"
     }
   },
-  "generatedAt": "2026-11-12T17:00:33.177313+00:00",
+  "generatedAt": "2026-11-12T17:53:57.200233+00:00",
   "hypotheses": {
     "dynamique": {
       "baseline": {
@@ -400,7 +400,7 @@
   ],
   "mode": "shadow_simulation_only",
   "observed": {
-    "decisions": 700,
+    "decisions": 720,
     "equityAttribution": [
       {
         "equityChange": 0.541248,
@@ -673,6 +673,14 @@
         "fromId": "robot:7d4413cf7bfdd0ab270eda5f85179616030690f5",
         "priceEffect": 2.314891,
         "toId": "robot:1a480c184982f9672159d4c411ae61a0ad611f87"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:1a480c184982f9672159d4c411ae61a0ad611f87",
+        "priceEffect": 0.0,
+        "toId": "robot:81893106192dd2a6012e5455fee9f11a270783d4"
       }
     ],
     "errors": [
@@ -736,7 +744,7 @@
     "knownFees": 0.6,
     "knownRealizedPnl": 0.0,
     "latest": {
-      "at": "2026-11-12T17:00:25.382609+00:00",
+      "at": "2026-11-12T17:52:13.732149+00:00",
       "capital": 1600,
       "cash": 1000.0,
       "currency": "EUR",
@@ -756,7 +764,7 @@
       "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
       "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
     ],
-    "observations": 35,
+    "observations": 36,
     "realizedExplanations": [],
     "unattributableTrades": 0,
     "uniqueTrades": 5
@@ -767,73 +775,73 @@
       "id": "prudent",
       "initial": 640,
       "name": "Prudent",
-      "netProfit": -2.88,
+      "netProfit": -2.48,
       "paused": false,
-      "updatedAt": "2026-11-12T15:08:53.530Z",
-      "value": 557.12
+      "updatedAt": "2026-11-12T17:15:53.917Z",
+      "value": 557.52
     },
     {
       "feesPaid": 0.44999999999999996,
       "id": "equilibre",
       "initial": 560,
       "name": "Équilibré",
-      "netProfit": -12.11,
+      "netProfit": -10.35,
       "paused": false,
-      "updatedAt": "2026-11-12T15:08:53.530Z",
-      "value": 467.89
+      "updatedAt": "2026-11-12T17:15:53.917Z",
+      "value": 469.65
     },
     {
       "feesPaid": 0.72,
       "id": "dynamique",
       "initial": 400,
       "name": "Dynamique",
-      "netProfit": -17.89,
+      "netProfit": -15.47,
       "paused": false,
-      "updatedAt": "2026-11-12T15:08:53.530Z",
-      "value": 342.11
+      "updatedAt": "2026-11-12T17:15:53.917Z",
+      "value": 344.53
     }
   ],
   "profileJournal": [
     {
-      "decisions": 36,
+      "decisions": 38,
       "id": "prudent",
       "knownFees": 0.14,
       "latest": {
         "feesPaid": 0.14,
         "initial": 640,
-        "netProfit": -2.88,
-        "updatedAt": "2026-11-12T15:08:53.530Z",
-        "value": 557.12
+        "netProfit": -2.48,
+        "updatedAt": "2026-11-12T17:15:53.917Z",
+        "value": 557.52
       },
-      "observations": 18,
+      "observations": 19,
       "uniqueTrades": 2
     },
     {
-      "decisions": 72,
+      "decisions": 76,
       "id": "equilibre",
       "knownFees": 0.45,
       "latest": {
         "feesPaid": 0.44999999999999996,
         "initial": 560,
-        "netProfit": -12.11,
-        "updatedAt": "2026-11-12T15:08:53.530Z",
-        "value": 467.89
+        "netProfit": -10.35,
+        "updatedAt": "2026-11-12T17:15:53.917Z",
+        "value": 469.65
       },
-      "observations": 18,
+      "observations": 19,
       "uniqueTrades": 5
     },
     {
-      "decisions": 108,
+      "decisions": 114,
       "id": "dynamique",
       "knownFees": 0.72,
       "latest": {
         "feesPaid": 0.72,
         "initial": 400,
-        "netProfit": -17.89,
-        "updatedAt": "2026-11-12T15:08:53.530Z",
-        "value": 342.11
+        "netProfit": -15.47,
+        "updatedAt": "2026-11-12T17:15:53.917Z",
+        "value": 344.53
       },
-      "observations": 18,
+      "observations": 19,
       "uniqueTrades": 8
     }
   ],
@@ -870,6 +878,6 @@
       "status": "retain_reference_pending_evidence"
     }
   },
-  "sourceCursor": "1a480c184982f9672159d4c411ae61a0ad611f87",
+  "sourceCursor": "81893106192dd2a6012e5455fee9f11a270783d4",
   "version": 1
 }
