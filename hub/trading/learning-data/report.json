@@ -92,7 +92,7 @@
       "status": "waiting_for_new_data"
     }
   },
-  "generatedAt": "2026-11-12T19:54:40.977219+00:00",
+  "generatedAt": "2026-11-12T20:49:44.512895+00:00",
   "hypotheses": {
     "dynamique": {
       "baseline": {
@@ -400,7 +400,7 @@
   ],
   "mode": "shadow_simulation_only",
   "observed": {
-    "decisions": 760,
+    "decisions": 780,
     "equityAttribution": [
       {
         "equityChange": 0.541248,
@@ -697,6 +697,14 @@
         "fromId": "robot:217a67348d491ecf9d9828a2a6394e915d4727f1",
         "priceEffect": 0.82727,
         "toId": "robot:da99a8f1d40a1d9da4e7e2112a3a487cd691605c"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:da99a8f1d40a1d9da4e7e2112a3a487cd691605c",
+        "priceEffect": 0.0,
+        "toId": "robot:1f0706a3c2be6b3fd1e02b0458093997a450d4b3"
       }
     ],
     "errors": [
@@ -760,7 +768,7 @@
     "knownFees": 0.6,
     "knownRealizedPnl": 0.0,
     "latest": {
-      "at": "2026-11-12T19:53:44.293868+00:00",
+      "at": "2026-11-12T20:49:32.522339+00:00",
       "capital": 1600,
       "cash": 1000.0,
       "currency": "EUR",
@@ -780,7 +788,7 @@
       "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
       "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
     ],
-    "observations": 38,
+    "observations": 39,
     "realizedExplanations": [],
     "unattributableTrades": 0,
     "uniqueTrades": 5
@@ -894,6 +902,6 @@
       "status": "retain_reference_pending_evidence"
     }
   },
-  "sourceCursor": "da99a8f1d40a1d9da4e7e2112a3a487cd691605c",
+  "sourceCursor": "1f0706a3c2be6b3fd1e02b0458093997a450d4b3",
   "version": 1
 }
