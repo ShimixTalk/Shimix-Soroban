@@ -40,3 +40,7 @@ Validation locale :
 Les données et moteurs protégés, sauf le seul fichier moteur instrumenté explicitement audité, restent identiques. Aucun état de portefeuille, fichier de données ou journal vivant n’est modifié par cette branche. Les comparaisons et tests se font sur des copies et sans réseau métier.
 
 Les modifications devront encore être validées ensemble avec les PR d’interface et de simulation complémentaires avant intégration. La stratégie, les seuils, les montants, le capital et les tâches planifiées ne sont pas changés. Une modification du code moteur pour ajouter des métadonnées ne constitue pas une autorisation de changer ses règles de trading.
+
+## Compatibilité locale complémentaire
+
+Intégration temporaire sans commit ni publication des évolutions #10 (`86509bcdb7e6551f3e6e39a0334d2c229650fae8`) et #12 (`f57db3ee1d973e680901e96c7a192361d2e0999c`) avec cette branche et sa base #11. Application des changements sans conflit, puis **138 tests locaux réussis** : 84 learning, 23 moteur, 14 tableau de bord Chromium et 17 sécurité/actualisation Chromium. Ces résultats concernent ces révisions exactes et ne constituent ni une fusion sur une branche cible, ni un déploiement, ni une validation de nouvelles révisions futures. Les essais WebKit n’ont pas été répétés pour cette évolution.
