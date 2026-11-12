@@ -92,7 +92,7 @@
       "status": "waiting_for_new_data"
     }
   },
-  "generatedAt": "2026-11-12T15:59:16.170962+00:00",
+  "generatedAt": "2026-11-12T17:00:33.177313+00:00",
   "hypotheses": {
     "dynamique": {
       "baseline": {
@@ -400,7 +400,7 @@
   ],
   "mode": "shadow_simulation_only",
   "observed": {
-    "decisions": 680,
+    "decisions": 700,
     "equityAttribution": [
       {
         "equityChange": 0.541248,
@@ -665,6 +665,14 @@
         "fromId": "robot:5e765e737009dec2772909767e9820bd6d5c2336",
         "priceEffect": -2.725635,
         "toId": "robot:7d4413cf7bfdd0ab270eda5f85179616030690f5"
+      },
+      {
+        "equityChange": 2.314891,
+        "executionAndCashEffect": -0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:7d4413cf7bfdd0ab270eda5f85179616030690f5",
+        "priceEffect": 2.314891,
+        "toId": "robot:1a480c184982f9672159d4c411ae61a0ad611f87"
       }
     ],
     "errors": [
@@ -728,11 +736,11 @@
     "knownFees": 0.6,
     "knownRealizedPnl": 0.0,
     "latest": {
-      "at": "2026-11-12T15:59:02.136762+00:00",
+      "at": "2026-11-12T17:00:25.382609+00:00",
       "capital": 1600,
       "cash": 1000.0,
       "currency": "EUR",
-      "equity": 1590.99384,
+      "equity": 1593.308731,
       "riskSnapshot": {
         "feeRate": 0.001,
         "maxLossPercent": 50,
@@ -748,7 +756,7 @@
       "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
       "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
     ],
-    "observations": 34,
+    "observations": 35,
     "realizedExplanations": [],
     "unattributableTrades": 0,
     "uniqueTrades": 5
@@ -862,6 +870,6 @@
       "status": "retain_reference_pending_evidence"
     }
   },
-  "sourceCursor": "7d4413cf7bfdd0ab270eda5f85179616030690f5",
+  "sourceCursor": "1a480c184982f9672159d4c411ae61a0ad611f87",
   "version": 1
 }
