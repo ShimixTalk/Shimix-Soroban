@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "profit-reserve-forward-v1",
+  "frozenAt": "2026-11-12T08:41:23+00:00",
+  "capital": 1600,
+  "transferStepEUR": 5,
+  "allocations": [[0, 1600], [800, 800], [400, 1200]],
+  "mode": "offline_shadow_only",
+  "automaticPromotion": false
+}
