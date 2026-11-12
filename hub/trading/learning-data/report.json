@@ -56,6 +56,11 @@
       "code": "stale_or_unknown_quotes",
       "event": "robot:2155ee822b9ab5cbdc751ec4f2e3c5a5b81c477a",
       "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:37527cbe457a742c51dd0042b94b92d3ee19852d",
+      "message": "Fraîcheur des cours non confirmée."
     }
   ],
   "experiment": {
@@ -82,7 +87,7 @@
       "status": "waiting_for_new_data"
     }
   },
-  "generatedAt": "2026-11-12T02:50:57.509866+00:00",
+  "generatedAt": "2026-11-12T03:54:32.868250+00:00",
   "hypotheses": {
     "dynamique": {
       "baseline": {
@@ -390,7 +395,7 @@
   ],
   "mode": "shadow_simulation_only",
   "observed": {
-    "decisions": 420,
+    "decisions": 440,
     "equityAttribution": [
       {
         "equityChange": 0.541248,
@@ -551,6 +556,14 @@
         "fromId": "robot:98b609244b69a1f8c54aaa88237add3621c2f1e2",
         "priceEffect": 0.364246,
         "toId": "robot:8e543c4419e189531c8135ae7e30bcc81f1e8913"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:8e543c4419e189531c8135ae7e30bcc81f1e8913",
+        "priceEffect": 0.0,
+        "toId": "robot:37527cbe457a742c51dd0042b94b92d3ee19852d"
       }
     ],
     "errors": [
@@ -598,13 +611,18 @@
         "code": "stale_or_unknown_quotes",
         "event": "robot:2155ee822b9ab5cbdc751ec4f2e3c5a5b81c477a",
         "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:37527cbe457a742c51dd0042b94b92d3ee19852d",
+        "message": "Fraîcheur des cours non confirmée."
       }
     ],
     "feeCoverageComplete": true,
     "knownFees": 0.48,
     "knownRealizedPnl": 0.0,
     "latest": {
-      "at": "2026-11-12T02:16:08.058036+00:00",
+      "at": "2026-11-12T03:09:07.382554+00:00",
       "capital": 1600,
       "cash": 1120.0,
       "currency": "EUR",
@@ -624,7 +642,7 @@
       "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
       "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
     ],
-    "observations": 21,
+    "observations": 22,
     "realizedExplanations": [],
     "unattributableTrades": 0,
     "uniqueTrades": 4
@@ -635,73 +653,73 @@
       "id": "prudent",
       "initial": 640,
       "name": "Prudent",
-      "netProfit": -1.01,
+      "netProfit": -0.72,
       "paused": false,
-      "updatedAt": "2026-11-12T01:27:43.413Z",
-      "value": 558.99
+      "updatedAt": "2026-11-12T03:02:22.605Z",
+      "value": 559.28
     },
     {
       "feesPaid": 0.44999999999999996,
       "id": "equilibre",
       "initial": 560,
       "name": "Équilibré",
-      "netProfit": -6.37,
+      "netProfit": -5.46,
       "paused": false,
-      "updatedAt": "2026-11-12T01:27:43.413Z",
-      "value": 473.63
+      "updatedAt": "2026-11-12T03:02:22.605Z",
+      "value": 474.54
     },
     {
       "feesPaid": 0.72,
       "id": "dynamique",
       "initial": 400,
       "name": "Dynamique",
-      "netProfit": -8.24,
+      "netProfit": -6.34,
       "paused": false,
-      "updatedAt": "2026-11-12T01:27:43.413Z",
-      "value": 351.76
+      "updatedAt": "2026-11-12T03:02:22.605Z",
+      "value": 353.66
     }
   ],
   "profileJournal": [
     {
-      "decisions": 22,
+      "decisions": 24,
       "id": "prudent",
       "knownFees": 0.14,
       "latest": {
         "feesPaid": 0.14,
         "initial": 640,
-        "netProfit": -1.01,
-        "updatedAt": "2026-11-12T01:27:43.413Z",
-        "value": 558.99
+        "netProfit": -0.72,
+        "updatedAt": "2026-11-12T03:02:22.605Z",
+        "value": 559.28
       },
-      "observations": 11,
+      "observations": 12,
       "uniqueTrades": 2
     },
     {
-      "decisions": 44,
+      "decisions": 48,
       "id": "equilibre",
       "knownFees": 0.45,
       "latest": {
         "feesPaid": 0.44999999999999996,
         "initial": 560,
-        "netProfit": -6.37,
-        "updatedAt": "2026-11-12T01:27:43.413Z",
-        "value": 473.63
+        "netProfit": -5.46,
+        "updatedAt": "2026-11-12T03:02:22.605Z",
+        "value": 474.54
       },
-      "observations": 11,
+      "observations": 12,
       "uniqueTrades": 5
     },
     {
-      "decisions": 66,
+      "decisions": 72,
       "id": "dynamique",
       "knownFees": 0.72,
       "latest": {
         "feesPaid": 0.72,
         "initial": 400,
-        "netProfit": -8.24,
-        "updatedAt": "2026-11-12T01:27:43.413Z",
-        "value": 351.76
+        "netProfit": -6.34,
+        "updatedAt": "2026-11-12T03:02:22.605Z",
+        "value": 353.66
       },
-      "observations": 11,
+      "observations": 12,
       "uniqueTrades": 8
     }
   ],
@@ -738,6 +756,6 @@
       "status": "retain_reference_pending_evidence"
     }
   },
-  "sourceCursor": "8e543c4419e189531c8135ae7e30bcc81f1e8913",
+  "sourceCursor": "37527cbe457a742c51dd0042b94b92d3ee19852d",
   "version": 1
 }
