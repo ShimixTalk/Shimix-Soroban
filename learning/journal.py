@@ -21,8 +21,9 @@ def observe(state,source_sha,observed_at):
  equity=None if missing else state['cash']+sum(q*prices.get(a,0) for a,q in holdings.items())
  if equity is not None and finite(state.get('value')) and abs(state['value']-equity)>.02:errors.append(dict(code='equity_mismatch',message='Valeur publiée différente du recalcul des positions.'))
  cache_at=state.get('marketCacheAt')
- age=now.timestamp()-cache_at if finite(cache_at) else None
- if age is None or age>3600 or age<0:errors.append(dict(code='stale_or_unknown_quotes',message='Fraîcheur des cours non confirmée.'))
+ age=at.timestamp()-cache_at if finite(cache_at) else None
+ collection_delay=(now-at).total_seconds()
+ if age is None or age>3600 or age<0:errors.append(dict(code='stale_or_unknown_quotes',message='Fraîcheur des cours à l’exécution non confirmée.'))
  signals=[]
  for asset,signal in state.get('signals',{}).items():
   if not isinstance(signal,dict):continue
@@ -40,7 +41,7 @@ def observe(state,source_sha,observed_at):
   if not finite(trade['quantity'],1e-15) or not finite(trade['fee']):errors.append(dict(code='incomplete_trade_cost',message='Quantité ou frais historiques absents : attribution réalisée non calculable.'))
   if any(t['id']==trade['id'] for t in trades):errors.append(dict(code='duplicate_trade_fingerprint',message='Opérations identiques sans identifiant source : attribution à vérifier.'))
   trades.append(trade)
- return dict(version=1,id='robot:'+source_sha,sourceCommit=source_sha,source='robot-state.json',at=at.isoformat(),observedAt=now.isoformat(),capital=1600,currency='EUR',simulationOnly=True,cash=state['cash'],holdings=holdings,prices=prices,quotesFetchedAt=cache_at,equity=round(equity,6) if equity is not None else None,signals=signals,trades=sorted(trades,key=lambda t:(t['at'],t['id'])),riskSnapshot={k:state.get(k) for k in ['maxOrder','maxLossPercent','maxPositionPercent','maxPositions','feeRate','spreadRate','slippageRate']},errors=errors,notes='Observation après exécution ; pas de reconstitution des décisions non journalisées.')
+ return dict(version=1,id='robot:'+source_sha,sourceCommit=source_sha,source='robot-state.json',at=at.isoformat(),observedAt=now.isoformat(),capital=1600,currency='EUR',simulationOnly=True,cash=state['cash'],holdings=holdings,prices=prices,quotesFetchedAt=cache_at,quoteAgeAtExecutionSeconds=age,collectionDelaySeconds=collection_delay,equity=round(equity,6) if equity is not None else None,signals=signals,trades=sorted(trades,key=lambda t:(t['at'],t['id'])),riskSnapshot={k:state.get(k) for k in ['maxOrder','maxLossPercent','maxPositionPercent','maxPositions','feeRate','spreadRate','slippageRate']},errors=errors,notes='Observation après exécution ; pas de reconstitution des décisions non journalisées.')
 
 def append(events,new):
  if any(e['id']==new['id'] for e in events):return events
@@ -86,6 +87,11 @@ def observe_portfolios(state,source_sha,observed_at):
  for p in profiles:
   if not finite(p.get('cash')) or not isinstance(p.get('holdings'),dict) or any(not finite(q) for q in p['holdings'].values()):raise ValueError('Profil invalide')
   safe={k:p.get(k) for k in ['id','name','initial','cash','value','netProfit','feesPaid','paused','updatedAt','maxAllocation','maxTrade','stop','fee','spread','slippage']}
+  safe['cashFlows']=p.get('cashFlows',[])
+  flow=net_cash_flow(safe)
+  safe['publishedNetProfit']=p.get('netProfit')
+  safe['netProfit']=round(p['value']-p['initial']-flow,2) if finite(p.get('value')) else None
+  safe['netCashFlow']=flow
   safe['holdings']=p['holdings'];safe['prices']={k:v for k,v in p.get('lastPrices',{}).items() if finite(v,1e-12)}
   safe['signals']={str(k):{f:v for f,v in s.items() if f in ['action','reason','change24h','estimatedCosts'] and (isinstance(v,str) or finite(v,-1e15))} for k,s in p.get('signals',{}).items() if isinstance(s,dict)}
   safe['trades']=[]
@@ -105,5 +111,15 @@ def profiles_summary(events):
     if p['id']!=profile:continue
     count+=1;decisions+=len(p['signals']);latest=p
     for trade in p['trades']:seen.setdefault(digest(trade),trade)
-  if latest:result.append(dict(id=profile,observations=count,decisions=decisions,uniqueTrades=len(seen),knownFees=round(sum(t['fee'] for t in seen.values() if finite(t.get('fee'))),6),latest={k:latest.get(k) for k in ['initial','value','netProfit','feesPaid','updatedAt']}))
+  if latest:result.append(dict(id=profile,observations=count,decisions=decisions,uniqueTrades=len(seen),knownFees=round(sum(t['fee'] for t in seen.values() if finite(t.get('fee'))),6),latest={k:latest.get(k) for k in ['initial','value','netProfit','netCashFlow','cashFlows','feesPaid','updatedAt']}))
  return result
+
+
+def net_cash_flow(profile):
+ flows=profile.get('cashFlows',[])
+ if not isinstance(flows,list):raise ValueError('Flux fictifs invalides')
+ seen=set();total=0.
+ for flow in flows:
+  if not isinstance(flow,dict) or not isinstance(flow.get('id'),str) or not flow['id'] or flow['id'] in seen or not finite(flow.get('amount'),-1e15):raise ValueError('Flux fictif invalide ou dupliqué')
+  timestamp(flow.get('at'));seen.add(flow['id']);total+=flow['amount']
+ return total
