@@ -92,7 +92,7 @@
       "status": "waiting_for_new_data"
     }
   },
-  "generatedAt": "2026-11-12T09:31:49.057374+00:00",
+  "generatedAt": "2026-11-12T10:36:23.579643+00:00",
   "hypotheses": {
     "dynamique": {
       "baseline": {
@@ -400,7 +400,7 @@
   ],
   "mode": "shadow_simulation_only",
   "observed": {
-    "decisions": 540,
+    "decisions": 560,
     "equityAttribution": [
       {
         "equityChange": 0.541248,
@@ -609,6 +609,14 @@
         "fromId": "robot:e6da821ffb09ce4290d8e4ceba9800c3c9710633",
         "priceEffect": 0.0,
         "toId": "robot:15578cd37ca9938ac7d7fb22a5cd3dcbfc2c9a55"
+      },
+      {
+        "equityChange": -1.311364,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:15578cd37ca9938ac7d7fb22a5cd3dcbfc2c9a55",
+        "priceEffect": -1.311364,
+        "toId": "robot:ab0a62bf2b985e0ea980f1ab9d10a8c7caf09b9c"
       }
     ],
     "errors": [
@@ -672,11 +680,11 @@
     "knownFees": 0.6,
     "knownRealizedPnl": 0.0,
     "latest": {
-      "at": "2026-11-12T08:45:41.999444+00:00",
+      "at": "2026-11-12T09:41:40.486960+00:00",
       "capital": 1600,
       "cash": 1000.0,
       "currency": "EUR",
-      "equity": 1600.291015,
+      "equity": 1598.979651,
       "riskSnapshot": {
         "feeRate": 0.001,
         "maxLossPercent": 50,
@@ -692,7 +700,7 @@
       "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
       "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
     ],
-    "observations": 27,
+    "observations": 28,
     "realizedExplanations": [],
     "unattributableTrades": 0,
     "uniqueTrades": 5
@@ -806,6 +814,6 @@
       "status": "retain_reference_pending_evidence"
     }
   },
-  "sourceCursor": "15578cd37ca9938ac7d7fb22a5cd3dcbfc2c9a55",
+  "sourceCursor": "ab0a62bf2b985e0ea980f1ab9d10a8c7caf09b9c",
   "version": 1
 }
