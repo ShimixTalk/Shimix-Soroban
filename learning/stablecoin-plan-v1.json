@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "stablecoin-entry-forward-v1",
+  "frozenAt": "2026-11-12T13:48:35+00:00",
+  "capital": 1600,
+  "mode": "offline_shadow_only",
+  "blockedSymbols": ["USDT", "USDC", "USD1", "DAI", "USDS", "USDE", "USDF", "USDG", "USDD", "PYUSD", "RLUSD", "GHO", "OUSD", "BFUSD", "FDUSD", "TUSD", "FRAX", "LUSD", "USD0", "USDGO"],
+  "variants": ["recorded_buy_signals", "recorded_buy_signals_no_stablecoins", "strict_no_stablecoins"],
+  "automaticPromotion": false
+}
