@@ -14,7 +14,7 @@
   },
   "peak": 1605.9548757145074,
   "maxOrder": 120,
-  "maxLossPercent": 50,
+  "maxLossPercent": 10,
   "enabled": true,
   "lastTrade": {
     "BTC": 1794435572.635046,
@@ -235,11 +235,17 @@
     },
     "AVAX": {
       "action": "Attente",
-      "reason": "Historique insuffisant"
+      "rsi": 44.72,
+      "sma7": 7.444119896403218,
+      "sma21": 7.700401655471298,
+      "reason": "RSI et moyennes mobiles"
     },
     "WBT": {
       "action": "Attente",
-      "reason": "Historique insuffisant"
+      "rsi": 32.87,
+      "sma7": 64.70953783280869,
+      "sma21": 67.07592622852133,
+      "reason": "RSI et moyennes mobiles"
     },
     "PEARL": {
       "action": "Achat",
@@ -339,7 +345,7 @@
     "2026-11-10T16:25:05.455381+00:00 : achat FICTIF BTC pour 120.0 EUR",
     "Simulation expérimentale activée : plafond d'arrêt portefeuille 50 %, ordre max 120 €, 8 positions, aucun ordre réel."
   ],
-  "updatedAt": "2026-11-13T03:24:16.270156+00:00",
+  "updatedAt": "2026-11-13T04:15:25.759566+00:00",
   "dataErrors": [],
   "savingsPolicy": {
     "provider": "Crypto.com App",
@@ -3356,7 +3362,7 @@
   ],
   "marketCacheAt": 1794540256.270156,
   "scanner": {
-    "updatedAt": "2026-11-13T03:24:16.270156+00:00",
+    "updatedAt": "2026-11-13T04:15:25.759566+00:00",
     "examined": 100,
     "eligible": 88,
     "shortlist": [
@@ -3487,7 +3493,7 @@
     "pieverse": 1794255950.592178,
     "bitcoin": 1794522025.464975,
     "ripple": 1794522025.464975,
-    "avalanche-2": 1794393873.764335,
+    "avalanche-2": 1794543325.759566,
     "tether": 1794527057.837021,
     "jupiter-exchange-solana": 1794265365.575689,
     "usd-coin": 1794534318.892453,
@@ -3531,7 +3537,8 @@
     "bittensor": 1794495228.984449,
     "figure-heloc": 1794524689.909138,
     "tether-gold": 1794524689.909138,
-    "gatechain-token": 1794534318.892453
+    "gatechain-token": 1794534318.892453,
+    "whitebit": 1794543325.759566
   },
   "dailyHistory": {
     "ethereum": [
@@ -3661,8 +3668,6 @@
       0.9449386894410065
     ],
     "avalanche-2": [
-      9.08592758811698,
-      9.128751032062826,
       8.938691644925191,
       8.947432096400576,
       8.84828064745429,
@@ -3689,7 +3694,9 @@
       7.477961955796815,
       7.376129993195007,
       7.11144625523234,
-      7.702568438002366
+      7.702568438002366,
+      7.494093065828387,
+      7.67318463372633
     ],
     "tether": [
       0.8922580437462937,
@@ -5064,6 +5071,37 @@
       8.668578429131964,
       8.721616252355961,
       8.835208767778497
+    ],
+    "whitebit": [
+      71.3550660004595,
+      71.91589402036732,
+      71.16021411531406,
+      70.84571965915727,
+      71.38838417460167,
+      71.38979604458022,
+      72.20301071467156,
+      72.63732217357527,
+      70.32899515304548,
+      70.314255309089,
+      69.54183213252867,
+      68.77242367600032,
+      68.81075363127185,
+      69.75388914549816,
+      69.9451367178103,
+      66.73848860670627,
+      66.20641850261356,
+      66.40098989204277,
+      67.29967323392022,
+      65.87527871289248,
+      66.33910102321646,
+      69.30045023265141,
+      65.03302343757706,
+      65.32408132218154,
+      65.31750342563264,
+      64.76606159214354,
+      64.63256297957562,
+      63.62723518249638,
+      64.26629689005411
     ]
   },
   "entryPrices": {
@@ -5079,7 +5117,7 @@
     "returnPercent": -1.295,
     "drawdownPercent": 1.661,
     "totalTrades": 7,
-    "lastCalculatedAt": "2026-11-13T03:24:16.270156+00:00",
+    "lastCalculatedAt": "2026-11-13T04:15:25.759566+00:00",
     "simulated": true
   },
   "equityHistory": [
@@ -5497,6 +5535,11 @@
       "at": "2026-11-13T03:24:16.270156+00:00",
       "equity": 1579.28,
       "cash": 1105.17
+    },
+    {
+      "at": "2026-11-13T04:15:25.759566+00:00",
+      "equity": 1579.28,
+      "cash": 1105.17
     }
   ],
   "experimentMode": "aggressive_simulation",
@@ -5600,5 +5643,18 @@
     "EURC": "euro-coin",
     "PYTH": "pyth-network",
     "QFI": "quantixai"
-  }
+  },
+  "globalProtection": {
+    "version": 1,
+    "pauseNewBuysAtLossPercent": 5,
+    "liquidateAtLossPercent": 10,
+    "referenceCapital": 1600,
+    "lastCheckedAt": "2026-11-13T04:15:25.759566+00:00",
+    "valuationComplete": true,
+    "estimatedLiquidationBeforeActions": 1577.860375,
+    "requiresApprovalToResume": false,
+    "buyPaused": false,
+    "pendingAssets": []
+  },
+  "buyPauseLossPercent": 5
 }
