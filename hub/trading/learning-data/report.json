@@ -13,6 +13,14 @@
   "automaticRiskChanges": false,
   "errors": [
     {
+      "code": "history_unavailable",
+      "message": "solana: ValueError ; aucune donnée existante remplacée."
+    },
+    {
+      "code": "history_unavailable",
+      "message": "chainlink: ValueError ; aucune donnée existante remplacée."
+    },
+    {
       "code": "stale_or_unknown_quotes",
       "event": "robot:eb95113bd52d1bff48a8aeef687d9f8638692ff9",
       "message": "Fraîcheur des cours non confirmée."
@@ -92,7 +100,7 @@
       "status": "waiting_for_new_data"
     }
   },
-  "generatedAt": "2026-11-12T23:17:27.337864+00:00",
+  "generatedAt": "2026-11-13T00:00:39.006159+00:00",
   "hypotheses": {
     "dynamique": {
       "baseline": {
@@ -400,7 +408,7 @@
   ],
   "mode": "shadow_simulation_only",
   "observed": {
-    "decisions": 840,
+    "decisions": 860,
     "equityAttribution": [
       {
         "equityChange": 0.541248,
@@ -729,6 +737,14 @@
         "fromId": "robot:410865299470c93a78fa2bde6be5549931ca40d3",
         "priceEffect": -0.739892,
         "toId": "robot:dc32fd51b81eabe8c14d77ed431d52f9a3cd7271"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:dc32fd51b81eabe8c14d77ed431d52f9a3cd7271",
+        "priceEffect": 0.0,
+        "toId": "robot:9e1f9f8121ce53fec824ac6ec973bc184a073d3c"
       }
     ],
     "errors": [
@@ -792,7 +808,7 @@
     "knownFees": 0.6,
     "knownRealizedPnl": 0.0,
     "latest": {
-      "at": "2026-11-12T23:04:49.909138+00:00",
+      "at": "2026-11-12T23:44:17.837021+00:00",
       "capital": 1600,
       "cash": 1000.0,
       "currency": "EUR",
@@ -812,7 +828,7 @@
       "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
       "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
     ],
-    "observations": 42,
+    "observations": 43,
     "realizedExplanations": [],
     "unattributableTrades": 0,
     "uniqueTrades": 5
@@ -926,6 +942,6 @@
       "status": "retain_reference_pending_evidence"
     }
   },
-  "sourceCursor": "dc32fd51b81eabe8c14d77ed431d52f9a3cd7271",
+  "sourceCursor": "9e1f9f8121ce53fec824ac6ec973bc184a073d3c",
   "version": 1
 }
