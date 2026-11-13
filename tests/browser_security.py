@@ -129,4 +129,18 @@ class BrowserSecurityTests(unittest.TestCase):
         self.page.evaluate("""()=>{const original=window.fetch,timer=window.setTimeout;window.setTimeout=(f,ms,...args)=>timer(f,ms===15000?0:ms,...args);window.fetch=(u,o)=>String(u).includes('/robot-state.json')?new Promise((resolve,reject)=>o.signal.addEventListener('abort',()=>reject(new DOMException('Aborted','AbortError')))):original(u,o)}""")
         self.page.evaluate('()=>botRemoteRefresh()');self.assertIn('15 secondes',status.text_content());self.assertEqual(self.page.locator('#robotExclusiveStatus').text_content(),summary);self.assertEqual(self.page.locator('[data-remote-refresh]:disabled').count(),0);self.assertEqual(self.errors,[])
 
+    def test_remote_refresh_new_timestamp_same_money_says_result_unchanged(self):
+        status=self.remote_fixture();self.fixture['updatedAt']='2026-11-11T17:00:00Z'
+        self.page.get_by_role('button',name='Actualiser mon évolution',exact=True).click()
+        self.page.wait_for_function("()=>document.querySelector('#robotEvolutionRefreshStatus').textContent.startsWith('Données à jour, résultat inchangé.')")
+        self.assertTrue(status.is_visible());self.assertEqual(self.errors,[])
+    def test_remote_refresh_missing_holding_quote_shows_visible_error_and_protection(self):
+        status=self.remote_fixture();summary=self.page.locator('#robotExclusiveStatus').text_content();detail=self.page.locator('#botRemoteState').text_content()
+        self.fixture.update(value=None,globalProtection=dict(version=1,valuationComplete=False,buyPaused=True,requiresApprovalToResume=False,pendingAssets=[]))
+        self.page.get_by_role('button',name='Actualiser mon évolution',exact=True).click()
+        self.page.wait_for_function("()=>document.querySelector('#robotEvolutionRefreshStatus').textContent.includes('Valorisation incomplète')")
+        self.assertTrue(status.is_visible());self.assertIn('Cours manquants',self.page.locator('#globalProtectionStatus').text_content())
+        self.assertEqual(self.page.locator('#robotExclusiveStatus').text_content(),summary);self.assertEqual(self.page.locator('#botRemoteState').text_content(),detail)
+        self.assertEqual(self.page.locator('[data-remote-refresh]:disabled').count(),0);self.assertEqual(self.errors,[])
+
 if __name__=='__main__':unittest.main(verbosity=2)

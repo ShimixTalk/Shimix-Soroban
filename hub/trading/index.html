@@ -184,6 +184,14 @@ rows.push(id+' ('+prices.length+' points) : stratégie '+(strategy-100).toFixed(
 }
 output.textContent='TEST HISTORIQUE · '+tested+' cryptos évaluées, '+unavailable+' sans données suffisantes.\n'+rows.join('\n')+'\n\nPériode : historiques disponibles, généralement 30 jours (pas 90 jours). Capital initial fictif : 100 € par crypto. Frais simulés : 0,1 % par ordre, hors spread et glissement. Aucune transaction réelle. Un résultat sans opération ne prouve pas la qualité de la stratégie.';
 }
+function renderGlobalProtection(d){
+const old=document.getElementById('globalProtectionStatus'),p=d.globalProtection;
+if(!p||p.version!==1){if(old)old.remove();return;}
+const node=old||document.createElement('p');node.id='globalProtectionStatus';node.className='hint';node.setAttribute('role','status');
+let status=p.valuationComplete===false?'Cours manquants : valorisation incomplète, nouveaux achats bloqués.':p.requiresApprovalToResume?(p.pendingAssets?.length?'Liquidation simulée en attente des cours manquants.':'Liquidation simulée terminée ; reprise uniquement sur accord explicite.'):p.buyPaused?'Nouveaux achats suspendus ; surveillance et sorties toujours actives.':'Surveillance active.';
+node.textContent='Protection globale : achats suspendus à −5 %, liquidation simulée à −10 % de la référence initiale, coûts de sortie estimés inclus. '+status;
+if(!old)(document.getElementById('robotExclusiveOverview')||document.getElementById('botRemoteState')?.parentElement)?.append(node);
+}
 let botRemoteRefreshPending=false,botRemoteLastSnapshot=null;
 async function botRemoteRefresh(){
  if(botRemoteRefreshPending)return;
@@ -199,9 +207,12 @@ async function botRemoteRefresh(){
   const r=await fetch('https://raw.githubusercontent.com/ShimixTalk/Shimix-Soroban/shimix-hub/hub/trading/robot-state.json?ts='+Date.now(),{cache:'no-store',signal:controller.signal});
   if(!r.ok)throw Error('Résultat publié indisponible (HTTP '+r.status+')');
   const d=await r.json();
-  if(!d||typeof d!=='object'||Array.isArray(d)||!['capital','value','cash'].every(k=>typeof d[k]==='number'&&Number.isFinite(d[k])&&d[k]>=0)||d.capital<=0||!Number.isFinite(Date.parse(d.updatedAt)))throw Error('Résultat publié incomplet ou invalide');
+  if(!d||typeof d!=='object'||Array.isArray(d)||!['capital','cash'].every(k=>typeof d[k]==='number'&&Number.isFinite(d[k])&&d[k]>=0)||d.capital<=0||!Number.isFinite(Date.parse(d.updatedAt)))throw Error('Résultat publié incomplet ou invalide');
+  renderGlobalProtection(d);
+  if(d.globalProtection?.valuationComplete===false)throw Error('Valorisation incomplète : cours manquants ; aucune estimation actuelle confirmée');
+  if(typeof d.value!=='number'||!Number.isFinite(d.value)||d.value<0)throw Error('Résultat publié incomplet ou invalide');
   const date=new Date(d.updatedAt).toLocaleString('fr-FR'),checked=new Date().toLocaleString('fr-FR');
-  const snapshot=JSON.stringify(d),unchanged=snapshot===botRemoteLastSnapshot;
+  const snapshot=JSON.stringify([d.capital,d.value,d.cash,Object.entries(d.holdings||{}).sort(([a],[b])=>a.localeCompare(b))]),unchanged=snapshot===botRemoteLastSnapshot;
   const v=d.value,initial=d.capital,gain=v-initial;
   // Build all display text before changing either result panel.
   const summary='Valeur : '+v.toFixed(2)+' € | Résultat : '+(gain>=0?'+':'')+gain.toFixed(2)+' € ('+(100*gain/initial).toFixed(2)+' %) | Dernière analyse : '+date;
