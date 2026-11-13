@@ -13,14 +13,6 @@
   "automaticRiskChanges": false,
   "errors": [
     {
-      "code": "history_unavailable",
-      "message": "solana: ValueError ; aucune donnée existante remplacée."
-    },
-    {
-      "code": "history_unavailable",
-      "message": "chainlink: ValueError ; aucune donnée existante remplacée."
-    },
-    {
       "code": "stale_or_unknown_quotes",
       "event": "robot:eb95113bd52d1bff48a8aeef687d9f8638692ff9",
       "message": "Fraîcheur des cours non confirmée."
@@ -100,7 +92,7 @@
       "status": "waiting_for_new_data"
     }
   },
-  "generatedAt": "2026-11-13T00:00:39.006159+00:00",
+  "generatedAt": "2026-11-13T01:06:25.280849+00:00",
   "hypotheses": {
     "dynamique": {
       "baseline": {
@@ -408,7 +400,7 @@
   ],
   "mode": "shadow_simulation_only",
   "observed": {
-    "decisions": 860,
+    "decisions": 880,
     "equityAttribution": [
       {
         "equityChange": 0.541248,
@@ -745,6 +737,14 @@
         "fromId": "robot:dc32fd51b81eabe8c14d77ed431d52f9a3cd7271",
         "priceEffect": 0.0,
         "toId": "robot:9e1f9f8121ce53fec824ac6ec973bc184a073d3c"
+      },
+      {
+        "equityChange": -0.294438,
+        "executionAndCashEffect": -0.359282,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:9e1f9f8121ce53fec824ac6ec973bc184a073d3c",
+        "priceEffect": 0.064844,
+        "toId": "robot:66269148549c995f567269ca49abd10a5af281c5"
       }
     ],
     "errors": [
@@ -805,14 +805,14 @@
       }
     ],
     "feeCoverageComplete": true,
-    "knownFees": 0.6,
+    "knownFees": 0.72,
     "knownRealizedPnl": 0.0,
     "latest": {
-      "at": "2026-11-12T23:44:17.837021+00:00",
+      "at": "2026-11-13T00:28:42.695670+00:00",
       "capital": 1600,
-      "cash": 1000.0,
+      "cash": 880.0,
       "currency": "EUR",
-      "equity": 1593.853242,
+      "equity": 1593.558804,
       "riskSnapshot": {
         "feeRate": 0.001,
         "maxLossPercent": 50,
@@ -828,10 +828,10 @@
       "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
       "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
     ],
-    "observations": 43,
+    "observations": 44,
     "realizedExplanations": [],
     "unattributableTrades": 0,
-    "uniqueTrades": 5
+    "uniqueTrades": 6
   },
   "observedPortfolios": [
     {
@@ -942,6 +942,6 @@
       "status": "retain_reference_pending_evidence"
     }
   },
-  "sourceCursor": "9e1f9f8121ce53fec824ac6ec973bc184a073d3c",
+  "sourceCursor": "66269148549c995f567269ca49abd10a5af281c5",
   "version": 1
 }
