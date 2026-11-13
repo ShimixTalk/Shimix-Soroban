@@ -8,7 +8,7 @@ from engine import policy_check
 PROTECTED=CORE+['hub/trading/autonomous_simulation.py','hub/trading/meme_history.py','hub/trading/security.js','hub/trading/manifest.webmanifest','hub/trading/icon.svg']
 def approved_protection_change(previous,current):
  # Only the explicit reviewed transition is allowed; all data remain protected.
- return hashlib.sha256(previous).hexdigest()=='7dee49c3618ea2cb9a15c9e13517216cbbd066bcebb79f8d8d1f06fd906e33ea' and hashlib.sha256(current).hexdigest()=='e3479e3fa7b7718276b04d50cb3694120627631df8fb03ef7894a9daab21bd0a'
+ return hashlib.sha256(previous).hexdigest()=='e3479e3fa7b7718276b04d50cb3694120627631df8fb03ef7894a9daab21bd0a' and hashlib.sha256(current).hexdigest()=='9da2d513ac18954c24f74b71c759329656d3adb144176e1eac2a27ec013dd4cd'
 
 def verify(root,base):
  root=Path(root).resolve()
