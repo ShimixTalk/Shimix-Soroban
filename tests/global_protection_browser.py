@@ -26,7 +26,7 @@ class ProtectionBrowserTests(unittest.TestCase):
   self.assertIn('accord explicite',self.page.locator('#globalProtectionStatus').text_content());self.assertEqual(self.errors,[])
  def test_incomplete_valuation_keeps_last_overview(self):
   self.page.evaluate("()=>{document.querySelector('#robotExclusiveStatus').textContent='Dernier relevé connu : 1 450 €';}")
-  self.page.route('**/robot-state.json?*',lambda r:r.fulfill(json=dict(capital=1600,value=None,globalProtection=dict(version=1,valuationComplete=False,requiresApprovalToResume=True,pendingAssets=['BTC']))))
+  self.page.route('**/robot-state.json?*',lambda r:r.fulfill(json=dict(capital=1600,cash=1400,updatedAt='2026-11-13T12:00:00Z',value=None,globalProtection=dict(version=1,valuationComplete=False,requiresApprovalToResume=True,pendingAssets=['BTC']))))
   self.page.evaluate('()=>botRemoteRefresh()')
   self.assertIn('Cours manquants',self.page.locator('#globalProtectionStatus').text_content())
   self.assertIn('1 450',self.page.locator('#robotExclusiveStatus').text_content())
