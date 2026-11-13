@@ -151,9 +151,9 @@
     },
     "LIT": {
       "action": "Attente",
-      "rsi": 59.69,
-      "sma7": 2.9545081325741043,
-      "sma21": 2.85352239408543,
+      "rsi": 57.76,
+      "sma7": 2.9528176901530547,
+      "sma21": 2.833636207460498,
       "reason": "RSI et moyennes mobiles"
     },
     "HYPE": {
@@ -228,7 +228,10 @@
     },
     "XLM": {
       "action": "Attente",
-      "reason": "Historique insuffisant"
+      "rsi": 30.06,
+      "sma7": 0.1334442703434147,
+      "sma21": 0.1450409566207303,
+      "reason": "RSI et moyennes mobiles"
     },
     "XRP": {
       "action": "Attente",
@@ -339,7 +342,7 @@
     "2026-11-10T16:25:05.455381+00:00 : achat FICTIF BTC pour 120.0 EUR",
     "Simulation expérimentale activée : plafond d'arrêt portefeuille 50 %, ordre max 120 €, 8 positions, aucun ordre réel."
   ],
-  "updatedAt": "2026-11-13T13:57:43.282837+00:00",
+  "updatedAt": "2026-11-13T14:53:16.596368+00:00",
   "dataErrors": [],
   "savingsPolicy": {
     "provider": "Crypto.com App",
@@ -3356,7 +3359,7 @@
   ],
   "marketCacheAt": 1794578263.282837,
   "scanner": {
-    "updatedAt": "2026-11-13T13:57:43.282837+00:00",
+    "updatedAt": "2026-11-13T14:53:16.596368+00:00",
     "examined": 100,
     "eligible": 89,
     "shortlist": [
@@ -3511,7 +3514,7 @@
     "arbitrum": 1794480316.514927,
     "quant-network": 1794445572.441569,
     "stable-2": 1794306485.029758,
-    "lighter": 1794491952.011148,
+    "lighter": 1794581596.596368,
     "pump-fun": 1794495228.984449,
     "pearl-2": 1794529722.69567,
     "venice-token": 1794418907.639714,
@@ -3521,7 +3524,7 @@
     "ethena": 1794540256.270156,
     "internet-computer": 1794361247.159671,
     "pyth-network": 1794367487.104977,
-    "stellar": 1794405488.069544,
+    "stellar": 1794581596.596368,
     "aster-2": 1794425880.42248,
     "binancecoin": 1794513224.293868,
     "injective-protocol": 1794573792.018026,
@@ -4417,7 +4420,6 @@
       0.02686858040485448
     ],
     "lighter": [
-      2.9900733190756985,
       2.7587453048006347,
       2.699250054674766,
       2.827409258495136,
@@ -4445,7 +4447,8 @@
       2.9669241136902564,
       2.7411924477543295,
       2.882168835572345,
-      3.103346925614675
+      3.103346925614675,
+      2.9365969920421646
     ],
     "pump-fun": [
       0.0044784747200131,
@@ -4727,8 +4730,6 @@
       0.057964099598256526
     ],
     "stellar": [
-      0.17055895633250462,
-      0.16983327061802628,
       0.16300592081242027,
       0.16308950289938454,
       0.1612992672198604,
@@ -4755,7 +4756,9 @@
       0.13751702643234417,
       0.13565640935515247,
       0.13127049358549694,
-      0.13136668664855877
+      0.13136668664855877,
+      0.12952096779638422,
+      0.1325834651358828
     ],
     "aster-2": [
       0.6135233264613422,
@@ -5143,7 +5146,7 @@
     "returnPercent": -0.889,
     "drawdownPercent": 1.256,
     "totalTrades": 7,
-    "lastCalculatedAt": "2026-11-13T13:57:43.282837+00:00",
+    "lastCalculatedAt": "2026-11-13T14:53:16.596368+00:00",
     "simulated": true
   },
   "equityHistory": [
@@ -5616,6 +5619,11 @@
       "at": "2026-11-13T13:57:43.282837+00:00",
       "equity": 1585.78,
       "cash": 1105.17
+    },
+    {
+      "at": "2026-11-13T14:53:16.596368+00:00",
+      "equity": 1585.78,
+      "cash": 1105.17
     }
   ],
   "experimentMode": "aggressive_simulation",
@@ -5725,7 +5733,7 @@
     "pauseNewBuysAtLossPercent": 5,
     "liquidateAtLossPercent": 10,
     "referenceCapital": 1600,
-    "lastCheckedAt": "2026-11-13T13:57:43.282837+00:00",
+    "lastCheckedAt": "2026-11-13T14:53:16.596368+00:00",
     "valuationComplete": true,
     "estimatedLiquidationBeforeActions": 1584.335685,
     "requiresApprovalToResume": false,
