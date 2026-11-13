@@ -54,6 +54,11 @@ def validate_simulation_state(state):
     if not isinstance(history,dict) or any(not isinstance(v,list) or len(v)>10000 or any(not number(x,1e-300) for x in v) for v in history.values()):raise ValueError("Historique de prix invalide")
     for field in ("logs","trades","equityHistory"):
         if not isinstance(state.get(field,[]),list):raise ValueError("Journal invalide : "+field)
+    protection=state.get("globalProtection",{})
+    if not isinstance(protection,dict):raise ValueError("Protection globale invalide")
+    for flag in ("liquidationLatched","requiresApprovalToResume","buyPaused","valuationComplete"):
+        if flag in protection and type(protection[flag]) is not bool:raise ValueError("Etat de protection invalide")
+    if protection.get("requiresApprovalToResume",False) and not protection.get("liquidationLatched",False):raise ValueError("Reprise non approuvée : état de protection incohérent")
     return True
 
 def market_prices(market, known_ids):
@@ -94,17 +99,75 @@ def rsi(p):
     diff=[p[i]-p[i-1] for i in range(len(p)-14,len(p))]
     up=sum(max(0,x) for x in diff);down=sum(max(0,-x) for x in diff)
     return (50 if up==0 else 100) if down==0 else 100-100/(1+up/down)
+def usable_quote(prices,symbol):
+    price=prices.get(symbol)
+    return type(price) in (int,float) and math.isfinite(price) and price>0
+
+def net_liquidation_value(state, prices):
+    if any(q>0 and not usable_quote(prices,sym) for sym,q in state["holdings"].items()):return None
+    factor=(1-float(state.get("spreadRate",0.001))-float(state.get("slippageRate",0.001)))*(1-float(state.get("feeRate",0.001)))
+    return float(state["cash"])+sum(q*prices.get(sym,0)*factor for sym,q in state["holdings"].items())
+
+def global_protection(state, prices, stamp):
+    """Fixed 5% entry pause, 10% liquidation latch. Never resets capital or resumes a latch."""
+    policy=state.setdefault("globalProtection",{})
+    policy.update(version=1,pauseNewBuysAtLossPercent=5,liquidateAtLossPercent=10,
+                  referenceCapital=state["capital"],lastCheckedAt=stamp)
+    state["maxLossPercent"]=10
+    state["buyPauseLossPercent"]=5
+    net=net_liquidation_value(state,prices)
+    policy["valuationComplete"]=net is not None
+    policy["estimatedLiquidationBeforeActions"]=round(net,6) if net is not None else None
+    if net is not None and net<=state["capital"]*.90:
+        if not policy.get("liquidationLatched",False):
+            policy["triggeredAt"]=stamp
+            state.setdefault("logs",[]).insert(0,stamp+" : protection globale -10 %, liquidation FICTIVE et reprise sur accord explicite")
+        policy["liquidationLatched"]=True
+    latched=policy.get("liquidationLatched",False)
+    policy["requiresApprovalToResume"]=latched
+    policy["buyPaused"]=latched or net is None or net<=state["capital"]*.95
+    if latched:
+        state["enabled"]=False
+        for sym,quantity in list(state["holdings"].items()):
+            if quantity<=0 or not usable_quote(prices,sym):continue
+            execution=prices[sym]*(1-float(state.get("spreadRate",0.001))-float(state.get("slippageRate",0.001)))
+            gross=quantity*execution;fee=gross*float(state.get("feeRate",0.001));proceeds=gross-fee
+            state["cash"]+=proceeds
+            state["holdings"].pop(sym,None);state.setdefault("entryPrices",{}).pop(sym,None)
+            state.setdefault("trades",[]).insert(0,dict(date=stamp,asset=sym,action="Vente",amount=round(proceeds,2),
+                price=execution,quantity=quantity,fee=fee,reason="global-loss-liquidation",simulation=True))
+            state.setdefault("logs",[]).insert(0,stamp+" : vente FICTIVE "+sym+" (protection globale)")
+    policy["pendingAssets"]=sorted(sym for sym,q in state["holdings"].items() if q>0) if latched else []
+    return not policy["buyPaused"],latched
+
+def save_protection_state(state, prices, stamp, sha):
+    missing=[sym for sym,q in state["holdings"].items() if q>0 and not usable_quote(prices,sym)]
+    complete=not missing
+    state["cash"]=round(state["cash"],6)
+    value=state["cash"]+sum(q*prices.get(sym,0) for sym,q in state["holdings"].items()) if complete else None
+    state["value"]=round(value,2) if value is not None else None
+    state["updatedAt"]=stamp
+    state["dataErrors"]=["Prix indisponible, liquidation/valorisation en attente : "+", ".join(missing)] if missing else []
+    state["globalProtection"]["valuationComplete"]=complete
+    state["performance"]={"initialCapital":state["capital"],"equity":state["value"],
+        "netPnl":round(value-state["capital"],2) if value is not None else None,
+        "returnPercent":round((value/state["capital"]-1)*100,3) if value is not None else None,
+        "lastCalculatedAt":stamp,"simulated":True,"totalTrades":len(state.get("trades",[]))}
+    state.setdefault("equityHistory",[]).append(dict(at=stamp,equity=state["value"],cash=state["cash"]))
+    save(state,sha)
+
 def main():
     file=gh("GET");state=json.loads(base64.b64decode(file["content"]).decode())
-    if not state.get("enabled",False):print("Robot désactivé");return
     validate_simulation_state(state)
+    pending=state.get("globalProtection",{}).get("liquidationLatched",False) and any(q>0 for q in state["holdings"].values())
+    if not state.get("enabled",False) and not pending:print("Robot désactivé ; reprise sur accord explicite");return
     now=datetime.datetime.now(datetime.timezone.utc);stamp=now.isoformat()
     errors=[];logs=state.get("logs",[]);hist=state.get("dailyHistory",{})
     # Market scan is cached for up to one hour to reduce CoinGecko 429 errors.
     cache=state.get("marketCache",{})
     cache_age=now.timestamp()-float(state.get("marketCacheAt",0))
     try:
-        market=cache if isinstance(cache,list) and cache and 0<=cache_age<3600 else request(API+"/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h")
+        market=cache if isinstance(cache,list) and cache and 0<=cache_age<3600 and state.get("globalProtection",{}).get("valuationComplete",True) else request(API+"/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h")
         if not isinstance(market,list) or len(market)<30 or sum(valid_market_row(x) for x in market)<20:
             raise ValueError("Données de marché incomplètes ou corrompues : simulation suspendue")
         if market is not cache:
@@ -120,6 +183,11 @@ def main():
     prices=market_prices(market,state.setdefault("assetIds",{}))
     selected=[x for x in selected if x["symbol"].upper() in prices]
     state["prices"]=prices
+    buys_allowed,liquidation_latched=global_protection(state,prices,stamp)
+    if liquidation_latched or not state["globalProtection"]["valuationComplete"]:
+        save_protection_state(state,prices,stamp,file["sha"])
+        print("Protection globale",state["globalProtection"])
+        return
     state["scanner"]={"updatedAt":stamp,"examined":len(market),"eligible":len(eligible),"shortlist":[{"symbol":x["symbol"].upper(),"name":x["name"],"volume":x.get("total_volume"),"change24h":x.get("price_change_percentage_24h")} for x in selected]}
     # Two historical requests per execution to limit rate limiting.
     due=[x for x in selected if len(hist.get(x["id"],[]))<22 or (now.timestamp()-float(state.get("historyUpdated",{}).get(x["id"],0)))>86400]
@@ -155,55 +223,59 @@ def main():
     value=cash+sum(float(q)*float(prices.get(sym,0)) for sym,q in holdings.items())
     state["peak"]=max(float(state.get("peak",capital)),value)
     state["value"]=round(value,2)
-    loss=float(state.get("maxLossPercent",5))
-    if value<=capital*(1-loss/100):
-        state["enabled"]=False;logs.insert(0,stamp+" : arrêt de sécurité, perte maximale atteinte (positions non liquidées)")
-    else:
-        # Simulated exits: take-profit, stop-loss and bearish signal.
-        # The portfolio-level safety stop does not promise a guaranteed 5% loss cap.
-        entries=state.setdefault("entryPrices",{})
-        for sym,quantity in list(holdings.items()):
-            price=float(prices.get(sym,0));quantity=float(quantity)
-            if quantity<=0 or price<=0:continue
-            entry=float(entries.get(sym,price))
-            reason=("stop-loss" if price<=entry*0.96 else
-                    "take-profit" if price>=entry*1.08 else
-                    "signal" if signals.get(sym,{}).get("action")=="Vente" else None)
-            if not reason:continue
-            exit_price=price*(1-float(state.get("spreadRate",0.001))-float(state.get("slippageRate",0.001)))
-            gross=quantity*exit_price
-            fee=gross*float(state.get("feeRate",0.001))
-            proceeds=gross-fee
-            cash+=proceeds
-            holdings.pop(sym,None);entries.pop(sym,None)
-            state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Vente","amount":round(proceeds,2),"price":exit_price,"quantity":quantity,"fee":fee,"reason":reason,"simulation":True})
-            logs.insert(0,stamp+" : vente FICTIVE "+sym+" ("+reason+")")
-        last=state.setdefault("lastTrade",{})
-        for _,sym in sorted(candidates,reverse=True):
-            if len(state.get("trades",[]))>=1000:break
-            if len(holdings)>=int(state.get("maxPositions",8)):break
-            if now.timestamp()-float(last.get(sym,0))<86400:continue
-            price=float(prices.get(sym,0))
-            if price<=0:continue
-            amount=min(float(state.get("maxOrder",40)),cash,capital*float(state.get("maxPositionPercent",20))/100-float(holdings.get(sym,0))*price)
-            if amount<1:continue
-            # 0.1% fee, spread and slippage modeled conservatively.
-            effective=price*(1+float(state.get("spreadRate",0.001))+float(state.get("slippageRate",0.001)))
-            fee=amount*float(state.get("feeRate",0.001))
-            qty=(amount-fee)/effective
-            cash-=amount;holdings[sym]=float(holdings.get(sym,0))+qty
-            last[sym]=now.timestamp()
-            entries[sym]=((float(entries.get(sym,0))*float(holdings[sym]-qty))+amount)/float(holdings[sym])
-            state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Achat","amount":round(amount,2),"price":effective,"quantity":qty,"fee":fee,"simulation":True})
-            logs.insert(0,stamp+" : achat FICTIF "+sym+" pour "+str(round(amount,2))+" EUR")
-            # Only one simulated buy per run; evaluate further next time.
+    # Simulated exits: take-profit, stop-loss and bearish signal.
+    # Exit management continues while the 5% entry pause is active.
+    entries=state.setdefault("entryPrices",{})
+    for sym,quantity in list(holdings.items()):
+        price=float(prices.get(sym,0));quantity=float(quantity)
+        if quantity<=0 or price<=0:continue
+        entry=float(entries.get(sym,price))
+        reason=("stop-loss" if price<=entry*0.96 else
+                "take-profit" if price>=entry*1.08 else
+                "signal" if signals.get(sym,{}).get("action")=="Vente" else None)
+        if not reason:continue
+        exit_price=price*(1-float(state.get("spreadRate",0.001))-float(state.get("slippageRate",0.001)))
+        gross=quantity*exit_price
+        fee=gross*float(state.get("feeRate",0.001))
+        proceeds=gross-fee
+        cash+=proceeds
+        holdings.pop(sym,None);entries.pop(sym,None)
+        state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Vente","amount":round(proceeds,2),"price":exit_price,"quantity":quantity,"fee":fee,"reason":reason,"simulation":True})
+        logs.insert(0,stamp+" : vente FICTIVE "+sym+" ("+reason+")")
+    last=state.setdefault("lastTrade",{})
+    if not buys_allowed:
+        for sym in [sym for _,sym in candidates]:signals[sym]["reason"]="Achats suspendus par la protection globale -5 % ; positions toujours gérées"
+    for _,sym in sorted(candidates if buys_allowed else [],reverse=True):
+        if len(state.get("trades",[]))>=1000:break
+        if len(holdings)>=int(state.get("maxPositions",8)):break
+        if now.timestamp()-float(last.get(sym,0))<86400:continue
+        price=float(prices.get(sym,0))
+        if price<=0:continue
+        amount=min(float(state.get("maxOrder",40)),cash,capital*float(state.get("maxPositionPercent",20))/100-float(holdings.get(sym,0))*price)
+        if amount<1:continue
+        # 0.1% fee, spread and slippage modeled conservatively.
+        effective=price*(1+float(state.get("spreadRate",0.001))+float(state.get("slippageRate",0.001)))
+        fee=amount*float(state.get("feeRate",0.001))
+        qty=(amount-fee)/effective
+        exit_factor=(1-float(state.get("spreadRate",0.001))-float(state.get("slippageRate",0.001)))*(1-float(state.get("feeRate",0.001)))
+        projected=cash-amount+(sum(q*prices.get(a,0) for a,q in holdings.items())+qty*price)*exit_factor
+        if projected<=capital*.95:
+            state["globalProtection"]["buyPaused"]=True
+            signals[sym]["reason"]="Achat refusé : les coûts franchiraient le seuil global -5 %"
             break
+        cash-=amount;holdings[sym]=float(holdings.get(sym,0))+qty
+        last[sym]=now.timestamp()
+        entries[sym]=((float(entries.get(sym,0))*float(holdings[sym]-qty))+amount)/float(holdings[sym])
+        state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Achat","amount":round(amount,2),"price":effective,"quantity":qty,"fee":fee,"simulation":True})
+        logs.insert(0,stamp+" : achat FICTIF "+sym+" pour "+str(round(amount,2))+" EUR")
+        # Only one simulated buy per run; evaluate further next time.
+        break
     state["value"]=round(cash+sum(float(q)*float(prices.get(sym,0)) for sym,q in holdings.items()),2)
     state["performance"]={"initialCapital":capital,"equity":state["value"],"netPnl":round(state["value"]-capital,2),"returnPercent":round((state["value"]/capital-1)*100,3) if capital else 0,"drawdownPercent":round((1-state["value"]/max(state["peak"],0.01))*100,3),"totalTrades":len(state.get("trades",[])),"lastCalculatedAt":stamp,"simulated":True}
     snapshots=state.setdefault("equityHistory",[])
     snapshots.append({"at":stamp,"equity":state["value"],"cash":round(cash,2)})
-    state["equityHistory"]=snapshots[-3000:]
-    state["cash"]=round(cash,6);state["logs"]=logs[:100];state["trades"]=state.get("trades",[])[:1000]
+    state["equityHistory"]=snapshots
+    state["cash"]=round(cash,6);state["logs"]=logs;state["trades"]=state.get("trades",[])
     state["dataErrors"]=errors[:20];state["updatedAt"]=stamp
     state["realTradingEnabled"]=False;state["exchangeApiConnected"]=False
     state.setdefault("readiness",{})["simulationOnly"]=True;state["readiness"]["liveOrdersEnabled"]=False

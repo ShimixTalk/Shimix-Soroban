@@ -52,10 +52,10 @@ class RobotRegressionTests(unittest.TestCase):
         self.assertEqual(result['cash'],1500);self.assertEqual(result['holdings'],state['holdings'])
         self.assertEqual(result['trades'],[]);self.assertIn('Prix indisponible',result['dataErrors'][0])
 
-    def test_loss_stop_preserves_holdings(self):
+    def test_five_percent_pause_preserves_holdings_and_keeps_monitoring(self):
         state=good_state();state.update(cash=1400,holdings={'C0':1})
         result=self.run_robot(state,market())
-        self.assertFalse(result['enabled']);self.assertEqual(result['holdings'],state['holdings']);self.assertEqual(result['trades'],[])
+        self.assertTrue(result['enabled']);self.assertTrue(result['globalProtection']['buyPaused']);self.assertEqual(result['holdings'],state['holdings']);self.assertEqual(result['trades'],[])
 
     def test_sale_accounts_for_spread_slippage_fee(self):
         state=good_state();state.update(cash=1500,holdings={'C0':1},entryPrices={'C0':120})
