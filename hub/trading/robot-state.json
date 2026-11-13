@@ -235,11 +235,17 @@
     },
     "AAVE": {
       "action": "Attente",
-      "reason": "Historique insuffisant"
+      "rsi": 41.0,
+      "sma7": 114.21154015514587,
+      "sma21": 117.61687052325854,
+      "reason": "RSI et moyennes mobiles"
     },
     "NIGHT": {
       "action": "Attente",
-      "reason": "Historique insuffisant"
+      "rsi": 62.37,
+      "sma7": 0.03669084703002612,
+      "sma21": 0.03602831075475542,
+      "reason": "RSI et moyennes mobiles"
     },
     "ENA": {
       "action": "Attente",
@@ -336,7 +342,7 @@
     "2026-11-10T16:25:05.455381+00:00 : achat FICTIF BTC pour 120.0 EUR",
     "Simulation expérimentale activée : plafond d'arrêt portefeuille 50 %, ordre max 120 €, 8 positions, aucun ordre réel."
   ],
-  "updatedAt": "2026-11-13T10:43:36.155496+00:00",
+  "updatedAt": "2026-11-13T11:40:12.757826+00:00",
   "dataErrors": [],
   "savingsPolicy": {
     "provider": "Crypto.com App",
@@ -3353,7 +3359,7 @@
   ],
   "marketCacheAt": 1794566616.155496,
   "scanner": {
-    "updatedAt": "2026-11-13T10:43:36.155496+00:00",
+    "updatedAt": "2026-11-13T11:40:12.757826+00:00",
     "examined": 100,
     "eligible": 91,
     "shortlist": [
@@ -3500,8 +3506,8 @@
     "monero": 1794491952.011148,
     "hyperliquid": 1794487444.940227,
     "usd1-wlfi": 1794469872.886589,
-    "aave": 1794460805.504135,
-    "midnight-3": 1794412266.176546,
+    "aave": 1794570012.757826,
+    "midnight-3": 1794570012.757826,
     "uniswap": 1794562944.50223,
     "pi-network": 1794299512.297699,
     "near": 1794480316.514927,
@@ -4162,7 +4168,6 @@
       0.8939969557860807
     ],
     "aave": [
-      143.11155413896762,
       137.86429971426764,
       140.4054453822268,
       137.96680862843664,
@@ -4190,11 +4195,10 @@
       118.01811160153329,
       113.0362163270502,
       117.16419308397165,
-      110.54780177675848
+      110.54780177675848,
+      108.73046880482148
     ],
     "midnight-3": [
-      0.04016809606481982,
-      0.039616546504261614,
       0.038729303991562165,
       0.037791747176239544,
       0.03726660710984741,
@@ -4221,7 +4225,9 @@
       0.03481408461141403,
       0.03611700633021379,
       0.03515539597649437,
-      0.03608939491356404
+      0.03608939491356404,
+      0.03742128384368151,
+      0.042698090378448655
     ],
     "uniswap": [
       6.4201340605314074,
@@ -5140,7 +5146,7 @@
     "returnPercent": -1.073,
     "drawdownPercent": 1.44,
     "totalTrades": 7,
-    "lastCalculatedAt": "2026-11-13T10:43:36.155496+00:00",
+    "lastCalculatedAt": "2026-11-13T11:40:12.757826+00:00",
     "simulated": true
   },
   "equityHistory": [
@@ -5598,6 +5604,11 @@
       "at": "2026-11-13T10:43:36.155496+00:00",
       "equity": 1582.83,
       "cash": 1105.17
+    },
+    {
+      "at": "2026-11-13T11:40:12.757826+00:00",
+      "equity": 1582.83,
+      "cash": 1105.17
     }
   ],
   "experimentMode": "aggressive_simulation",
@@ -5707,7 +5718,7 @@
     "pauseNewBuysAtLossPercent": 5,
     "liquidateAtLossPercent": 10,
     "referenceCapital": 1600,
-    "lastCheckedAt": "2026-11-13T10:43:36.155496+00:00",
+    "lastCheckedAt": "2026-11-13T11:40:12.757826+00:00",
     "valuationComplete": true,
     "estimatedLiquidationBeforeActions": 1581.402955,
     "requiresApprovalToResume": false,
