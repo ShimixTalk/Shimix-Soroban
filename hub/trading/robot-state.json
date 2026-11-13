@@ -369,7 +369,7 @@
     "2026-11-10T16:25:05.455381+00:00 : achat FICTIF BTC pour 120.0 EUR",
     "Simulation expérimentale activée : plafond d'arrêt portefeuille 50 %, ordre max 120 €, 8 positions, aucun ordre réel."
   ],
-  "updatedAt": "2026-11-13T15:48:40.055062+00:00",
+  "updatedAt": "2026-11-13T16:37:23.686427+00:00",
   "dataErrors": [],
   "savingsPolicy": {
     "provider": "Crypto.com App",
@@ -3386,7 +3386,7 @@
   ],
   "marketCacheAt": 1794584920.055062,
   "scanner": {
-    "updatedAt": "2026-11-13T15:48:40.055062+00:00",
+    "updatedAt": "2026-11-13T16:37:23.686427+00:00",
     "examined": 100,
     "eligible": 89,
     "shortlist": [
@@ -5171,7 +5171,7 @@
     "returnPercent": -1.103,
     "drawdownPercent": 1.469,
     "totalTrades": 9,
-    "lastCalculatedAt": "2026-11-13T15:48:40.055062+00:00",
+    "lastCalculatedAt": "2026-11-13T16:37:23.686427+00:00",
     "simulated": true
   },
   "equityHistory": [
@@ -5654,6 +5654,11 @@
       "at": "2026-11-13T15:48:40.055062+00:00",
       "equity": 1582.36,
       "cash": 1099.18
+    },
+    {
+      "at": "2026-11-13T16:37:23.686427+00:00",
+      "equity": 1582.36,
+      "cash": 1099.18
     }
   ],
   "experimentMode": "aggressive_simulation",
@@ -5763,9 +5768,9 @@
     "pauseNewBuysAtLossPercent": 5,
     "liquidateAtLossPercent": 10,
     "referenceCapital": 1600,
-    "lastCheckedAt": "2026-11-13T15:48:40.055062+00:00",
+    "lastCheckedAt": "2026-11-13T16:37:23.686427+00:00",
     "valuationComplete": true,
-    "estimatedLiquidationBeforeActions": 1581.627531,
+    "estimatedLiquidationBeforeActions": 1580.909567,
     "requiresApprovalToResume": false,
     "buyPaused": false,
     "pendingAssets": []
