@@ -48,9 +48,22 @@ const save=element('button','Télécharger le message');save.type='button';save.
  const u=URL.createObjectURL(new Blob([message.value],{type:'text/plain;charset=utf-8'})),a=element('a');a.href=u;a.download='SHIMIX-message-assistant.txt';a.click();setTimeout(()=>URL.revokeObjectURL(u),3000);handoffStatus.textContent='Message téléchargé. Aucun envoi effectué.';
 };
 handoff.append(label,message,copy,save,handoffStatus);panel.insertBefore(handoff,content);
+function renderChallenge(c){
+ if(!c)return;
+ const box=element('section');box.setAttribute('data-parallel-challenge','');
+ box.append(element('h3','Challenge fictif indépendant — entraînement'));
+ box.append(element('p','Second portefeuille virtuel de 1 600 €. Aucun argent ajouté au robot actuel. Même analyse, règles distinctes ; aucune affiliation à une prop firm.'));
+ const labels={running:'En cours',failed_total_loss:'Arrêt : perte totale',failed_daily_loss:'Arrêt : perte journalière',review_required:'Revue nécessaire',educational_target_reached:'Objectif pédagogique atteint'};
+ box.append(element('p','État : '+String(labels[c.status]||c.status)+' · Valeur après sortie et frais simulés : '+number(c.netEquity)+' € · Liquidités : '+number(c.cash)+' €'));
+ box.append(element('p','Objectif +8 % après au moins 5 jours avec opérations ; limite journalière 3 %, totale 6 %. Jour : Europe/Paris. La référence journalière utilise le dernier relevé du jour précédent, pas une cotation exacte à minuit.'));
+ for(const issue of c.issues||[])box.append(element('p',issue));
+ box.append(element('p','Signaux exécutés au relevé suivant. Seuls les points observés sont contrôlés : un dépassement entre deux relevés peut échapper au suivi. Aucun résultat ne valide un challenge commercial.'));
+ box.append(element('p','Dernier relevé : '+new Date(c.lastAt).toLocaleString('fr-FR')+' · Opérations fictives : '+(Array.isArray(c.trades)?c.trades.length:0)+' · Les deux suivis ne sont pas deux preuves indépendantes de performance.'));
+ content.append(box);
+}
 function render(report){
  if(report?.version!==1||report.mode!=='shadow_simulation_only'||report.referenceCapitalEUR!==1600||report.appliedToRobot!==false)throw Error('Rapport non confirmé en observation fictive.');
- latestReport=report;content.replaceChildren();const obs=report.observed||{};
+ latestReport=report;content.replaceChildren();renderChallenge(report.parallelChallenge);const obs=report.observed||{};
  if(report.preview)content.append(element('p','Prévisualisation : la collecte planifiée n’est pas encore activée.'));
  content.append(element('p','Capital de référence conservé : 1 600 € fictifs. Cette analyse n’ajoute ni ne retire aucun montant aux portefeuilles.'));
  content.append(element('p',number(obs.observations)+' observations · '+number(obs.decisions)+' signaux enregistrés · '+number(obs.uniqueTrades)+' opérations distinctes · frais connus : '+number(obs.knownFees)+' €.'));
