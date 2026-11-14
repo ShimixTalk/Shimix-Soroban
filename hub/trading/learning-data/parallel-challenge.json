@@ -1,5 +1,7 @@
 {
+  "activatedAt": "2026-11-14T12:20:03.822184+00:00",
   "appliedToRobot": false,
+  "availabilityMigrationAt": "2026-11-14T12:20:03.822184+00:00",
   "cash": 1600.0,
   "day": "2026-11-14",
   "dayStartNet": 1600.0,
@@ -8,15 +10,11 @@
   "issues": [],
   "lastAt": "2026-11-14T11:37:55.125022+00:00",
   "lastBuy": {},
-  "lastSignalAt": "2026-11-14T11:37:55.125022+00:00",
+  "lastSignalAt": null,
   "netEquity": 1600.0,
   "observations": 1,
-  "pending": [
-    {
-      "action": "Achat",
-      "asset": "ETHFI"
-    }
-  ],
+  "pending": [],
+  "pendingAvailableAt": "2026-11-14T12:20:03.822184+00:00",
   "rules": {
     "dailyLossPercent": 3,
     "fee": 0.001,
