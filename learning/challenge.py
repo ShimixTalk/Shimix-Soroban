@@ -12,12 +12,12 @@ def net_value(s,prices):
  if any(not finite(prices.get(a),1e-12) for a in s['holdings']):return None
  return s['cash']+sum(q*prices[a]*(1-RULES['spread']-RULES['slippage'])*(1-RULES['fee']) for a,q in s['holdings'].items())
 
-def initial(event):
+def initial(event,now):
  return dict(version=1,rules=copy.deepcopy(RULES),simulationOnly=True,appliedToRobot=False,
-             startedAt=event['at'],lastAt=event['at'],cash=1600.,holdings={},entries={},lastBuy={},
+             startedAt=now,activatedAt=now,lastAt=event['at'],cash=1600.,holdings={},entries={},lastBuy={},
              day=timestamp(event['at']).astimezone(ZoneInfo(RULES['timezone'])).date().isoformat(),
              dayStartNet=1600.,netEquity=1600.,status='running',trades=[],observations=0,
-             pending=[],tradingDays=[],issues=[],lastSignalAt=None)
+             pending=[],tradingDays=[],issues=[],lastSignalAt=None,pendingAvailableAt=now)
 
 def advance(current,event,now):
  """Execute prior observation's intent at a later observed quote, never retrospectively."""
@@ -30,7 +30,7 @@ def advance(current,event,now):
   if current.get('status') not in ('running','failed_total_loss','failed_daily_loss','review_required','educational_target_reached'):raise ValueError('État du challenge invalide')
   if at<=timestamp(current['lastAt']):return copy.deepcopy(current)
   s=copy.deepcopy(current)
- else:s=initial(event)
+ else:s=initial(event,now)
  s['lastAt']=event['at'];s['observations']+=1;s['issues']=[]
  if s['status']!='running':return s
  prices=event.get('prices',{});cache=event.get('quotesFetchedAt')
@@ -58,7 +58,7 @@ def advance(current,event,now):
  if breach:
   for a in list(s['holdings']):sell(a,breach)
   s['status']=breach;s['netEquity']=s['cash'];s['pending']=[];return s
- actions={x['asset']:x['action'] for x in s['pending']} if s['lastSignalAt'] and 0<(at-timestamp(s['lastSignalAt'])).total_seconds()<=3600 else {}
+ actions={x['asset']:x['action'] for x in s['pending']} if s['lastSignalAt'] and s.get('pendingAvailableAt') and at>timestamp(s['pendingAvailableAt']) and 0<(at-timestamp(s['lastSignalAt'])).total_seconds()<=3600 else {}
  exited=set()
  for a in list(s['holdings']):
   reason='stop' if prices[a]<=s['entries'][a]*.96 else 'target' if prices[a]>=s['entries'][a]*1.08 else 'signal' if actions.get(a)=='Vente' else None
@@ -73,17 +73,21 @@ def advance(current,event,now):
   projected=net_value(s,prices)-amount+q*prices[a]*(1-RULES['spread']-RULES['slippage'])*(1-RULES['fee'])
   if projected<=max(RULES['initial']*.94,s['dayStartNet']-48):continue
   s['cash']-=amount;s['holdings'][a]=q;s['entries'][a]=prices[a]*(1+RULES['spread']+RULES['slippage']);s['lastBuy'][a]=at.timestamp()
-  s['trades'].append(dict(at=event['at'],signalAt=s['lastSignalAt'],asset=a,action='Achat',quantity=q,amount=amount,fee=fee,simulation=True))
+  s['trades'].append(dict(at=event['at'],signalAt=s['lastSignalAt'],signalAvailableAt=s['pendingAvailableAt'],asset=a,action='Achat',quantity=q,amount=amount,fee=fee,simulation=True))
  if s['trades'] and s['trades'][-1]['at']==event['at'] and day not in s['tradingDays']:s['tradingDays'].append(day)
  s['netEquity']=net_value(s,prices)
  if s['netEquity']>=RULES['initial']*1.08 and len(s['tradingDays'])>=RULES['minimumDays']:
   for a in list(s['holdings']):sell(a,'educational_target')
   s['netEquity']=s['cash'];s['status']='educational_target_reached'
  s['pending']=[dict(asset=x['asset'],action=x['action']) for x in event.get('signals',[]) if isinstance(x,dict) and isinstance(x.get('asset'),str) and x.get('action') in ('Achat','Vente')]
- s['lastSignalAt']=event['at']
+ s['lastSignalAt']=event['at'];s['pendingAvailableAt']=now
  return s
 
 def update(current,events,now):
+ if current is not None and 'pendingAvailableAt' not in current:
+  current=copy.deepcopy(current);current['pending']=[];current['lastSignalAt']=None
+  current['pendingAvailableAt']=now;current['activatedAt']=now
+  current['availabilityMigrationAt']=now  # Preserve balances/trades; discard only unproven pending intent.
  ordered=sorted((e for e in events if e.get('source')=='robot-state.json'),key=lambda e:e['at'])
  if current is None:ordered=ordered[-1:]  # Prospective start: never replay old profits.
  for e in ordered:

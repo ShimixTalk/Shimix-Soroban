@@ -29,3 +29,7 @@ Les tests vérifient le démarrage sans historique inventé, les frais, la sépa
 ## Collecteur planifié et clonage superficiel
 
 Le collecteur échouait avant toute collecte depuis l’intégration #17 : son test de garde demandait via `git show` un commit absent d’un checkout superficiel. Une fixture locale du moteur antérieur, issue du commit 568f9f6694b57f24e038e89cc5bcaadf1dce687d et vérifiée par SHA-256 e3479e3fa7b7718276b04d50cb3694120627631df8fb03ef7894a9daab21bd0a, remplace cette dépendance à l’historique Git. La garde continue de vérifier la transition exacte et de refuser une modification du seuil ; aucun contrôle n’est supprimé. Ce fichier texte n’est jamais exécuté par le robot.
+
+## Disponibilité effective du signal
+
+`pendingAvailableAt` est l’heure de collecte rendant l’intention disponible au challenge. Un achat exige un relevé strictement postérieur à cette heure, en plus d’un signal source vieux d’au plus une heure. Une collecte de plusieurs événements anciens ne crée donc aucune opération antérieure à la connaissance effective du signal. Les deux heures sont conservées dans l’achat fictif. La migration depuis le premier état ne change ni soldes ni positions ni opérations : elle vide uniquement les intentions sans disponibilité enregistrée et ajoute les métadonnées d’activation.
