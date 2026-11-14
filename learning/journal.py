@@ -17,7 +17,7 @@ def observe(state,source_sha,observed_at):
  prices=state.get('prices',{});holdings=state.get('holdings',{})
  if not isinstance(prices,dict) or not isinstance(holdings,dict) or not finite(state.get('cash')) or any(not finite(q) for q in holdings.values()):raise ValueError('Comptabilité invalide')
  prices={str(k):v for k,v in prices.items() if finite(v,1e-12)}
- errors=[];missing=[a for a,q in holdings.items() if q>0 and a not in prices]
+ errors=[];missing=[a for a,q in holdings.items() if q>0 and (a not in prices or state.get('marketDataAvailable') is False)]
  if missing:errors.append(dict(code='missing_holding_quote',message='Cotation absente : '+', '.join(missing)))
  equity=None if missing else state['cash']+sum(q*prices.get(a,0) for a,q in holdings.items())
  if equity is not None and finite(state.get('value')) and abs(state['value']-equity)>.02:errors.append(dict(code='equity_mismatch',message='Valeur publiée différente du recalcul des positions.'))
@@ -46,7 +46,7 @@ def observe(state,source_sha,observed_at):
   if not finite(trade['quantity'],1e-15) or not finite(trade['fee']):errors.append(dict(code='incomplete_trade_cost',message='Quantité ou frais historiques absents : attribution réalisée non calculable.'))
   if any(t['id']==trade['id'] for t in trades):errors.append(dict(code='duplicate_trade_fingerprint',message='Opérations identiques sans identifiant source : attribution à vérifier.'))
   trades.append(trade)
- return dict(version=1,id='robot:'+source_sha,sourceCommit=source_sha,source='robot-state.json',at=at.isoformat(),observedAt=now.isoformat(),capital=1600,currency='EUR',simulationOnly=True,cash=state['cash'],holdings=holdings,prices=prices,quotesFetchedAt=cache_at,quoteCacheAgeAtExecutionSeconds=age,collectionDelaySeconds=(now-at).total_seconds(),equity=round(equity,6) if equity is not None else None,signals=signals,trades=sorted(trades,key=lambda t:(t['at'],t['id'])),entryReviewVersion=state.get('entryReviewVersion'),riskSnapshot={k:state.get(k) for k in ['maxOrder','maxLossPercent','buyPauseLossPercent','maxPositionPercent','maxPositions','feeRate','spreadRate','slippageRate']},errors=errors,notes='Observation après exécution ; pas de reconstitution des décisions non journalisées.')
+ return dict(version=1,id='robot:'+source_sha,sourceCommit=source_sha,source='robot-state.json',at=at.isoformat(),observedAt=now.isoformat(),capital=1600,currency='EUR',simulationOnly=True,cash=state['cash'],holdings=holdings,prices=prices,quotesFetchedAt=cache_at,quoteCacheAgeAtExecutionSeconds=age,collectionDelaySeconds=(now-at).total_seconds(),equity=round(equity,6) if equity is not None else None,signals=signals,trades=sorted(trades,key=lambda t:(t['at'],t['id'])),marketDataAvailable=state.get('marketDataAvailable',True),entryReviewVersion=state.get('entryReviewVersion'),riskSnapshot={k:state.get(k) for k in ['maxOrder','maxLossPercent','buyPauseLossPercent','maxPositionPercent','maxPositions','feeRate','spreadRate','slippageRate']},errors=errors,notes='Observation après exécution ; pas de reconstitution des décisions non journalisées.')
 
 def append(events,new):
  if any(e['id']==new['id'] for e in events):return events

@@ -36,7 +36,7 @@ def advance(current,event,now):
  prices=event.get('prices',{});cache=event.get('quotesFetchedAt')
  age=at.timestamp()-cache if finite(cache) else None
  value=net_value(s,prices)
- if age is None or not 0<=age<=3600 or (observed-at).total_seconds()>3600 or value is None:
+ if event.get("marketDataAvailable") is False or age is None or not 0<=age<=3600 or (observed-at).total_seconds()>3600 or value is None:
   s['issues']=['Cours absents ou anciens : aucune opération ; limites non évaluables.']
   s['netEquity']=None;s['pending']=[];return s
  day=at.astimezone(ZoneInfo(RULES['timezone'])).date().isoformat()

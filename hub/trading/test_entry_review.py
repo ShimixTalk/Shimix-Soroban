@@ -50,3 +50,9 @@ class EntryReviewTests(unittest.TestCase):
   s=good_state();s.update(cash=1000,holdings={'C0':1})
   robot.global_protection(s,{'C0':100},NOW.isoformat())
   self.assertIsNone(s['trades'][0]['exitReview']['netPnl']);self.assertFalse(s['trades'][0]['exitReview']['basisKnown'])
+
+ def test_market_outage_clears_old_buy_intent_and_unknown_held_valuation(self):
+  s=good_state();s.update(cash=1500,holdings={'C0':1},entryPrices={'C0':100},prices={'C0':100},signals={'C0':{'action':'Achat'}})
+  r=fixtures.RobotRegressionTests().run_robot(s,[{}])
+  self.assertFalse(r['marketDataAvailable']);self.assertEqual(r['signals'],{})
+  self.assertIsNone(r['value']);self.assertEqual(r['holdings'],s['holdings']);self.assertEqual(r['trades'],[])

@@ -24,3 +24,10 @@ class EntryReviewJournalTests(unittest.TestCase):
   s=state();s['marketCacheAt']=NOW.timestamp()-3601
   e=observe(s,'stale',NOW.isoformat())
   self.assertTrue(any(x['code']=='stale_or_unknown_quotes' for x in e['errors']))
+
+ def test_source_market_outage_cannot_feed_a_challenge_order(self):
+  from challenge import advance
+  s=state();s['marketDataAvailable']=False
+  e=observe(s,'outage',NOW.isoformat())
+  self.assertIsNone(e['equity']);self.assertFalse(e['marketDataAvailable'])
+  c=advance(None,e,NOW.isoformat());self.assertIsNone(c['netEquity']);self.assertEqual(c['trades'],[])

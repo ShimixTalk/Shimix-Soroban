@@ -244,8 +244,11 @@ def main():
             state["marketCache"]=market
             state["marketCacheAt"]=now.timestamp()
     except Exception as exc:
-        state["dataErrors"]=[str(exc)];state["updatedAt"]=stamp
-        save(state,file["sha"]);print("Marché indisponible, aucune opération");return
+        state["marketDataAvailable"]=False;state["signals"]={}
+        global_protection(state,{},stamp)
+        save_protection_state(state,{},stamp,file["sha"],[str(exc)])
+        print("Marché indisponible, aucune opération");return
+    state["marketDataAvailable"]=True
     eligible=[x for x in market if valid_market_row(x) and x["total_volume"]>=2000000 and x["market_cap"]>=50000000]
     ranked=sorted(eligible,key=lambda x:(__import__("math").log10(max(1,float(x.get("total_volume") or 1)))*2+min(12,abs(float(x.get("price_change_percentage_24h") or 0)))*0.6),reverse=True)
     selected=ranked[:20];prices={}
@@ -257,6 +260,7 @@ def main():
     state["prices"]=prices
     buys_allowed,liquidation_latched=global_protection(state,prices,stamp)
     if liquidation_latched or not state["globalProtection"]["valuationComplete"]:
+        state["signals"]={}
         save_protection_state(state,prices,stamp,file["sha"],holding_quote_errors)
         print("Protection globale",state["globalProtection"])
         return
