@@ -5,8 +5,8 @@ from integration_check import approved_protection_change
 ROOT=Path(__file__).resolve().parents[2]
 class ProtectionGuardTests(unittest.TestCase):
  def test_exact_engine_transition_only(self):
-  old=(ROOT/'learning/tests/fixtures/autonomous_simulation_before_fast_risk.txt').read_bytes()
-  self.assertEqual(hashlib.sha256(old).hexdigest(),'e3479e3fa7b7718276b04d50cb3694120627631df8fb03ef7894a9daab21bd0a')
+  old=(ROOT/'learning/tests/fixtures/autonomous_simulation_before_entry_review.txt').read_bytes()
+  self.assertEqual(hashlib.sha256(old).hexdigest(),'c459629e19a1554ea96b0bde65e73f59d18f910d0b1329f6e5d9ae7d26460968')
   current=(ROOT/'hub/trading/autonomous_simulation.py').read_bytes()
   self.assertTrue(approved_protection_change(old,current))
   self.assertFalse(approved_protection_change(old,current.replace(b'*.95',b'*.50',1)))

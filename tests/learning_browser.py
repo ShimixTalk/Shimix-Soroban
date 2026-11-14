@@ -82,4 +82,11 @@ class LearningBrowserTests(unittest.TestCase):
   self.assertIn('pas deux preuves indépendantes',text);self.assertIn('sans',self.page.locator('#robotLearningPanel').text_content())
   self.assertEqual(box.locator('img').count(),0);self.assertEqual(self.errors,[])
   self.assertEqual(before,self.page.evaluate('()=>JSON.stringify({...localStorage})'))
+ def test_entry_review_explains_rejection_without_predicting_win(self):
+  self.report['observed']['entryReview']=dict(version='confirmed-entry-v1',decisions=[dict(asset='BTC',allowed=False,reasons=['Rebond invalidé <img src=x>'],theoreticalRewardRisk=1.7)])
+  self.page.locator('[data-learning-refresh]').click()
+  self.page.get_by_text('Analyse des nouvelles entrées',exact=False).wait_for()
+  text=self.page.locator('[data-learning-content]').text_content()
+  self.assertIn('Achat refusé',text);self.assertIn('aucune probabilité de gain',text)
+  self.assertEqual(self.page.locator('#robotLearningPanel img').count(),0);self.assertEqual(self.errors,[])
 if __name__=='__main__':unittest.main(verbosity=2)

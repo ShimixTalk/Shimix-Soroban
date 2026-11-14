@@ -1,0 +1,141 @@
+{
+  "description": "Diagnostic rétrospectif exhaustif des achats enregistrés, pas un backtest de rendement ni une validation indépendante. Règle fixée avant cette lecture ; aucune réoptimisation sur les résultats.",
+  "recordedBuys": 7,
+  "found": 7,
+  "decisions": [
+    {
+      "at": "2026-11-10T16:25:05.455381+00:00",
+      "asset": "BTC",
+      "sourceCommit": "8e0afa09c4b3eef6a6471194bc1345ec93ef3bb6",
+      "review": {
+        "allowed": null,
+        "reasons": [
+          "Preuve historique insuffisante ; aucun résultat inventé"
+        ]
+      }
+    },
+    {
+      "at": "2026-11-10T17:24:59.028940+00:00",
+      "asset": "ETH",
+      "sourceCommit": "e252894fbf7155f396ef804659e52e4e7b790396",
+      "review": {
+        "allowed": null,
+        "reasons": [
+          "Preuve historique insuffisante ; aucun résultat inventé"
+        ]
+      }
+    },
+    {
+      "at": "2026-11-11T19:38:00.422480+00:00",
+      "asset": "ASTER",
+      "sourceCommit": "8191fa36e68b155d00d2d02faaa9269fa802282e",
+      "review": {
+        "version": "confirmed-entry-v1",
+        "allowed": false,
+        "reasons": [
+          "Tendance haussière non confirmée (SMA7 ≤ SMA21)"
+        ],
+        "coinId": "aster-2",
+        "lastClosedPrice": 0.5781370386182932,
+        "currentPrice": 0.594085,
+        "sma7": 0.6050663646765699,
+        "sma21": 0.6198046977884195,
+        "targetNetPercent": 7.676216,
+        "stopNetPercent": -4.287808,
+        "theoreticalRewardRisk": 1.790242,
+        "prediction": false,
+        "limitation": "Scénarios aux seuils, pas une probabilité ; gaps et retard possibles"
+      }
+    },
+    {
+      "at": "2026-11-11T22:19:32.635046+00:00",
+      "asset": "BTC",
+      "sourceCommit": "2ffc16632d3241ba0a5b5ca4a3e26dd93101f336",
+      "review": {
+        "version": "confirmed-entry-v1",
+        "allowed": false,
+        "reasons": [
+          "Tendance haussière non confirmée (SMA7 ≤ SMA21)"
+        ],
+        "coinId": "bitcoin",
+        "lastClosedPrice": 67069.23788327893,
+        "currentPrice": 67118.0,
+        "sma7": 68346.83006680108,
+        "sma21": 70434.68556928092,
+        "targetNetPercent": 7.676216,
+        "stopNetPercent": -4.287808,
+        "theoreticalRewardRisk": 1.790242,
+        "prediction": false,
+        "limitation": "Scénarios aux seuils, pas une probabilité ; gaps et retard possibles"
+      }
+    },
+    {
+      "at": "2026-11-12T07:51:12.886589+00:00",
+      "asset": "USD1",
+      "sourceCommit": "e6da821ffb09ce4290d8e4ceba9800c3c9710633",
+      "review": {
+        "version": "confirmed-entry-v1",
+        "allowed": false,
+        "reasons": [
+          "Stablecoin connu exclu des nouveaux achats spéculatifs"
+        ],
+        "coinId": "usd1-wlfi",
+        "lastClosedPrice": 0.8939969557860807,
+        "currentPrice": 0.900869,
+        "sma7": 0.8924027591177414,
+        "sma21": 0.8922796272456355,
+        "targetNetPercent": 7.676216,
+        "stopNetPercent": -4.287808,
+        "theoreticalRewardRisk": 1.790242,
+        "prediction": false,
+        "limitation": "Scénarios aux seuils, pas une probabilité ; gaps et retard possibles"
+      }
+    },
+    {
+      "at": "2026-11-13T00:28:42.695670+00:00",
+      "asset": "PEARL",
+      "sourceCommit": "66269148549c995f567269ca49abd10a5af281c5",
+      "review": {
+        "version": "confirmed-entry-v1",
+        "allowed": false,
+        "reasons": [
+          "Tendance haussière non confirmée (SMA7 ≤ SMA21)",
+          "Rebond invalidé : cours actuel sous la dernière clôture"
+        ],
+        "coinId": "pearl-2",
+        "lastClosedPrice": 1.3626565757032236,
+        "currentPrice": 1.26,
+        "sma7": 1.4742466417881779,
+        "sma21": 1.5117960683003746,
+        "targetNetPercent": 7.676216,
+        "stopNetPercent": -4.287808,
+        "theoreticalRewardRisk": 1.790242,
+        "prediction": false,
+        "limitation": "Scénarios aux seuils, pas une probabilité ; gaps et retard possibles"
+      }
+    },
+    {
+      "at": "2026-11-13T15:48:40.055062+00:00",
+      "asset": "ETHFI",
+      "sourceCommit": "d6c2b76237c472a84d1ce0d255a012fa20b26901",
+      "review": {
+        "version": "confirmed-entry-v1",
+        "allowed": false,
+        "reasons": [
+          "Tendance haussière non confirmée (SMA7 ≤ SMA21)",
+          "Rebond invalidé : cours actuel sous la dernière clôture"
+        ],
+        "coinId": "ether-fi",
+        "lastClosedPrice": 0.5745775943365926,
+        "currentPrice": 0.512534,
+        "sma7": 0.5365890980751876,
+        "sma21": 0.5507560441933845,
+        "targetNetPercent": 7.676216,
+        "stopNetPercent": -4.287808,
+        "theoreticalRewardRisk": 1.790242,
+        "prediction": false,
+        "limitation": "Scénarios aux seuils, pas une probabilité ; gaps et retard possibles"
+      }
+    }
+  ]
+}

@@ -18,8 +18,10 @@ class FastRiskTests(unittest.TestCase):
   def save(value,sha):
    self.events.append('save');self.saved.append((copy.deepcopy(value),sha))
    return 'saved-'+str(len(self.saved)) if checkpoint_confirmed else None
+  original_review=robot.review_entry
+  def reviewed(*a,**k):return dict(allowed=True,reasons=["Synthetic validated entry"]) if rebuy_signal else original_review(*a,**k)
   def rsi(p):return 30 if rebuy_signal and p[-1]>200 else 70
-  with patch.object(robot,'gh',side_effect=get),patch.object(robot,'request',side_effect=request),patch.object(robot,'save',side_effect=save),patch.object(robot.time,'sleep'),patch.object(robot,'rsi',side_effect=rsi):robot.main()
+  with patch.object(robot,'gh',side_effect=get),patch.object(robot,'request',side_effect=request),patch.object(robot,'save',side_effect=save),patch.object(robot.time,'sleep'),patch.object(robot,'rsi',side_effect=rsi),patch.object(robot,'review_entry',side_effect=reviewed):robot.main()
   return self.saved[-1][0]
  def exiting_state(self):return {**good_state(),'cash':1500,'holdings':{'C0':1},'entryPrices':{'C0':120}}
  def test_exit_is_saved_before_first_history_request(self):
@@ -52,6 +54,7 @@ class FastRiskTests(unittest.TestCase):
   result=self.run_engine(self.exiting_state(),rebuy_signal=True)
   self.assertEqual([t['action'] for t in result['trades']],['Vente'])
   self.assertNotIn('C0',result['holdings'])
+  self.assertTrue(result['signals']['C0']['entryReview']['allowed'])
  def test_save_requires_github_content_sha(self):
   with patch.object(robot,'gh',return_value={'content':{'sha':'new-sha'}}) as call:
    self.assertEqual(robot.save(good_state(),'old-sha'),'new-sha')

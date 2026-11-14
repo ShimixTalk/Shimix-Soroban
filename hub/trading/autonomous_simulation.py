@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """SHIMIX Trading: simulation only. No broker API or real orders."""
 import base64, datetime, json, os, time, urllib.error, urllib.parse, urllib.request, math
+try:
+    from entry_review import review as review_entry, VERSION as ENTRY_REVIEW_VERSION, exit_review
+except ModuleNotFoundError:
+    from hub.trading.entry_review import review as review_entry, VERSION as ENTRY_REVIEW_VERSION, exit_review
 API="https://api.coingecko.com/api/v3"
 REPO=os.environ.get("GITHUB_REPOSITORY","ShimixTalk/Shimix-Soroban")
 BRANCH=os.environ.get("SHIMIX_BRANCH","shimix-hub")
@@ -47,7 +51,7 @@ def validate_simulation_state(state):
         raise ValueError("Quantite de position invalide")
     for field in ("peak",):
         if field in state and not number(state[field]):raise ValueError("Valeur invalide : "+field)
-    for field in ("entryPrices","lastTrade","historyUpdated"):
+    for field in ("entryPrices","lastTrade","historyUpdated","historyAttempted"):
         values=state.get(field,{})
         if not isinstance(values,dict) or any(not number(v) for v in values.values()):raise ValueError("Historique invalide : "+field)
     history=state.get("dailyHistory",{})
@@ -132,10 +136,11 @@ def global_protection(state, prices, stamp):
             if quantity<=0 or not usable_quote(prices,sym):continue
             execution=prices[sym]*(1-float(state.get("spreadRate",0.001))-float(state.get("slippageRate",0.001)))
             gross=quantity*execution;fee=gross*float(state.get("feeRate",0.001));proceeds=gross-fee
+            basis=state.get("entryPrices",{}).get(sym)
             state["cash"]+=proceeds
             state["holdings"].pop(sym,None);state.setdefault("entryPrices",{}).pop(sym,None)
             state.setdefault("trades",[]).insert(0,dict(date=stamp,asset=sym,action="Vente",amount=round(proceeds,2),
-                price=execution,quantity=quantity,fee=fee,reason="global-loss-liquidation",simulation=True))
+                price=execution,quantity=quantity,fee=fee,reason="global-loss-liquidation",simulation=True,exitReview=exit_review(basis,quantity,proceeds,prices[sym])))
             state.setdefault("logs",[]).insert(0,stamp+" : vente FICTIVE "+sym+" (protection globale)")
     policy["pendingAssets"]=sorted(sym for sym,q in state["holdings"].items() if q>0) if latched else []
     return not policy["buyPaused"],latched
@@ -162,14 +167,14 @@ def price_exits_before_history(state,prices,stamp):
     exited=set()
     for sym,quantity in list(state["holdings"].items()):
         if quantity<=0 or not usable_quote(prices,sym):continue
-        price=prices[sym];entry=float(state.get("entryPrices",{}).get(sym,price))
+        price=prices[sym];known_entry=sym in state.get("entryPrices",{});entry=float(state.get("entryPrices",{}).get(sym,price))
         reason="stop-loss" if price<=entry*.96 else "take-profit" if price>=entry*1.08 else None
         if reason is None:continue
         execution=price*(1-float(state.get("spreadRate",0.001))-float(state.get("slippageRate",0.001)))
         gross=quantity*execution;fee=gross*float(state.get("feeRate",0.001));proceeds=gross-fee
         state["cash"]+=proceeds
         state["holdings"].pop(sym,None);state.setdefault("entryPrices",{}).pop(sym,None)
-        state.setdefault("trades",[]).insert(0,dict(date=stamp,asset=sym,action="Vente",amount=round(proceeds,2),price=execution,quantity=quantity,fee=fee,reason=reason,simulation=True))
+        state.setdefault("trades",[]).insert(0,dict(date=stamp,asset=sym,action="Vente",amount=round(proceeds,2),price=execution,quantity=quantity,fee=fee,reason=reason,simulation=True,exitReview=exit_review(entry if known_entry else None,quantity,proceeds,price)))
         state.setdefault("logs",[]).insert(0,stamp+" : vente FICTIVE "+sym+" ("+reason+", avant téléchargement historique)")
         exited.add(sym)
     return exited
@@ -216,6 +221,11 @@ def supplement_holding_quotes(state,prices,now):
         missingAssets=[sym for sym in required if not usable_quote(out,sym)])
     return out,errors
 
+def history_refresh_queue(selected, history, updated, attempted, now):
+    """Least recently attempted first: failures cannot monopolize the two requests."""
+    due=[x for x in selected if len(history.get(x["id"],[]))<22 or not 0<=now-float(updated.get(x["id"],0))<86400]
+    return sorted(due,key=lambda x:float(attempted.get(x["id"],0)))
+
 def main():
     file=gh("GET");state=json.loads(base64.b64decode(file["content"]).decode())
     validate_simulation_state(state)
@@ -234,8 +244,11 @@ def main():
             state["marketCache"]=market
             state["marketCacheAt"]=now.timestamp()
     except Exception as exc:
-        state["dataErrors"]=[str(exc)];state["updatedAt"]=stamp
-        save(state,file["sha"]);print("Marché indisponible, aucune opération");return
+        state["marketDataAvailable"]=False;state["signals"]={}
+        global_protection(state,{},stamp)
+        save_protection_state(state,{},stamp,file["sha"],[str(exc)])
+        print("Marché indisponible, aucune opération");return
+    state["marketDataAvailable"]=True
     eligible=[x for x in market if valid_market_row(x) and x["total_volume"]>=2000000 and x["market_cap"]>=50000000]
     ranked=sorted(eligible,key=lambda x:(__import__("math").log10(max(1,float(x.get("total_volume") or 1)))*2+min(12,abs(float(x.get("price_change_percentage_24h") or 0)))*0.6),reverse=True)
     selected=ranked[:20];prices={}
@@ -247,6 +260,7 @@ def main():
     state["prices"]=prices
     buys_allowed,liquidation_latched=global_protection(state,prices,stamp)
     if liquidation_latched or not state["globalProtection"]["valuationComplete"]:
+        state["signals"]={}
         save_protection_state(state,prices,stamp,file["sha"],holding_quote_errors)
         print("Protection globale",state["globalProtection"])
         return
@@ -259,8 +273,10 @@ def main():
         file["sha"]=new_sha
     state["scanner"]={"updatedAt":stamp,"examined":len(market),"eligible":len(eligible),"shortlist":[{"symbol":x["symbol"].upper(),"name":x["name"],"volume":x.get("total_volume"),"change24h":x.get("price_change_percentage_24h")} for x in selected]}
     # Two historical requests per execution to limit rate limiting.
-    due=[x for x in selected if len(hist.get(x["id"],[]))<22 or (now.timestamp()-float(state.get("historyUpdated",{}).get(x["id"],0)))>86400]
+    attempted=state.setdefault("historyAttempted",{})
+    due=history_refresh_queue(selected,hist,state.get("historyUpdated",{}),attempted,now.timestamp())
     for x in due[:2]:
+        attempted[x["id"]]=now.timestamp()
         try:
             chart=request(API+"/coins/"+urllib.parse.quote(x["id"])+"/market_chart?vs_currency=eur&days=30&interval=daily")
             series=closed_daily_prices(chart,now)
@@ -278,8 +294,14 @@ def main():
         rs=rsi(p);a=sma(p,7);b=sma(p,21);prev=sma(p[:-1],21)
         action=("Achat" if (rs<35 and a>b and p[-1]>prev) or (state.get("experimentMode")=="aggressive_simulation" and rs<45 and p[-1]>p[-2] and a>=b*0.97) else "Vente" if rs>65 and a<b else "Attente")
         signals[sym]={"action":action,"rsi":round(rs,2),"sma7":a,"sma21":b,"reason":"RSI et moyennes mobiles"}
-        if action=="Achat":candidates.append((45-rs,sym))
+        if action=="Achat":
+            analysis=review_entry(x["id"],p,prices[sym],a,b,state.get("feeRate",.001),state.get("spreadRate",.001),state.get("slippageRate",.001),quote_at=x.get("last_updated"),now=now)
+            signals[sym]["entryReview"]=analysis;signals[sym]["originalAction"]="Achat"
+            signals[sym]["reason"]=" ; ".join(analysis["reasons"])
+            if analysis["allowed"]:candidates.append((45-rs,sym))
+            else:signals[sym]["action"]="Attente"
     state["signals"]=signals
+    state["entryReviewVersion"]=ENTRY_REVIEW_VERSION
     holdings=state.setdefault("holdings",{});cash=float(state.get("cash",1600));capital=float(state.get("capital",1600))
     # Never value an existing holding at zero when its quote is unavailable.
     missing=[sym for sym,q in holdings.items() if float(q)>0 and float(prices.get(sym,0))<=0]
@@ -298,6 +320,7 @@ def main():
     for sym,quantity in list(holdings.items()):
         price=float(prices.get(sym,0));quantity=float(quantity)
         if quantity<=0 or price<=0:continue
+        known_entry=sym in entries
         entry=float(entries.get(sym,price))
         reason=("stop-loss" if price<=entry*0.96 else
                 "take-profit" if price>=entry*1.08 else
@@ -309,7 +332,7 @@ def main():
         proceeds=gross-fee
         cash+=proceeds
         holdings.pop(sym,None);entries.pop(sym,None)
-        state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Vente","amount":round(proceeds,2),"price":exit_price,"quantity":quantity,"fee":fee,"reason":reason,"simulation":True})
+        state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Vente","amount":round(proceeds,2),"price":exit_price,"quantity":quantity,"fee":fee,"reason":reason,"simulation":True,"exitReview":exit_review(entry if known_entry else None,quantity,proceeds,price)})
         logs.insert(0,stamp+" : vente FICTIVE "+sym+" ("+reason+")")
     last=state.setdefault("lastTrade",{})
     if not buys_allowed:
@@ -336,7 +359,7 @@ def main():
         cash-=amount;holdings[sym]=float(holdings.get(sym,0))+qty
         last[sym]=now.timestamp()
         entries[sym]=((float(entries.get(sym,0))*float(holdings[sym]-qty))+amount)/float(holdings[sym])
-        state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Achat","amount":round(amount,2),"price":effective,"quantity":qty,"fee":fee,"simulation":True})
+        state.setdefault("trades",[]).insert(0,{"date":stamp,"asset":sym,"action":"Achat","amount":round(amount,2),"price":effective,"quantity":qty,"fee":fee,"simulation":True,"entryReview":signals[sym].get("entryReview")})
         logs.insert(0,stamp+" : achat FICTIF "+sym+" pour "+str(round(amount,2))+" EUR")
         # Only one simulated buy per run; evaluate further next time.
         break
