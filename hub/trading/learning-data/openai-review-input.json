@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "c5d39ed5b6e290feba983dd1ee67e6c6fcf831f948185ddbe3be799be9d0811f",
+  "inputHash": "bf5b6ca8fdb8bc09b12475c6715b67e1f0991e4862232837202ecaab7ca9bda3",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -288,6 +288,11 @@
           "code": "stale_or_unknown_quotes",
           "event": "robot:bc705e4d7897785b8bf4967772c349b81bbc129c",
           "message": "Fraîcheur des cours non confirmée."
+        },
+        {
+          "code": "missing_holding_quote",
+          "event": "robot:08c307d9727165e852c59bdee556e6d0b06ba6a6",
+          "message": "Cotation absente : USD1"
         }
       ],
       "experiment": {
@@ -314,7 +319,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-14T22:55:12.664628+00:00",
+      "generatedAt": "2026-11-14T23:36:14.019711+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
@@ -624,7 +629,7 @@
       "observed": {
         "decisions": 1980,
         "entryReview": {
-          "at": "2026-11-14T22:54:27.833097+00:00",
+          "at": "2026-11-14T23:35:19.158344+00:00",
           "decisions": [],
           "version": "confirmed-entry-v1"
         },
@@ -1295,19 +1300,24 @@
             "code": "stale_or_unknown_quotes",
             "event": "robot:bc705e4d7897785b8bf4967772c349b81bbc129c",
             "message": "Fraîcheur des cours non confirmée."
+          },
+          {
+            "code": "missing_holding_quote",
+            "event": "robot:08c307d9727165e852c59bdee556e6d0b06ba6a6",
+            "message": "Cotation absente : USD1"
           }
         ],
         "feeCoverageComplete": true,
         "knownFees": 1.538587,
         "knownRealizedPnl": -22.111513,
         "latest": {
-          "at": "2026-11-14T22:54:27.833097+00:00",
+          "at": "2026-11-14T23:35:19.158344+00:00",
           "capital": 1600,
           "cash": 1457.888487,
-          "collectionDelaySeconds": 44.831531,
+          "collectionDelaySeconds": 54.861367,
           "currency": "EUR",
-          "equity": 1578.147948,
-          "quoteCacheAgeAtExecutionSeconds": 0.0,
+          "equity": null,
+          "quoteCacheAgeAtExecutionSeconds": 2451.3252470493317,
           "riskSnapshot": {
             "buyPauseLossPercent": 5,
             "feeRate": 0.001,
@@ -1324,7 +1334,7 @@
           "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
           "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
         ],
-        "observations": 100,
+        "observations": 101,
         "outcomeQuality": {
           "automaticPromotion": false,
           "evidence": "insufficient_for_automatic_promotion",
@@ -1430,14 +1440,16 @@
         "dayStartNet": 1600.0,
         "entries": {},
         "holdings": {},
-        "issues": [],
-        "lastAt": "2026-11-14T22:54:27.833097+00:00",
+        "issues": [
+          "Cours absents ou anciens : aucune opération ; limites non évaluables."
+        ],
+        "lastAt": "2026-11-14T23:35:19.158344+00:00",
         "lastBuy": {
           "ETHFI": 1794665941.960783
         },
         "lastSignalAt": "2026-11-14T22:54:27.833097+00:00",
-        "netEquity": 1592.863771033956,
-        "observations": 17,
+        "netEquity": null,
+        "observations": 18,
         "pending": [],
         "pendingAvailableAt": "2026-11-14T22:55:12.664628+00:00",
         "rules": {
@@ -1564,7 +1576,7 @@
           "status": "retain_reference_pending_evidence"
         }
       },
-      "sourceCursor": "0b6c3e2b37efd4221c89fe8bd9f8caec43fb679e",
+      "sourceCursor": "08c307d9727165e852c59bdee556e6d0b06ba6a6",
       "version": 1
     },
     "restrictions": [

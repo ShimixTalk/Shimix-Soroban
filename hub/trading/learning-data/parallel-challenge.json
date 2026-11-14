@@ -7,14 +7,16 @@
   "dayStartNet": 1600.0,
   "entries": {},
   "holdings": {},
-  "issues": [],
-  "lastAt": "2026-11-14T22:54:27.833097+00:00",
+  "issues": [
+    "Cours absents ou anciens : aucune opération ; limites non évaluables."
+  ],
+  "lastAt": "2026-11-14T23:35:19.158344+00:00",
   "lastBuy": {
     "ETHFI": 1794665941.960783
   },
   "lastSignalAt": "2026-11-14T22:54:27.833097+00:00",
-  "netEquity": 1592.863771033956,
-  "observations": 17,
+  "netEquity": null,
+  "observations": 18,
   "pending": [],
   "pendingAvailableAt": "2026-11-14T22:55:12.664628+00:00",
   "rules": {
