@@ -47,7 +47,7 @@ def validate_simulation_state(state):
         raise ValueError("Quantite de position invalide")
     for field in ("peak",):
         if field in state and not number(state[field]):raise ValueError("Valeur invalide : "+field)
-    for field in ("entryPrices","lastTrade","historyUpdated"):
+    for field in ("entryPrices","lastTrade","historyUpdated","historyAttempted"):
         values=state.get(field,{})
         if not isinstance(values,dict) or any(not number(v) for v in values.values()):raise ValueError("Historique invalide : "+field)
     history=state.get("dailyHistory",{})
@@ -216,6 +216,11 @@ def supplement_holding_quotes(state,prices,now):
         missingAssets=[sym for sym in required if not usable_quote(out,sym)])
     return out,errors
 
+def history_refresh_queue(selected, history, updated, attempted, now):
+    """Least recently attempted first: failures cannot monopolize the two requests."""
+    due=[x for x in selected if len(history.get(x["id"],[]))<22 or not 0<=now-float(updated.get(x["id"],0))<86400]
+    return sorted(due,key=lambda x:float(attempted.get(x["id"],0)))
+
 def main():
     file=gh("GET");state=json.loads(base64.b64decode(file["content"]).decode())
     validate_simulation_state(state)
@@ -259,8 +264,10 @@ def main():
         file["sha"]=new_sha
     state["scanner"]={"updatedAt":stamp,"examined":len(market),"eligible":len(eligible),"shortlist":[{"symbol":x["symbol"].upper(),"name":x["name"],"volume":x.get("total_volume"),"change24h":x.get("price_change_percentage_24h")} for x in selected]}
     # Two historical requests per execution to limit rate limiting.
-    due=[x for x in selected if len(hist.get(x["id"],[]))<22 or (now.timestamp()-float(state.get("historyUpdated",{}).get(x["id"],0)))>86400]
+    attempted=state.setdefault("historyAttempted",{})
+    due=history_refresh_queue(selected,hist,state.get("historyUpdated",{}),attempted,now.timestamp())
     for x in due[:2]:
+        attempted[x["id"]]=now.timestamp()
         try:
             chart=request(API+"/coins/"+urllib.parse.quote(x["id"])+"/market_chart?vs_currency=eur&days=30&interval=daily")
             series=closed_daily_prices(chart,now)
