@@ -1,0 +1,42 @@
+{
+  "appliedToRobot": false,
+  "cash": 1600.0,
+  "day": "2026-11-14",
+  "dayStartNet": 1600.0,
+  "entries": {},
+  "holdings": {},
+  "issues": [],
+  "lastAt": "2026-11-14T11:37:55.125022+00:00",
+  "lastBuy": {},
+  "lastSignalAt": "2026-11-14T11:37:55.125022+00:00",
+  "netEquity": 1600.0,
+  "observations": 1,
+  "pending": [
+    {
+      "action": "Achat",
+      "asset": "ETHFI"
+    }
+  ],
+  "rules": {
+    "dailyLossPercent": 3,
+    "fee": 0.001,
+    "id": "educational-parallel-v1",
+    "initial": 1600,
+    "maxOrder": 120,
+    "maxPositions": 4,
+    "minimumDays": 5,
+    "slippage": 0.001,
+    "spread": 0.001,
+    "stopPercent": 4,
+    "takeProfitPercent": 8,
+    "targetPercent": 8,
+    "timezone": "Europe/Paris",
+    "totalLossPercent": 6
+  },
+  "simulationOnly": true,
+  "startedAt": "2026-11-14T11:37:55.125022+00:00",
+  "status": "running",
+  "trades": [],
+  "tradingDays": [],
+  "version": 1
+}

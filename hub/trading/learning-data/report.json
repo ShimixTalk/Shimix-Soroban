@@ -71,6 +71,211 @@
       "code": "stale_or_unknown_quotes",
       "event": "robot:c29de069689657aac3da3c5a7d75dd1cc7170c8c",
       "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:419423677e965c92d0bf12488d2daf7559b4d220",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:e2b6f3ad5a4a2d621ccc7f9928f1dc974b7eb041",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "missing_holding_quote",
+      "event": "robot:6c074db7741d696524c925f05784589e655688ea",
+      "message": "Cotation absente : PEARL"
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:6c074db7741d696524c925f05784589e655688ea",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "missing_holding_quote",
+      "event": "robot:8d1311ec7469c81d9a87c2c7d4b786c7b395d504",
+      "message": "Cotation absente : PEARL"
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:8d1311ec7469c81d9a87c2c7d4b786c7b395d504",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "missing_holding_quote",
+      "event": "robot:91100ab7a20e6faab13ab9b29f6be639dc97a610",
+      "message": "Cotation absente : PEARL"
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:91100ab7a20e6faab13ab9b29f6be639dc97a610",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "missing_holding_quote",
+      "event": "robot:48e89e33ba1643685ffe123d71a9ca6e7485b908",
+      "message": "Cotation absente : PEARL"
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:48e89e33ba1643685ffe123d71a9ca6e7485b908",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "missing_holding_quote",
+      "event": "robot:50accba6abb5625ab3889a6932e9fcd3f79c91e0",
+      "message": "Cotation absente : PEARL"
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:50accba6abb5625ab3889a6932e9fcd3f79c91e0",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:d07b3665224904b8bdb2193e5fddfd8160dd2d7f",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:a40627652ea7733b126302b7445ed83e86d803cf",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:28020f82a5759b670c089e3c394f4aebec0ed7b2",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:0b4a220434b34e342bf6666d406c85025aa81ffb",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:e6eb76abe3188fe536c3292815bd9316d0fda271",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:9cf235bc68e0a6c083014925787c3f194108eb0c",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:d6c2b76237c472a84d1ce0d255a012fa20b26901",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:ed262eeb05ed44753cf4cc75de6fef01a529c5d8",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:b2f8f6162d6cb2a532dd24bde96e6e51afcfa736",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:698405dd4601d20cb2b7b73ad234c30e729503e4",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:e7aa0fdf1da81f822a0b04d7ccf4d156459b7b58",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:414f952a629a6761e93d9b1e0b38300642e98b45",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:531e95630999575467607e393a464b3df14e3ce4",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:5e74ebac5b813a78bca99441eca2fa1079c2ead4",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:6fdbe6adde6d2cb77ac8f636bfa43effcba17301",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:ea8330f9131b5ca05285a15b5d3992f83ae871d3",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:58afba8ededc30a4c7ed625368e88c7cd0cf35d9",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:3db665ff966d75a29dce3b29f1116eae815bb266",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:98052210f5eadda782b3be11a69344ce8098b351",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:fa500ba55121a0cce04349dd55cd4d812b667018",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:26e1854786e9a58d9356dfa6b7459a66525bd3a3",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:e3c8765bbdb55b2bcb06c551b0ace4590a1b3444",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:85c6e0ac2eb9687f53dfeb150de28fb293aa709d",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:a63b8203eca2b9960ef909aa9d533661a69cccbe",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:f431f3acb822824c735c577fb8fb34817569f292",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:84ab4632225f78c364952abe4ea6be4a5b4167c4",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:93087c14aa2791a5cbda7b03d227fe2836d6a2c8",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:d47126d3ba82d248f53d7c13d288f801d449372c",
+      "message": "Fraîcheur des cours non confirmée."
+    },
+    {
+      "code": "stale_or_unknown_quotes",
+      "event": "robot:bc705e4d7897785b8bf4967772c349b81bbc129c",
+      "message": "Fraîcheur des cours non confirmée."
     }
   ],
   "experiment": {
@@ -97,7 +302,7 @@
       "status": "waiting_for_new_data"
     }
   },
-  "generatedAt": "2026-11-13T03:09:25.408595+00:00",
+  "generatedAt": "2026-11-14T12:15:48.851447+00:00",
   "hypotheses": {
     "dynamique": {
       "baseline": {
@@ -405,216 +610,8 @@
   ],
   "mode": "shadow_simulation_only",
   "observed": {
-    "decisions": 920,
+    "decisions": 1660,
     "equityAttribution": [
-      {
-        "equityChange": 0.541248,
-        "executionAndCashEffect": -0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:eb95113bd52d1bff48a8aeef687d9f8638692ff9",
-        "priceEffect": 0.541248,
-        "toId": "robot:a2bb35c28630d7b7cbead28c041ed5d52bd05e61"
-      },
-      {
-        "equityChange": 0.0345,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:a2bb35c28630d7b7cbead28c041ed5d52bd05e61",
-        "priceEffect": 0.0345,
-        "toId": "robot:235bd8e52f880f83c897015939c64ce99e74e16f"
-      },
-      {
-        "equityChange": 0.0,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:235bd8e52f880f83c897015939c64ce99e74e16f",
-        "priceEffect": 0.0,
-        "toId": "robot:9ce60024a5581ab5e9c32b68080f80cbd14654df"
-      },
-      {
-        "equityChange": -0.763532,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:9ce60024a5581ab5e9c32b68080f80cbd14654df",
-        "priceEffect": -0.763532,
-        "toId": "robot:7005b740b854308ffe36fef12ebf8596a16d68ef"
-      },
-      {
-        "equityChange": 1.23716,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:7005b740b854308ffe36fef12ebf8596a16d68ef",
-        "priceEffect": 1.23716,
-        "toId": "robot:6c911db87e09a7781039e1b280ce32f7f72de8bd"
-      },
-      {
-        "equityChange": 0.0,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:6c911db87e09a7781039e1b280ce32f7f72de8bd",
-        "priceEffect": 0.0,
-        "toId": "robot:fdeeb2f158f440ae72f8ed1ec72366dce390aee9"
-      },
-      {
-        "equityChange": -0.2495,
-        "executionAndCashEffect": -1e-06,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:fdeeb2f158f440ae72f8ed1ec72366dce390aee9",
-        "priceEffect": -0.249499,
-        "toId": "robot:596ea8a3bdc702310599fe46da42b306c4429c63"
-      },
-      {
-        "equityChange": 0.525204,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:596ea8a3bdc702310599fe46da42b306c4429c63",
-        "priceEffect": 0.525204,
-        "toId": "robot:09983fbd8c51e643af484d79934a0bff9af0650f"
-      },
-      {
-        "equityChange": 0.0,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:09983fbd8c51e643af484d79934a0bff9af0650f",
-        "priceEffect": 0.0,
-        "toId": "robot:67335f5cf76160ededc0b3cbeb994b37abf52a10"
-      },
-      {
-        "equityChange": 1.329296,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:67335f5cf76160ededc0b3cbeb994b37abf52a10",
-        "priceEffect": 1.329296,
-        "toId": "robot:9473dc361167245309b2d212ff4b58b6b44f2335"
-      },
-      {
-        "equityChange": 0.0,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:9473dc361167245309b2d212ff4b58b6b44f2335",
-        "priceEffect": 0.0,
-        "toId": "robot:0b85067bc20907f2a747e36df331b7b42513f761"
-      },
-      {
-        "equityChange": 1.849665,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:0b85067bc20907f2a747e36df331b7b42513f761",
-        "priceEffect": 1.849665,
-        "toId": "robot:1c2a884554436f852a14a3314c4e3fc1977dc3f5"
-      },
-      {
-        "equityChange": 0.0,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:1c2a884554436f852a14a3314c4e3fc1977dc3f5",
-        "priceEffect": 0.0,
-        "toId": "robot:0754a51f4d3054820f4da0dcdf0d2f6055301009"
-      },
-      {
-        "equityChange": -1.048003,
-        "executionAndCashEffect": -0.359282,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:0754a51f4d3054820f4da0dcdf0d2f6055301009",
-        "priceEffect": -0.688721,
-        "toId": "robot:8191fa36e68b155d00d2d02faaa9269fa802282e"
-      },
-      {
-        "equityChange": 0.40171,
-        "executionAndCashEffect": -1e-06,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:8191fa36e68b155d00d2d02faaa9269fa802282e",
-        "priceEffect": 0.401711,
-        "toId": "robot:b3020f6920c3f194f3a29d07817e23edba7152ce"
-      },
-      {
-        "equityChange": -0.568862,
-        "executionAndCashEffect": -0.359281,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:b3020f6920c3f194f3a29d07817e23edba7152ce",
-        "priceEffect": -0.209581,
-        "toId": "robot:2ffc16632d3241ba0a5b5ca4a3e26dd93101f336"
-      },
-      {
-        "equityChange": 0.0,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:2ffc16632d3241ba0a5b5ca4a3e26dd93101f336",
-        "priceEffect": 0.0,
-        "toId": "robot:2155ee822b9ab5cbdc751ec4f2e3c5a5b81c477a"
-      },
-      {
-        "equityChange": -3.832722,
-        "executionAndCashEffect": -1e-06,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:2155ee822b9ab5cbdc751ec4f2e3c5a5b81c477a",
-        "priceEffect": -3.832721,
-        "toId": "robot:d5f88289eb03aee5d189ebdf776d8961669941f5"
-      },
-      {
-        "equityChange": -0.815968,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:d5f88289eb03aee5d189ebdf776d8961669941f5",
-        "priceEffect": -0.815968,
-        "toId": "robot:98b609244b69a1f8c54aaa88237add3621c2f1e2"
-      },
-      {
-        "equityChange": 0.364247,
-        "executionAndCashEffect": 1e-06,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:98b609244b69a1f8c54aaa88237add3621c2f1e2",
-        "priceEffect": 0.364246,
-        "toId": "robot:8e543c4419e189531c8135ae7e30bcc81f1e8913"
-      },
-      {
-        "equityChange": 0.0,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:8e543c4419e189531c8135ae7e30bcc81f1e8913",
-        "priceEffect": 0.0,
-        "toId": "robot:37527cbe457a742c51dd0042b94b92d3ee19852d"
-      },
-      {
-        "equityChange": 0.470037,
-        "executionAndCashEffect": -1e-06,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:37527cbe457a742c51dd0042b94b92d3ee19852d",
-        "priceEffect": 0.470038,
-        "toId": "robot:355fddb5589319272c81e447322663c7674c2e57"
-      },
-      {
-        "equityChange": -1.910721,
-        "executionAndCashEffect": 1e-06,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:355fddb5589319272c81e447322663c7674c2e57",
-        "priceEffect": -1.910722,
-        "toId": "robot:69e3a5461781fd7eb2f8e247f5ab8a82bfbefe39"
-      },
-      {
-        "equityChange": 1.481759,
-        "executionAndCashEffect": -0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:69e3a5461781fd7eb2f8e247f5ab8a82bfbefe39",
-        "priceEffect": 1.481759,
-        "toId": "robot:c787bd2d1c734e5c50c739f6546dc006d7d892b4"
-      },
-      {
-        "equityChange": -0.205338,
-        "executionAndCashEffect": -0.359282,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:c787bd2d1c734e5c50c739f6546dc006d7d892b4",
-        "priceEffect": 0.153944,
-        "toId": "robot:e6da821ffb09ce4290d8e4ceba9800c3c9710633"
-      },
-      {
-        "equityChange": 0.0,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:e6da821ffb09ce4290d8e4ceba9800c3c9710633",
-        "priceEffect": 0.0,
-        "toId": "robot:15578cd37ca9938ac7d7fb22a5cd3dcbfc2c9a55"
-      },
       {
         "equityChange": -1.311364,
         "executionAndCashEffect": 0.0,
@@ -766,6 +763,254 @@
         "fromId": "robot:cc35a7d8d37c937e49aab3af00629d9b3aa146fa",
         "priceEffect": 0.0,
         "toId": "robot:c29de069689657aac3da3c5a7d75dd1cc7170c8c"
+      },
+      {
+        "equityChange": -11.774018,
+        "executionAndCashEffect": -0.677102,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:c29de069689657aac3da3c5a7d75dd1cc7170c8c",
+        "priceEffect": -11.096916,
+        "toId": "robot:419423677e965c92d0bf12488d2daf7559b4d220"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:419423677e965c92d0bf12488d2daf7559b4d220",
+        "priceEffect": 0.0,
+        "toId": "robot:e2b6f3ad5a4a2d621ccc7f9928f1dc974b7eb041"
+      },
+      {
+        "equityChange": 4.491761,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:d07b3665224904b8bdb2193e5fddfd8160dd2d7f",
+        "priceEffect": 4.491761,
+        "toId": "robot:a40627652ea7733b126302b7445ed83e86d803cf"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:a40627652ea7733b126302b7445ed83e86d803cf",
+        "priceEffect": 0.0,
+        "toId": "robot:28020f82a5759b670c089e3c394f4aebec0ed7b2"
+      },
+      {
+        "equityChange": 3.140803,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:28020f82a5759b670c089e3c394f4aebec0ed7b2",
+        "priceEffect": 3.140803,
+        "toId": "robot:0b4a220434b34e342bf6666d406c85025aa81ffb"
+      },
+      {
+        "equityChange": -0.199254,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:0b4a220434b34e342bf6666d406c85025aa81ffb",
+        "priceEffect": -0.199254,
+        "toId": "robot:e6eb76abe3188fe536c3292815bd9316d0fda271"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:e6eb76abe3188fe536c3292815bd9316d0fda271",
+        "priceEffect": 0.0,
+        "toId": "robot:9cf235bc68e0a6c083014925787c3f194108eb0c"
+      },
+      {
+        "equityChange": -3.418405,
+        "executionAndCashEffect": -0.702108,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:9cf235bc68e0a6c083014925787c3f194108eb0c",
+        "priceEffect": -2.716297,
+        "toId": "robot:d6c2b76237c472a84d1ce0d255a012fa20b26901"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:d6c2b76237c472a84d1ce0d255a012fa20b26901",
+        "priceEffect": 0.0,
+        "toId": "robot:ed262eeb05ed44753cf4cc75de6fef01a529c5d8"
+      },
+      {
+        "equityChange": 4.62298,
+        "executionAndCashEffect": -0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:ed262eeb05ed44753cf4cc75de6fef01a529c5d8",
+        "priceEffect": 4.62298,
+        "toId": "robot:b2f8f6162d6cb2a532dd24bde96e6e51afcfa736"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:b2f8f6162d6cb2a532dd24bde96e6e51afcfa736",
+        "priceEffect": 0.0,
+        "toId": "robot:698405dd4601d20cb2b7b73ad234c30e729503e4"
+      },
+      {
+        "equityChange": 5.650793,
+        "executionAndCashEffect": -0.392843,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:698405dd4601d20cb2b7b73ad234c30e729503e4",
+        "priceEffect": 6.043636,
+        "toId": "robot:e7aa0fdf1da81f822a0b04d7ccf4d156459b7b58"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:e7aa0fdf1da81f822a0b04d7ccf4d156459b7b58",
+        "priceEffect": 0.0,
+        "toId": "robot:414f952a629a6761e93d9b1e0b38300642e98b45"
+      },
+      {
+        "equityChange": -1.073971,
+        "executionAndCashEffect": 1e-06,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:414f952a629a6761e93d9b1e0b38300642e98b45",
+        "priceEffect": -1.073972,
+        "toId": "robot:531e95630999575467607e393a464b3df14e3ce4"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:531e95630999575467607e393a464b3df14e3ce4",
+        "priceEffect": 0.0,
+        "toId": "robot:5e74ebac5b813a78bca99441eca2fa1079c2ead4"
+      },
+      {
+        "equityChange": -2.786726,
+        "executionAndCashEffect": -0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:5e74ebac5b813a78bca99441eca2fa1079c2ead4",
+        "priceEffect": -2.786726,
+        "toId": "robot:6fdbe6adde6d2cb77ac8f636bfa43effcba17301"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:6fdbe6adde6d2cb77ac8f636bfa43effcba17301",
+        "priceEffect": 0.0,
+        "toId": "robot:ea8330f9131b5ca05285a15b5d3992f83ae871d3"
+      },
+      {
+        "equityChange": -1.06513,
+        "executionAndCashEffect": -0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:ea8330f9131b5ca05285a15b5d3992f83ae871d3",
+        "priceEffect": -1.06513,
+        "toId": "robot:58afba8ededc30a4c7ed625368e88c7cd0cf35d9"
+      },
+      {
+        "equityChange": -0.470754,
+        "executionAndCashEffect": -0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:58afba8ededc30a4c7ed625368e88c7cd0cf35d9",
+        "priceEffect": -0.470754,
+        "toId": "robot:3db665ff966d75a29dce3b29f1116eae815bb266"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:3db665ff966d75a29dce3b29f1116eae815bb266",
+        "priceEffect": 0.0,
+        "toId": "robot:98052210f5eadda782b3be11a69344ce8098b351"
+      },
+      {
+        "equityChange": -4.871688,
+        "executionAndCashEffect": -0.341593,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:98052210f5eadda782b3be11a69344ce8098b351",
+        "priceEffect": -4.530095,
+        "toId": "robot:fa500ba55121a0cce04349dd55cd4d812b667018"
+      },
+      {
+        "equityChange": -0.397406,
+        "executionAndCashEffect": -1e-06,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:fa500ba55121a0cce04349dd55cd4d812b667018",
+        "priceEffect": -0.397405,
+        "toId": "robot:26e1854786e9a58d9356dfa6b7459a66525bd3a3"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:26e1854786e9a58d9356dfa6b7459a66525bd3a3",
+        "priceEffect": 0.0,
+        "toId": "robot:e3c8765bbdb55b2bcb06c551b0ace4590a1b3444"
+      },
+      {
+        "equityChange": 2.443031,
+        "executionAndCashEffect": 1e-06,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:e3c8765bbdb55b2bcb06c551b0ace4590a1b3444",
+        "priceEffect": 2.44303,
+        "toId": "robot:85c6e0ac2eb9687f53dfeb150de28fb293aa709d"
+      },
+      {
+        "equityChange": -2.703033,
+        "executionAndCashEffect": -0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:85c6e0ac2eb9687f53dfeb150de28fb293aa709d",
+        "priceEffect": -2.703033,
+        "toId": "robot:a63b8203eca2b9960ef909aa9d533661a69cccbe"
+      },
+      {
+        "equityChange": 0.0,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:a63b8203eca2b9960ef909aa9d533661a69cccbe",
+        "priceEffect": 0.0,
+        "toId": "robot:f431f3acb822824c735c577fb8fb34817569f292"
+      },
+      {
+        "equityChange": 0.054404,
+        "executionAndCashEffect": -1e-06,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:f431f3acb822824c735c577fb8fb34817569f292",
+        "priceEffect": 0.054405,
+        "toId": "robot:84ab4632225f78c364952abe4ea6be4a5b4167c4"
+      },
+      {
+        "equityChange": -0.88357,
+        "executionAndCashEffect": -0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:84ab4632225f78c364952abe4ea6be4a5b4167c4",
+        "priceEffect": -0.88357,
+        "toId": "robot:93087c14aa2791a5cbda7b03d227fe2836d6a2c8"
+      },
+      {
+        "equityChange": 0.342281,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:93087c14aa2791a5cbda7b03d227fe2836d6a2c8",
+        "priceEffect": 0.342281,
+        "toId": "robot:d47126d3ba82d248f53d7c13d288f801d449372c"
+      },
+      {
+        "equityChange": -0.781913,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:d47126d3ba82d248f53d7c13d288f801d449372c",
+        "priceEffect": -0.781913,
+        "toId": "robot:bc705e4d7897785b8bf4967772c349b81bbc129c"
+      },
+      {
+        "equityChange": -1.402952,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:bc705e4d7897785b8bf4967772c349b81bbc129c",
+        "priceEffect": -1.402952,
+        "toId": "robot:db2a351cc6e22bf6626d68b435b2fb4cd056e54a"
       }
     ],
     "errors": [
@@ -828,20 +1073,226 @@
         "code": "stale_or_unknown_quotes",
         "event": "robot:c29de069689657aac3da3c5a7d75dd1cc7170c8c",
         "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:419423677e965c92d0bf12488d2daf7559b4d220",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:e2b6f3ad5a4a2d621ccc7f9928f1dc974b7eb041",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "missing_holding_quote",
+        "event": "robot:6c074db7741d696524c925f05784589e655688ea",
+        "message": "Cotation absente : PEARL"
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:6c074db7741d696524c925f05784589e655688ea",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "missing_holding_quote",
+        "event": "robot:8d1311ec7469c81d9a87c2c7d4b786c7b395d504",
+        "message": "Cotation absente : PEARL"
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:8d1311ec7469c81d9a87c2c7d4b786c7b395d504",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "missing_holding_quote",
+        "event": "robot:91100ab7a20e6faab13ab9b29f6be639dc97a610",
+        "message": "Cotation absente : PEARL"
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:91100ab7a20e6faab13ab9b29f6be639dc97a610",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "missing_holding_quote",
+        "event": "robot:48e89e33ba1643685ffe123d71a9ca6e7485b908",
+        "message": "Cotation absente : PEARL"
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:48e89e33ba1643685ffe123d71a9ca6e7485b908",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "missing_holding_quote",
+        "event": "robot:50accba6abb5625ab3889a6932e9fcd3f79c91e0",
+        "message": "Cotation absente : PEARL"
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:50accba6abb5625ab3889a6932e9fcd3f79c91e0",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:d07b3665224904b8bdb2193e5fddfd8160dd2d7f",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:a40627652ea7733b126302b7445ed83e86d803cf",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:28020f82a5759b670c089e3c394f4aebec0ed7b2",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:0b4a220434b34e342bf6666d406c85025aa81ffb",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:e6eb76abe3188fe536c3292815bd9316d0fda271",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:9cf235bc68e0a6c083014925787c3f194108eb0c",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:d6c2b76237c472a84d1ce0d255a012fa20b26901",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:ed262eeb05ed44753cf4cc75de6fef01a529c5d8",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:b2f8f6162d6cb2a532dd24bde96e6e51afcfa736",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:698405dd4601d20cb2b7b73ad234c30e729503e4",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:e7aa0fdf1da81f822a0b04d7ccf4d156459b7b58",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:414f952a629a6761e93d9b1e0b38300642e98b45",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:531e95630999575467607e393a464b3df14e3ce4",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:5e74ebac5b813a78bca99441eca2fa1079c2ead4",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:6fdbe6adde6d2cb77ac8f636bfa43effcba17301",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:ea8330f9131b5ca05285a15b5d3992f83ae871d3",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:58afba8ededc30a4c7ed625368e88c7cd0cf35d9",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:3db665ff966d75a29dce3b29f1116eae815bb266",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:98052210f5eadda782b3be11a69344ce8098b351",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:fa500ba55121a0cce04349dd55cd4d812b667018",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:26e1854786e9a58d9356dfa6b7459a66525bd3a3",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:e3c8765bbdb55b2bcb06c551b0ace4590a1b3444",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:85c6e0ac2eb9687f53dfeb150de28fb293aa709d",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:a63b8203eca2b9960ef909aa9d533661a69cccbe",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:f431f3acb822824c735c577fb8fb34817569f292",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:84ab4632225f78c364952abe4ea6be4a5b4167c4",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:93087c14aa2791a5cbda7b03d227fe2836d6a2c8",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:d47126d3ba82d248f53d7c13d288f801d449372c",
+        "message": "Fraîcheur des cours non confirmée."
+      },
+      {
+        "code": "stale_or_unknown_quotes",
+        "event": "robot:bc705e4d7897785b8bf4967772c349b81bbc129c",
+        "message": "Fraîcheur des cours non confirmée."
       }
     ],
     "feeCoverageComplete": true,
-    "knownFees": 0.72,
-    "knownRealizedPnl": 0.0,
+    "knownFees": 1.424008,
+    "knownRealizedPnl": -16.575573,
     "latest": {
-      "at": "2026-11-13T02:29:43.718318+00:00",
+      "at": "2026-11-14T11:37:55.125022+00:00",
       "capital": 1600,
-      "cash": 880.0,
+      "cash": 1343.424428,
       "currency": "EUR",
-      "equity": 1591.055766,
+      "equity": 1579.034471,
       "riskSnapshot": {
+        "buyPauseLossPercent": 5,
         "feeRate": 0.001,
-        "maxLossPercent": 50,
+        "maxLossPercent": 10,
         "maxOrder": 120,
         "maxPositionPercent": 20,
         "maxPositions": 8,
@@ -854,10 +1305,63 @@
       "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
       "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
     ],
-    "observations": 46,
-    "realizedExplanations": [],
+    "observations": 83,
+    "outcomeQuality": {
+      "automaticPromotion": false,
+      "evidence": "insufficient_for_automatic_promotion",
+      "feeCoverageComplete": true,
+      "indicativeWilson95Percent": [
+        4.558726,
+        69.935816
+      ],
+      "knownBreakevenSales": 0,
+      "knownLosingSales": 3,
+      "knownProfitFactor": 0.391003,
+      "knownSaleOutcomes": 4,
+      "knownSalesWinRatePercent": 25.0,
+      "knownWinningSales": 1,
+      "limitations": [
+        "Statistiques sur ventes attribuables seulement ; les positions ouvertes ne sont pas des succès.",
+        "Ventes partielles ou corrélées ne sont pas des observations indépendantes. L’intervalle binomial est indicatif, pas une probabilité de gain future.",
+        "Historique incomplet ou frais manquants : ce sous-échantillon peut être biaisé.",
+        "Un taux de réussite élevé ne suffit pas : comparer montant net des gains, pertes, frais, exposition et référence.",
+        "Ces statistiques ne changent ni les paramètres, ni la stratégie, ni les limites de risque."
+      ],
+      "meanKnownPnlPerSale": -4.143893,
+      "unattributableTrades": 0
+    },
+    "realizedExplanations": [
+      {
+        "asset": "BTC",
+        "at": "2026-11-13T03:24:16.270156+00:00",
+        "explanation": "Produit de vente moins frais et coût FIFO connu (frais d’achat inclus).",
+        "netRealizedPnl": -14.825554,
+        "trade": "828548d622b52d9eb81d5be6f38b0873b0c04515e303aa2ecc0fad34e731d229"
+      },
+      {
+        "asset": "ETH",
+        "at": "2026-11-13T15:48:40.055062+00:00",
+        "explanation": "Produit de vente moins frais et coût FIFO connu (frais d’achat inclus).",
+        "netRealizedPnl": -5.991127,
+        "trade": "af6864f1d1cdba41ac4e16c17037a8ff5e0d86346ca500ad6b502e176775fb98"
+      },
+      {
+        "asset": "PEARL",
+        "at": "2026-11-13T19:30:03.938471+00:00",
+        "explanation": "Produit de vente moins frais et coût FIFO connu (frais d’achat inclus).",
+        "netRealizedPnl": 10.64223,
+        "trade": "96fa2e3a41fe9900aef46de6a73b8da10d474433ae1497a6a1c7b4fa5e8f23a6"
+      },
+      {
+        "asset": "ASTER",
+        "at": "2026-11-14T03:23:15.372933+00:00",
+        "explanation": "Produit de vente moins frais et coût FIFO connu (frais d’achat inclus).",
+        "netRealizedPnl": -6.401121,
+        "trade": "47a656849ef0d9c7aff5c850e8261af10e70328d775b1dccc0b1172a28f4257d"
+      }
+    ],
     "unattributableTrades": 0,
-    "uniqueTrades": 6
+    "uniqueTrades": 11
   },
   "observedPortfolios": [
     {
@@ -865,73 +1369,115 @@
       "id": "prudent",
       "initial": 640,
       "name": "Prudent",
-      "netProfit": -3.35,
+      "netProfit": -5.99,
       "paused": false,
-      "updatedAt": "2026-11-13T02:59:00.461Z",
-      "value": 556.65
+      "updatedAt": "2026-11-14T10:54:54.490Z",
+      "value": 554.01
     },
     {
-      "feesPaid": 0.44999999999999996,
+      "feesPaid": 0.5248072610870614,
       "id": "equilibre",
       "initial": 560,
       "name": "Équilibré",
-      "netProfit": -11.99,
+      "netProfit": -22.03,
       "paused": false,
-      "updatedAt": "2026-11-13T02:59:00.461Z",
-      "value": 468.01
+      "updatedAt": "2026-11-14T10:54:54.490Z",
+      "value": 457.97
     },
     {
       "feesPaid": 0.72,
       "id": "dynamique",
       "initial": 400,
       "name": "Dynamique",
-      "netProfit": -17.98,
+      "netProfit": -30.59,
       "paused": false,
-      "updatedAt": "2026-11-13T02:59:00.461Z",
-      "value": 342.02
+      "updatedAt": "2026-11-14T10:54:54.490Z",
+      "value": 329.41
     }
   ],
+  "parallelChallenge": {
+    "appliedToRobot": false,
+    "cash": 1600.0,
+    "day": "2026-11-14",
+    "dayStartNet": 1600.0,
+    "entries": {},
+    "holdings": {},
+    "issues": [],
+    "lastAt": "2026-11-14T11:37:55.125022+00:00",
+    "lastBuy": {},
+    "lastSignalAt": "2026-11-14T11:37:55.125022+00:00",
+    "netEquity": 1600.0,
+    "observations": 1,
+    "pending": [
+      {
+        "action": "Achat",
+        "asset": "ETHFI"
+      }
+    ],
+    "rules": {
+      "dailyLossPercent": 3,
+      "fee": 0.001,
+      "id": "educational-parallel-v1",
+      "initial": 1600,
+      "maxOrder": 120,
+      "maxPositions": 4,
+      "minimumDays": 5,
+      "slippage": 0.001,
+      "spread": 0.001,
+      "stopPercent": 4,
+      "takeProfitPercent": 8,
+      "targetPercent": 8,
+      "timezone": "Europe/Paris",
+      "totalLossPercent": 6
+    },
+    "simulationOnly": true,
+    "startedAt": "2026-11-14T11:37:55.125022+00:00",
+    "status": "running",
+    "trades": [],
+    "tradingDays": [],
+    "version": 1
+  },
   "profileJournal": [
     {
-      "decisions": 48,
+      "decisions": 80,
       "id": "prudent",
       "knownFees": 0.14,
       "latest": {
         "feesPaid": 0.14,
         "initial": 640,
-        "netProfit": -3.35,
-        "updatedAt": "2026-11-13T02:59:00.461Z",
-        "value": 556.65
+        "netProfit": -5.99,
+        "updatedAt": "2026-11-14T10:54:54.490Z",
+        "value": 554.01
       },
-      "observations": 24,
+      "observations": 40,
       "uniqueTrades": 2
     },
     {
-      "decisions": 96,
+      "decisions": 160,
       "id": "equilibre",
-      "knownFees": 0.45,
+      "knownFees": 0.52,
       "latest": {
-        "feesPaid": 0.44999999999999996,
+        "feesPaid": 0.5248072610870614,
         "initial": 560,
-        "netProfit": -11.99,
-        "updatedAt": "2026-11-13T02:59:00.461Z",
-        "value": 468.01
+        "netProfit": -22.03,
+        "updatedAt": "2026-11-14T10:54:54.490Z",
+        "value": 457.97
       },
-      "observations": 24,
-      "uniqueTrades": 5
+      "observations": 40,
+      "uniqueTrades": 6
     },
     {
-      "decisions": 144,
+      "decisions": 240,
       "id": "dynamique",
       "knownFees": 0.72,
       "latest": {
         "feesPaid": 0.72,
         "initial": 400,
-        "netProfit": -17.98,
-        "updatedAt": "2026-11-13T02:59:00.461Z",
-        "value": 342.02
+        "netProfit": -30.59,
+        "updatedAt": "2026-11-14T10:54:54.490Z",
+        "value": 329.41
       },
-      "observations": 24,
+      "observations": 40,
       "uniqueTrades": 8
     }
   ],
@@ -968,6 +1514,6 @@
       "status": "retain_reference_pending_evidence"
     }
   },
-  "sourceCursor": "c29de069689657aac3da3c5a7d75dd1cc7170c8c",
+  "sourceCursor": "db2a351cc6e22bf6626d68b435b2fb4cd056e54a",
   "version": 1
 }
