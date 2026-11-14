@@ -140,7 +140,7 @@ def global_protection(state, prices, stamp):
     policy["pendingAssets"]=sorted(sym for sym,q in state["holdings"].items() if q>0) if latched else []
     return not policy["buyPaused"],latched
 
-def save_protection_state(state, prices, stamp, sha):
+def save_protection_state(state, prices, stamp, sha, quote_errors=None):
     missing=[sym for sym,q in state["holdings"].items() if q>0 and not usable_quote(prices,sym)]
     complete=not missing
     state["cash"]=round(state["cash"],6)
@@ -148,6 +148,7 @@ def save_protection_state(state, prices, stamp, sha):
     state["value"]=round(value,2) if value is not None else None
     state["updatedAt"]=stamp
     state["dataErrors"]=["Prix indisponible, liquidation/valorisation en attente : "+", ".join(missing)] if missing else []
+    state["dataErrors"].extend((quote_errors or [])[:19])
     state["globalProtection"]["valuationComplete"]=complete
     state["performance"]={"initialCapital":state["capital"],"equity":state["value"],
         "netPnl":round(value-state["capital"],2) if value is not None else None,
@@ -155,6 +156,48 @@ def save_protection_state(state, prices, stamp, sha):
         "lastCalculatedAt":stamp,"simulated":True,"totalTrades":len(state.get("trades",[]))}
     state.setdefault("equityHistory",[]).append(dict(at=stamp,equity=state["value"],cash=state["cash"]))
     save(state,sha)
+
+def supplement_holding_quotes(state,prices,now):
+    """Quote held assets by recorded coin ID; the top-100 discovery list is not the portfolio."""
+    out=dict(prices);errors=[];needed={}
+    known=state.get("assetIds",{})
+    if not isinstance(known,dict):known={}
+    required=[sym for sym,q in state["holdings"].items() if q>0]
+    for sym in required:
+        if usable_quote(out,sym):continue
+        coin_id=known.get(sym)
+        if not isinstance(coin_id,str) or not coin_id or len(coin_id)>200:
+            errors.append("Identifiant source absent/invalide pour "+sym);continue
+        needed[sym]=coin_id
+    evidence={}
+    if needed:
+        ids=sorted(set(needed.values()))
+        url=API+"/coins/markets?"+urllib.parse.urlencode(dict(vs_currency="eur",ids=",".join(ids),per_page=100,page=1,sparkline="false"))
+        try:
+            rows=request(url)
+            if not isinstance(rows,list):raise ValueError("Réponse de cotation invalide")
+        except Exception as exc:
+            errors.append("Cours complémentaires indisponibles : "+type(exc).__name__);rows=[]
+        for sym,coin_id in needed.items():
+            matches=[row for row in rows if isinstance(row,dict) and row.get("id")==coin_id]
+            if len(matches)!=1:
+                errors.append("Cours absent/ambigu pour "+sym);continue
+            row=matches[0];price=row.get("current_price")
+            if not isinstance(row.get("symbol"),str) or row["symbol"].upper()!=sym.upper() or type(price) not in (int,float) or not math.isfinite(price) or not 0<price<=1e15:
+                errors.append("Identité ou cours invalide pour "+sym);continue
+            try:
+                stamp=datetime.datetime.fromisoformat(row.get("last_updated","").replace("Z","+00:00"))
+                if stamp.tzinfo is None:raise ValueError("Fuseau manquant")
+                age=now.timestamp()-stamp.timestamp()
+                if not -60<=age<=3600:raise ValueError("Cours périmé/futur")
+            except (ValueError,TypeError,AttributeError):
+                errors.append("Fraîcheur du cours non confirmée pour "+sym);continue
+            out[sym]=float(price)
+            evidence[sym]=dict(coinId=coin_id,providerUpdatedAt=stamp.isoformat(),fetchedAt=now.isoformat())
+    state["holdingQuoteCoverage"]=dict(version=1,checkedAt=now.isoformat(),requiredAssets=required,
+        supplementalRequestedIds=sorted(set(needed.values())),supplementalQuotes=evidence,
+        missingAssets=[sym for sym in required if not usable_quote(out,sym)])
+    return out,errors
 
 def main():
     file=gh("GET");state=json.loads(base64.b64decode(file["content"]).decode())
@@ -182,10 +225,12 @@ def main():
     # Never reuse stale quotes from previous runs for valuation or orders.
     prices=market_prices(market,state.setdefault("assetIds",{}))
     selected=[x for x in selected if x["symbol"].upper() in prices]
+    prices,holding_quote_errors=supplement_holding_quotes(state,prices,now)
+    errors.extend(holding_quote_errors)
     state["prices"]=prices
     buys_allowed,liquidation_latched=global_protection(state,prices,stamp)
     if liquidation_latched or not state["globalProtection"]["valuationComplete"]:
-        save_protection_state(state,prices,stamp,file["sha"])
+        save_protection_state(state,prices,stamp,file["sha"],holding_quote_errors)
         print("Protection globale",state["globalProtection"])
         return
     state["scanner"]={"updatedAt":stamp,"examined":len(market),"eligible":len(eligible),"shortlist":[{"symbol":x["symbol"].upper(),"name":x["name"],"volume":x.get("total_volume"),"change24h":x.get("price_change_percentage_24h")} for x in selected]}
