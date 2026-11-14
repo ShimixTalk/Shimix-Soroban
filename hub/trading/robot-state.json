@@ -118,148 +118,7 @@
     "YLDS": 0.907058,
     "PIEVERSE": 1.61
   },
-  "signals": {
-    "SOL": {
-      "action": "Attente",
-      "rsi": 23.95,
-      "sma7": 77.0628312030429,
-      "sma21": 83.62036174908252,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "ETH": {
-      "action": "Attente",
-      "rsi": 34.94,
-      "sma7": 1904.724475184615,
-      "sma21": 2009.0755522879404,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "BTC": {
-      "action": "Attente",
-      "rsi": 31.5,
-      "sma7": 67208.68278197975,
-      "sma21": 69670.63239085893,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "HYPE": {
-      "action": "Attente",
-      "rsi": 21.78,
-      "sma7": 67.04000558569649,
-      "sma21": 71.44246330347299,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "XRP": {
-      "action": "Attente",
-      "rsi": 17.92,
-      "sma7": 1.006275868643561,
-      "sma21": 1.1002848709836759,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "DOGE": {
-      "action": "Attente",
-      "rsi": 29.75,
-      "sma7": 0.06215202685705084,
-      "sma21": 0.06619506538724136,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "NEAR": {
-      "action": "Attente",
-      "rsi": 34.85,
-      "sma7": 3.2362343728718206,
-      "sma21": 3.63575244070126,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "UNI": {
-      "action": "Attente",
-      "rsi": 46.17,
-      "sma7": 6.002917423753293,
-      "sma21": 6.205815282596417,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "SUI": {
-      "action": "Attente",
-      "rsi": 42.35,
-      "sma7": 0.7488687385663029,
-      "sma21": 0.7906425311147108,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "PEPE": {
-      "action": "Attente",
-      "rsi": 50.45,
-      "sma7": 4.401984331390071e-06,
-      "sma21": 4.27453719934541e-06,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "ADA": {
-      "action": "Attente",
-      "rsi": 28.79,
-      "sma7": 0.1595149377549541,
-      "sma21": 0.1722840493513847,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "ENA": {
-      "action": "Attente",
-      "rsi": 32.86,
-      "sma7": 0.13588458789554445,
-      "sma21": 0.15799148817720315,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "AVAX": {
-      "action": "Attente",
-      "rsi": 52.66,
-      "sma7": 7.484870552169715,
-      "sma21": 7.673412873076111,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "LINK": {
-      "action": "Attente",
-      "rsi": 45.81,
-      "sma7": 9.40313462384927,
-      "sma21": 9.897665193614616,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "TAO": {
-      "action": "Attente",
-      "rsi": 37.42,
-      "sma7": 196.4771564394433,
-      "sma21": 208.6285868050048,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "ASTER": {
-      "action": "Attente",
-      "rsi": 46.66,
-      "sma7": 0.5914937798227314,
-      "sma21": 0.6137999252372629,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "INJ": {
-      "action": "Attente",
-      "rsi": 54.14,
-      "sma7": 7.136070225743588,
-      "sma21": 6.918446096277964,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "ZEC": {
-      "action": "Attente",
-      "rsi": 33.33,
-      "sma7": 1015.1785686423063,
-      "sma21": 1076.6294864500844,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "WLD": {
-      "action": "Attente",
-      "rsi": 25.69,
-      "sma7": 0.28570070959416755,
-      "sma21": 0.3404831741630479,
-      "reason": "RSI et moyennes mobiles"
-    },
-    "AAVE": {
-      "action": "Attente",
-      "rsi": 46.85,
-      "sma7": 112.56025493264436,
-      "sma21": 116.30697201945503,
-      "reason": "RSI et moyennes mobiles"
-    }
-  },
+  "signals": {},
   "trades": [
     {
       "date": "2026-11-14T12:23:23.981204+00:00",
@@ -402,8 +261,11 @@
     "2026-11-10T16:25:05.455381+00:00 : achat FICTIF BTC pour 120.0 EUR",
     "Simulation expérimentale activée : plafond d'arrêt portefeuille 50 %, ordre max 120 €, 8 positions, aucun ordre réel."
   ],
-  "updatedAt": "2026-11-14T22:54:27.833097+00:00",
-  "dataErrors": [],
+  "updatedAt": "2026-11-14T23:35:19.158344+00:00",
+  "dataErrors": [
+    "Prix indisponible, liquidation/valorisation en attente : USD1",
+    "HTTP Error 429: Too Many Requests"
+  ],
   "savingsPolicy": {
     "provider": "Crypto.com App",
     "monthlyBitcoinBudgetEUR": 50,
@@ -473,7 +335,7 @@
     "DOT": true,
     "LTC": true
   },
-  "value": 1578.15,
+  "value": null,
   "allocationMode": "robot-exclusive",
   "marketCache": [
     {
@@ -5285,14 +5147,13 @@
     "USD1": 0.9035743123123122
   },
   "performance": {
-    "initialCapital": 1600.0,
-    "equity": 1578.15,
-    "netPnl": -21.85,
-    "returnPercent": -1.366,
-    "drawdownPercent": 1.731,
-    "totalTrades": 12,
-    "lastCalculatedAt": "2026-11-14T22:54:27.833097+00:00",
-    "simulated": true
+    "initialCapital": 1600,
+    "equity": null,
+    "netPnl": null,
+    "returnPercent": null,
+    "lastCalculatedAt": "2026-11-14T23:35:19.158344+00:00",
+    "simulated": true,
+    "totalTrades": 12
   },
   "equityHistory": [
     {
@@ -5974,6 +5835,11 @@
       "at": "2026-11-14T22:54:27.833097+00:00",
       "equity": 1578.15,
       "cash": 1457.89
+    },
+    {
+      "at": "2026-11-14T23:35:19.158344+00:00",
+      "equity": null,
+      "cash": 1457.888487
     }
   ],
   "experimentMode": "aggressive_simulation",
@@ -6086,11 +5952,11 @@
     "pauseNewBuysAtLossPercent": 5,
     "liquidateAtLossPercent": 10,
     "referenceCapital": 1600,
-    "lastCheckedAt": "2026-11-14T22:54:27.833097+00:00",
-    "valuationComplete": true,
-    "estimatedLiquidationBeforeActions": 1577.78741,
+    "lastCheckedAt": "2026-11-14T23:35:19.158344+00:00",
+    "valuationComplete": false,
+    "estimatedLiquidationBeforeActions": null,
     "requiresApprovalToResume": false,
-    "buyPaused": false,
+    "buyPaused": true,
     "pendingAssets": []
   },
   "buyPauseLossPercent": 5,
@@ -6104,7 +5970,7 @@
     "supplementalQuotes": {},
     "missingAssets": []
   },
-  "marketDataAvailable": true,
+  "marketDataAvailable": false,
   "historyAttempted": {
     "ethereum": 1794696867.833097
   },
