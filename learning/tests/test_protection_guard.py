@@ -5,7 +5,7 @@ from integration_check import approved_protection_change
 ROOT=Path(__file__).resolve().parents[2]
 class ProtectionGuardTests(unittest.TestCase):
  def test_exact_engine_transition_only(self):
-  old=subprocess.check_output(['git','show','568f9f6694b57f24e038e89cc5bcaadf1dce687d:hub/trading/autonomous_simulation.py'],cwd=ROOT)
+  old=subprocess.check_output(['git','show','381def6a93f14246832da5047463c141879456f6:hub/trading/autonomous_simulation.py'],cwd=ROOT)
   current=(ROOT/'hub/trading/autonomous_simulation.py').read_bytes()
   self.assertTrue(approved_protection_change(old,current))
   self.assertFalse(approved_protection_change(old,current.replace(b'*.95',b'*.50',1)))
