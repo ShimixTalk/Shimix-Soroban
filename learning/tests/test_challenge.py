@@ -55,6 +55,20 @@ class ChallengeTests(unittest.TestCase):
   s=run(None,event());s['day']='2026-11-13';s['netEquity']=None
   self.assertEqual(run(s,event(10))['status'],'review_required')
 
+class SignalAvailabilityTests(unittest.TestCase):
+ def test_delayed_collection_cannot_execute_before_actual_availability(self):
+  s=advance(None,event(),event(20)['at'])
+  self.assertEqual(s['startedAt'],event(20)['at'])
+  s=advance(s,event(10),event(30)['at']);self.assertEqual(s['trades'],[])
+  s=advance(s,event(40),event(50)['at'])
+  self.assertEqual(len(s['trades']),1)
+  self.assertLess(s['trades'][0]['signalAvailableAt'],s['trades'][0]['at'])
+ def test_legacy_pending_intent_migration_preserves_money_and_history(self):
+  s=run(None,event());s.pop('pendingAvailableAt');before=copy.deepcopy(s)
+  r=update(s,[event()],event(20)['at'])
+  for k in ('cash','holdings','trades','netEquity','startedAt'):self.assertEqual(r[k],before[k])
+  self.assertEqual(r['pending'],[]);self.assertIsNone(r['lastSignalAt'])
+
 class ChallengeIntegrationTests(unittest.TestCase):
  def test_collector_persists_independent_account_without_touching_sources(self):
   from test_learning import Memory,POLICY,NOW
