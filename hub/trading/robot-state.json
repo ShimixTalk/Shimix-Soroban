@@ -248,7 +248,10 @@
     },
     "ENA": {
       "action": "Attente",
-      "reason": "Historique insuffisant"
+      "rsi": 32.86,
+      "sma7": 0.13588458789554445,
+      "sma21": 0.15799148817720315,
+      "reason": "RSI et moyennes mobiles"
     },
     "TAO": {
       "action": "Attente",
@@ -388,10 +391,8 @@
     "2026-11-10T16:25:05.455381+00:00 : achat FICTIF BTC pour 120.0 EUR",
     "Simulation expérimentale activée : plafond d'arrêt portefeuille 50 %, ordre max 120 €, 8 positions, aucun ordre réel."
   ],
-  "updatedAt": "2026-11-14T04:27:34.458392+00:00",
-  "dataErrors": [
-    "ena: HTTP Error 429: Too Many Requests"
-  ],
+  "updatedAt": "2026-11-14T05:24:25.715862+00:00",
+  "dataErrors": [],
   "savingsPolicy": {
     "provider": "Crypto.com App",
     "monthlyBitcoinBudgetEUR": 50,
@@ -3407,7 +3408,7 @@
   ],
   "marketCacheAt": 1794630454.458392,
   "scanner": {
-    "updatedAt": "2026-11-14T04:27:34.458392+00:00",
+    "updatedAt": "2026-11-14T05:24:25.715862+00:00",
     "examined": 100,
     "eligible": 89,
     "shortlist": [
@@ -3569,7 +3570,7 @@
     "sui": 1794505933.732149,
     "dash": 1794464549.651716,
     "dogecoin": 1794604941.653981,
-    "ethena": 1794540256.270156,
+    "ethena": 1794633865.715862,
     "internet-computer": 1794626595.372933,
     "pyth-network": 1794367487.104977,
     "stellar": 1794581596.596368,
@@ -4685,7 +4686,6 @@
       0.060812034163076255
     ],
     "ethena": [
-      0.1747728983690952,
       0.18262139656042223,
       0.17686066429956926,
       0.16737991860207257,
@@ -4713,7 +4713,8 @@
       0.13338141106579826,
       0.13649551059887494,
       0.13419816730056755,
-      0.1311590809770118
+      0.1311590809770118,
+      0.12690723670056048
     ],
     "internet-computer": [
       2.721844903876818,
@@ -5254,7 +5255,7 @@
     "returnPercent": -1.127,
     "drawdownPercent": 1.493,
     "totalTrades": 11,
-    "lastCalculatedAt": "2026-11-14T04:27:34.458392+00:00",
+    "lastCalculatedAt": "2026-11-14T05:24:25.715862+00:00",
     "simulated": true
   },
   "equityHistory": [
@@ -5807,6 +5808,11 @@
       "at": "2026-11-14T04:27:34.458392+00:00",
       "equity": 1581.97,
       "cash": 1343.42
+    },
+    {
+      "at": "2026-11-14T05:24:25.715862+00:00",
+      "equity": 1581.97,
+      "cash": 1343.42
     }
   ],
   "experimentMode": "aggressive_simulation",
@@ -5916,7 +5922,7 @@
     "pauseNewBuysAtLossPercent": 5,
     "liquidateAtLossPercent": 10,
     "referenceCapital": 1600,
-    "lastCheckedAt": "2026-11-14T04:27:34.458392+00:00",
+    "lastCheckedAt": "2026-11-14T05:24:25.715862+00:00",
     "valuationComplete": true,
     "estimatedLiquidationBeforeActions": 1581.251075,
     "requiresApprovalToResume": false,
