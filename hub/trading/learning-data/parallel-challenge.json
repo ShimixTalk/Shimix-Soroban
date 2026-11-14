@@ -2,24 +2,25 @@
   "activatedAt": "2026-11-14T12:20:03.822184+00:00",
   "appliedToRobot": false,
   "availabilityMigrationAt": "2026-11-14T12:20:03.822184+00:00",
-  "cash": 1600.0,
+  "cash": 1480.0,
   "day": "2026-11-14",
   "dayStartNet": 1600.0,
-  "entries": {},
-  "holdings": {},
+  "entries": {
+    "ETHFI": 0.48597701399999993
+  },
+  "holdings": {
+    "ETHFI": 246.67833363822433
+  },
   "issues": [],
-  "lastAt": "2026-11-14T13:28:44.808320+00:00",
-  "lastBuy": {},
-  "lastSignalAt": "2026-11-14T13:28:44.808320+00:00",
-  "netEquity": 1600.0,
-  "observations": 3,
-  "pending": [
-    {
-      "action": "Achat",
-      "asset": "ETHFI"
-    }
-  ],
-  "pendingAvailableAt": "2026-11-14T13:28:50.183314+00:00",
+  "lastAt": "2026-11-14T14:19:01.960783+00:00",
+  "lastBuy": {
+    "ETHFI": 1794665941.960783
+  },
+  "lastSignalAt": "2026-11-14T14:19:01.960783+00:00",
+  "netEquity": 1599.2820356886227,
+  "observations": 4,
+  "pending": [],
+  "pendingAvailableAt": "2026-11-14T14:19:32.008959+00:00",
   "rules": {
     "dailyLossPercent": 3,
     "fee": 0.001,
@@ -39,7 +40,21 @@
   "simulationOnly": true,
   "startedAt": "2026-11-14T11:37:55.125022+00:00",
   "status": "running",
-  "trades": [],
-  "tradingDays": [],
+  "trades": [
+    {
+      "action": "Achat",
+      "amount": 120,
+      "asset": "ETHFI",
+      "at": "2026-11-14T14:19:01.960783+00:00",
+      "fee": 0.12,
+      "quantity": 246.67833363822433,
+      "signalAt": "2026-11-14T13:28:44.808320+00:00",
+      "signalAvailableAt": "2026-11-14T13:28:50.183314+00:00",
+      "simulation": true
+    }
+  ],
+  "tradingDays": [
+    "2026-11-14"
+  ],
   "version": 1
 }
