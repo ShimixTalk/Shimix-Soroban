@@ -73,4 +73,13 @@ class LearningBrowserTests(unittest.TestCase):
   self.page.locator('[data-learning-refresh]').click()
   self.page.get_by_text('Taux de réussite observé sur ce sous-échantillon : Non calculable',exact=False).wait_for()
   self.assertEqual(self.errors,[])
+ def test_parallel_challenge_is_distinct_and_displays_missing_valuation(self):
+  before=self.page.evaluate('()=>JSON.stringify({...localStorage})')
+  self.report['parallelChallenge']=dict(status='running',netEquity=None,cash=1480,lastAt='2026-11-14T12:00:00Z',trades=[],issues=['Cours absents : <img src=x onerror=alert(1)>'])
+  self.page.locator('[data-learning-refresh]').click()
+  box=self.page.locator('[data-parallel-challenge]');box.wait_for()
+  text=box.text_content();self.assertIn('En cours',text);self.assertIn('Non calculable',text)
+  self.assertIn('pas deux preuves indépendantes',text);self.assertIn('sans',self.page.locator('#robotLearningPanel').text_content())
+  self.assertEqual(box.locator('img').count(),0);self.assertEqual(self.errors,[])
+  self.assertEqual(before,self.page.evaluate('()=>JSON.stringify({...localStorage})'))
 if __name__=='__main__':unittest.main(verbosity=2)
