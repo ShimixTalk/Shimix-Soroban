@@ -18,7 +18,7 @@ def good_state():
 
 def market():
     return [dict(id=f'coin-{i}',symbol=f'C{i}',name=f'Coin {i}',current_price=100,
-                 total_volume=100000000,market_cap=1000000000,price_change_percentage_24h=1)
+                 total_volume=100000000,market_cap=1000000000,price_change_percentage_24h=1,last_updated=datetime.datetime.now(datetime.timezone.utc).isoformat())
             for i in range(30)]
 
 
@@ -30,7 +30,7 @@ class RobotRegressionTests(unittest.TestCase):
             return {'sha':'fixture','content':base64.b64encode(json.dumps(state).encode()).decode()}
         now=datetime.datetime.now(datetime.timezone.utc)
         start=int(now.timestamp())//86400-31
-        chart={'prices':[[(start+i)*86400000,100+i] for i in range(31)]}
+        chart={'prices':[[(start+i)*86400000,70+i] for i in range(31)]}
         def request(url,*args):return quotes if '/coins/markets?' in url else chart
         with patch.object(robot,'gh',side_effect=gh),patch.object(robot,'request',side_effect=request),patch.object(robot,'save',side_effect=lambda s,sha:(saved.append(copy.deepcopy(s)) or 'saved-fixture-sha')),patch.object(robot.time,'sleep'),patch.object(robot,'rsi',return_value=30 if buy else 70):
             robot.main()

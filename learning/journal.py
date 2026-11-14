@@ -22,12 +22,17 @@ def observe(state,source_sha,observed_at):
  equity=None if missing else state['cash']+sum(q*prices.get(a,0) for a,q in holdings.items())
  if equity is not None and finite(state.get('value')) and abs(state['value']-equity)>.02:errors.append(dict(code='equity_mismatch',message='Valeur publiée différente du recalcul des positions.'))
  cache_at=state.get('marketCacheAt')
- age=now.timestamp()-cache_at if finite(cache_at) else None
+ age=at.timestamp()-cache_at if finite(cache_at) else None
  if age is None or age>3600 or age<0:errors.append(dict(code='stale_or_unknown_quotes',message='Fraîcheur des cours non confirmée.'))
  signals=[]
  for asset,signal in state.get('signals',{}).items():
   if not isinstance(signal,dict):continue
   signals.append(dict(asset=str(asset)[:40],action=str(signal.get('action','Attente'))[:30],reason=str(signal.get('reason','Non documentée par le moteur'))[:300],indicators={k:v for k,v in signal.items() if k in ('rsi','sma7','sma21') and finite(v)}))
+ for raw,safe in zip((x for x in state.get('signals',{}).values() if isinstance(x,dict)),signals):
+  review=raw.get('entryReview')
+  if isinstance(review,dict) and type(review.get('allowed')) is bool:
+   safe['entryReview']={k:review[k] for k in ('version','allowed','targetNetPercent','stopNetPercent','theoreticalRewardRisk','prediction') if k in review and (type(review[k]) in (str,bool) or finite(review[k],-1e6))}
+   safe['entryReview']['reasons']=[str(x)[:300] for x in review.get('reasons',[])[:10]]
  trades=[]
  for raw in state.get('trades',[]):
   if not isinstance(raw,dict):continue
@@ -41,7 +46,7 @@ def observe(state,source_sha,observed_at):
   if not finite(trade['quantity'],1e-15) or not finite(trade['fee']):errors.append(dict(code='incomplete_trade_cost',message='Quantité ou frais historiques absents : attribution réalisée non calculable.'))
   if any(t['id']==trade['id'] for t in trades):errors.append(dict(code='duplicate_trade_fingerprint',message='Opérations identiques sans identifiant source : attribution à vérifier.'))
   trades.append(trade)
- return dict(version=1,id='robot:'+source_sha,sourceCommit=source_sha,source='robot-state.json',at=at.isoformat(),observedAt=now.isoformat(),capital=1600,currency='EUR',simulationOnly=True,cash=state['cash'],holdings=holdings,prices=prices,quotesFetchedAt=cache_at,equity=round(equity,6) if equity is not None else None,signals=signals,trades=sorted(trades,key=lambda t:(t['at'],t['id'])),riskSnapshot={k:state.get(k) for k in ['maxOrder','maxLossPercent','buyPauseLossPercent','maxPositionPercent','maxPositions','feeRate','spreadRate','slippageRate']},errors=errors,notes='Observation après exécution ; pas de reconstitution des décisions non journalisées.')
+ return dict(version=1,id='robot:'+source_sha,sourceCommit=source_sha,source='robot-state.json',at=at.isoformat(),observedAt=now.isoformat(),capital=1600,currency='EUR',simulationOnly=True,cash=state['cash'],holdings=holdings,prices=prices,quotesFetchedAt=cache_at,quoteCacheAgeAtExecutionSeconds=age,collectionDelaySeconds=(now-at).total_seconds(),equity=round(equity,6) if equity is not None else None,signals=signals,trades=sorted(trades,key=lambda t:(t['at'],t['id'])),entryReviewVersion=state.get('entryReviewVersion'),riskSnapshot={k:state.get(k) for k in ['maxOrder','maxLossPercent','buyPauseLossPercent','maxPositionPercent','maxPositions','feeRate','spreadRate','slippageRate']},errors=errors,notes='Observation après exécution ; pas de reconstitution des décisions non journalisées.')
 
 def append(events,new):
  if any(e['id']==new['id'] for e in events):return events
@@ -75,7 +80,7 @@ def summarize(events):
   delta=after['equity']-before['equity']
   attribution.append(dict(fromId=before['id'],toId=after['id'],equityChange=round(delta,6),priceEffect=round(market,6),executionAndCashEffect=round(delta-market,6),explanation='Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.'))
  latest=events[-1] if events else None
- return dict(outcomeQuality=outcome_quality(steps,unknown,all(finite(t['fee']) for t in trades.values())),observations=len(events),decisions=sum(len(e['signals']) for e in events),uniqueTrades=len(trades),knownFees=round(sum(t['fee'] for t in trades.values() if finite(t['fee'])),6),feeCoverageComplete=all(finite(t['fee']) for t in trades.values()),knownRealizedPnl=round(realized,6),unattributableTrades=unknown,realizedExplanations=steps[-50:],equityAttribution=attribution[-50:],errors=errors[-100:],latest=({k:latest[k] for k in ['at','equity','cash','capital','currency','riskSnapshot']} if latest else None),limitations=['Les opérations supprimées de l’historique avant la première collecte ne peuvent pas être récupérées.','Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.','Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage.'])
+ return dict(entryReview=dict(version=latest.get('entryReviewVersion'),at=latest['at'],decisions=[dict(asset=x['asset'],**x['entryReview']) for x in latest['signals'] if 'entryReview' in x]) if latest else None,outcomeQuality=outcome_quality(steps,unknown,all(finite(t['fee']) for t in trades.values())),observations=len(events),decisions=sum(len(e['signals']) for e in events),uniqueTrades=len(trades),knownFees=round(sum(t['fee'] for t in trades.values() if finite(t['fee'])),6),feeCoverageComplete=all(finite(t['fee']) for t in trades.values()),knownRealizedPnl=round(realized,6),unattributableTrades=unknown,realizedExplanations=steps[-50:],equityAttribution=attribution[-50:],errors=errors[-100:],latest=({k:latest.get(k) for k in ['at','equity','cash','capital','currency','riskSnapshot','quoteCacheAgeAtExecutionSeconds','collectionDelaySeconds']} if latest else None),limitations=['Les opérations supprimées de l’historique avant la première collecte ne peuvent pas être récupérées.','Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.','Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage.'])
 
 def observe_portfolios(state,source_sha,observed_at):
  if state.get('simulationOnly') is not True or state.get('realOrdersEnabled') is not False:raise ValueError('Trois portefeuilles non confirmés en simulation')

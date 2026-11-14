@@ -8,10 +8,11 @@ from engine import policy_check
 PROTECTED=CORE+['hub/trading/autonomous_simulation.py','hub/trading/meme_history.py','hub/trading/security.js','hub/trading/manifest.webmanifest','hub/trading/icon.svg']
 def approved_protection_change(previous,current):
  # Only the explicit reviewed transition is allowed; all data remain protected.
- return hashlib.sha256(previous).hexdigest()=='e3479e3fa7b7718276b04d50cb3694120627631df8fb03ef7894a9daab21bd0a' and hashlib.sha256(current).hexdigest()=='c459629e19a1554ea96b0bde65e73f59d18f910d0b1329f6e5d9ae7d26460968'
+ return hashlib.sha256(previous).hexdigest()=='c459629e19a1554ea96b0bde65e73f59d18f910d0b1329f6e5d9ae7d26460968' and hashlib.sha256(current).hexdigest()=='60106aeca43111fae1888bd058519b5282f36157b7fbf63b9d5f158b04536919'
 
 def verify(root,base):
  root=Path(root).resolve()
+ if hashlib.sha256((root/'hub/trading/entry_review.py').read_bytes()).hexdigest()!='82b6f4d0c6256f420108a4d5aab5c28f240be03439f9586a162b9e5587c35834':raise ValueError('Module d’analyse non conforme à la révision testée')
  if not re.fullmatch(r'[0-9a-f]{40}',base):raise ValueError('Référence de base exacte requise')
  checks={}
  for name in PROTECTED:

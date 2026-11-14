@@ -64,6 +64,14 @@ function renderChallenge(c){
 function render(report){
  if(report?.version!==1||report.mode!=='shadow_simulation_only'||report.referenceCapitalEUR!==1600||report.appliedToRobot!==false)throw Error('Rapport non confirmé en observation fictive.');
  latestReport=report;content.replaceChildren();renderChallenge(report.parallelChallenge);const obs=report.observed||{};
+ if(obs.entryReview?.version){
+  content.append(element('h3','Analyse des nouvelles entrées — '+String(obs.entryReview.version)));
+  content.append(element('p','Tendance et reprise au cours actuel vérifiées, stablecoins connus exclus des nouveaux achats. Scénarios après frais ; aucune probabilité de gain calculée. Les protections des positions ouvertes continuent.'));
+  const decisions=Array.isArray(obs.entryReview.decisions)?obs.entryReview.decisions:[];
+  if(decisions.length)content.append(table(['Actif','Décision','Motifs','Gain/perte théorique'],decisions.map(x=>[x.asset,x.allowed?'Admissible, sous limites':'Achat refusé',(x.reasons||[]).join(' ; '),number(x.theoreticalRewardRisk)])));
+  else content.append(element('p','Aucun nouveau signal d’achat à examiner au dernier relevé.'));
+ }
+
  if(report.preview)content.append(element('p','Prévisualisation : la collecte planifiée n’est pas encore activée.'));
  content.append(element('p','Capital de référence conservé : 1 600 € fictifs. Cette analyse n’ajoute ni ne retire aucun montant aux portefeuilles.'));
  content.append(element('p',number(obs.observations)+' observations · '+number(obs.decisions)+' signaux enregistrés · '+number(obs.uniqueTrades)+' opérations distinctes · frais connus : '+number(obs.knownFees)+' €.'));
