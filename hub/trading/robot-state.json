@@ -118,7 +118,148 @@
     "EURC": 0.998442,
     "DASH": 35.83
   },
-  "signals": {},
+  "signals": {
+    "BTC": {
+      "action": "Attente",
+      "rsi": 31.5,
+      "sma7": 67208.68278197975,
+      "sma21": 69670.63239085893,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "SOL": {
+      "action": "Attente",
+      "rsi": 23.95,
+      "sma7": 77.0628312030429,
+      "sma21": 83.62036174908252,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "HYPE": {
+      "action": "Attente",
+      "rsi": 38.05,
+      "sma7": 67.38751106601809,
+      "sma21": 71.59147020822682,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "ZEC": {
+      "action": "Attente",
+      "rsi": 33.33,
+      "sma7": 1015.1785686423063,
+      "sma21": 1076.6294864500844,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "ETHFI": {
+      "action": "Achat",
+      "rsi": 44.47,
+      "sma7": 0.5365890980751876,
+      "sma21": 0.5507560441933845,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "ETH": {
+      "action": "Attente",
+      "rsi": 31.17,
+      "sma7": 1928.37529836219,
+      "sma21": 2023.411360727488,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "USDT": {
+      "action": "Attente",
+      "rsi": 65.27,
+      "sma7": 0.8969083929388443,
+      "sma21": 0.8940489192758911,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "ENA": {
+      "action": "Attente",
+      "rsi": 32.86,
+      "sma7": 0.13588458789554445,
+      "sma21": 0.15799148817720315,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "BTW": {
+      "action": "Attente",
+      "rsi": 31.27,
+      "sma7": 0.9949858616203413,
+      "sma21": 1.1294178176664262,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "NIGHT": {
+      "action": "Attente",
+      "rsi": 68.36,
+      "sma7": 0.03769199405348915,
+      "sma21": 0.03638164294681403,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "USDC": {
+      "action": "Attente",
+      "rsi": 64.62,
+      "sma7": 0.8973236696163929,
+      "sma21": 0.8945249524733674,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "NEAR": {
+      "action": "Attente",
+      "rsi": 27.36,
+      "sma7": 3.2596379404527585,
+      "sma21": 3.6954200105417168,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "WLD": {
+      "action": "Attente",
+      "rsi": 25.69,
+      "sma7": 0.28570070959416755,
+      "sma21": 0.3404831741630479,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "XRP": {
+      "action": "Attente",
+      "rsi": 17.92,
+      "sma7": 1.006275868643561,
+      "sma21": 1.1002848709836759,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "UNI": {
+      "action": "Attente",
+      "rsi": 46.17,
+      "sma7": 6.002917423753293,
+      "sma21": 6.205815282596417,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "ICP": {
+      "action": "Attente",
+      "rsi": 59.1,
+      "sma7": 2.2131474762899166,
+      "sma21": 2.2616884966954336,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "BNB": {
+      "action": "Attente",
+      "rsi": 29.37,
+      "sma7": 615.5138492524932,
+      "sma21": 635.8508928783956,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "PEPE": {
+      "action": "Attente",
+      "rsi": 50.45,
+      "sma7": 4.401984331390071e-06,
+      "sma21": 4.27453719934541e-06,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "FIGR_HELOC": {
+      "action": "Attente",
+      "rsi": 46.63,
+      "sma7": 0.9260472578581119,
+      "sma21": 0.9234503515696909,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "ADA": {
+      "action": "Attente",
+      "rsi": 28.79,
+      "sma7": 0.1595149377549541,
+      "sma21": 0.1722840493513847,
+      "reason": "RSI et moyennes mobiles"
+    }
+  },
   "trades": [
     {
       "date": "2026-11-14T12:23:23.981204+00:00",
@@ -3278,129 +3419,129 @@
   ],
   "marketCacheAt": 1794659003.981204,
   "scanner": {
-    "updatedAt": "2026-11-14T11:37:55.125022+00:00",
+    "updatedAt": "2026-11-14T12:23:23.981204+00:00",
     "examined": 100,
     "eligible": 89,
     "shortlist": [
       {
         "symbol": "BTC",
         "name": "Bitcoin",
-        "volume": 29412585106,
-        "change24h": -2.68724
+        "volume": 29213034318,
+        "change24h": -2.9187
       },
       {
         "symbol": "SOL",
         "name": "Solana",
-        "volume": 3012013220,
-        "change24h": -5.64157
-      },
-      {
-        "symbol": "ENA",
-        "name": "Ethena",
-        "volume": 288573147,
-        "change24h": -8.30989
+        "volume": 3003707261,
+        "change24h": -5.89122
       },
       {
         "symbol": "HYPE",
         "name": "Hyperliquid",
-        "volume": 891167135,
-        "change24h": -6.5674
-      },
-      {
-        "symbol": "USDT",
-        "name": "Tether",
-        "volume": 44657617746,
-        "change24h": 0.27838
-      },
-      {
-        "symbol": "ETH",
-        "name": "Ethereum",
-        "volume": 10551728132,
-        "change24h": -2.34219
-      },
-      {
-        "symbol": "ETHFI",
-        "name": "Ether.fi",
-        "volume": 30883094,
-        "change24h": -10.74224
+        "volume": 864748419,
+        "change24h": -7.03766
       },
       {
         "symbol": "ZEC",
         "name": "Zcash",
-        "volume": 677020804,
-        "change24h": -6.00606
+        "volume": 654445495,
+        "change24h": -6.7772
+      },
+      {
+        "symbol": "ETHFI",
+        "name": "Ether.fi",
+        "volume": 30997108,
+        "change24h": -11.13236
+      },
+      {
+        "symbol": "ETH",
+        "name": "Ethereum",
+        "volume": 10464953674,
+        "change24h": -2.43428
+      },
+      {
+        "symbol": "USDT",
+        "name": "Tether",
+        "volume": 44270023229,
+        "change24h": 0.23337
+      },
+      {
+        "symbol": "ENA",
+        "name": "Ethena",
+        "volume": 279431604,
+        "change24h": -7.40016
       },
       {
         "symbol": "BTW",
         "name": "Bitway",
-        "volume": 8082872,
-        "change24h": -20.93502
-      },
-      {
-        "symbol": "NEAR",
-        "name": "NEAR Protocol",
-        "volume": 441684577,
-        "change24h": -6.05596
-      },
-      {
-        "symbol": "USDC",
-        "name": "USDC",
-        "volume": 12601203435,
-        "change24h": 0.28094
-      },
-      {
-        "symbol": "UNI",
-        "name": "Uniswap",
-        "volume": 301147729,
-        "change24h": -5.29581
-      },
-      {
-        "symbol": "WLD",
-        "name": "Worldcoin",
-        "volume": 104155347,
-        "change24h": -6.78679
-      },
-      {
-        "symbol": "XRP",
-        "name": "XRP",
-        "volume": 1754259570,
-        "change24h": -2.5865
-      },
-      {
-        "symbol": "ICP",
-        "name": "Internet Computer",
-        "volume": 47224628,
-        "change24h": -7.49873
-      },
-      {
-        "symbol": "FIL",
-        "name": "Filecoin",
-        "volume": 58651096,
-        "change24h": -6.82162
-      },
-      {
-        "symbol": "BNB",
-        "name": "BNB",
-        "volume": 705474249,
-        "change24h": -3.19306
-      },
-      {
-        "symbol": "PEPE",
-        "name": "Pepe",
-        "volume": 289200543,
-        "change24h": -4.24542
+        "volume": 8582732,
+        "change24h": -21.93073
       },
       {
         "symbol": "NIGHT",
         "name": "Midnight",
-        "volume": 23171498,
-        "change24h": 7.79697
+        "volume": 24414259,
+        "change24h": 9.8962
+      },
+      {
+        "symbol": "USDC",
+        "name": "USDC",
+        "volume": 12378272019,
+        "change24h": 0.23474
+      },
+      {
+        "symbol": "NEAR",
+        "name": "NEAR Protocol",
+        "volume": 433299581,
+        "change24h": -5.0788
+      },
+      {
+        "symbol": "WLD",
+        "name": "Worldcoin",
+        "volume": 106320438,
+        "change24h": -6.90851
+      },
+      {
+        "symbol": "XRP",
+        "name": "XRP",
+        "volume": 1756300643,
+        "change24h": -2.76492
+      },
+      {
+        "symbol": "UNI",
+        "name": "Uniswap",
+        "volume": 303762589,
+        "change24h": -5.29387
+      },
+      {
+        "symbol": "ICP",
+        "name": "Internet Computer",
+        "volume": 46183528,
+        "change24h": -7.85518
+      },
+      {
+        "symbol": "BNB",
+        "name": "BNB",
+        "volume": 697703721,
+        "change24h": -3.7764
+      },
+      {
+        "symbol": "PEPE",
+        "name": "Pepe",
+        "volume": 287115848,
+        "change24h": -4.51786
+      },
+      {
+        "symbol": "FIGR_HELOC",
+        "name": "Figure Heloc",
+        "volume": 226623711,
+        "change24h": 4.7916
       },
       {
         "symbol": "ADA",
         "name": "Cardano",
-        "volume": 205807624,
-        "change24h": -4.57023
+        "volume": 207229377,
+        "change24h": -4.80413
       }
     ]
   },
@@ -3426,7 +3567,7 @@
     "hyperliquid": 1794578263.282837,
     "usd1-wlfi": 1794591388.932178,
     "aave": 1794570012.757826,
-    "midnight-3": 1794570012.757826,
+    "midnight-3": 1794659003.981204,
     "uniswap": 1794650895.303135,
     "pi-network": 1794299512.297699,
     "near": 1794573792.018026,
@@ -4119,7 +4260,6 @@
       108.73046880482148
     ],
     "midnight-3": [
-      0.038729303991562165,
       0.037791747176239544,
       0.03726660710984741,
       0.0362720086351578,
@@ -4147,7 +4287,8 @@
       0.03515539597649437,
       0.03608939491356404,
       0.03742128384368151,
-      0.042698090378448655
+      0.042698090378448655,
+      0.04154870232060764
     ],
     "uniswap": [
       6.620905148345671,
@@ -5150,13 +5291,14 @@
     "USD1": 0.9035743123123122
   },
   "performance": {
-    "initialCapital": 1600,
+    "initialCapital": 1600.0,
     "equity": 1578.11,
     "netPnl": -21.89,
     "returnPercent": -1.368,
+    "drawdownPercent": 1.734,
+    "totalTrades": 12,
     "lastCalculatedAt": "2026-11-14T12:23:23.981204+00:00",
-    "simulated": true,
-    "totalTrades": 12
+    "simulated": true
   },
   "equityHistory": [
     {
@@ -5758,6 +5900,11 @@
       "at": "2026-11-14T12:23:23.981204+00:00",
       "equity": 1578.11,
       "cash": 1457.888487
+    },
+    {
+      "at": "2026-11-14T12:23:23.981204+00:00",
+      "equity": 1578.11,
+      "cash": 1457.89
     }
   ],
   "experimentMode": "aggressive_simulation",
