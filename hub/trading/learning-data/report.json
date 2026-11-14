@@ -302,7 +302,7 @@
       "status": "waiting_for_new_data"
     }
   },
-  "generatedAt": "2026-11-14T15:57:53.436120+00:00",
+  "generatedAt": "2026-11-14T16:40:15.296307+00:00",
   "hypotheses": {
     "dynamique": {
       "baseline": {
@@ -610,16 +610,8 @@
   ],
   "mode": "shadow_simulation_only",
   "observed": {
-    "decisions": 1760,
+    "decisions": 1780,
     "equityAttribution": [
-      {
-        "equityChange": -2.725635,
-        "executionAndCashEffect": 0.0,
-        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-        "fromId": "robot:5e765e737009dec2772909767e9820bd6d5c2336",
-        "priceEffect": -2.725635,
-        "toId": "robot:7d4413cf7bfdd0ab270eda5f85179616030690f5"
-      },
       {
         "equityChange": 2.314891,
         "executionAndCashEffect": -0.0,
@@ -1011,6 +1003,14 @@
         "fromId": "robot:1ecaaccde4ce216fa1ebfa389ecfbedf30773dfe",
         "priceEffect": -0.00996,
         "toId": "robot:0c8cb304563690f4b0e7ca5a725569fe4d6522a1"
+      },
+      {
+        "equityChange": 0.035858,
+        "executionAndCashEffect": 0.0,
+        "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+        "fromId": "robot:0c8cb304563690f4b0e7ca5a725569fe4d6522a1",
+        "priceEffect": 0.035858,
+        "toId": "robot:06564bc37f4d8c108e207581a0b7d50c5c163016"
       }
     ],
     "errors": [
@@ -1284,11 +1284,11 @@
     "knownFees": 1.538587,
     "knownRealizedPnl": -22.111513,
     "latest": {
-      "at": "2026-11-14T15:37:18.891620+00:00",
+      "at": "2026-11-14T16:23:23.264740+00:00",
       "capital": 1600,
       "cash": 1457.888487,
       "currency": "EUR",
-      "equity": 1578.115942,
+      "equity": 1578.1518,
       "riskSnapshot": {
         "buyPauseLossPercent": 5,
         "feeRate": 0.001,
@@ -1305,7 +1305,7 @@
       "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
       "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
     ],
-    "observations": 89,
+    "observations": 90,
     "outcomeQuality": {
       "automaticPromotion": false,
       "evidence": "insufficient_for_automatic_promotion",
@@ -1406,25 +1406,21 @@
     "activatedAt": "2026-11-14T12:20:03.822184+00:00",
     "appliedToRobot": false,
     "availabilityMigrationAt": "2026-11-14T12:20:03.822184+00:00",
-    "cash": 1480.0,
+    "cash": 1592.863771033956,
     "day": "2026-11-14",
     "dayStartNet": 1600.0,
-    "entries": {
-      "ETHFI": 0.48597701399999993
-    },
-    "holdings": {
-      "ETHFI": 246.67833363822433
-    },
+    "entries": {},
+    "holdings": {},
     "issues": [],
-    "lastAt": "2026-11-14T15:37:18.891620+00:00",
+    "lastAt": "2026-11-14T16:23:23.264740+00:00",
     "lastBuy": {
       "ETHFI": 1794665941.960783
     },
-    "lastSignalAt": "2026-11-14T15:37:18.891620+00:00",
-    "netEquity": 1596.7331260483973,
-    "observations": 6,
+    "lastSignalAt": "2026-11-14T16:23:23.264740+00:00",
+    "netEquity": 1592.863771033956,
+    "observations": 7,
     "pending": [],
-    "pendingAvailableAt": "2026-11-14T15:57:53.436120+00:00",
+    "pendingAvailableAt": "2026-11-14T16:40:15.296307+00:00",
     "rules": {
       "dailyLossPercent": 3,
       "fee": 0.001,
@@ -1454,6 +1450,16 @@
         "quantity": 246.67833363822433,
         "signalAt": "2026-11-14T13:28:44.808320+00:00",
         "signalAvailableAt": "2026-11-14T13:28:50.183314+00:00",
+        "simulation": true
+      },
+      {
+        "action": "Vente",
+        "amount": 112.86377103395594,
+        "asset": "ETHFI",
+        "at": "2026-11-14T16:23:23.264740+00:00",
+        "fee": 0.11297674778173769,
+        "quantity": 246.67833363822433,
+        "reason": "stop",
         "simulation": true
       }
     ],
@@ -1539,6 +1545,6 @@
       "status": "retain_reference_pending_evidence"
     }
   },
-  "sourceCursor": "0c8cb304563690f4b0e7ca5a725569fe4d6522a1",
+  "sourceCursor": "06564bc37f4d8c108e207581a0b7d50c5c163016",
   "version": 1
 }

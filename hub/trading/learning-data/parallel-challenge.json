@@ -2,25 +2,21 @@
   "activatedAt": "2026-11-14T12:20:03.822184+00:00",
   "appliedToRobot": false,
   "availabilityMigrationAt": "2026-11-14T12:20:03.822184+00:00",
-  "cash": 1480.0,
+  "cash": 1592.863771033956,
   "day": "2026-11-14",
   "dayStartNet": 1600.0,
-  "entries": {
-    "ETHFI": 0.48597701399999993
-  },
-  "holdings": {
-    "ETHFI": 246.67833363822433
-  },
+  "entries": {},
+  "holdings": {},
   "issues": [],
-  "lastAt": "2026-11-14T15:37:18.891620+00:00",
+  "lastAt": "2026-11-14T16:23:23.264740+00:00",
   "lastBuy": {
     "ETHFI": 1794665941.960783
   },
-  "lastSignalAt": "2026-11-14T15:37:18.891620+00:00",
-  "netEquity": 1596.7331260483973,
-  "observations": 6,
+  "lastSignalAt": "2026-11-14T16:23:23.264740+00:00",
+  "netEquity": 1592.863771033956,
+  "observations": 7,
   "pending": [],
-  "pendingAvailableAt": "2026-11-14T15:57:53.436120+00:00",
+  "pendingAvailableAt": "2026-11-14T16:40:15.296307+00:00",
   "rules": {
     "dailyLossPercent": 3,
     "fee": 0.001,
@@ -50,6 +46,16 @@
       "quantity": 246.67833363822433,
       "signalAt": "2026-11-14T13:28:44.808320+00:00",
       "signalAvailableAt": "2026-11-14T13:28:50.183314+00:00",
+      "simulation": true
+    },
+    {
+      "action": "Vente",
+      "amount": 112.86377103395594,
+      "asset": "ETHFI",
+      "at": "2026-11-14T16:23:23.264740+00:00",
+      "fee": 0.11297674778173769,
+      "quantity": 246.67833363822433,
+      "reason": "stop",
       "simulation": true
     }
   ],
