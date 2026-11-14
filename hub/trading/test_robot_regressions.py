@@ -32,9 +32,9 @@ class RobotRegressionTests(unittest.TestCase):
         start=int(now.timestamp())//86400-31
         chart={'prices':[[(start+i)*86400000,100+i] for i in range(31)]}
         def request(url,*args):return quotes if '/coins/markets?' in url else chart
-        with patch.object(robot,'gh',side_effect=gh),patch.object(robot,'request',side_effect=request),patch.object(robot,'save',side_effect=lambda s,sha:saved.append(copy.deepcopy(s))),patch.object(robot.time,'sleep'),patch.object(robot,'rsi',return_value=30 if buy else 70):
+        with patch.object(robot,'gh',side_effect=gh),patch.object(robot,'request',side_effect=request),patch.object(robot,'save',side_effect=lambda s,sha:(saved.append(copy.deepcopy(s)) or 'saved-fixture-sha')),patch.object(robot.time,'sleep'),patch.object(robot,'rsi',return_value=30 if buy else 70):
             robot.main()
-        return saved[0] if saved else None
+        return saved[-1] if saved else None
 
     def test_buy_accounting_and_limits(self):
         result=self.run_robot(good_state(),market())

@@ -61,4 +61,16 @@ class LearningBrowserTests(unittest.TestCase):
   self.page.locator('[data-assistant-prepare=chatgpt]').click();self.report['version']=999
   self.page.locator('[data-learning-refresh]').click();self.page.wait_for_function("()=>document.querySelector('[data-learning-status]').textContent.startsWith('Rapport indisponible')")
   self.page.locator('[data-assistant-prepare=codex]').click();self.assertEqual(self.page.locator('[data-assistant-message]').input_value(),'');self.assertIn('Rapport indisponible',self.page.locator('[data-assistant-status]').text_content());self.assertEqual(self.errors,[])
+ def test_outcome_uncertainty_is_not_a_profit_promise(self):
+  self.report['observed']['outcomeQuality']=dict(knownSaleOutcomes=1,knownWinningSales=0,knownLosingSales=1,knownBreakevenSales=0,knownSalesWinRatePercent=0,meanKnownPnlPerSale=-14.825553,indicativeWilson95Percent=[0,79.345],limitations=['Ventes partielles ou corrélées : prudence.'])
+  self.page.locator('[data-learning-refresh]').click()
+  self.page.get_by_text('1 ventes attribuables',exact=False).wait_for()
+  text=self.page.locator('[data-learning-content]').text_content()
+  self.assertIn('Ce n’est pas une prévision',text);self.assertIn('79,345',text)
+  self.assertIn('Aucune amélioration automatique autorisée',text);self.assertEqual(self.errors,[])
+ def test_no_closed_sales_is_not_zero_or_perfect_win_rate(self):
+  self.report['observed']['outcomeQuality']=dict(knownSaleOutcomes=0,knownWinningSales=0,knownLosingSales=0,knownBreakevenSales=0,knownSalesWinRatePercent=None,meanKnownPnlPerSale=None,indicativeWilson95Percent=None)
+  self.page.locator('[data-learning-refresh]').click()
+  self.page.get_by_text('Taux de réussite observé sur ce sous-échantillon : Non calculable',exact=False).wait_for()
+  self.assertEqual(self.errors,[])
 if __name__=='__main__':unittest.main(verbosity=2)

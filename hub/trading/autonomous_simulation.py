@@ -154,7 +154,24 @@ def save_protection_state(state, prices, stamp, sha):
         "returnPercent":round((value/state["capital"]-1)*100,3) if value is not None else None,
         "lastCalculatedAt":stamp,"simulated":True,"totalTrades":len(state.get("trades",[]))}
     state.setdefault("equityHistory",[]).append(dict(at=stamp,equity=state["value"],cash=state["cash"]))
-    save(state,sha)
+    return save(state,sha)
+
+def price_exits_before_history(state,prices,stamp):
+    """Price-only exits need no RSI/history download. Persist before slow analysis."""
+    exited=set()
+    for sym,quantity in list(state["holdings"].items()):
+        if quantity<=0 or not usable_quote(prices,sym):continue
+        price=prices[sym];entry=float(state.get("entryPrices",{}).get(sym,price))
+        reason="stop-loss" if price<=entry*.96 else "take-profit" if price>=entry*1.08 else None
+        if reason is None:continue
+        execution=price*(1-float(state.get("spreadRate",0.001))-float(state.get("slippageRate",0.001)))
+        gross=quantity*execution;fee=gross*float(state.get("feeRate",0.001));proceeds=gross-fee
+        state["cash"]+=proceeds
+        state["holdings"].pop(sym,None);state.setdefault("entryPrices",{}).pop(sym,None)
+        state.setdefault("trades",[]).insert(0,dict(date=stamp,asset=sym,action="Vente",amount=round(proceeds,2),price=execution,quantity=quantity,fee=fee,reason=reason,simulation=True))
+        state.setdefault("logs",[]).insert(0,stamp+" : vente FICTIVE "+sym+" ("+reason+", avant téléchargement historique)")
+        exited.add(sym)
+    return exited
 
 def main():
     file=gh("GET");state=json.loads(base64.b64decode(file["content"]).decode())
@@ -162,12 +179,12 @@ def main():
     pending=state.get("globalProtection",{}).get("liquidationLatched",False) and any(q>0 for q in state["holdings"].values())
     if not state.get("enabled",False) and not pending:print("Robot désactivé ; reprise sur accord explicite");return
     now=datetime.datetime.now(datetime.timezone.utc);stamp=now.isoformat()
-    errors=[];logs=state.get("logs",[]);hist=state.get("dailyHistory",{})
-    # Market scan is cached for up to one hour to reduce CoinGecko 429 errors.
+    errors=[];logs=state.setdefault("logs",[]);hist=state.get("dailyHistory",{})
+    # Market quotes are reused for at most 15 minutes; schedule timing remains best effort.
     cache=state.get("marketCache",{})
     cache_age=now.timestamp()-float(state.get("marketCacheAt",0))
     try:
-        market=cache if isinstance(cache,list) and cache and 0<=cache_age<3600 and state.get("globalProtection",{}).get("valuationComplete",True) else request(API+"/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h")
+        market=cache if isinstance(cache,list) and cache and 0<=cache_age<900 and state.get("globalProtection",{}).get("valuationComplete",True) else request(API+"/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h")
         if not isinstance(market,list) or len(market)<30 or sum(valid_market_row(x) for x in market)<20:
             raise ValueError("Données de marché incomplètes ou corrompues : simulation suspendue")
         if market is not cache:
@@ -188,6 +205,13 @@ def main():
         save_protection_state(state,prices,stamp,file["sha"])
         print("Protection globale",state["globalProtection"])
         return
+    exited_before_analysis=price_exits_before_history(state,prices,stamp)
+    if exited_before_analysis:
+        # Do not relabel previous-run signals as decisions at this new execution time.
+        state["signals"]={}
+        new_sha=save_protection_state(state,prices,stamp,file["sha"])
+        if not isinstance(new_sha,str) or not new_sha:raise ValueError("Checkpoint des sorties non confirmé : analyse interrompue")
+        file["sha"]=new_sha
     state["scanner"]={"updatedAt":stamp,"examined":len(market),"eligible":len(eligible),"shortlist":[{"symbol":x["symbol"].upper(),"name":x["name"],"volume":x.get("total_volume"),"change24h":x.get("price_change_percentage_24h")} for x in selected]}
     # Two historical requests per execution to limit rate limiting.
     due=[x for x in selected if len(hist.get(x["id"],[]))<22 or (now.timestamp()-float(state.get("historyUpdated",{}).get(x["id"],0)))>86400]
@@ -246,6 +270,7 @@ def main():
     if not buys_allowed:
         for sym in [sym for _,sym in candidates]:signals[sym]["reason"]="Achats suspendus par la protection globale -5 % ; positions toujours gérées"
     for _,sym in sorted(candidates if buys_allowed else [],reverse=True):
+        if sym in exited_before_analysis:continue  # Never immediately rebuy an early risk exit.
         if len(state.get("trades",[]))>=1000:break
         if len(holdings)>=int(state.get("maxPositions",8)):break
         if now.timestamp()-float(last.get(sym,0))<86400:continue
@@ -283,5 +308,8 @@ def main():
 def save(state,sha):
     validate_simulation_state(state)
     data=base64.b64encode((json.dumps(state,ensure_ascii=False,indent=2,allow_nan=False)+"\n").encode()).decode()
-    gh("PUT",{"message":"chore(trading): update autonomous simulation state","content":data,"sha":sha,"branch":BRANCH})
+    result=gh("PUT",{"message":"chore(trading): update autonomous simulation state","content":data,"sha":sha,"branch":BRANCH})
+    new_sha=result.get("content",{}).get("sha") if isinstance(result,dict) else None
+    if not isinstance(new_sha,str) or not new_sha:raise ValueError("GitHub ne confirme pas le SHA du nouvel état")
+    return new_sha
 if __name__=="__main__":main()

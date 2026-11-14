@@ -1,6 +1,7 @@
 """Append-only observation journal and conservative attribution, never an order engine."""
 import datetime as dt
 from engine import finite,digest
+from outcome_quality import outcome_quality
 
 def timestamp(value):
  if not isinstance(value,str):raise ValueError('Horodatage absent')
@@ -74,7 +75,7 @@ def summarize(events):
   delta=after['equity']-before['equity']
   attribution.append(dict(fromId=before['id'],toId=after['id'],equityChange=round(delta,6),priceEffect=round(market,6),executionAndCashEffect=round(delta-market,6),explanation='Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.'))
  latest=events[-1] if events else None
- return dict(observations=len(events),decisions=sum(len(e['signals']) for e in events),uniqueTrades=len(trades),knownFees=round(sum(t['fee'] for t in trades.values() if finite(t['fee'])),6),feeCoverageComplete=all(finite(t['fee']) for t in trades.values()),knownRealizedPnl=round(realized,6),unattributableTrades=unknown,realizedExplanations=steps[-50:],equityAttribution=attribution[-50:],errors=errors[-100:],latest=({k:latest[k] for k in ['at','equity','cash','capital','currency','riskSnapshot']} if latest else None),limitations=['Les opérations supprimées de l’historique avant la première collecte ne peuvent pas être récupérées.','Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.','Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage.'])
+ return dict(outcomeQuality=outcome_quality(steps,unknown,all(finite(t['fee']) for t in trades.values())),observations=len(events),decisions=sum(len(e['signals']) for e in events),uniqueTrades=len(trades),knownFees=round(sum(t['fee'] for t in trades.values() if finite(t['fee'])),6),feeCoverageComplete=all(finite(t['fee']) for t in trades.values()),knownRealizedPnl=round(realized,6),unattributableTrades=unknown,realizedExplanations=steps[-50:],equityAttribution=attribution[-50:],errors=errors[-100:],latest=({k:latest[k] for k in ['at','equity','cash','capital','currency','riskSnapshot']} if latest else None),limitations=['Les opérations supprimées de l’historique avant la première collecte ne peuvent pas être récupérées.','Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.','Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage.'])
 
 def observe_portfolios(state,source_sha,observed_at):
  if state.get('simulationOnly') is not True or state.get('realOrdersEnabled') is not False:raise ValueError('Trois portefeuilles non confirmés en simulation')
