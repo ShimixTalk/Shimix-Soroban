@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "17502cac9dc620a14b619847f0625b08a5d21d71689a14bc6cf2c1319dc2f7f0",
+  "inputHash": "783b03417bef3398daa0ca9ab2cabb947ad8e42ec8685a9c0683e3a61db7fce9",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -314,7 +314,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-14T21:57:10.508428+00:00",
+      "generatedAt": "2026-11-14T22:11:45.763347+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
