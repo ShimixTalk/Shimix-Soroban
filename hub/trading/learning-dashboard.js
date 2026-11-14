@@ -72,6 +72,16 @@ function render(report){
  }
  content.append(table(['Profil','Période','Dates / couverture','Référence nette','Candidat net','Baisse maximale candidat'],rows));
  content.append(element('p','Tests de recherche séparés des résultats publiés : frais, spread, glissement et sortie finale fictive inclus ; hors fiscalité. Le test final ne choisit pas les paramètres. Aucune stratégie n’est appliquée automatiquement au robot.'));
+ content.append(element('h3','Ce que les résultats permettent réellement de conclure'));
+ const quality=obs.outcomeQuality;
+ if(!quality)content.append(element('p','Bilan des ventes indisponible dans cet ancien rapport.'));
+ else {
+  content.append(element('p',number(quality.knownSaleOutcomes)+' ventes attribuables : '+number(quality.knownWinningSales)+' gagnantes, '+number(quality.knownLosingSales)+' perdantes, '+number(quality.knownBreakevenSales)+' neutres.'));
+  content.append(element('p','Taux de réussite observé sur ce sous-échantillon : '+number(quality.knownSalesWinRatePercent)+' % · résultat moyen connu par vente : '+number(quality.meanKnownPnlPerSale)+' €. Ce n’est pas une prévision.'));
+  if(quality.indicativeWilson95Percent)content.append(element('p','Intervalle statistique indicatif à 95 % : '+quality.indicativeWilson95Percent.map(number).join(' à ')+' %. Il suppose des ventes indépendantes, ce qui peut ne pas être le cas.'));
+  content.append(element('p','Aucune amélioration automatique autorisée : les hypothèses doivent être comparées sur de nouvelles données, après coûts et avec leurs pertes maximales.'));
+  for(const text of quality.limitations||[])content.append(element('p',text));
+ }
  content.append(element('h3','Pourquoi des gains ou des pertes ?'));
  content.append(element('p','Résultat réalisé attribuable à des achats connus : '+number(obs.knownRealizedPnl)+' €. Opérations non attribuables : '+number(obs.unattributableTrades)+'. Les coûts d’acquisition manquants ne sont jamais inventés.'));
  const attributions=Array.isArray(obs.equityAttribution)?obs.equityAttribution.slice(-8):[];
