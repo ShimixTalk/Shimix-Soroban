@@ -137,9 +137,9 @@
     },
     "SOL": {
       "action": "Attente",
-      "rsi": 19.39,
-      "sma7": 77.86132393488252,
-      "sma21": 84.49597481001763,
+      "rsi": 23.95,
+      "sma7": 77.0628312030429,
+      "sma21": 83.62036174908252,
       "reason": "RSI et moyennes mobiles"
     },
     "USDT": {
@@ -179,9 +179,9 @@
     },
     "USDC": {
       "action": "Attente",
-      "rsi": 56.74,
-      "sma7": 0.895268805901268,
-      "sma21": 0.8938657118871851,
+      "rsi": 64.62,
+      "sma7": 0.8973236696163929,
+      "sma21": 0.8945249524733674,
       "reason": "RSI et moyennes mobiles"
     },
     "BNB": {
@@ -374,7 +374,7 @@
     "2026-11-10T16:25:05.455381+00:00 : achat FICTIF BTC pour 120.0 EUR",
     "Simulation expérimentale activée : plafond d'arrêt portefeuille 50 %, ordre max 120 €, 8 positions, aucun ordre réel."
   ],
-  "updatedAt": "2026-11-14T01:41:35.635905+00:00",
+  "updatedAt": "2026-11-14T02:32:13.688705+00:00",
   "dataErrors": [],
   "savingsPolicy": {
     "provider": "Crypto.com App",
@@ -3391,7 +3391,7 @@
   ],
   "marketCacheAt": 1794620495.635905,
   "scanner": {
-    "updatedAt": "2026-11-14T01:41:35.635905+00:00",
+    "updatedAt": "2026-11-14T02:32:13.688705+00:00",
     "examined": 100,
     "eligible": 91,
     "shortlist": [
@@ -3525,11 +3525,11 @@
     "avalanche-2": 1794543325.759566,
     "tether": 1794615842.321143,
     "jupiter-exchange-solana": 1794265365.575689,
-    "usd-coin": 1794534318.892453,
+    "usd-coin": 1794623533.688705,
     "zcash": 1794529722.69567,
     "bitway": 1794540256.270156,
     "rain": 1794456989.038643,
-    "solana": 1794536983.718318,
+    "solana": 1794623533.688705,
     "layerzero": 1794578263.282837,
     "ondo-finance": 1794274146.740001,
     "ether-fi": 1794584920.055062,
@@ -3795,7 +3795,6 @@
       0.22775909360086316
     ],
     "usd-coin": [
-      0.8930309418298225,
       0.8914991598949007,
       0.8897114383047986,
       0.8898642826112847,
@@ -3823,7 +3822,8 @@
       0.8966093649713773,
       0.8906331012722262,
       0.894946900802967,
-      0.9009896494811955
+      0.9009896494811955,
+      0.904583552029213
     ],
     "zcash": [
       1024.3892624836221,
@@ -3919,7 +3919,6 @@
       0.0035094417679404017
     ],
     "solana": [
-      93.07385616028066,
       93.95168640744359,
       92.8177883498786,
       91.9955123928319,
@@ -3947,7 +3946,8 @@
       77.51936193649252,
       77.17160350060455,
       74.55954268968419,
-      75.03212954350754
+      75.03212954350754,
+      73.88375307614662
     ],
     "layerzero": [
       1.6893272771730714,
@@ -5239,7 +5239,7 @@
     "returnPercent": -0.797,
     "drawdownPercent": 1.165,
     "totalTrades": 10,
-    "lastCalculatedAt": "2026-11-14T01:41:35.635905+00:00",
+    "lastCalculatedAt": "2026-11-14T02:32:13.688705+00:00",
     "simulated": true
   },
   "equityHistory": [
@@ -5777,6 +5777,11 @@
       "at": "2026-11-14T01:41:35.635905+00:00",
       "equity": 1587.24,
       "cash": 1229.83
+    },
+    {
+      "at": "2026-11-14T02:32:13.688705+00:00",
+      "equity": 1587.24,
+      "cash": 1229.83
     }
   ],
   "experimentMode": "aggressive_simulation",
@@ -5886,7 +5891,7 @@
     "pauseNewBuysAtLossPercent": 5,
     "liquidateAtLossPercent": 10,
     "referenceCapital": 1600,
-    "lastCheckedAt": "2026-11-14T01:41:35.635905+00:00",
+    "lastCheckedAt": "2026-11-14T02:32:13.688705+00:00",
     "valuationComplete": true,
     "estimatedLiquidationBeforeActions": 1586.163803,
     "requiresApprovalToResume": false,
