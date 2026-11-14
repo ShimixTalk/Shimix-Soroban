@@ -8,15 +8,15 @@
   "entries": {},
   "holdings": {},
   "issues": [],
-  "lastAt": "2026-11-14T16:23:23.264740+00:00",
+  "lastAt": "2026-11-14T17:13:27.165432+00:00",
   "lastBuy": {
     "ETHFI": 1794665941.960783
   },
-  "lastSignalAt": "2026-11-14T16:23:23.264740+00:00",
+  "lastSignalAt": "2026-11-14T17:13:27.165432+00:00",
   "netEquity": 1592.863771033956,
-  "observations": 7,
+  "observations": 8,
   "pending": [],
-  "pendingAvailableAt": "2026-11-14T16:40:15.296307+00:00",
+  "pendingAvailableAt": "2026-11-14T17:22:18.392110+00:00",
   "rules": {
     "dailyLossPercent": 3,
     "fee": 0.001,
