@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "d0a3bd6f680c58da2146a1df18d370a04e277459c8c52bcdc0efe2ffe33047bd",
+  "inputHash": "0ed8ecd8e749f04e76df5d148673b570f63f5c6cad0f2a6bb116f9d2be795eae",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -314,7 +314,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-14T15:15:23.752476+00:00",
+      "generatedAt": "2026-11-14T15:57:53.436120+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
@@ -622,16 +622,8 @@
       ],
       "mode": "shadow_simulation_only",
       "observed": {
-        "decisions": 1740,
+        "decisions": 1760,
         "equityAttribution": [
-          {
-            "equityChange": 0.0,
-            "executionAndCashEffect": 0.0,
-            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-            "fromId": "robot:7327cf97a693b0575a07bdabc659773b72fef30b",
-            "priceEffect": 0.0,
-            "toId": "robot:5e765e737009dec2772909767e9820bd6d5c2336"
-          },
           {
             "equityChange": -2.725635,
             "executionAndCashEffect": 0.0,
@@ -1023,6 +1015,14 @@
             "fromId": "robot:b640fc2f805ae45618fb828f4d6ac895d6e81971",
             "priceEffect": -0.00332,
             "toId": "robot:1ecaaccde4ce216fa1ebfa389ecfbedf30773dfe"
+          },
+          {
+            "equityChange": -0.00996,
+            "executionAndCashEffect": 0.0,
+            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+            "fromId": "robot:1ecaaccde4ce216fa1ebfa389ecfbedf30773dfe",
+            "priceEffect": -0.00996,
+            "toId": "robot:0c8cb304563690f4b0e7ca5a725569fe4d6522a1"
           }
         ],
         "errors": [
@@ -1296,11 +1296,11 @@
         "knownFees": 1.538587,
         "knownRealizedPnl": -22.111513,
         "latest": {
-          "at": "2026-11-14T14:58:50.736014+00:00",
+          "at": "2026-11-14T15:37:18.891620+00:00",
           "capital": 1600,
           "cash": 1457.888487,
           "currency": "EUR",
-          "equity": 1578.125902,
+          "equity": 1578.115942,
           "riskSnapshot": {
             "buyPauseLossPercent": 5,
             "feeRate": 0.001,
@@ -1317,7 +1317,7 @@
           "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
           "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
         ],
-        "observations": 88,
+        "observations": 89,
         "outcomeQuality": {
           "automaticPromotion": false,
           "evidence": "insufficient_for_automatic_promotion",
@@ -1428,15 +1428,15 @@
           "ETHFI": 246.67833363822433
         },
         "issues": [],
-        "lastAt": "2026-11-14T14:58:50.736014+00:00",
+        "lastAt": "2026-11-14T15:37:18.891620+00:00",
         "lastBuy": {
           "ETHFI": 1794665941.960783
         },
-        "lastSignalAt": "2026-11-14T14:58:50.736014+00:00",
-        "netEquity": 1597.185653425666,
-        "observations": 5,
+        "lastSignalAt": "2026-11-14T15:37:18.891620+00:00",
+        "netEquity": 1596.7331260483973,
+        "observations": 6,
         "pending": [],
-        "pendingAvailableAt": "2026-11-14T15:15:23.752476+00:00",
+        "pendingAvailableAt": "2026-11-14T15:57:53.436120+00:00",
         "rules": {
           "dailyLossPercent": 3,
           "fee": 0.001,
@@ -1551,7 +1551,7 @@
           "status": "retain_reference_pending_evidence"
         }
       },
-      "sourceCursor": "1ecaaccde4ce216fa1ebfa389ecfbedf30773dfe",
+      "sourceCursor": "0c8cb304563690f4b0e7ca5a725569fe4d6522a1",
       "version": 1
     },
     "restrictions": [
