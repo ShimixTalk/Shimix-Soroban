@@ -36,8 +36,19 @@ Le tableau de bord indique l’incertitude et l’absence d’autorisation de pr
 - 12 tests Chromium du tableau de bord, dont deux nouveaux sur l’incertitude et l’absence de faux taux en l’absence de vente ;
 - total : 103 tests locaux ; reproduction exacte des trois études gelées, collecteur en lecture seule, données protégées identiques, compilation et diff contrôlés.
 
-Le contrôle d’intégration accepte uniquement la transition du moteur protégé SHA-256 `e3479e3fa7b7718276b04d50cb3694120627631df8fb03ef7894a9daab21bd0a` vers le moteur testé `9da2d513ac18954c24f74b71c759329656d3adb144176e1eac2a27ec013dd4cd`. Les données et autres moteurs protégés restent identiques à la base `e2b6f3ad5a4a2d621ccc7f9928f1dc974b7eb041`.
+Le contrôle d’intégration accepte uniquement la transition du moteur protégé SHA-256 `e3479e3fa7b7718276b04d50cb3694120627631df8fb03ef7894a9daab21bd0a` vers le moteur testé `c459629e19a1554ea96b0bde65e73f59d18f910d0b1329f6e5d9ae7d26460968`. Les données et autres moteurs protégés restent identiques à la base `e2b6f3ad5a4a2d621ccc7f9928f1dc974b7eb041`.
 
 La règle de pause −5 %, la liquidation −10 % et son verrou, la référence 1 600 EUR, les frais et les plafonds restent inchangés. Aucun benchmark de rentabilité améliorée n’est annoncé. Le contrôle du risque peut être mieux ordonné sans que les achats deviennent automatiquement plus pertinents.
 
 Avant intégration conjointe, revalider les conflits éventuels avec les PR d’audit, d’affichage et d’expériences encore ouvertes. Cette branche n’active aucune réserve, filtre de stablecoins ou nouvelle stratégie d’entrée. Aucun workflow métier, fusion ou déploiement n’est déclenché par la préparation.
+
+
+## Révision conjointe du 14 novembre 2026
+
+Cette révision intègre la dernière application, y compris le bouton de suivi corrigé (#10), et le correctif de couverture des cours (#18). Les cotations complémentaires par identifiant sont récupérées avant la protection et les sorties anticipées. Leur échec conserve la valorisation inconnue et le blocage des nouveaux achats. Un test conjoint vérifie qu’une position hors classement peut être valorisée et qu’une autre position est vendue puis sauvegardée avant les téléchargements historiques. Le test simule le SHA renvoyé par GitHub après sauvegarde.
+
+Validation de cette révision : 58 tests moteur et 50 tests learning réussis. Le contrôle d’intégration contre fa2887074f0cfe8aca6a8d521f32393858da4a26 conserve les données et vérifie le moteur combiné par empreinte exacte.
+
+Limites : aucune amélioration de rendement démontrée ; aucune modification du signal d’achat agressif ni des seuils de risque. La durée du cache passe à 15 minutes, mais la fréquence du workflow reste inchangée : des exécutions horaires ne deviennent pas des contrôles toutes les 15 minutes. Les deux requêtes historiques maximales restent en place, avec une requête de cotations complémentaires groupée uniquement si des positions sont absentes du classement. Les limites gratuites et les échecs du fournisseur restent possibles.
+
+Pour améliorer les entrées, la comparaison prospective stricte (#12) et l’exclusion expérimentale des stablecoins (#15) doivent fournir de nouvelles observations nettes de coûts. Les résultats de quatre ventes ne permettent pas de choisir une règle gagnante ni de prétendre à un apprentissage autonome. Aucun ajustement n’est choisi pour embellir les pertes déjà connues.

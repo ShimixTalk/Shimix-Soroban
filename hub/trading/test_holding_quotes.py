@@ -69,7 +69,9 @@ class HoldingQuoteTests(unittest.TestCase):
     if 'ids=' in url:return [self.row(last_updated=now.isoformat())] if valid_supplement else []
     return quotes
    return {'prices':[[(start+i)*86400000,100+i] for i in range(31)]}
-  with patch.object(robot,'gh',side_effect=get),patch.object(robot,'request',side_effect=request),patch.object(robot,'save',side_effect=lambda value,sha:saved.append(copy.deepcopy(value))),patch.object(robot.time,'sleep'),patch.object(robot,'rsi',return_value=70):robot.main()
+  def save(value,sha):
+   saved.append(copy.deepcopy(value));requests.append('checkpoint');return 'saved-'+str(len(saved))
+  with patch.object(robot,'gh',side_effect=get),patch.object(robot,'request',side_effect=request),patch.object(robot,'save',side_effect=save),patch.object(robot.time,'sleep'),patch.object(robot,'rsi',return_value=70):robot.main()
   return saved[-1],requests
  def test_real_engine_maintains_valuation_for_off_list_pearl(self):
   before=self.state();result,requests=self.run_engine(before)
@@ -80,7 +82,8 @@ class HoldingQuoteTests(unittest.TestCase):
   self.assertEqual(result['scanner']['examined'],30);self.assertNotIn('PEARL',result['signals'])
  def test_off_list_quote_unblocks_other_position_stop(self):
   s=self.state();s.update(cash=1360,holdings={'ETH':1,'PEARL':100},entryPrices={'ETH':120,'PEARL':1.2});s['assetIds']['ETH']='ethereum'
-  result,_=self.run_engine(s)
+  result,requests=self.run_engine(s)
+  self.assertLess(requests.index('checkpoint'),next(i for i,url in enumerate(requests) if '/market_chart?' in url))
   self.assertNotIn('ETH',result['holdings']);self.assertEqual(result['trades'][0]['reason'],'stop-loss')
   self.assertEqual(result['trades'][0]['asset'],'ETH');self.assertAlmostEqual(result['cash'],1459.7002)
   self.assertEqual(result['globalProtection']['liquidateAtLossPercent'],10)
