@@ -116,7 +116,148 @@
     "ETHFI": 0.454139,
     "TUSD": 0.906365
   },
-  "signals": {},
+  "signals": {
+    "ASTER": {
+      "action": "Attente",
+      "rsi": 46.66,
+      "sma7": 0.5914937798227314,
+      "sma21": 0.6137999252372629,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "BTC": {
+      "action": "Attente",
+      "rsi": 30.03,
+      "sma7": 65906.89950676817,
+      "sma21": 68798.43945754871,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "ETH": {
+      "action": "Attente",
+      "rsi": 34.94,
+      "sma7": 1904.724475184615,
+      "sma21": 2009.0755522879404,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "USDT": {
+      "action": "Attente",
+      "rsi": 68.78,
+      "sma7": 0.8983423949784886,
+      "sma21": 0.8947352422042324,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "PUMP": {
+      "action": "Attente",
+      "rsi": 39.42,
+      "sma7": 0.003234117420687368,
+      "sma21": 0.003584206432335358,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "ZRO": {
+      "action": "Attente",
+      "rsi": 45.09,
+      "sma7": 1.3981038050738808,
+      "sma21": 1.4902622391592801,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "VVV": {
+      "action": "Attente",
+      "rsi": 35.28,
+      "sma7": 17.895617262190733,
+      "sma21": 19.725237760316713,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "SOL": {
+      "action": "Attente",
+      "rsi": 19.48,
+      "sma7": 75.66182973405581,
+      "sma21": 82.63346243979086,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "FIL": {
+      "action": "Attente",
+      "rsi": 25.61,
+      "sma7": 0.6747444252398836,
+      "sma21": 0.7460830970662423,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "INJ": {
+      "action": "Attente",
+      "rsi": 54.14,
+      "sma7": 7.136070225743588,
+      "sma21": 6.918446096277964,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "BTW": {
+      "action": "Attente",
+      "rsi": 36.85,
+      "sma7": 0.9398112549051829,
+      "sma21": 1.089335272082021,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "AVAX": {
+      "action": "Attente",
+      "rsi": 47.48,
+      "sma7": 7.483644094607834,
+      "sma21": 7.644229174623459,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "DOGE": {
+      "action": "Attente",
+      "rsi": 29.75,
+      "sma7": 0.06215202685705084,
+      "sma21": 0.06619506538724136,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "USDC": {
+      "action": "Attente",
+      "rsi": 68.28,
+      "sma7": 0.8987326316363884,
+      "sma21": 0.8952027518779818,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "XRP": {
+      "action": "Attente",
+      "rsi": 16.94,
+      "sma7": 0.967234662269969,
+      "sma21": 1.078282410683782,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "PEPE": {
+      "action": "Attente",
+      "rsi": 41.07,
+      "sma7": 4.335322793522318e-06,
+      "sma21": 4.271042278860924e-06,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "RENDER": {
+      "action": "Attente",
+      "rsi": 47.51,
+      "sma7": 1.3990052688897125,
+      "sma21": 1.4241730747349393,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "NEAR": {
+      "action": "Attente",
+      "rsi": 27.76,
+      "sma7": 3.207303991652138,
+      "sma21": 3.585479325984845,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "SUI": {
+      "action": "Attente",
+      "rsi": 35.3,
+      "sma7": 0.7407261394419875,
+      "sma21": 0.784231775651236,
+      "reason": "RSI et moyennes mobiles"
+    },
+    "ENA": {
+      "action": "Attente",
+      "rsi": 20.1,
+      "sma7": 0.13235374852782597,
+      "sma21": 0.1553468147086058,
+      "reason": "RSI et moyennes mobiles"
+    }
+  },
   "trades": [
     {
       "date": "2026-11-15T14:59:45.528315+00:00",
@@ -3296,129 +3437,129 @@
   ],
   "marketCacheAt": 1794754785.528315,
   "scanner": {
-    "updatedAt": "2026-11-15T14:19:28.861001+00:00",
+    "updatedAt": "2026-11-15T14:59:45.528315+00:00",
     "examined": 100,
     "eligible": 90,
     "shortlist": [
       {
         "symbol": "ASTER",
         "name": "Aster",
-        "volume": 229928689,
-        "change24h": -16.70382
+        "volume": 230435981,
+        "change24h": -15.45273
       },
       {
         "symbol": "BTC",
         "name": "Bitcoin",
-        "volume": 49970424086,
-        "change24h": -1.77952
+        "volume": 48965553686,
+        "change24h": -1.4757
       },
       {
         "symbol": "ETH",
         "name": "Ethereum",
-        "volume": 19869099114,
-        "change24h": -2.67493
-      },
-      {
-        "symbol": "PUMP",
-        "name": "Pump.fun",
-        "volume": 140129891,
-        "change24h": -9.26586
+        "volume": 19370068507,
+        "change24h": -2.21178
       },
       {
         "symbol": "USDT",
         "name": "Tether",
-        "volume": 73652967380,
-        "change24h": 0.02661
+        "volume": 72110097896,
+        "change24h": 0.02441
       },
       {
-        "symbol": "FIL",
-        "name": "Filecoin",
-        "volume": 120313483,
-        "change24h": -9.28561
-      },
-      {
-        "symbol": "SOL",
-        "name": "Solana",
-        "volume": 5038400385,
-        "change24h": -3.56317
-      },
-      {
-        "symbol": "AVAX",
-        "name": "Avalanche",
-        "volume": 363862798,
-        "change24h": -7.28801
-      },
-      {
-        "symbol": "BTW",
-        "name": "Bitway",
-        "volume": 10766163,
-        "change24h": -16.98037
-      },
-      {
-        "symbol": "INJ",
-        "name": "Injective",
-        "volume": 173343246,
-        "change24h": -7.53605
+        "symbol": "PUMP",
+        "name": "Pump.fun",
+        "volume": 134492876,
+        "change24h": -8.78716
       },
       {
         "symbol": "ZRO",
         "name": "LayerZero",
-        "volume": 98738023,
-        "change24h": -7.97142
-      },
-      {
-        "symbol": "DOGE",
-        "name": "Dogecoin",
-        "volume": 1023492727,
-        "change24h": -4.45739
+        "volume": 100384465,
+        "change24h": -9.15581
       },
       {
         "symbol": "VVV",
         "name": "Venice Token",
-        "volume": 59859539,
-        "change24h": 8.26001
+        "volume": 58737817,
+        "change24h": 9.76775
+      },
+      {
+        "symbol": "SOL",
+        "name": "Solana",
+        "volume": 4731655409,
+        "change24h": -3.40572
+      },
+      {
+        "symbol": "FIL",
+        "name": "Filecoin",
+        "volume": 112283569,
+        "change24h": -8.7167
+      },
+      {
+        "symbol": "INJ",
+        "name": "Injective",
+        "volume": 172805205,
+        "change24h": -7.87488
+      },
+      {
+        "symbol": "BTW",
+        "name": "Bitway",
+        "volume": 9766647,
+        "change24h": -18.10118
+      },
+      {
+        "symbol": "AVAX",
+        "name": "Avalanche",
+        "volume": 346212027,
+        "change24h": -6.02113
+      },
+      {
+        "symbol": "DOGE",
+        "name": "Dogecoin",
+        "volume": 982778824,
+        "change24h": -4.44253
       },
       {
         "symbol": "USDC",
         "name": "USDC",
-        "volume": 17392530898,
-        "change24h": 0.0171
+        "volume": 17128123937,
+        "change24h": 0.0149
       },
       {
         "symbol": "XRP",
         "name": "XRP",
-        "volume": 3564245222,
-        "change24h": -2.09341
+        "volume": 3283007689,
+        "change24h": -2.40031
       },
       {
         "symbol": "PEPE",
         "name": "Pepe",
-        "volume": 445461304,
-        "change24h": -5.06535
-      },
-      {
-        "symbol": "SUI",
-        "name": "Sui",
-        "volume": 537470498,
-        "change24h": -3.86003
-      },
-      {
-        "symbol": "NEAR",
-        "name": "NEAR Protocol",
-        "volume": 712950385,
-        "change24h": -3.27825
-      },
-      {
-        "symbol": "TAO",
-        "name": "Bittensor",
-        "volume": 188335660,
-        "change24h": -4.9045
+        "volume": 431393719,
+        "change24h": -4.23412
       },
       {
         "symbol": "RENDER",
         "name": "Render",
-        "volume": 52767749,
-        "change24h": -6.50238
+        "volume": 51258731,
+        "change24h": -7.17077
+      },
+      {
+        "symbol": "NEAR",
+        "name": "NEAR Protocol",
+        "volume": 690792278,
+        "change24h": -2.8779
+      },
+      {
+        "symbol": "SUI",
+        "name": "Sui",
+        "volume": 515702490,
+        "change24h": -2.94975
+      },
+      {
+        "symbol": "ENA",
+        "name": "Ethena",
+        "volume": 341679346,
+        "change24h": -3.43454
       }
     ]
   },
@@ -3465,7 +3606,7 @@
     "aster-2": 1794687085.242012,
     "binancecoin": 1794689763.926827,
     "injective-protocol": 1794673403.26474,
-    "render-token": 1794483664.691798,
+    "render-token": 1794754785.528315,
     "chainlink": 1794689763.926827,
     "blockstack": 1794487444.940227,
     "bittensor": 1794687085.242012,
@@ -4791,9 +4932,6 @@
       6.742190450149989
     ],
     "render-token": [
-      1.7902840513818232,
-      1.7191889112814114,
-      1.7462666027823046,
       1.7179328633127025,
       1.6463470364155965,
       1.615648050640661,
@@ -4819,7 +4957,10 @@
       1.398850628763395,
       1.3696067419846794,
       1.4131682407248447,
-      1.4437273968387545
+      1.4437273968387545,
+      1.400426409891446,
+      1.3765003417478414,
+      1.3907571222770263
     ],
     "chainlink": [
       11.10199079726619,
@@ -5227,13 +5368,14 @@
   },
   "entryPrices": {},
   "performance": {
-    "initialCapital": 1600,
+    "initialCapital": 1600.0,
     "equity": 1577.77,
     "netPnl": -22.23,
     "returnPercent": -1.389,
+    "drawdownPercent": 1.755,
+    "totalTrades": 13,
     "lastCalculatedAt": "2026-11-15T14:59:45.528315+00:00",
-    "simulated": true,
-    "totalTrades": 13
+    "simulated": true
   },
   "equityHistory": [
     {
@@ -6005,6 +6147,11 @@
       "at": "2026-11-15T14:59:45.528315+00:00",
       "equity": 1577.77,
       "cash": 1577.771521
+    },
+    {
+      "at": "2026-11-15T14:59:45.528315+00:00",
+      "equity": 1577.77,
+      "cash": 1577.77
     }
   ],
   "experimentMode": "aggressive_simulation",
@@ -6159,7 +6306,8 @@
     "zcash": 1794749381.166499,
     "near": 1794749381.166499,
     "layerzero": 1794752368.861001,
-    "sui": 1794752368.861001
+    "sui": 1794752368.861001,
+    "render-token": 1794754785.528315
   },
   "entryReviewVersion": "confirmed-entry-v1",
   "ownerAssetPolicy": {
