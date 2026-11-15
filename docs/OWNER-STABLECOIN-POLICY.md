@@ -29,6 +29,8 @@ must be inspected for ownerAssetPolicy.version=1 and the exit trade (or a
 pending exit). Until that evidence exists, do not report a completed sale.
 
 Frozen #12/#14/#15 experiments must report a changed source regime. Their
-protocols and the exact integration guard are not expanded to accept this
-new engine silently. #15 remains a separate offline experiment, not the
+protocols remain frozen. The CI integration checker permits only the exact
+old/new engine hash pair for this explicitly authorized transition; it rejects
+any further edit, including relaxed thresholds. This does not authorize frozen
+comparators to recalibrate. #15 remains a separate offline experiment, not the
 implementation of this owner instruction.
