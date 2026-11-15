@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "1c2ff9fa2a850a51835b6fb7c07dd3386603e745e97e0e51f5c5113572e3886f",
+  "inputHash": "b31cd34c3bc64ad928b498c60c944dd69584b360362a15dd11bcadaec2d0eb02",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -319,7 +319,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-15T11:58:32.467587+00:00",
+      "generatedAt": "2026-11-15T12:50:38.581901+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
@@ -627,21 +627,13 @@
       ],
       "mode": "shadow_simulation_only",
       "observed": {
-        "decisions": 2240,
+        "decisions": 2260,
         "entryReview": {
-          "at": "2026-11-15T11:39:15.808685+00:00",
+          "at": "2026-11-15T12:23:53.841610+00:00",
           "decisions": [],
           "version": "confirmed-entry-v1"
         },
         "equityAttribution": [
-          {
-            "equityChange": 0.0,
-            "executionAndCashEffect": 0.0,
-            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-            "fromId": "robot:b2f8f6162d6cb2a532dd24bde96e6e51afcfa736",
-            "priceEffect": 0.0,
-            "toId": "robot:698405dd4601d20cb2b7b73ad234c30e729503e4"
-          },
           {
             "equityChange": 5.650793,
             "executionAndCashEffect": -0.392843,
@@ -1033,6 +1025,14 @@
             "fromId": "robot:5e86ebb96e1886cc9a272dddb18650a13f020607",
             "priceEffect": 0.002656,
             "toId": "robot:c7167af41bf760ab3020c0da524bb1777f6934e9"
+          },
+          {
+            "equityChange": -0.004649,
+            "executionAndCashEffect": -1e-06,
+            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+            "fromId": "robot:c7167af41bf760ab3020c0da524bb1777f6934e9",
+            "priceEffect": -0.004648,
+            "toId": "robot:b34448b95d9a75bce6d76de08a691aec18544b1f"
           }
         ],
         "errors": [
@@ -1311,12 +1311,12 @@
         "knownFees": 1.538587,
         "knownRealizedPnl": -22.111513,
         "latest": {
-          "at": "2026-11-15T11:39:15.808685+00:00",
+          "at": "2026-11-15T12:23:53.841610+00:00",
           "capital": 1600,
           "cash": 1457.888487,
-          "collectionDelaySeconds": 1156.658902,
+          "collectionDelaySeconds": 1604.740291,
           "currency": "EUR",
-          "equity": 1578.136129,
+          "equity": 1578.13148,
           "quoteCacheAgeAtExecutionSeconds": 0.0,
           "riskSnapshot": {
             "buyPauseLossPercent": 5,
@@ -1334,7 +1334,7 @@
           "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
           "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
         ],
-        "observations": 114,
+        "observations": 115,
         "outcomeQuality": {
           "automaticPromotion": false,
           "evidence": "insufficient_for_automatic_promotion",
@@ -1441,13 +1441,13 @@
         "entries": {},
         "holdings": {},
         "issues": [],
-        "lastAt": "2026-11-15T11:39:15.808685+00:00",
+        "lastAt": "2026-11-15T12:23:53.841610+00:00",
         "lastBuy": {
           "ETHFI": 1794665941.960783
         },
         "lastSignalAt": "2026-11-14T22:54:27.833097+00:00",
         "netEquity": null,
-        "observations": 31,
+        "observations": 32,
         "pending": [],
         "pendingAvailableAt": "2026-11-14T22:55:12.664628+00:00",
         "rules": {
@@ -1574,7 +1574,7 @@
           "status": "retain_reference_pending_evidence"
         }
       },
-      "sourceCursor": "c7167af41bf760ab3020c0da524bb1777f6934e9",
+      "sourceCursor": "b34448b95d9a75bce6d76de08a691aec18544b1f",
       "version": 1
     },
     "restrictions": [
