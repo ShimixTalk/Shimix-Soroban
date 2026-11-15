@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "9759dbfefd2fbedaeba75cee9e935eb0dc378316091042fd0e1aa9389554ac35",
+  "inputHash": "d5883d135ea15624e51470cd29b3c87e3db3d2da6269a831add5521e0f1fed0c",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -319,7 +319,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-15T05:38:37.519544+00:00",
+      "generatedAt": "2026-11-15T06:39:38.709073+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
@@ -627,21 +627,13 @@
       ],
       "mode": "shadow_simulation_only",
       "observed": {
-        "decisions": 2100,
+        "decisions": 2120,
         "entryReview": {
-          "at": "2026-11-15T05:26:04.103229+00:00",
+          "at": "2026-11-15T06:25:02.729410+00:00",
           "decisions": [],
           "version": "confirmed-entry-v1"
         },
         "equityAttribution": [
-          {
-            "equityChange": 0.0,
-            "executionAndCashEffect": 0.0,
-            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-            "fromId": "robot:a40627652ea7733b126302b7445ed83e86d803cf",
-            "priceEffect": 0.0,
-            "toId": "robot:28020f82a5759b670c089e3c394f4aebec0ed7b2"
-          },
           {
             "equityChange": 3.140803,
             "executionAndCashEffect": 0.0,
@@ -1033,6 +1025,14 @@
             "fromId": "robot:b566e179a0e5dfbe43624e87e8775b7809dfbbf6",
             "priceEffect": 0.013945,
             "toId": "robot:0e00068deef9fb0613566589ee896b2a2ae6c4d2"
+          },
+          {
+            "equityChange": -0.011687,
+            "executionAndCashEffect": -0.0,
+            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+            "fromId": "robot:0e00068deef9fb0613566589ee896b2a2ae6c4d2",
+            "priceEffect": -0.011687,
+            "toId": "robot:94b75561258105e4ec6fa78e3bc88fbd092726dc"
           }
         ],
         "errors": [
@@ -1311,12 +1311,12 @@
         "knownFees": 1.538587,
         "knownRealizedPnl": -22.111513,
         "latest": {
-          "at": "2026-11-15T05:26:04.103229+00:00",
+          "at": "2026-11-15T06:25:02.729410+00:00",
           "capital": 1600,
           "cash": 1457.888487,
-          "collectionDelaySeconds": 753.416315,
+          "collectionDelaySeconds": 875.979663,
           "currency": "EUR",
-          "equity": 1578.17265,
+          "equity": 1578.160963,
           "quoteCacheAgeAtExecutionSeconds": 0.0,
           "riskSnapshot": {
             "buyPauseLossPercent": 5,
@@ -1334,7 +1334,7 @@
           "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
           "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
         ],
-        "observations": 107,
+        "observations": 108,
         "outcomeQuality": {
           "automaticPromotion": false,
           "evidence": "insufficient_for_automatic_promotion",
@@ -1441,13 +1441,13 @@
         "entries": {},
         "holdings": {},
         "issues": [],
-        "lastAt": "2026-11-15T05:26:04.103229+00:00",
+        "lastAt": "2026-11-15T06:25:02.729410+00:00",
         "lastBuy": {
           "ETHFI": 1794665941.960783
         },
         "lastSignalAt": "2026-11-14T22:54:27.833097+00:00",
         "netEquity": null,
-        "observations": 24,
+        "observations": 25,
         "pending": [],
         "pendingAvailableAt": "2026-11-14T22:55:12.664628+00:00",
         "rules": {
@@ -1574,7 +1574,7 @@
           "status": "retain_reference_pending_evidence"
         }
       },
-      "sourceCursor": "0e00068deef9fb0613566589ee896b2a2ae6c4d2",
+      "sourceCursor": "94b75561258105e4ec6fa78e3bc88fbd092726dc",
       "version": 1
     },
     "restrictions": [
