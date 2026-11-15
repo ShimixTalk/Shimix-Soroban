@@ -221,6 +221,49 @@ def supplement_holding_quotes(state,prices,now):
         missingAssets=[sym for sym in required if not usable_quote(out,sym)])
     return out,errors
 
+# Temporary owner policy: only reviewed non-stablecoin identities may enter.
+# Unknown assets are excluded rather than classified from ticker or price.
+ENTRY_ASSET_IDS = {"bitcoin":"BTC", "ethereum":"ETH", "solana":"SOL",
+    "cardano":"ADA", "ripple":"XRP", "dogecoin":"DOGE", "chainlink":"LINK",
+    "avalanche-2":"AVAX", "polkadot":"DOT", "litecoin":"LTC"}
+OWNER_EXIT_IDS = {"usd1-wlfi"}
+
+def entry_asset_allowed(row):
+    return ENTRY_ASSET_IDS.get(row.get("id")) == row.get("symbol", "").upper()
+
+def owner_requested_exits(state, prices, market, now):
+    """One-time simulated exit by recorded ID, with independent fresh quote evidence."""
+    exited=set();pending=[]
+    for sym,quantity in list(state["holdings"].items()):
+        coin_id=state.get("assetIds",{}).get(sym)
+        if quantity<=0 or coin_id not in OWNER_EXIT_IDS:continue
+        rows=[x for x in market if isinstance(x,dict) and x.get("id")==coin_id]
+        evidence=state.get("holdingQuoteCoverage",{}).get("supplementalQuotes",{}).get(sym,{})
+        stamp=rows[0].get("last_updated") if len(rows)==1 and rows[0].get("symbol", "").upper()==sym else evidence.get("providerUpdatedAt") if evidence.get("coinId")==coin_id else None
+        try:
+            quoted=datetime.datetime.fromisoformat(stamp.replace("Z","+00:00"))
+            fresh=quoted.tzinfo is not None and -60<=now.timestamp()-quoted.timestamp()<=900
+        except (AttributeError,ValueError,TypeError):fresh=False
+        if not fresh or not usable_quote(prices,sym) or any(type(state.get(k)) not in (int,float) or not math.isfinite(state[k]) or not 0<=state[k]<=.1 for k in ("spreadRate","slippageRate","feeRate")):
+            pending.append(sym);continue
+        price=prices[sym]
+        execution=price*(1-state["spreadRate"]-state["slippageRate"])
+        gross=quantity*execution;fee=gross*state["feeRate"];proceeds=gross-fee
+        basis=state.get("entryPrices",{}).get(sym)
+        state["cash"]+=proceeds
+        state["holdings"].pop(sym);state.setdefault("entryPrices",{}).pop(sym,None)
+        state.setdefault("trades",[]).insert(0,dict(date=now.isoformat(),asset=sym,
+            action="Vente",amount=round(proceeds,2),quantity=quantity,price=execution,
+            fee=fee,reason="owner-stablecoin-exit",simulation=True,
+            exitReview=exit_review(basis,quantity,proceeds,price)))
+        state.setdefault("logs",[]).insert(0,now.isoformat()+" : vente FICTIVE "+sym+" (sortie stablecoin demandée)")
+        exited.add(sym)
+    state["ownerAssetPolicy"]={"version":1,"stablecoinEntriesAllowed":False,
+        "entryUniverse":"reviewed-non-stablecoin-identities", "allowedAssetIds":sorted(ENTRY_ASSET_IDS),
+        "checkedAt":now.isoformat(),"pendingExits":sorted(pending),
+        "cashCurrency":"EUR","reinvestExitProceedsThisRun":False}
+    return exited
+
 def history_refresh_queue(selected, history, updated, attempted, now):
     """Least recently attempted first: failures cannot monopolize the two requests."""
     due=[x for x in selected if len(history.get(x["id"],[]))<22 or not 0<=now-float(updated.get(x["id"],0))<86400]
@@ -264,7 +307,15 @@ def main():
         save_protection_state(state,prices,stamp,file["sha"],holding_quote_errors)
         print("Protection globale",state["globalProtection"])
         return
-    exited_before_analysis=price_exits_before_history(state,prices,stamp)
+    owner_exited=owner_requested_exits(state,prices,market,now)
+    if state["ownerAssetPolicy"]["pendingExits"]:
+        pending_prices={s:p for s,p in prices.items() if s not in state["ownerAssetPolicy"]["pendingExits"]}
+        global_protection(state,pending_prices,stamp)
+        state["signals"]={}
+        save_protection_state(state,pending_prices,stamp,file["sha"],["Sortie USD1 demandée en attente : identité, cours frais ou coûts non confirmés"])
+        return
+    if owner_exited:buys_allowed=False
+    exited_before_analysis=owner_exited | price_exits_before_history(state,prices,stamp)
     if exited_before_analysis:
         # Do not relabel previous-run signals as decisions at this new execution time.
         state["signals"]={}
@@ -298,7 +349,10 @@ def main():
             analysis=review_entry(x["id"],p,prices[sym],a,b,state.get("feeRate",.001),state.get("spreadRate",.001),state.get("slippageRate",.001),quote_at=x.get("last_updated"),now=now)
             signals[sym]["entryReview"]=analysis;signals[sym]["originalAction"]="Achat"
             signals[sym]["reason"]=" ; ".join(analysis["reasons"])
-            if analysis["allowed"]:candidates.append((45-rs,sym))
+            if analysis["allowed"] and entry_asset_allowed(x):candidates.append((45-rs,sym))
+            elif analysis["allowed"]:
+                signals[sym]["action"]="Attente"
+                signals[sym]["reason"]="Identité hors univers non-stablecoin revu ; trésorerie conservée"
             else:signals[sym]["action"]="Attente"
     state["signals"]=signals
     state["entryReviewVersion"]=ENTRY_REVIEW_VERSION
@@ -336,7 +390,7 @@ def main():
         logs.insert(0,stamp+" : vente FICTIVE "+sym+" ("+reason+")")
     last=state.setdefault("lastTrade",{})
     if not buys_allowed:
-        for sym in [sym for _,sym in candidates]:signals[sym]["reason"]="Achats suspendus par la protection globale -5 % ; positions toujours gérées"
+        for sym in [sym for _,sym in candidates]:signals[sym]["reason"]="Achats suspendus par protection globale ou sortie demandée ; positions toujours gérées"
     for _,sym in sorted(candidates if buys_allowed else [],reverse=True):
         if sym in exited_before_analysis:continue  # Never immediately rebuy an early risk exit.
         if len(state.get("trades",[]))>=1000:break
