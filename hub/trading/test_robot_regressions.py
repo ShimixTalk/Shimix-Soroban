@@ -12,6 +12,7 @@ def good_state():
     return dict(enabled=True,realTradingEnabled=False,exchangeApiConnected=False,
                 readiness=dict(simulationOnly=True,liveOrdersEnabled=False),
                 capital=1600,cash=1600,maxOrder=120,maxLossPercent=5,
+                feeRate=.001,spreadRate=.001,slippageRate=.001,
                 maxPositionPercent=20,maxPositions=8,holdings={},entryPrices={},
                 trades=[],logs=[],dailyHistory={},historyUpdated={})
 
@@ -32,7 +33,7 @@ class RobotRegressionTests(unittest.TestCase):
         start=int(now.timestamp())//86400-31
         chart={'prices':[[(start+i)*86400000,70+i] for i in range(31)]}
         def request(url,*args):return quotes if '/coins/markets?' in url else chart
-        with patch.object(robot,'gh',side_effect=gh),patch.object(robot,'request',side_effect=request),patch.object(robot,'save',side_effect=lambda s,sha:(saved.append(copy.deepcopy(s)) or 'saved-fixture-sha')),patch.object(robot.time,'sleep'),patch.object(robot,'rsi',return_value=30 if buy else 70):
+        with patch.dict(robot.ENTRY_ASSET_IDS, {f'coin-{i}':f'C{i}' for i in range(30)}),patch.object(robot,'gh',side_effect=gh),patch.object(robot,'request',side_effect=request),patch.object(robot,'save',side_effect=lambda s,sha:(saved.append(copy.deepcopy(s)) or 'saved-fixture-sha')),patch.object(robot.time,'sleep'),patch.object(robot,'rsi',return_value=30 if buy else 70):
             robot.main()
         return saved[-1] if saved else None
 

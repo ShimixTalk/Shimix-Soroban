@@ -10,6 +10,10 @@ def approved_protection_change(previous,current):
  # Only the explicit reviewed transition is allowed; all data remain protected.
  return hashlib.sha256(previous).hexdigest()=='c459629e19a1554ea96b0bde65e73f59d18f910d0b1329f6e5d9ae7d26460968' and hashlib.sha256(current).hexdigest()=='329e01f41af93967e49be0629f4f81f376f42a42126ad8a3cd3f8a1e90f6f044'
 
+def approved_owner_policy_change(previous,current):
+ # Owner confirmation 2026-11-15; exact engine only, no journal or risk reset.
+ return hashlib.sha256(previous).hexdigest()=='329e01f41af93967e49be0629f4f81f376f42a42126ad8a3cd3f8a1e90f6f044' and hashlib.sha256(current).hexdigest()=='12f2d97e8b6a390544f447ea27b799335b73beb6861544615980816ebd6912ca'
+
 def verify(root,base):
  root=Path(root).resolve()
  if hashlib.sha256((root/'hub/trading/entry_review.py').read_bytes()).hexdigest()!='82b6f4d0c6256f420108a4d5aab5c28f240be03439f9586a162b9e5587c35834':raise ValueError('Module d’analyse non conforme à la révision testée')
@@ -17,7 +21,7 @@ def verify(root,base):
  checks={}
  for name in PROTECTED:
   previous=subprocess.check_output(['git','-C',str(root),'show',base+':'+name]);current=(root/name).read_bytes()
-  if current!=previous and not (name=='hub/trading/autonomous_simulation.py' and approved_protection_change(previous,current)):raise ValueError('Fichier existant différent de la base : '+name)
+  if current!=previous and not (name=='hub/trading/autonomous_simulation.py' and (approved_protection_change(previous,current) or approved_owner_policy_change(previous,current))):raise ValueError('Fichier existant différent de la base : '+name)
   checks[name]=hashlib.sha256(current).hexdigest()
  policy=json.loads((root/'learning/policy.json').read_text());policy_check(policy)
  if policy['openai']!=dict(enabled=False,monthlyBudgetUsd=0,maxRequestUsd=0):raise ValueError('OpenAI doit rester désactivé, budget nul')
