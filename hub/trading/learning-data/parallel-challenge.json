@@ -8,15 +8,15 @@
   "entries": {},
   "holdings": {},
   "issues": [
-    "Cours absents ou anciens : aucune opération ; limites non évaluables."
+    "Référence journalière inconnue : reprise sur revue."
   ],
-  "lastAt": "2026-11-14T23:35:19.158344+00:00",
+  "lastAt": "2026-11-15T00:10:05.963458+00:00",
   "lastBuy": {
     "ETHFI": 1794665941.960783
   },
   "lastSignalAt": "2026-11-14T22:54:27.833097+00:00",
   "netEquity": null,
-  "observations": 18,
+  "observations": 19,
   "pending": [],
   "pendingAvailableAt": "2026-11-14T22:55:12.664628+00:00",
   "rules": {
@@ -37,7 +37,7 @@
   },
   "simulationOnly": true,
   "startedAt": "2026-11-14T11:37:55.125022+00:00",
-  "status": "running",
+  "status": "review_required",
   "trades": [
     {
       "action": "Achat",

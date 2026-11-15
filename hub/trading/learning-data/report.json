@@ -307,7 +307,7 @@
       "status": "waiting_for_new_data"
     }
   },
-  "generatedAt": "2026-11-14T23:36:14.019711+00:00",
+  "generatedAt": "2026-11-15T00:20:53.105014+00:00",
   "hypotheses": {
     "dynamique": {
       "baseline": {
@@ -615,9 +615,9 @@
   ],
   "mode": "shadow_simulation_only",
   "observed": {
-    "decisions": 1980,
+    "decisions": 2000,
     "entryReview": {
-      "at": "2026-11-14T23:35:19.158344+00:00",
+      "at": "2026-11-15T00:10:05.963458+00:00",
       "decisions": [],
       "version": "confirmed-entry-v1"
     },
@@ -1299,13 +1299,13 @@
     "knownFees": 1.538587,
     "knownRealizedPnl": -22.111513,
     "latest": {
-      "at": "2026-11-14T23:35:19.158344+00:00",
+      "at": "2026-11-15T00:10:05.963458+00:00",
       "capital": 1600,
       "cash": 1457.888487,
-      "collectionDelaySeconds": 54.861367,
+      "collectionDelaySeconds": 647.141556,
       "currency": "EUR",
-      "equity": null,
-      "quoteCacheAgeAtExecutionSeconds": 2451.3252470493317,
+      "equity": 1578.17265,
+      "quoteCacheAgeAtExecutionSeconds": 0.0,
       "riskSnapshot": {
         "buyPauseLossPercent": 5,
         "feeRate": 0.001,
@@ -1322,7 +1322,7 @@
       "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
       "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
     ],
-    "observations": 101,
+    "observations": 102,
     "outcomeQuality": {
       "automaticPromotion": false,
       "evidence": "insufficient_for_automatic_promotion",
@@ -1429,15 +1429,15 @@
     "entries": {},
     "holdings": {},
     "issues": [
-      "Cours absents ou anciens : aucune opération ; limites non évaluables."
+      "Référence journalière inconnue : reprise sur revue."
     ],
-    "lastAt": "2026-11-14T23:35:19.158344+00:00",
+    "lastAt": "2026-11-15T00:10:05.963458+00:00",
     "lastBuy": {
       "ETHFI": 1794665941.960783
     },
     "lastSignalAt": "2026-11-14T22:54:27.833097+00:00",
     "netEquity": null,
-    "observations": 18,
+    "observations": 19,
     "pending": [],
     "pendingAvailableAt": "2026-11-14T22:55:12.664628+00:00",
     "rules": {
@@ -1458,7 +1458,7 @@
     },
     "simulationOnly": true,
     "startedAt": "2026-11-14T11:37:55.125022+00:00",
-    "status": "running",
+    "status": "review_required",
     "trades": [
       {
         "action": "Achat",
@@ -1564,6 +1564,6 @@
       "status": "retain_reference_pending_evidence"
     }
   },
-  "sourceCursor": "08c307d9727165e852c59bdee556e6d0b06ba6a6",
+  "sourceCursor": "351bf66cf5758a56c4bf8c4c80de95c4cf9f3700",
   "version": 1
 }
