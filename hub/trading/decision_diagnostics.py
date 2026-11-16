@@ -14,7 +14,29 @@ def timestamp(value):
         return t if t.tzinfo is not None else None
     except (TypeError,ValueError,AttributeError):return None
 
-def diagnose(state, report, now):
+def runtime_health(state, now, runs=None):
+    """Snapshot freshness and scheduler evidence are separate from trading inactivity."""
+    stamp=timestamp(state.get('updatedAt'))
+    age=(now-stamp).total_seconds() if stamp else None
+    freshness='unknown' if age is None or age<0 else 'stale' if age>1800 else 'recent'
+    matching=[r for r in (runs or {}).get('workflow_runs',[])
+              if r.get('path')=='.github/workflows/shimix-trading-simulation.yml']
+    valid=[r for r in matching if timestamp(r.get('created_at')) and timestamp(r['created_at'])<=now]
+    last=max(valid,key=lambda r:timestamp(r['created_at'])) if valid else None
+    last_age=(now-timestamp(last['created_at'])).total_seconds() if last else None
+    running=any(r.get('status')!='completed' for r in valid)
+    scheduling=('not_observed' if runs is None else 'no_matching_run_in_supplied_page' if not last else
+                'nonterminal_run_visible' if running else 'no_recent_run_visible' if last_age>1800 else 'recent_run_visible')
+    return {'snapshotFreshness':freshness,'snapshotAgeSeconds':age,
+        'snapshotWarningThresholdSeconds':1800,'robotEnabled':state.get('enabled'),
+        'openPositionCount':sum(number(q) and q>0 for q in state.get('holdings',{}).values()),
+        'publishedErrors':state.get('dataErrors',[]),'schedulerEvidence':scheduling,
+        'lastVisibleRun':{k:last.get(k) for k in ('id','created_at','status','conclusion','html_url')} if last else None,
+        'lastVisibleRunAgeSeconds':last_age,
+        'cause':'unconfirmed','scope':'supplied_snapshot_and_optional_run_page_only',
+        'note':'No new trades does not establish that the scheduler ran; a successful old run is not a heartbeat.'}
+
+def diagnose(state, report, now, runs=None):
     updated=timestamp(state.get('updatedAt'))
     scanner=state.get('scanner',{})
     aligned=scanner.get('updatedAt')==state.get('updatedAt')
@@ -47,7 +69,7 @@ def diagnose(state, report, now):
         decisions.append(item)
     coverage=state.get('holdingQuoteCoverage',{})
     cache_at=state.get('marketCacheAt')
-    return {'version':1,'readOnly':True,'snapshotAt':state.get('updatedAt'),
+    return {'version':1,'readOnly':True,'runtimeHealth':runtime_health(state,now,runs),'snapshotAt':state.get('updatedAt'),
         'snapshotAgeSeconds':(now-updated).total_seconds() if updated else None,
         'historicalEstimateOnly':True,'decisions':decisions,
         'shortlistCount':len(decisions),
@@ -71,12 +93,15 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--state',type=Path,required=True)
     parser.add_argument('--report',type=Path,required=True)
+    parser.add_argument('--runs',type=Path,help='Optional local GitHub Actions runs response; never fetched by this tool')
     parser.add_argument('--now',required=True,help='Timezone-aware observation time')
     args=parser.parse_args();now=timestamp(args.now)
     if now is None:parser.error('--now must include a timezone')
     raw=args.state.read_bytes();raw_report=args.report.read_bytes()
-    result=diagnose(json.loads(raw),json.loads(raw_report),now)
+    raw_runs=args.runs.read_bytes() if args.runs else None
+    result=diagnose(json.loads(raw),json.loads(raw_report),now,json.loads(raw_runs) if raw_runs else None)
     result['sourceHashes']={'state':hashlib.sha256(raw).hexdigest(),'report':hashlib.sha256(raw_report).hexdigest()}
+    if raw_runs is not None:result['sourceHashes']['runs']=hashlib.sha256(raw_runs).hexdigest()
     print(json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False))
 
 if __name__=='__main__':main()

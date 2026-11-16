@@ -49,3 +49,24 @@ Robot snapshot 16 November 2026, 04:37:12 Europe/Paris:
 
 This PR adds only an offline diagnostic and tests/documentation. It makes no
 runtime engine, state, workflow, schedule, capital, risk or strategy change.
+
+## Separate runtime freshness from trade inactivity
+
+Optionally pass `--runs /path/to/actions-runs.json`, a local saved GitHub Actions
+API response. Its SHA-256 is included. Only the principal simulation workflow
+path is considered; comparative-profile runs are not a principal heartbeat.
+A snapshot older than 30 minutes raises a diagnostic warning (not a trading
+threshold or a scheduling SLA). Missing/future timestamps remain unknown.
+The supplied page can be incomplete: no visible recent run does not establish
+that no run exists. A nonterminal run is reported separately from snapshot age.
+The root cause always remains unconfirmed by this offline tool.
+
+Investigation on 16 November 2026 around 16:20 Europe/Paris found the simulation
+workflow active, with its last visible scheduled run 43863795508 successful at
+13:08 Europe/Paris. No later principal run was visible in the inspected pages.
+The last state was enabled, with no positions and no published error. This
+separates missing recent execution evidence from the last scan's lack of buy
+signals. It does not prove why GitHub did not launch another run, nor fix its
+scheduler. The existing quarter-hour cron has not been changed.
+
+Validation: 95 trading tests and 75 learning tests pass locally.

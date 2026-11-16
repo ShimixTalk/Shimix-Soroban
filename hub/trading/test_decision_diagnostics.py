@@ -23,3 +23,25 @@ class DiagnosticsTests(unittest.TestCase):
  def test_does_not_mutate_inputs(self):
   import copy
   s=self.state();original=copy.deepcopy(s);diagnose(s,{},dt.datetime.now(dt.timezone.utc));self.assertEqual(s,original)
+
+ def test_old_success_does_not_mean_robot_is_running(self):
+  from decision_diagnostics import runtime_health
+  now=dt.datetime(2026,11,16,15,tzinfo=dt.timezone.utc)
+  run={'id':1,'path':'.github/workflows/shimix-trading-simulation.yml','created_at':'2026-11-16T12:08:01Z','status':'completed','conclusion':'success'}
+  r=runtime_health(self.state(),now,{'workflow_runs':[run]})
+  self.assertEqual(r['schedulerEvidence'],'no_recent_run_visible')
+  self.assertEqual(r['snapshotFreshness'],'stale');self.assertEqual(r['cause'],'unconfirmed')
+ def test_other_profile_run_is_not_main_robot_heartbeat(self):
+  from decision_diagnostics import runtime_health
+  run={'path':'.github/workflows/shimix-trading-paper.yml','created_at':'2026-11-16T14:59:00Z','status':'in_progress'}
+  r=runtime_health(self.state(),dt.datetime(2026,11,16,15,tzinfo=dt.timezone.utc),{'workflow_runs':[run]})
+  self.assertEqual(r['schedulerEvidence'],'no_matching_run_in_supplied_page')
+ def test_unknown_or_future_timestamp_is_not_recent(self):
+  from decision_diagnostics import runtime_health
+  for stamp in [None,'invalid','2027-01-01T00:00:00Z']:
+   self.assertEqual(runtime_health({'updatedAt':stamp},dt.datetime(2026,11,16,tzinfo=dt.timezone.utc))['snapshotFreshness'],'unknown')
+ def test_recent_run_can_coexist_with_stale_snapshot(self):
+  from decision_diagnostics import runtime_health
+  run={'path':'.github/workflows/shimix-trading-simulation.yml','created_at':'2026-11-16T14:59:00Z','status':'in_progress'}
+  r=runtime_health(self.state(),dt.datetime(2026,11,16,15,tzinfo=dt.timezone.utc),{'workflow_runs':[run]})
+  self.assertEqual(r['schedulerEvidence'],'nonterminal_run_visible');self.assertEqual(r['snapshotFreshness'],'stale')
