@@ -264,10 +264,22 @@ def owner_requested_exits(state, prices, market, now):
         "cashCurrency":"EUR","reinvestExitProceedsThisRun":False}
     return exited
 
-def history_refresh_queue(selected, history, updated, attempted, now):
+def history_refresh_candidates(selected, state):
+    """Identify possible entries or held identities for history priority.
+
+    Keep original order; the refresh queue rotates attempts fairly across all
+    relevant assets so a failing held quote cannot starve eligible entries.
+    Price-only exits and global protection run before this analysis.
+    """
+    held={coin_id:sym for sym,coin_id in state.get("assetIds",{}).items()
+          if state.get("holdings",{}).get(sym,0)>0}
+    return [row for row in selected if entry_asset_allowed(row) or
+            held.get(row.get("id"))==row.get("symbol","").upper()]
+
+def history_refresh_queue(selected, history, updated, attempted, now, preferred_ids=()):
     """Least recently attempted first: failures cannot monopolize the two requests."""
     due=[x for x in selected if len(history.get(x["id"],[]))<22 or not 0<=now-float(updated.get(x["id"],0))<86400]
-    return sorted(due,key=lambda x:float(attempted.get(x["id"],0)))
+    return sorted(due,key=lambda x:(x["id"] not in preferred_ids,float(attempted.get(x["id"],0))))
 
 def main():
     file=gh("GET");state=json.loads(base64.b64decode(file["content"]).decode())
@@ -325,7 +337,8 @@ def main():
     state["scanner"]={"updatedAt":stamp,"examined":len(market),"eligible":len(eligible),"shortlist":[{"symbol":x["symbol"].upper(),"name":x["name"],"volume":x.get("total_volume"),"change24h":x.get("price_change_percentage_24h")} for x in selected]}
     # Two historical requests per execution to limit rate limiting.
     attempted=state.setdefault("historyAttempted",{})
-    due=history_refresh_queue(selected,hist,state.get("historyUpdated",{}),attempted,now.timestamp())
+    preferred_ids={x["id"] for x in history_refresh_candidates(selected,state)}
+    due=history_refresh_queue(selected,hist,state.get("historyUpdated",{}),attempted,now.timestamp(),preferred_ids)
     for x in due[:2]:
         attempted[x["id"]]=now.timestamp()
         try:

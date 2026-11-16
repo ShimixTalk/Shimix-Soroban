@@ -19,7 +19,12 @@ class ProtectionGuardTests(unittest.TestCase):
 
  def test_owner_transition_is_exact_and_cannot_relax_risk(self):
   old=(ROOT/'learning/tests/fixtures/autonomous_simulation_before_owner_policy.txt').read_bytes()
-  current=(ROOT/'hub/trading/autonomous_simulation.py').read_bytes()
+  current=(ROOT/'learning/tests/fixtures/autonomous_simulation_before_history_priority.txt').read_bytes()
   self.assertTrue(approved_owner_policy_change(old,current))
   self.assertFalse(approved_owner_policy_change(old,current.replace(b'*.95',b'*.50',1)))
   self.assertFalse(approved_owner_policy_change(old+b'\n',current))
+
+ def test_history_priority_is_not_silently_approved_as_owner_transition(self):
+  old=(ROOT/'learning/tests/fixtures/autonomous_simulation_before_owner_policy.txt').read_bytes()
+  current=(ROOT/'hub/trading/autonomous_simulation.py').read_bytes()
+  self.assertFalse(approved_owner_policy_change(old,current))

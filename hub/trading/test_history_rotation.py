@@ -28,3 +28,28 @@ class HistoryRotationTests(unittest.TestCase):
   runner=fixtures.RobotRegressionTests();result=runner.run_robot(good_state(),market())
   self.assertEqual(len(result['historyAttempted']),2)
   self.assertEqual(len(result['historyUpdated']),2)
+
+class RelevantHistoryTests(unittest.TestCase):
+ def test_exclusions_cannot_take_allowed_slots(self):
+  rows=[{'id':'tether','symbol':'usdt'},{'id':'unknown','symbol':'btc'},
+        {'id':'bitcoin','symbol':'btc'},{'id':'solana','symbol':'sol'}]
+  selected=robot.history_refresh_candidates(rows,good_state())
+  self.assertEqual([x['id'] for x in robot.history_refresh_queue(rows,{}, {},{},100000,{x["id"] for x in selected})[:2]],['bitcoin','solana'])
+ def test_held_excluded_identity_retained_only_with_matching_symbol(self):
+  state=good_state();state['holdings']={'XYZ':2};state['assetIds']={'XYZ':'legacy'}
+  rows=[{'id':'legacy','symbol':'xyz'},{'id':'legacy','symbol':'other'},{'id':'unknown','symbol':'xyz'}]
+  self.assertEqual(robot.history_refresh_candidates(rows,state),rows[:1])
+ def test_no_position_does_not_reserve_history(self):
+  state=good_state();state['holdings']={'XYZ':0};state['assetIds']={'XYZ':'legacy'}
+  self.assertEqual(robot.history_refresh_candidates([{'id':'legacy','symbol':'xyz'}],state),[])
+ def test_relevant_failures_rotate_without_extra_requests(self):
+  rows=[{'id':k,'symbol':v} for k,v in list(robot.ENTRY_ASSET_IDS.items())[:4]]
+  selected=robot.history_refresh_candidates(rows,good_state());attempts={};batches=[]
+  for now in (100000,100001):
+   batch=robot.history_refresh_queue(selected,{}, {},attempts,now)[:2]
+   batches.extend(x['id'] for x in batch);attempts.update({x['id']:now for x in batch})
+  self.assertEqual(batches,[x['id'] for x in rows])
+ def test_existing_freshness_still_applies(self):
+  row={'id':'bitcoin','symbol':'btc'}
+  selected=robot.history_refresh_candidates([row],good_state())
+  self.assertEqual(robot.history_refresh_queue(selected,{'bitcoin':[1]*22},{'bitcoin':99999},{},100000),[])
