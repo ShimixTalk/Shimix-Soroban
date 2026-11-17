@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "e6b7ed1a6e89470e3a002aa036d00fefccd2694dc722674fa853355caafdefd4",
+  "inputHash": "c2ed75d8c3866824b8979b2b979fb3a08e7db95ad9537e4acd65c5f520399a86",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -26,1551 +26,1539 @@
       "errors": [
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
-        },
-        {
-          "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
-        },
-        {
-          "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
-        },
-        {
-          "code": "provider_history_revision",
-          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "stale_or_unknown_quotes",
@@ -1867,7 +1855,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-17T20:07:57.475652+00:00",
+      "generatedAt": "2026-11-17T21:12:09.115283+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
@@ -2175,9 +2163,9 @@
       ],
       "mode": "shadow_simulation_only",
       "observed": {
-        "decisions": 3300,
+        "decisions": 3320,
         "entryReview": {
-          "at": "2026-11-17T19:49:48.939819+00:00",
+          "at": "2026-11-17T20:36:46.230446+00:00",
           "decisions": [
             {
               "allowed": false,
@@ -2195,14 +2183,6 @@
           "version": "confirmed-entry-v1"
         },
         "equityAttribution": [
-          {
-            "equityChange": 0.0,
-            "executionAndCashEffect": 0.0,
-            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-            "fromId": "robot:ec665ee67314003d1e55612f0775f5e68bc1ff89",
-            "priceEffect": 0,
-            "toId": "robot:f4e7fd535334543186d4b711e751e2581ca12805"
-          },
           {
             "equityChange": 0.0,
             "executionAndCashEffect": 0.0,
@@ -2594,6 +2574,14 @@
             "fromId": "robot:93ef3c024615065e52f596f8f7cf03850a2720d8",
             "priceEffect": 0,
             "toId": "robot:f262a24eb139bfe1eac2f472ed305ef87e1daa66"
+          },
+          {
+            "equityChange": 0.0,
+            "executionAndCashEffect": 0.0,
+            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+            "fromId": "robot:f262a24eb139bfe1eac2f472ed305ef87e1daa66",
+            "priceEffect": 0,
+            "toId": "robot:e6b6ddad53a2baaf186e164820583f9dbce9760f"
           }
         ],
         "errors": [
@@ -2872,10 +2860,10 @@
         "knownFees": 1.65859,
         "knownRealizedPnl": -22.228479,
         "latest": {
-          "at": "2026-11-17T19:49:48.939819+00:00",
+          "at": "2026-11-17T20:36:46.230446+00:00",
           "capital": 1600,
           "cash": 1577.771521,
-          "collectionDelaySeconds": 1088.535833,
+          "collectionDelaySeconds": 2122.884837,
           "currency": "EUR",
           "equity": 1577.771521,
           "quoteCacheAgeAtExecutionSeconds": 0.0,
@@ -2895,7 +2883,7 @@
           "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
           "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
         ],
-        "observations": 168,
+        "observations": 169,
         "outcomeQuality": {
           "automaticPromotion": false,
           "evidence": "insufficient_for_automatic_promotion",
@@ -2973,30 +2961,30 @@
           "id": "prudent",
           "initial": 640,
           "name": "Prudent",
-          "netProfit": -11.01,
+          "netProfit": -10.41,
           "paused": false,
-          "updatedAt": "2026-11-17T19:16:17.554Z",
-          "value": 548.99
+          "updatedAt": "2026-11-17T21:04:16.405Z",
+          "value": 549.59
         },
         {
           "feesPaid": 0.8959825367455985,
           "id": "equilibre",
           "initial": 560,
           "name": "Équilibré",
-          "netProfit": -36.55,
+          "netProfit": -33.68,
           "paused": false,
-          "updatedAt": "2026-11-17T19:16:17.554Z",
-          "value": 443.45
+          "updatedAt": "2026-11-17T21:04:16.405Z",
+          "value": 446.32
         },
         {
           "feesPaid": 0.72,
           "id": "dynamique",
           "initial": 400,
           "name": "Dynamique",
-          "netProfit": -53.64,
+          "netProfit": -51.23,
           "paused": false,
-          "updatedAt": "2026-11-17T19:16:17.554Z",
-          "value": 306.36
+          "updatedAt": "2026-11-17T21:04:16.405Z",
+          "value": 308.77
         }
       ],
       "parallelChallenge": {
@@ -3009,13 +2997,13 @@
         "entries": {},
         "holdings": {},
         "issues": [],
-        "lastAt": "2026-11-17T19:49:48.939819+00:00",
+        "lastAt": "2026-11-17T20:36:46.230446+00:00",
         "lastBuy": {
           "ETHFI": 1794665941.960783
         },
         "lastSignalAt": "2026-11-14T22:54:27.833097+00:00",
         "netEquity": null,
-        "observations": 84,
+        "observations": 85,
         "pending": [],
         "pendingAvailableAt": "2026-11-14T22:55:12.664628+00:00",
         "rules": {
@@ -3067,45 +3055,45 @@
       },
       "profileJournal": [
         {
-          "decisions": 156,
+          "decisions": 158,
           "id": "prudent",
           "knownFees": 0.28,
           "latest": {
             "feesPaid": 0.28,
             "initial": 640,
-            "netProfit": -11.01,
-            "updatedAt": "2026-11-17T19:16:17.554Z",
-            "value": 548.99
+            "netProfit": -10.41,
+            "updatedAt": "2026-11-17T21:04:16.405Z",
+            "value": 549.59
           },
-          "observations": 78,
+          "observations": 79,
           "uniqueTrades": 4
         },
         {
-          "decisions": 312,
+          "decisions": 316,
           "id": "equilibre",
           "knownFees": 0.89,
           "latest": {
             "feesPaid": 0.8959825367455985,
             "initial": 560,
-            "netProfit": -36.55,
-            "updatedAt": "2026-11-17T19:16:17.554Z",
-            "value": 443.45
+            "netProfit": -33.68,
+            "updatedAt": "2026-11-17T21:04:16.405Z",
+            "value": 446.32
           },
-          "observations": 78,
+          "observations": 79,
           "uniqueTrades": 11
         },
         {
-          "decisions": 468,
+          "decisions": 474,
           "id": "dynamique",
           "knownFees": 0.72,
           "latest": {
             "feesPaid": 0.72,
             "initial": 400,
-            "netProfit": -53.64,
-            "updatedAt": "2026-11-17T19:16:17.554Z",
-            "value": 306.36
+            "netProfit": -51.23,
+            "updatedAt": "2026-11-17T21:04:16.405Z",
+            "value": 308.77
           },
-          "observations": 78,
+          "observations": 79,
           "uniqueTrades": 8
         }
       ],
@@ -3142,7 +3130,7 @@
           "status": "retain_reference_pending_evidence"
         }
       },
-      "sourceCursor": "f262a24eb139bfe1eac2f472ed305ef87e1daa66",
+      "sourceCursor": "e6b6ddad53a2baaf186e164820583f9dbce9760f",
       "version": 1
     },
     "restrictions": [
