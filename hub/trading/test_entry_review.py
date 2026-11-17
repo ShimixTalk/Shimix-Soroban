@@ -27,6 +27,8 @@ class EntryReviewTests(unittest.TestCase):
  def test_engine_rejects_stablecoin_but_still_allows_its_stop(self):
   rows=market();rows[0].update(id='usd1-wlfi',symbol='USD1')
   s=good_state();s['assetIds']={'USD1':'usd1-wlfi'}
+  # Seed fresh history independently of the prioritized download budget.
+  s['dailyHistory']={'usd1-wlfi':list(range(70,101))};s['historyUpdated']={'usd1-wlfi':NOW.timestamp()}
   r=fixtures.RobotRegressionTests().run_robot(s,rows);self.assertNotIn('USD1',r['holdings'])
   self.assertEqual(r['signals']['USD1']['originalAction'],'Achat')
   self.assertIn('Stablecoin',r['signals']['USD1']['reason'])
