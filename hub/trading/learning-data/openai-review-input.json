@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "e48c1bf02a5fe6618832729cfc57f37aa5d28df896721f9d711f936c825c93b0",
+  "inputHash": "f984b9bdd0882907f3e202e6b3658e7b4cf57fd0cb561df553404cf9e84865a6",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -26,315 +26,327 @@
       "errors": [
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "solana: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+        },
+        {
+          "code": "provider_history_revision",
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+        },
+        {
+          "code": "provider_history_revision",
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+        },
+        {
+          "code": "provider_history_revision",
+          "message": "chainlink: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "stale_or_unknown_quotes",
@@ -631,7 +643,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-16T23:19:12.105484+00:00",
+      "generatedAt": "2026-11-17T00:17:46.333941+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
@@ -939,21 +951,13 @@
       ],
       "mode": "shadow_simulation_only",
       "observed": {
-        "decisions": 2900,
+        "decisions": 2920,
         "entryReview": {
-          "at": "2026-11-16T23:18:22.046841+00:00",
+          "at": "2026-11-16T23:58:50.631770+00:00",
           "decisions": [],
           "version": "confirmed-entry-v1"
         },
         "equityAttribution": [
-          {
-            "equityChange": -0.006374,
-            "executionAndCashEffect": 1e-06,
-            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
-            "fromId": "robot:d8f4822d95e08d82c74d6609beca6b1770ccc357",
-            "priceEffect": -0.006375,
-            "toId": "robot:d707afb7509ce84eddbcba4506b979aa4637f199"
-          },
           {
             "equityChange": 0.009031,
             "executionAndCashEffect": 0.0,
@@ -1345,6 +1349,14 @@
             "fromId": "robot:a8564c7ff1f76c868c5c544a1de7a6e43ac5de6a",
             "priceEffect": 0,
             "toId": "robot:c00bbbf6ea9b842091f2f3d7a4a97655fa547173"
+          },
+          {
+            "equityChange": 0.0,
+            "executionAndCashEffect": 0.0,
+            "explanation": "Effet des cours sur les positions précédentes ; le solde inclut exécutions, frais et éventuels flux fictifs.",
+            "fromId": "robot:c00bbbf6ea9b842091f2f3d7a4a97655fa547173",
+            "priceEffect": 0,
+            "toId": "robot:61bdb73b38beab3d2f06220c26ea4a4b4a200856"
           }
         ],
         "errors": [
@@ -1623,10 +1635,10 @@
         "knownFees": 1.65859,
         "knownRealizedPnl": -22.228479,
         "latest": {
-          "at": "2026-11-16T23:18:22.046841+00:00",
+          "at": "2026-11-16T23:58:50.631770+00:00",
           "capital": 1600,
           "cash": 1577.771521,
-          "collectionDelaySeconds": 50.058643,
+          "collectionDelaySeconds": 1135.702171,
           "currency": "EUR",
           "equity": 1577.771521,
           "quoteCacheAgeAtExecutionSeconds": 0.0,
@@ -1646,7 +1658,7 @@
           "Les signaux observés après exécution ne prouvent pas leur disponibilité avant l’ordre.",
           "Le journal conserve toutes ses lignes ; les vues détaillées sont limitées pour l’affichage."
         ],
-        "observations": 148,
+        "observations": 149,
         "outcomeQuality": {
           "automaticPromotion": false,
           "evidence": "insufficient_for_automatic_promotion",
@@ -1760,13 +1772,13 @@
         "entries": {},
         "holdings": {},
         "issues": [],
-        "lastAt": "2026-11-16T23:18:22.046841+00:00",
+        "lastAt": "2026-11-16T23:58:50.631770+00:00",
         "lastBuy": {
           "ETHFI": 1794665941.960783
         },
         "lastSignalAt": "2026-11-14T22:54:27.833097+00:00",
         "netEquity": null,
-        "observations": 64,
+        "observations": 65,
         "pending": [],
         "pendingAvailableAt": "2026-11-14T22:55:12.664628+00:00",
         "rules": {
@@ -1893,7 +1905,7 @@
           "status": "retain_reference_pending_evidence"
         }
       },
-      "sourceCursor": "c00bbbf6ea9b842091f2f3d7a4a97655fa547173",
+      "sourceCursor": "61bdb73b38beab3d2f06220c26ea4a4b4a200856",
       "version": 1
     },
     "restrictions": [
