@@ -70,3 +70,24 @@ signals. It does not prove why GitHub did not launch another run, nor fix its
 scheduler. The existing quarter-hour cron has not been changed.
 
 Validation: 95 trading tests and 75 learning tests pass locally.
+
+## Explicit buy-refusal explanations
+
+Each row separates data/universe blockers from failed strict and rebound
+conditions. The rebound route is considered only when the snapshot enables it.
+Missing, stale or misaligned history is not called a failed signal. Passing
+signal predicates does not establish order eligibility: entry review, quote
+freshness, protection, position sizing and cooldown still apply.
+
+On source commit 645785b94fe77ad4ddcdf3e39baedaf47e35ac8c (state 17 November,
+21:36 Europe/Paris), 16 of 20 shortlisted assets were excluded; BTC, ETH, SOL
+and XRP had assessable history but all four failed the signal predicates.
+Low RSI alone was insufficient: the strict trend condition and the rebound
+trend floor failed. ETH also lacked a rising final close. This is consistent
+with the rules, not proof that refusing was economically optimal.
+
+No future outcome is inferred. Judging refusals requires prospectively recorded
+decisions and later quotes, fixed horizons, all configured costs and matched
+exposure benchmarks. This diagnostic does not retune the strategy or run
+unverified comparisons on the journal. Validation with the current engine
+including #25: 103 trading and 77 learning tests pass.

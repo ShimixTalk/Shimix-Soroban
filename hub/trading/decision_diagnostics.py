@@ -36,6 +36,31 @@ def runtime_health(state, now, runs=None):
         'cause':'unconfirmed','scope':'supplied_snapshot_and_optional_run_page_only',
         'note':'No new trades does not establish that the scheduler ran; a successful old run is not a heartbeat.'}
 
+def explain_buy(decision):
+    """Explain observed predicates, never classify a refusal as an economic mistake."""
+    p=decision['buyPredicates']
+    strict=['strictRsiBelow35','shortAverageAboveLong','lastCloseAbovePreviousLongAverage']
+    rebound=['aggressiveRsiBelow45','lastCloseRising','shortAverageAtLeast97PercentOfLong']
+    blocked=[]
+    if decision['entryUniverse']!='allowed':
+        blocked.append('entry_universe_excluded' if decision['entryUniverse']=='excluded' else 'entry_universe_unknown')
+    if not decision['snapshotAligned']:blocked.append('scanner_snapshot_misaligned')
+    age=decision['historyAgeSecondsAtDecision']
+    if age is None or age<0:blocked.append('history_timestamp_unknown_or_future')
+    elif age>=86400:blocked.append('history_stale')
+    if p is None:
+        status='not_assessable';failed_strict=None;failed_rebound=None
+    else:
+        failed_strict=[key for key in strict if not p[key]]
+        failed_rebound=[key for key in rebound if not p[key]] if p['aggressiveMode'] else None
+        passed=not failed_strict or (p['aggressiveMode'] and not failed_rebound)
+        status='signal_predicates_pass' if passed else 'signal_predicates_fail'
+    return {'signalAssessment':status,'dataAndUniverseBlockers':blocked,
+        'strictConditionsFailed':failed_strict,'reboundConditionsFailed':failed_rebound,
+        'orderEligibility':'not_reconstructed',
+        'economicQualityOfRefusal':'undetermined',
+        'evidenceNeeded':'Forward prices after the decision, identical horizons, all configured costs and exposure-matched benchmarks.'}
+
 def diagnose(state, report, now, runs=None):
     updated=timestamp(state.get('updatedAt'))
     scanner=state.get('scanner',{})
@@ -66,6 +91,7 @@ def diagnose(state, report, now, runs=None):
                 'aggressiveMode':state.get('experimentMode')=='aggressive_simulation',
                 'aggressiveRsiBelow45':rsi<45,'lastCloseRising':p[-1]>p[-2],
                 'shortAverageAtLeast97PercentOfLong':a>=b*.97}
+        item['buyExplanation']=explain_buy(item)
         decisions.append(item)
     coverage=state.get('holdingQuoteCoverage',{})
     cache_at=state.get('marketCacheAt')
@@ -73,6 +99,7 @@ def diagnose(state, report, now, runs=None):
         'snapshotAgeSeconds':(now-updated).total_seconds() if updated else None,
         'historicalEstimateOnly':True,'decisions':decisions,
         'shortlistCount':len(decisions),
+        'allowedSignalSummary':{status:sum(x['entryUniverse']=='allowed' and x['buyExplanation']['signalAssessment']==status for x in decisions) for status in ('not_assessable','signal_predicates_pass','signal_predicates_fail')},
         'excludedShortlistCount':sum(x['entryUniverse']=='excluded' for x in decisions),
         'unknownUniverseCount':sum(x['entryUniverse']=='unknown' for x in decisions),
         'unexplainedDecisionCount':sum(x['buyPredicates'] is None for x in decisions),

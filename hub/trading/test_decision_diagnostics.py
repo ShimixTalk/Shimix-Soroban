@@ -45,3 +45,24 @@ class DiagnosticsTests(unittest.TestCase):
   run={'path':'.github/workflows/shimix-trading-simulation.yml','created_at':'2026-11-16T14:59:00Z','status':'in_progress'}
   r=runtime_health(self.state(),dt.datetime(2026,11,16,15,tzinfo=dt.timezone.utc),{'workflow_runs':[run]})
   self.assertEqual(r['schedulerEvidence'],'nonterminal_run_visible');self.assertEqual(r['snapshotFreshness'],'stale')
+
+ def test_failed_trend_is_explained_without_claiming_bad_refusal(self):
+  r=diagnose(self.state(),{},dt.datetime.now(dt.timezone.utc))
+  e=r['decisions'][0]['buyExplanation']
+  self.assertEqual(e['signalAssessment'],'signal_predicates_fail')
+  self.assertIn('shortAverageAboveLong',e['strictConditionsFailed'])
+  self.assertEqual(e['economicQualityOfRefusal'],'undetermined')
+  self.assertEqual(r['allowedSignalSummary']['signal_predicates_fail'],1)
+ def test_rebound_route_can_pass_when_strict_route_fails(self):
+  s=self.state();s['experimentMode']='aggressive_simulation'
+  s['signals']['BTC'].update(rsi=40,sma7=99,sma21=100)
+  e=diagnose(s,{},dt.datetime.now(dt.timezone.utc))['decisions'][0]['buyExplanation']
+  self.assertEqual(e['signalAssessment'],'signal_predicates_pass')
+  self.assertTrue(e['strictConditionsFailed']);self.assertEqual(e['reboundConditionsFailed'],[])
+  self.assertEqual(e['orderEligibility'],'not_reconstructed')
+ def test_stale_data_is_not_called_a_failed_signal(self):
+  s=self.state();s['historyUpdated']['bitcoin']-=86400
+  e=diagnose(s,{},dt.datetime.now(dt.timezone.utc))['decisions'][0]['buyExplanation']
+  self.assertEqual(e['signalAssessment'],'not_assessable')
+  self.assertIn('history_stale',e['dataAndUniverseBlockers'])
+  self.assertIsNone(e['strictConditionsFailed'])
