@@ -5,7 +5,7 @@
     "Aucun appel autorisé par ce module même si le drapeau enabled est modifié."
   ],
   "apiCallsImplemented": false,
-  "inputHash": "b5fd8f253a1ddbd55f9ba54b012a6e48796a4e1571fb41bdc193cb47adb22a5a",
+  "inputHash": "79b44900150d097ae1d5c37cce2db808eee9d9e3c36e500fb0bd8f6a6d2d817a",
   "maxRequestUsd": 0,
   "monthlyBudgetUsd": 0,
   "networkCalls": 0,
@@ -26,1539 +26,1539 @@
       "errors": [
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "avalanche-2: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "bitcoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "provider_history_revision",
-          "message": "dogecoin: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
+          "message": "ethereum: cotation historique modifiée par le fournisseur ; valeur archivée conservée."
         },
         {
           "code": "stale_or_unknown_quotes",
@@ -1855,7 +1855,7 @@
           "status": "waiting_for_new_data"
         }
       },
-      "generatedAt": "2026-11-18T13:58:59.728440+00:00",
+      "generatedAt": "2026-11-18T14:55:36.451972+00:00",
       "hypotheses": {
         "dynamique": {
           "baseline": {
