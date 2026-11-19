@@ -1,0 +1,30 @@
+name: SHIMIX stale simulation recovery
+on:
+  workflow_run:
+    workflows: ['SHIMIX robot continuous learning (observation only)', 'SHIMIX Trading paper robot']
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+concurrency:
+  group: shimix-simulation-recovery
+  cancel-in-progress: false
+jobs:
+  recover:
+    if: github.repository == 'ShimixTalk/Shimix-Soroban' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      # Always use trusted default-branch code, never the triggering run's head or artifacts.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Offline recovery regression tests
+        run: python3 -m unittest discover -s ops -p 'test_simulation_recovery.py' -v
+      - name: Request existing simulation only when stale and idle
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 ops/simulation_recovery.py
