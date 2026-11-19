@@ -15,3 +15,4 @@ jobs:
         with:
           persist-credentials: false
       - run: node --test tests/*.test.mjs
+      - run: python3 -m unittest discover -s ops -p 'test_simulation_recovery.py' -v
