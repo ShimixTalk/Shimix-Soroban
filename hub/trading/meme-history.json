@@ -1,53 +1,53 @@
 {
-  "updatedAt": "2026-11-16T06:34:18.546383+00:00",
+  "updatedAt": "2026-11-23T06:17:26.373321+00:00",
   "source": "Binance public spot daily candles (USDT)",
   "currency": "USDT",
   "assets": {
     "SHIB": {
       "availableFrom": "2021-05-10",
-      "points": 2016,
+      "points": 2023,
       "fiveYears": {
         "status": "ok",
-        "start": "2021-11-15",
-        "end": "2026-11-15",
+        "start": "2021-11-22",
+        "end": "2026-11-22",
         "points": 1827,
-        "startPriceUSDT": 5.343e-05,
-        "endPriceUSDT": 3.96e-06,
-        "buyHoldPercent": -92.59,
-        "maxDrawdownPercent": -92.81,
-        "annualizedVolatilityPercent": 92.28,
+        "startPriceUSDT": 4.325e-05,
+        "endPriceUSDT": 3.61e-06,
+        "buyHoldPercent": -91.65,
+        "maxDrawdownPercent": -92.45,
+        "annualizedVolatilityPercent": 91.8,
         "coverageYears": 5.0
       },
       "tenYears": {
         "status": "partiel",
         "start": "2021-05-10",
-        "end": "2026-11-15",
-        "points": 2016,
+        "end": "2026-11-22",
+        "points": 2023,
         "startPriceUSDT": 3.466e-05,
-        "endPriceUSDT": 3.96e-06,
-        "buyHoldPercent": -88.57,
-        "maxDrawdownPercent": -95.14,
-        "annualizedVolatilityPercent": 113.31,
-        "coverageYears": 5.52
+        "endPriceUSDT": 3.61e-06,
+        "buyHoldPercent": -89.58,
+        "maxDrawdownPercent": -95.47,
+        "annualizedVolatilityPercent": 113.15,
+        "coverageYears": 5.54
       },
       "backtests": {
         "fiveYears": {
           "status": "ok",
-          "start": "2021-11-15",
-          "end": "2026-11-15",
+          "start": "2021-11-22",
+          "end": "2026-11-22",
           "methods": {
             "buy_hold": {
-              "returnPercent": -92.6,
-              "maxDrawdownPercent": -92.83,
+              "returnPercent": -91.67,
+              "maxDrawdownPercent": -92.45,
               "orders": 1
             },
             "sma20_100": {
-              "returnPercent": -25.65,
+              "returnPercent": -8.14,
               "maxDrawdownPercent": -69.39,
               "orders": 28
             },
             "momentum30": {
-              "returnPercent": -67.61,
+              "returnPercent": -59.99,
               "maxDrawdownPercent": -79.48,
               "orders": 136
             }
@@ -330,51 +330,51 @@
     },
     "DOGE": {
       "availableFrom": "2019-07-05",
-      "points": 2691,
+      "points": 2698,
       "fiveYears": {
         "status": "ok",
-        "start": "2021-11-15",
-        "end": "2026-11-15",
+        "start": "2021-11-22",
+        "end": "2026-11-22",
         "points": 1827,
-        "startPriceUSDT": 0.2566,
-        "endPriceUSDT": 0.05987,
-        "buyHoldPercent": -76.67,
-        "maxDrawdownPercent": -87.7,
-        "annualizedVolatilityPercent": 89.16,
+        "startPriceUSDT": 0.2195,
+        "endPriceUSDT": 0.05537,
+        "buyHoldPercent": -74.77,
+        "maxDrawdownPercent": -88.34,
+        "annualizedVolatilityPercent": 89.05,
         "coverageYears": 5.0
       },
       "tenYears": {
         "status": "partiel",
         "start": "2019-07-05",
-        "end": "2026-11-15",
-        "points": 2691,
+        "end": "2026-11-22",
+        "points": 2698,
         "startPriceUSDT": 0.0038701,
-        "endPriceUSDT": 0.05987,
-        "buyHoldPercent": 1446.99,
+        "endPriceUSDT": 0.05537,
+        "buyHoldPercent": 1330.71,
         "maxDrawdownPercent": -92.33,
-        "annualizedVolatilityPercent": 186.0,
-        "coverageYears": 7.36
+        "annualizedVolatilityPercent": 185.79,
+        "coverageYears": 7.38
       },
       "backtests": {
         "fiveYears": {
           "status": "ok",
-          "start": "2021-11-15",
-          "end": "2026-11-15",
+          "start": "2021-11-22",
+          "end": "2026-11-22",
           "methods": {
             "buy_hold": {
-              "returnPercent": -76.71,
-              "maxDrawdownPercent": -87.7,
+              "returnPercent": -74.82,
+              "maxDrawdownPercent": -88.34,
               "orders": 1
             },
             "sma20_100": {
-              "returnPercent": -70.33,
+              "returnPercent": -66.1,
               "maxDrawdownPercent": -78.57,
-              "orders": 30
+              "orders": 28
             },
             "momentum30": {
-              "returnPercent": 22.78,
+              "returnPercent": 33.24,
               "maxDrawdownPercent": -68.57,
-              "orders": 154
+              "orders": 152
             }
           },
           "feePercent": 0.1,
@@ -743,51 +743,51 @@
     },
     "BTC": {
       "availableFrom": "2017-08-17",
-      "points": 3378,
+      "points": 3385,
       "fiveYears": {
         "status": "ok",
-        "start": "2021-11-15",
-        "end": "2026-11-15",
+        "start": "2021-11-22",
+        "end": "2026-11-22",
         "points": 1827,
-        "startPriceUSDT": 63606.74,
-        "endPriceUSDT": 65351.05,
-        "buyHoldPercent": 2.74,
-        "maxDrawdownPercent": -75.19,
-        "annualizedVolatilityPercent": 50.83,
+        "startPriceUSDT": 56247.18,
+        "endPriceUSDT": 61271.08,
+        "buyHoldPercent": 8.93,
+        "maxDrawdownPercent": -73.23,
+        "annualizedVolatilityPercent": 50.73,
         "coverageYears": 5.0
       },
       "tenYears": {
         "status": "partiel",
         "start": "2017-08-17",
-        "end": "2026-11-15",
-        "points": 3378,
+        "end": "2026-11-22",
+        "points": 3385,
         "startPriceUSDT": 4285.08,
-        "endPriceUSDT": 65351.05,
-        "buyHoldPercent": 1425.08,
+        "endPriceUSDT": 61271.08,
+        "buyHoldPercent": 1329.87,
         "maxDrawdownPercent": -83.19,
-        "annualizedVolatilityPercent": 66.54,
-        "coverageYears": 9.25
+        "annualizedVolatilityPercent": 66.5,
+        "coverageYears": 9.26
       },
       "backtests": {
         "fiveYears": {
           "status": "ok",
-          "start": "2021-11-15",
-          "end": "2026-11-15",
+          "start": "2021-11-22",
+          "end": "2026-11-22",
           "methods": {
             "buy_hold": {
-              "returnPercent": 2.54,
-              "maxDrawdownPercent": -75.24,
+              "returnPercent": 8.71,
+              "maxDrawdownPercent": -73.23,
               "orders": 1
             },
             "sma20_100": {
-              "returnPercent": 49.94,
+              "returnPercent": 69.56,
               "maxDrawdownPercent": -39.83,
               "orders": 24
             },
             "momentum30": {
-              "returnPercent": 104.13,
-              "maxDrawdownPercent": -54.13,
-              "orders": 162
+              "returnPercent": 116.02,
+              "maxDrawdownPercent": -51.99,
+              "orders": 160
             }
           },
           "feePercent": 0.1,
