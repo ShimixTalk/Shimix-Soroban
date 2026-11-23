@@ -1,0 +1,421 @@
+{
+  "version": 1,
+  "freeze": "2026-11-17T21:22:44+00:00",
+  "sourceHashes": {
+    "bitcoin": "f3d3ad67346f5083d12113a18e6cfa9849eb760126190a93164074a7eba8234d",
+    "ethereum": "7965d05144333669d3c92f1ef85f7faff61a1fb0def8e9a7e8c3b2de08c260b5",
+    "solana": "c0317a96d2656fbcdef8395d02f1c02c65ac049681418f12cb71c290f39c4a26"
+  },
+  "backfilledObservations": 1113,
+  "commonDays": 371,
+  "first": "2025-11-11",
+  "last": "2026-11-16",
+  "windows": {
+    "historical_A": {
+      "first": "2026-07-20",
+      "last": "2026-09-17"
+    },
+    "historical_B": {
+      "first": "2026-09-18",
+      "last": "2026-11-16"
+    }
+  },
+  "results": {
+    "historical_A": [
+      {
+        "variant": "current_daily_proxy",
+        "terminalLiquidation": 1600.0,
+        "netPnl": 0.0,
+        "realized": 0.0,
+        "latentAfterEstimatedExit": 0.0,
+        "maxDrawdownPercent": 0.0,
+        "averageExposurePercent": 0.0,
+        "feesPaid": 0.0,
+        "estimatedTerminalExitFees": 0,
+        "tradeCount": 0,
+        "liquidationLatched": false,
+        "ledger": []
+      },
+      {
+        "variant": "early_rebound",
+        "terminalLiquidation": 1619.2569876819334,
+        "netPnl": 19.256987681933424,
+        "realized": 19.25698768193338,
+        "latentAfterEstimatedExit": 0.0,
+        "maxDrawdownPercent": 0.5327058189384726,
+        "averageExposurePercent": 2.611008011123466,
+        "feesPaid": 0.4995165041861195,
+        "estimatedTerminalExitFees": 0,
+        "tradeCount": 8,
+        "liquidationLatched": false,
+        "ledger": [
+          {
+            "date": "2026-07-22",
+            "signalThrough": "2026-07-21",
+            "asset": "solana",
+            "action": "buy",
+            "budget": 60,
+            "quantity": 0.873495740395461
+          },
+          {
+            "date": "2026-07-25",
+            "asset": "solana",
+            "action": "sell",
+            "reason": "stop",
+            "net": 56.573242620211104
+          },
+          {
+            "date": "2026-08-06",
+            "signalThrough": "2026-08-05",
+            "asset": "bitcoin",
+            "action": "buy",
+            "budget": 60,
+            "quantity": 0.0010700580428210029
+          },
+          {
+            "date": "2026-08-07",
+            "signalThrough": "2026-08-06",
+            "asset": "ethereum",
+            "action": "buy",
+            "budget": 60,
+            "quantity": 0.0362415556449497
+          },
+          {
+            "date": "2026-08-09",
+            "signalThrough": "2026-08-08",
+            "asset": "solana",
+            "action": "buy",
+            "budget": 60,
+            "quantity": 0.9103016651460283
+          },
+          {
+            "date": "2026-08-20",
+            "asset": "ethereum",
+            "action": "sell",
+            "reason": "target",
+            "net": 69.69208080644249
+          },
+          {
+            "date": "2026-08-20",
+            "asset": "solana",
+            "action": "sell",
+            "reason": "target",
+            "net": 66.3379843036441
+          },
+          {
+            "date": "2026-08-21",
+            "asset": "bitcoin",
+            "action": "sell",
+            "reason": "target",
+            "net": 66.65367995163568
+          }
+        ]
+      },
+      {
+        "variant": "trend_following",
+        "terminalLiquidation": 1592.8899403090616,
+        "netPnl": -7.110059690938442,
+        "realized": -7.110059690938186,
+        "latentAfterEstimatedExit": 0.0,
+        "maxDrawdownPercent": 0.7881458379538908,
+        "averageExposurePercent": 2.4714814665525755,
+        "feesPaid": 0.9533633036126745,
+        "estimatedTerminalExitFees": 0,
+        "tradeCount": 8,
+        "liquidationLatched": false,
+        "ledger": [
+          {
+            "date": "2026-07-22",
+            "signalThrough": "2026-07-21",
+            "asset": "bitcoin",
+            "action": "buy",
+            "budget": 120,
+            "quantity": 0.0020507739808833703
+          },
+          {
+            "date": "2026-07-23",
+            "signalThrough": "2026-07-22",
+            "asset": "ethereum",
+            "action": "buy",
+            "budget": 120,
+            "quantity": 0.07061501378718069
+          },
+          {
+            "date": "2026-07-28",
+            "asset": "bitcoin",
+            "action": "sell",
+            "reason": "stop",
+            "net": 114.56205422250672
+          },
+          {
+            "date": "2026-08-01",
+            "asset": "ethereum",
+            "action": "sell",
+            "reason": "stop",
+            "net": 113.54557668160837
+          },
+          {
+            "date": "2026-08-20",
+            "signalThrough": "2026-08-19",
+            "asset": "solana",
+            "action": "buy",
+            "budget": 120,
+            "quantity": 1.6368093913187618
+          },
+          {
+            "date": "2026-08-22",
+            "asset": "solana",
+            "action": "sell",
+            "reason": "target",
+            "net": 130.91223298373833
+          },
+          {
+            "date": "2026-09-13",
+            "signalThrough": "2026-09-12",
+            "asset": "ethereum",
+            "action": "buy",
+            "budget": 120,
+            "quantity": 0.05496733812366413
+          },
+          {
+            "date": "2026-09-16",
+            "asset": "ethereum",
+            "action": "sell",
+            "reason": "stop",
+            "net": 113.8700764212084
+          }
+        ]
+      },
+      {
+        "variant": "cash",
+        "terminalLiquidation": 1600.0,
+        "netPnl": 0.0,
+        "realized": 0.0,
+        "latentAfterEstimatedExit": 0.0,
+        "maxDrawdownPercent": 0.0,
+        "averageExposurePercent": 0.0,
+        "feesPaid": 0.0,
+        "estimatedTerminalExitFees": 0,
+        "tradeCount": 0,
+        "liquidationLatched": false,
+        "ledger": []
+      },
+      {
+        "variant": "buy_hold",
+        "terminalLiquidation": 1986.327173612007,
+        "netPnl": 386.3271736120071,
+        "realized": 0.0,
+        "latentAfterEstimatedExit": 386.3271736120071,
+        "maxDrawdownPercent": 7.0831029363254805,
+        "averageExposurePercent": 100.0,
+        "feesPaid": 1.6,
+        "estimatedTerminalExitFees": 1.9883154891011086,
+        "tradeCount": 3,
+        "liquidationLatched": false,
+        "ledger": [
+          {
+            "date": "2026-07-20",
+            "signalThrough": "2026-07-19",
+            "asset": "bitcoin",
+            "action": "buy",
+            "budget": 533.3333333333334,
+            "quantity": 0.009396175550461832
+          },
+          {
+            "date": "2026-07-20",
+            "signalThrough": "2026-07-19",
+            "asset": "ethereum",
+            "action": "buy",
+            "budget": 533.3333333333334,
+            "quantity": 0.324806985929224
+          },
+          {
+            "date": "2026-07-20",
+            "signalThrough": "2026-07-19",
+            "asset": "solana",
+            "action": "buy",
+            "budget": 533.3333333333331,
+            "quantity": 7.962784438208347
+          }
+        ]
+      }
+    ],
+    "historical_B": [
+      {
+        "variant": "current_daily_proxy",
+        "terminalLiquidation": 1600.0,
+        "netPnl": 0.0,
+        "realized": 0.0,
+        "latentAfterEstimatedExit": 0.0,
+        "maxDrawdownPercent": 0.0,
+        "averageExposurePercent": 0.0,
+        "feesPaid": 0.0,
+        "estimatedTerminalExitFees": 0,
+        "tradeCount": 0,
+        "liquidationLatched": false,
+        "ledger": []
+      },
+      {
+        "variant": "early_rebound",
+        "terminalLiquidation": 1593.4978432695261,
+        "netPnl": -6.502156730473871,
+        "realized": -6.502156730473679,
+        "latentAfterEstimatedExit": 0.0,
+        "maxDrawdownPercent": 0.40638479565461294,
+        "averageExposurePercent": 0.30567602956580914,
+        "feesPaid": 0.23361145472425054,
+        "estimatedTerminalExitFees": 0,
+        "tradeCount": 4,
+        "liquidationLatched": false,
+        "ledger": [
+          {
+            "date": "2026-10-22",
+            "signalThrough": "2026-10-21",
+            "asset": "bitcoin",
+            "action": "buy",
+            "budget": 60,
+            "quantity": 0.0007992432400892018
+          },
+          {
+            "date": "2026-10-26",
+            "asset": "bitcoin",
+            "action": "sell",
+            "reason": "stop",
+            "net": 56.86532655924437
+          },
+          {
+            "date": "2026-11-08",
+            "signalThrough": "2026-11-07",
+            "asset": "ethereum",
+            "action": "buy",
+            "budget": 60,
+            "quantity": 0.02980624755730047
+          },
+          {
+            "date": "2026-11-09",
+            "asset": "ethereum",
+            "action": "sell",
+            "reason": "stop",
+            "net": 56.63251671028195
+          }
+        ]
+      },
+      {
+        "variant": "trend_following",
+        "terminalLiquidation": 1582.4716244138297,
+        "netPnl": -17.52837558617034,
+        "realized": -17.528375586170284,
+        "latentAfterEstimatedExit": 0.0,
+        "maxDrawdownPercent": 1.7873051296288023,
+        "averageExposurePercent": 5.915908366130731,
+        "feesPaid": 0.5987113471131212,
+        "estimatedTerminalExitFees": 0,
+        "tradeCount": 4,
+        "liquidationLatched": false,
+        "ledger": [
+          {
+            "date": "2026-09-20",
+            "signalThrough": "2026-09-19",
+            "asset": "ethereum",
+            "action": "buy",
+            "budget": 120,
+            "quantity": 0.052178983231539126
+          },
+          {
+            "date": "2026-09-21",
+            "signalThrough": "2026-09-20",
+            "asset": "ethereum",
+            "action": "buy",
+            "budget": 120,
+            "quantity": 0.051927502842462794
+          },
+          {
+            "date": "2026-09-22",
+            "signalThrough": "2026-09-21",
+            "asset": "ethereum",
+            "action": "buy",
+            "budget": 67.97449292255047,
+            "quantity": 0.02799477838813455
+          },
+          {
+            "date": "2026-10-09",
+            "asset": "ethereum",
+            "action": "sell",
+            "reason": "stop",
+            "net": 290.44611733638015
+          }
+        ]
+      },
+      {
+        "variant": "cash",
+        "terminalLiquidation": 1600.0,
+        "netPnl": 0.0,
+        "realized": 0.0,
+        "latentAfterEstimatedExit": 0.0,
+        "maxDrawdownPercent": 0.0,
+        "averageExposurePercent": 0.0,
+        "feesPaid": 0.0,
+        "estimatedTerminalExitFees": 0,
+        "tradeCount": 0,
+        "liquidationLatched": false,
+        "ledger": []
+      },
+      {
+        "variant": "buy_hold",
+        "terminalLiquidation": 1280.7564122294345,
+        "netPnl": -319.24358777056545,
+        "realized": 0.0,
+        "latentAfterEstimatedExit": -319.24358777056545,
+        "maxDrawdownPercent": 33.157899193913984,
+        "averageExposurePercent": 100.0,
+        "feesPaid": 1.6,
+        "estimatedTerminalExitFees": 1.2820384506801148,
+        "tradeCount": 3,
+        "liquidationLatched": false,
+        "ledger": [
+          {
+            "date": "2026-09-18",
+            "signalThrough": "2026-09-17",
+            "asset": "bitcoin",
+            "action": "buy",
+            "budget": 533.3333333333334,
+            "quantity": 0.007989892369400163
+          },
+          {
+            "date": "2026-09-18",
+            "signalThrough": "2026-09-17",
+            "asset": "ethereum",
+            "action": "buy",
+            "budget": 533.3333333333334,
+            "quantity": 0.24945348547926713
+          },
+          {
+            "date": "2026-09-18",
+            "signalThrough": "2026-09-17",
+            "asset": "solana",
+            "action": "buy",
+            "budget": 533.3333333333331,
+            "quantity": 6.007723405778304
+          }
+        ]
+      }
+    ]
+  },
+  "modelSha256": "ff87aa3990e3acae67ff495fd35a5c91ad7a2cf878f5d025736399cf73b8e632",
+  "costs": {
+    "feeRate": 0.001,
+    "spreadRate": 0.001,
+    "slippageRate": 0.001
+  },
+  "prospectiveResult": null,
+  "automaticPromotion": false,
+  "limitations": [
+    "Retrospective daily model, not an exact replay of the live fictitious engine.",
+    "All three strategies use BTC/ETH/SOL only, not the production scanner universe.",
+    "Daily sampling misses intraday stops and actual fills; loss limits are not guarantees.",
+    "Historical A/B are both retrospective, not an untouched prospective holdout.",
+    "Early rebound deliberately changes the trend gate and halves order size; exposure differs.",
+    "Buy-and-hold is fully invested and unprotected; a contextual benchmark, not matched risk.",
+    "No future conclusion or monthly income extrapolation."
+  ]
+}
