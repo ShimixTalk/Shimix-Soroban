@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-26T00:23:20.308Z",
+  "updatedAt": "2026-11-26T10:56:51.071Z",
   "simulationOnly": true,
   "realOrdersEnabled": false,
   "totalInitial": 1600,
-  "totalValue": 1275.89,
-  "totalProfit": -124.11,
+  "totalValue": 1270.98,
+  "totalProfit": -129.02,
   "taxStatus": "Non calculée : fiscalité personnelle et courtier non vérifiés",
   "costStatus": "Hypothèses de simulation, pas tarifs Crypto.com réels",
   "dataStatus": "Cotations CoinGecko indicatives; ETF et actions non tradés",
@@ -112,13 +112,13 @@
       "signals": {
         "BTC": {
           "action": "Attente",
-          "change24h": 2.24,
+          "change24h": 2.63,
           "reason": "Montant insuffisant pour exécuter ce signal",
           "estimatedCosts": 0
         },
         "ETH": {
           "action": "Attente",
-          "change24h": 1.89,
+          "change24h": 2.79,
           "reason": "Montant insuffisant pour exécuter ce signal",
           "estimatedCosts": 0
         }
@@ -707,21 +707,25 @@
         {
           "at": "2026-11-26T00:23:20.308Z",
           "value": 543.84
+        },
+        {
+          "at": "2026-11-26T10:56:51.071Z",
+          "value": 542.57
         }
       ],
       "peak": 560,
       "paused": false,
-      "value": 543.84,
-      "netProfit": -16.16,
+      "value": 542.57,
+      "netProfit": -17.43,
       "feesPaid": 0.3441186577724771,
-      "updatedAt": "2026-11-26T00:23:20.308Z",
+      "updatedAt": "2026-11-26T10:56:51.071Z",
       "lastPrices": {
-        "BTC": 55540,
-        "ETH": 1554.92,
-        "SOL": 64.79,
-        "DOGE": 0.05148,
-        "LINK": 8.33,
-        "AVAX": 6.08
+        "BTC": 55086,
+        "ETH": 1542.37,
+        "SOL": 64.23,
+        "DOGE": 0.051486,
+        "LINK": 8.36,
+        "AVAX": 6.03
       },
       "lastTradeAt": {
         "BTC": "2026-11-21T17:35:15.841Z",
@@ -917,25 +921,25 @@
       "signals": {
         "BTC": {
           "action": "Attente",
-          "change24h": 2.24,
+          "change24h": 2.63,
           "reason": "Pas de signal suffisamment robuste",
           "estimatedCosts": 0.19
         },
         "ETH": {
           "action": "Attente",
-          "change24h": 1.89,
+          "change24h": 2.79,
           "reason": "Pas de signal suffisamment robuste",
           "estimatedCosts": 0.19
         },
         "SOL": {
           "action": "Attente",
-          "change24h": 1.8,
+          "change24h": 4.05,
           "reason": "Pas de signal suffisamment robuste",
           "estimatedCosts": 0.19
         },
         "LINK": {
           "action": "Attente",
-          "change24h": 3.5,
+          "change24h": 6.17,
           "reason": "Pas de signal suffisamment robuste",
           "estimatedCosts": 0.19
         }
@@ -1524,21 +1528,25 @@
         {
           "at": "2026-11-26T00:23:20.308Z",
           "value": 435.7
+        },
+        {
+          "at": "2026-11-26T10:56:51.071Z",
+          "value": 433.55
         }
       ],
       "peak": 480,
       "paused": false,
-      "value": 435.7,
-      "netProfit": -44.3,
+      "value": 433.55,
+      "netProfit": -46.45,
       "feesPaid": 0.96,
-      "updatedAt": "2026-11-26T00:23:20.308Z",
+      "updatedAt": "2026-11-26T10:56:51.071Z",
       "lastPrices": {
-        "BTC": 55540,
-        "ETH": 1554.92,
-        "SOL": 64.79,
-        "DOGE": 0.05148,
-        "LINK": 8.33,
-        "AVAX": 6.08
+        "BTC": 55086,
+        "ETH": 1542.37,
+        "SOL": 64.23,
+        "DOGE": 0.051486,
+        "LINK": 8.36,
+        "AVAX": 6.03
       },
       "lastTradeAt": {
         "LINK": "2026-11-16T01:38:34.253Z",
@@ -1704,37 +1712,37 @@
       "signals": {
         "BTC": {
           "action": "Attente",
-          "change24h": 2.24,
+          "change24h": 2.63,
           "reason": "Pas de signal suffisamment robuste",
           "estimatedCosts": 0.27
         },
         "ETH": {
           "action": "Attente",
-          "change24h": 1.89,
+          "change24h": 2.79,
           "reason": "Pas de signal suffisamment robuste",
           "estimatedCosts": 0.27
         },
         "SOL": {
           "action": "Attente",
-          "change24h": 1.8,
+          "change24h": 4.05,
           "reason": "Pas de signal suffisamment robuste",
           "estimatedCosts": 0.27
         },
         "LINK": {
           "action": "Attente",
-          "change24h": 3.5,
+          "change24h": 6.17,
           "reason": "Pas de signal suffisamment robuste",
           "estimatedCosts": 0.33
         },
         "AVAX": {
           "action": "Attente",
-          "change24h": 1.94,
+          "change24h": 2.47,
           "reason": "Pas de signal suffisamment robuste",
           "estimatedCosts": 0.33
         },
         "DOGE": {
           "action": "Attente",
-          "change24h": 2.4,
+          "change24h": 4.62,
           "reason": "Pas de signal suffisamment robuste",
           "estimatedCosts": 0.27
         }
@@ -2323,21 +2331,25 @@
         {
           "at": "2026-11-26T00:23:20.308Z",
           "value": 296.35
+        },
+        {
+          "at": "2026-11-26T10:56:51.071Z",
+          "value": 294.86
         }
       ],
       "peak": 360.00156364422924,
       "paused": false,
-      "value": 296.35,
-      "netProfit": -63.65,
+      "value": 294.86,
+      "netProfit": -65.14,
       "feesPaid": 0.72,
-      "updatedAt": "2026-11-26T00:23:20.308Z",
+      "updatedAt": "2026-11-26T10:56:51.071Z",
       "lastPrices": {
-        "BTC": 55540,
-        "ETH": 1554.92,
-        "SOL": 64.79,
-        "DOGE": 0.05148,
-        "LINK": 8.33,
-        "AVAX": 6.08
+        "BTC": 55086,
+        "ETH": 1542.37,
+        "SOL": 64.23,
+        "DOGE": 0.051486,
+        "LINK": 8.36,
+        "AVAX": 6.03
       },
       "lastTradeAt": {
         "AVAX": "2026-11-11T09:08:49.875Z",
